@@ -17,7 +17,7 @@
             overflow: hidden;
         }
 
-        /* Главный экран с оригинальной яркой фотографией */
+        /* Главный экран с твоим фото */
         .hero {
             position: relative;
             width: 100%;
@@ -26,12 +26,11 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Используем только фото без фильтров и затемнений */
             background: url('bravo1.jpg') no-repeat center center;
             background-size: cover;
         }
 
-        /* Навигация сверху */
+        /* Навигация ЧЕРНЫМИ БУКВАМИ */
         nav {
             position: absolute;
             top: 40px;
@@ -44,20 +43,25 @@
 
         nav a {
             text-decoration: none;
-            color: #fff;
+            color: #000; /* ЧЕРНЫЙ ЦВЕТ БУКВ */
+            font-weight: bold;
             text-transform: uppercase;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 0.9;
-            /* Легкая тень только на буквах, чтобы не сливались с фоном */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            opacity: 1;
+            /* Убрал тень, чтобы буквы были чистыми и черными */
         }
 
-        /* Блок с текстом без каких-либо подложек и квадратов */
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Блок с текстом - ПОДНЯТ ВЫШЕ */
         .content {
             position: relative;
             z-index: 2;
+            margin-top: -100px; /* Поднял еще чуть выше для баланса */
         }
 
         h1 {
@@ -66,13 +70,13 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: -3px;
-            /* Тень только на самих буквах для читаемости */
+            /* Белый текст с тенью для объема */
             text-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .manifest {
             max-width: 650px;
-            margin: 35px auto 0;
+            margin: 30px auto 0;
             font-family: Arial, sans-serif;
             font-size: 16px;
             line-height: 1.5;
@@ -80,7 +84,6 @@
             text-transform: uppercase;
             font-weight: bold;
             padding: 0 20px;
-            /* Тень только на самих буквах для читаемости */
             text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
     </style>
