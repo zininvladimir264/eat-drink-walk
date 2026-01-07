@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Базовые настройки страницы */
         body, html {
             margin: 0;
             padding: 0;
@@ -16,6 +17,7 @@
             overflow: hidden;
         }
 
+        /* Главный экран с оригинальной яркой фотографией */
         .hero {
             position: relative;
             width: 100%;
@@ -24,19 +26,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* УБРАЛ ЗАТЕМНЕНИЕ: теперь картинка яркая, как оригинал */
+            /* Используем только фото без фильтров и затемнений */
             background: url('bravo1.jpg') no-repeat center center;
             background-size: cover;
         }
 
-        /* Добавим небольшую тень самому блоку с текстом, чтобы он не терялся на ярком фото */
-        .content-box {
-            background: rgba(0, 0, 0, 0.2); /* Едва заметная тень под текстом */
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(2px); /* Легкое размытие под текстом для четкости */
-        }
-
+        /* Навигация сверху */
         nav {
             position: absolute;
             top: 40px;
@@ -55,7 +50,14 @@
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
             opacity: 0.9;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            /* Легкая тень только на буквах, чтобы не сливались с фоном */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Блок с текстом без каких-либо подложек и квадратов */
+        .content {
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
@@ -64,8 +66,8 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: -3px;
-            /* Тень под буквами, чтобы они читались на светлом фоне */
-            text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+            /* Тень только на самих буквах для читаемости */
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .manifest {
@@ -75,11 +77,11 @@
             font-size: 16px;
             line-height: 1.5;
             letter-spacing: 1px;
-            opacity: 1;
             text-transform: uppercase;
             font-weight: bold;
             padding: 0 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,1);
+            /* Тень только на самих буквах для читаемости */
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
     </style>
 </head>
@@ -91,7 +93,7 @@
     </nav>
 
     <div class="hero">
-        <div class="content-box">
+        <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
             <div class="manifest">
                 Рецептов не будет. Советов тоже.<br>
