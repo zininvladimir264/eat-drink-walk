@@ -24,9 +24,9 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Добавили ?v=final, чтобы браузер точно загрузил новую картинку */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('hero3.jpg?v=final') no-repeat center center;
+            /* Поиск файла hero3.jpg в корневой папке */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('hero3.jpg?refresh=123') no-repeat center center;
             background-size: cover;
         }
 
@@ -47,10 +47,11 @@
             font-size: 14px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
+            font-weight: bold;
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 52px;
             line-height: 1.0;
             margin-bottom: 25px;
             text-transform: uppercase;
@@ -58,9 +59,9 @@
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 18px;
-            line-height: 1.6;
-            max-width: 80%;
+            font-size: 19px;
+            line-height: 1.5;
+            max-width: 85%;
             margin: 0 auto;
         }
     </style>
