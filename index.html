@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    
     <title>ЕМ ПЬЮ ХОЖУ</title>
-    
     <style>
         body, html {
             margin: 0;
@@ -18,29 +13,23 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow-x: hidden;
+            /* Убираем лишние отступы */
+            display: flex;
+            flex-direction: column;
         }
 
         .hero {
             position: relative;
-            min-height: 100vh;
             width: 100%;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            
-            /* Используем bravo1.jpg с параметром для сброса кэша */
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                              url('bravo1.jpg?v=1');
-            
+            /* ВАЖНО: берем файл bravo1.jpg прямо из корня */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('bravo1.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            padding: 80px 20px;
-            box-sizing: border-box;
-            background-color: #1a1a1a; /* Цвет фона, если фото еще грузится */
         }
 
         nav {
@@ -69,38 +58,21 @@
         }
 
         h1 {
-            font-size: clamp(45px, 9vw, 85px);
-            line-height: 1.1;
-            margin: 0 0 30px 0;
+            font-size: 85px;
+            line-height: 1;
+            margin: 0;
             text-transform: uppercase;
             letter-spacing: -2px;
-            text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .manifesto-box {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 600px;
-            margin: 0 auto;
-            backdrop-filter: blur(8px);
-        }
-
-        .manifesto-text {
+        .subtitle {
             font-family: Arial, sans-serif;
-            /* Шрифт уменьшен на 10px для аккуратности */
-            font-size: 14px; 
-            line-height: 1.5;
+            font-size: 16px;
+            margin-top: 25px;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        @media (min-width: 768px) {
-            .manifesto-text {
-                font-size: 16px;
-            }
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -112,15 +84,9 @@
     </nav>
 
     <div class="hero">
-        <div class="content">
+        <div>
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-            
-            <div class="manifesto-box">
-                <p class="manifesto-text">
-                    Рецептов не будет. Советов тоже. <br>
-                    Только то, что было на моем столе в разных точках мира.
-                </p>
-            </div>
+            <div class="subtitle">ЛИЧНЫЙ ПРОЕКТ</div>
         </div>
     </div>
 
