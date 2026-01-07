@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    
     <title>ЕМ ПЬЮ ХОЖУ</title>
-    
     <style>
         body, html {
             margin: 0;
@@ -27,11 +24,11 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            
-            /* Используем твое фото bravo.jpg из папки images */
+            /* Мы пробуем прямой путь и добавляем фоновый цвет на случай ошибки */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('images/bravo.jpg') no-repeat center center;
+                        url('./images/bravo.jpg') no-repeat center center;
             background-size: cover;
+            background-color: #1a1a1a;
         }
 
         nav {
@@ -61,11 +58,11 @@
 
         h1 {
             font-size: 85px;
-            line-height: 1;
+            line-height: 1.1;
             margin: 0;
             text-transform: uppercase;
             letter-spacing: -2px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
         .subtitle {
