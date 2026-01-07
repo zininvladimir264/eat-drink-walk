@@ -28,13 +28,16 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* ПУТЬ ИСПРАВЛЕН: теперь ищет bravo1.jpg в корневой папке */
+            
+            /* Если не сработает jpg, попробуй в этой строке изменить на JPG (большими) */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('bravo1.jpg') no-repeat center center;
+            
             background-size: cover;
             background-attachment: fixed;
             padding: 100px 20px;
             box-sizing: border-box;
+            background-color: #1a1a1a; /* Темный фон на время загрузки */
         }
 
         nav {
@@ -68,10 +71,9 @@
             margin: 0 0 30px 0;
             text-transform: uppercase;
             letter-spacing: -2px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            text-shadow: 0 10px 40px rgba(0,0,0,1);
         }
 
-        /* Текст манифеста */
         .manifesto-text {
             max-width: 800px;
             margin: 0 auto;
@@ -81,15 +83,15 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 10px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .manifesto-text p {
-            margin: 10px 0;
+            margin: 12px 0;
         }
     </style>
 </head>
