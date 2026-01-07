@@ -24,10 +24,10 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Используем твое новое имя файла her.jpg */
-            /* Добавка ?v=5 заставляет браузер обновить картинку */
+            /* Используем твое новое фото bravo.jpg */
+            /* Добавка ?v=10 заставляет браузер сбросить старый кэш */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('images/her.jpg?v=5') no-repeat center center;
+                        url('images/bravo.jpg?v=10') no-repeat center center;
             background-size: cover;
         }
 
@@ -67,6 +67,14 @@
             text-transform: uppercase;
             letter-spacing: -2px;
         }
+
+        .description {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 20px auto 0;
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -79,6 +87,7 @@
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
+            <p class="description">Рецептов не будет. Советов тоже. Только то, что было на моем столе.</p>
         </div>
     </div>
 
