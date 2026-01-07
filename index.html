@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     
     <title>ЕМ ПЬЮ ХОЖУ</title>
     
@@ -28,9 +30,9 @@
             justify-content: center;
             text-align: center;
             
-            /* ТОЧНОЕ ИМЯ ФАЙЛА: bravo1.jpg */
+            /* Используем bravo1.jpg с параметром для сброса кэша */
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                              url('bravo1.jpg');
+                              url('bravo1.jpg?v=1');
             
             background-size: cover;
             background-position: center;
@@ -38,6 +40,7 @@
             background-attachment: fixed;
             padding: 80px 20px;
             box-sizing: border-box;
+            background-color: #1a1a1a; /* Цвет фона, если фото еще грузится */
         }
 
         nav {
@@ -85,7 +88,7 @@
 
         .manifesto-text {
             font-family: Arial, sans-serif;
-            /* ШРИФТ УМЕНЬШЕН: теперь он более компактный */
+            /* Шрифт уменьшен на 10px для аккуратности */
             font-size: 14px; 
             line-height: 1.5;
             text-transform: uppercase;
@@ -94,7 +97,6 @@
             margin: 0;
         }
 
-        /* На больших экранах шрифт будет чуть крупнее, но всё равно меньше старого */
         @media (min-width: 768px) {
             .manifesto-text {
                 font-size: 16px;
