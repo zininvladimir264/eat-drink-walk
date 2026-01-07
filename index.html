@@ -16,9 +16,10 @@
             width: 100%; height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center;
-            /* Параметр ?v=1.1 принудительно обновляет фото в браузере */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('images/bravo.jpg?v=1.1') no-repeat center center;
+            /* Изменили на прямую ссылку с уникальным номером сессии */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('./images/bravo.jpg?refresh=' + Math.random()) no-repeat center center;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/bravo.jpg?v=777');
             background-size: cover;
         }
         nav {
@@ -28,16 +29,14 @@
         nav a {
             text-decoration: none; color: #fff; text-transform: uppercase;
             font-size: 14px; letter-spacing: 2px; font-family: Arial, sans-serif;
-            opacity: 0.8;
         }
-        .active { border-bottom: 1px solid white; }
         h1 { font-size: 80px; line-height: 0.9; margin: 0; text-transform: uppercase; }
         .description { font-family: Arial, sans-serif; font-size: 18px; margin-top: 20px; opacity: 0.9; }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="active">ГЛАВНАЯ</a>
+        <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html">СТРАНЫ</a>
     </nav>
     <div class="hero">
