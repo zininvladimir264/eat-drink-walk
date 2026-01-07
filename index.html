@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Базовые настройки страницы */
+        /* Сброс стандартных отступов */
         body, html {
             margin: 0;
             padding: 0;
@@ -17,7 +17,7 @@
             overflow: hidden; /* Чтобы страница не дергалась */
         }
 
-        /* Главный блок с фоновым фото */
+        /* Главный блок с фоновым изображением */
         .hero {
             position: relative;
             width: 100%;
@@ -26,13 +26,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Путь к твоему фото в папке images */
+            /* Путь к твоей загруженной картинке */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: cover;
         }
 
-        /* Навигация (меню сверху) */
+        /* Навигация сверху */
         nav {
             position: absolute;
             top: 40px;
@@ -50,37 +50,41 @@
             font-size: 14px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
-            transition: opacity 0.3s;
+            opacity: 0.8;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            opacity: 0.7;
+            opacity: 1;
         }
 
-        /* Заголовок */
+        /* Стиль для активной ссылки */
+        .active {
+            border-bottom: 1px solid white;
+        }
+
+        /* Контент по центру */
         h1 {
-            font-size: 60px;
-            line-height: 0.9;
-            margin-bottom: 25px;
+            font-size: 64px;
+            line-height: 1.0;
+            margin: 0 0 20px 0;
             text-transform: uppercase;
-            letter-spacing: -2px;
         }
 
-        /* Описание */
         .description {
             font-family: Arial, sans-serif;
             font-size: 18px;
             line-height: 1.6;
-            max-width: 400px;
+            max-width: 600px;
             margin: 0 auto;
-            font-weight: normal;
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="index.html" class="active">ГЛАВНАЯ</a>
         <a href="countries.html">СТРАНЫ</a>
     </nav>
 
