@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    
     <title>ЕМ ПЬЮ ХОЖУ</title>
+    
     <style>
         body, html {
             margin: 0;
@@ -13,22 +16,25 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
+        /* Главный экран с фото bravo1.jpg */
         .hero {
             position: relative;
+            min-height: 100vh;
             width: 100%;
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Мы пробуем прямой путь и добавляем фоновый цвет на случай ошибки */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('./images/bravo.jpg') no-repeat center center;
+            /* Изменено на bravo1.jpg */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('images/bravo1.jpg') no-repeat center center;
             background-size: cover;
-            background-color: #1a1a1a;
+            background-attachment: fixed;
+            padding: 100px 20px;
+            box-sizing: border-box;
         }
 
         nav {
@@ -57,21 +63,33 @@
         }
 
         h1 {
-            font-size: 85px;
-            line-height: 1.1;
-            margin: 0;
+            font-size: clamp(50px, 10vw, 90px);
+            line-height: 1;
+            margin: 0 0 30px 0;
             text-transform: uppercase;
             letter-spacing: -2px;
             text-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
-        .subtitle {
+        /* Текст манифеста */
+        .manifesto-text {
+            max-width: 800px;
+            margin: 0 auto;
             font-family: Arial, sans-serif;
-            font-size: 16px;
-            margin-top: 25px;
-            letter-spacing: 6px;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
             text-transform: uppercase;
-            opacity: 0.7;
+            letter-spacing: 1px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .manifesto-text p {
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -83,9 +101,16 @@
     </nav>
 
     <div class="hero">
-        <div>
+        <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-            <div class="subtitle">ЛИЧНЫЙ ПРОЕКТ</div>
+            
+            <div class="manifesto-text">
+                <p>Ем то, что хочу.</p>
+                <p>Пью то, что нравится.</p>
+                <p>Хожу там, где интересно.</p>
+                <p>Мой путь — мои правила.</p>
+                <p>Никаких границ, только чистый опыт.</p>
+            </div>
         </div>
     </div>
 
