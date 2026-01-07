@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Базовые настройки страницы */
         body, html {
             margin: 0;
             padding: 0;
@@ -13,9 +14,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            overflow: hidden; /* Чтобы страница не дергалась */
         }
 
+        /* Главный блок с фоновым фото */
         .hero {
             position: relative;
             width: 100%;
@@ -24,11 +26,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            /* Путь к твоему фото в папке images */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: cover;
         }
 
+        /* Навигация (меню сверху) */
         nav {
             position: absolute;
             top: 40px;
@@ -46,21 +50,30 @@
             font-size: 14px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
+            transition: opacity 0.3s;
         }
 
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Заголовок */
         h1 {
-            font-size: 48px;
-            line-height: 1.0;
+            font-size: 60px;
+            line-height: 0.9;
             margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: -2px;
         }
 
+        /* Описание */
         .description {
             font-family: Arial, sans-serif;
             font-size: 18px;
             line-height: 1.6;
-            max-width: 80%;
+            max-width: 400px;
             margin: 0 auto;
+            font-weight: normal;
         }
     </style>
 </head>
