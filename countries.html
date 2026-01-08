@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление отступов */
+        /* Обнуление всех стилей */
         * {
             margin: 0;
             padding: 0;
@@ -21,30 +21,30 @@
             overflow-x: hidden;
         }
 
-        /* Оптимизированный блок фона */
-        .bg-fixed {
+        /* Фоновый слой */
+        .background-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* Пробуем два варианта пути для надежности */
             background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/mir1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            filter: blur(12px);
-            transform: scale(1.1); /* Убирает белые края при размытии */
+            filter: blur(15px);
+            transform: scale(1.1);
         }
 
-        /* Навигация наверху */
+        /* Навигация */
         nav {
-            height: 100px;
+            padding: 40px 0;
             display: flex;
             gap: 40px;
-            align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 10;
         }
 
         nav a {
@@ -54,111 +54,112 @@
             font-size: 13px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 0.3; /* Тусклая неактивная */
-            transition: 0.4s;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
         }
 
-        /* Активная вкладка СТРАНЫ — максимально яркая */
+        /* Активная вкладка ярче всех */
         nav a.active {
             opacity: 1;
-            text-shadow: 0 0 20px rgba(255,255,255,0.8);
+            text-shadow: 0 0 15px rgba(255,255,255,1);
         }
 
-        /* Основной контейнер поднят выше */
-        .main-content {
+        .container {
             max-width: 500px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Вертикальный список разделов */
-        .experience-list {
+        /* Основной список */
+        .experience-sections {
             display: flex;
             flex-direction: column;
             gap: 90px; /* Увеличенное расстояние между пунктами */
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        .item {
+        .section-link {
             display: flex;
             align-items: center;
             justify-content: space-between;
             text-decoration: none;
             color: #fff;
-            border: none; /* Никаких рамок */
+            border: none;
             padding: 10px 0;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
-        .text-group {
+        .text-box {
             display: flex;
             flex-direction: column;
             text-align: left;
         }
 
-        .text-group span {
+        .text-box span {
             font-size: 24px;
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .text-group em {
+        .text-box em {
             font-family: Arial, sans-serif;
             font-style: italic;
             font-size: 14px;
             opacity: 0.6;
-            margin-top: 4px;
+            margin-top: 5px;
             text-transform: none;
         }
 
-        /* Стрелка справа по одной вертикали */
-        .arrow-icon {
-            font-size: 28px;
+        /* Стрелка строго справа */
+        .arrow-indicator {
+            font-size: 30px;
             opacity: 0.5;
-            transition: transform 0.3s ease, opacity 0.3s;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        /* Анимация только стрелки */
-        .item:hover .arrow-icon {
-            transform: translateX(12px);
+        /* Анимация стрелки при наведении */
+        .section-link:hover .arrow-indicator {
+            transform: translateX(10px);
             opacity: 1;
         }
 
-        /* Адаптация для мобильных */
+        /* Адаптация для телефонов */
         @media (max-width: 600px) {
-            .experience-list { gap: 70px; }
-            .text-group span { font-size: 19px; }
-            nav { gap: 20px; }
+            .experience-sections { gap: 70px; }
+            .text-box span { font-size: 20px; }
+            nav { gap: 25px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-fixed"></div>
+    <div class="background-overlay"></div>
 
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html" class="active">СТРАНЫ</a>
     </nav>
 
-    <div class="main-content">
-        <div class="experience-list">
+    <div class="container">
+        <div class="experience-sections">
             
-            <a href="personal.html" class="item">
-                <div class="text-group">
+            <a href="personal.html" class="section-link">
+                <div class="text-box">
                     <span>ЛИЧНЫЙ ОПЫТ</span>
                     <em>там, где был я</em>
                 </div>
-                <div class="arrow-icon">→</div>
+                <div class="arrow-indicator">→</div>
             </a>
 
-            <a href="friends.html" class="item">
-                <div class="text-group">
+            <a href="friends.html" class="section-link">
+                <div class="text-box">
                     <span>ОПЫТ ДРУЗЕЙ</span>
                     <em>там, где были они</em>
                 </div>
-                <div class="arrow-icon">→</div>
+                <div class="arrow-indicator">→</div>
             </a>
 
         </div>
