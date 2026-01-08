@@ -16,20 +16,21 @@
             overflow-x: hidden;
         }
 
-        /* Фон с размытой картой */
+        /* Фон с размытой фотографией из папки images */
         .bg-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('mir.jpg') no-repeat center center;
+            background: url('images/mir.jpg') no-repeat center center;
             background-size: cover;
-            filter: blur(8px); /* Размытие фона */
+            filter: blur(10px); /* Размытие */
             z-index: -1;
-            transform: scale(1.1); /* Чтобы края не белели при размытии */
+            transform: scale(1.1); /* Компенсация белых краев при блюре */
         }
 
+        /* Навигация */
         nav {
             padding: 40px 0;
             display: flex;
@@ -45,29 +46,30 @@
             font-size: 13px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 0.5;
+            opacity: 0.4; /* Неактивные тусклее */
             transition: 0.3s;
         }
 
-        /* Активная вкладка ярче */
+        /* Активная вкладка СТРАНЫ ярче */
         nav a.active {
             opacity: 1;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            text-shadow: 0 0 15px rgba(255,255,255,0.6);
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 20px 20px 100px; /* Поднял всё выше */
+            padding: 10px 20px 100px; /* Поднял содержимое выше */
             text-align: center;
         }
 
+        /* Таблички по одной вертикали без рамок */
         .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 60px; /* Расстояние между кнопками увеличено в два раза */
+            gap: 70px; /* Увеличенное расстояние между пунктами */
             align-items: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .tab {
@@ -77,9 +79,9 @@
             color: #fff;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Текст слева, стрелка справа */
-            padding: 10px 0;
-            border: none; /* Убрал рамки */
+            justify-content: space-between;
+            padding: 15px 0;
+            border: none;
             transition: 0.3s;
         }
 
@@ -90,7 +92,7 @@
         }
 
         .tab span {
-            font-size: 20px;
+            font-size: 22px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: bold;
@@ -100,27 +102,31 @@
             font-family: Arial, sans-serif;
             font-style: italic;
             font-size: 13px;
-            margin-top: 5px;
+            margin-top: 6px;
             opacity: 0.7;
+            letter-spacing: 1px;
         }
 
         /* Стрелка справа */
         .arrow {
-            font-size: 24px;
+            font-size: 26px;
             font-family: serif;
-            opacity: 0.7;
-            transition: 0.3s;
+            opacity: 0.6;
+            transition: transform 0.3s ease;
         }
 
+        /* Легкое смещение стрелки при наведении */
         .tab:hover .arrow {
             transform: translateX(10px);
             opacity: 1;
         }
 
+        /* Мобильные настройки */
         @media (max-width: 600px) {
-            .container { padding-top: 10px; }
-            .experience-tabs { gap: 50px; }
+            nav { padding: 30px 0; gap: 25px; }
+            .experience-tabs { gap: 60px; }
             .tab span { font-size: 18px; }
+            .tab em { font-size: 12px; }
         }
     </style>
 </head>
@@ -136,7 +142,7 @@
     <div class="container">
         <div class="experience-tabs">
             
-            <a href="#" class="tab">
+            <a href="personal.html" class="tab">
                 <div class="tab-content">
                     <span>ЛИЧНЫЙ ОПЫТ</span>
                     <em>там, где был я</em>
@@ -144,7 +150,7 @@
                 <div class="arrow">→</div>
             </a>
 
-            <a href="#" class="tab">
+            <a href="friends.html" class="tab">
                 <div class="tab-content">
                     <span>ОПЫТ ДРУЗЕЙ</span>
                     <em>там, где были они</em>
