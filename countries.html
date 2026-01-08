@@ -41,22 +41,22 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 20px 100px; /* Увеличил отступ сверху, раз нет заголовка */
+            padding: 40px 10px 100px;
             text-align: center;
         }
 
-        /* Таблички в ряд */
+        /* Таблички в ряд (колонки слева и справа) */
         .experience-tabs {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .tab {
             flex: 1;
             max-width: 300px;
-            padding: 25px 20px;
+            padding: 20px 10px;
             border: 1px solid #fff;
             text-decoration: none;
             color: #fff;
@@ -73,34 +73,41 @@
         }
 
         .tab span {
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-weight: bold;
+            white-space: nowrap; /* Запрещает перенос текста на новую строку */
         }
 
         /* Список стран ниже */
         .countries-list {
             margin-top: 50px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
             font-family: Arial, sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
             opacity: 0.8;
         }
 
-        /* Мобильная версия */
+        /* Настройки специально для мобильных */
         @media (max-width: 600px) {
             .experience-tabs {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+                gap: 8px; /* Еще меньше расстояние между кнопками */
             }
             .tab {
-                width: 100%;
-                max-width: 350px;
+                padding: 15px 5px;
+                min-height: 50px;
+            }
+            .tab span {
+                font-size: 10px; /* Уменьшаем шрифт, чтобы всё влезло в одну строку */
+                letter-spacing: 0.5px;
+            }
+            nav {
+                gap: 20px;
+                padding: 30px 0;
             }
         }
     </style>
