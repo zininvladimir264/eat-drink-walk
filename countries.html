@@ -39,24 +39,25 @@
 
         /* Контейнер */
         .container {
-            max-width: 1000px;
+            max-width: 600px; /* Сузил контейнер для вертикального ряда */
             margin: 0 auto;
-            padding: 40px 10px 100px;
+            padding: 40px 20px 100px;
             text-align: center;
         }
 
-        /* Таблички в ряд (колонки слева и справа) */
+        /* Таблички по одной вертикальной линии (в столбик) */
         .experience-tabs {
             display: flex;
-            gap: 15px;
-            justify-content: center;
+            flex-direction: column; /* СТРОГО В СТОЛБИК */
+            gap: 20px;
+            align-items: center; /* Центрируем по вертикали */
             margin-bottom: 60px;
         }
 
         .tab {
-            flex: 1;
-            max-width: 300px;
-            padding: 20px 10px;
+            width: 100%;
+            max-width: 350px; /* Ограничиваем ширину табличек */
+            padding: 25px 20px;
             border: 1px solid #fff;
             text-decoration: none;
             color: #fff;
@@ -73,18 +74,17 @@
         }
 
         .tab span {
-            font-size: 14px;
+            font-size: 16px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             font-weight: bold;
-            white-space: nowrap; /* Запрещает перенос текста на новую строку */
         }
 
         /* Список стран ниже */
         .countries-list {
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
             font-family: Arial, sans-serif;
             text-transform: uppercase;
@@ -92,22 +92,13 @@
             opacity: 0.8;
         }
 
-        /* Настройки специально для мобильных */
+        /* Мобильная версия */
         @media (max-width: 600px) {
-            .experience-tabs {
-                gap: 8px; /* Еще меньше расстояние между кнопками */
-            }
             .tab {
-                padding: 15px 5px;
-                min-height: 50px;
+                max-width: 100%; /* На мобилке на всю ширину */
             }
             .tab span {
-                font-size: 10px; /* Уменьшаем шрифт, чтобы всё влезло в одну строку */
-                letter-spacing: 0.5px;
-            }
-            nav {
-                gap: 20px;
-                padding: 30px 0;
+                font-size: 14px;
             }
         }
     </style>
