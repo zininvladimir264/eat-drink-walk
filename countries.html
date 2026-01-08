@@ -5,29 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        body, html {
+        /* Базовые настройки страницы */
+        html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background-color: #000; /* Резервный черный цвет */
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow-x: hidden;
         }
 
-        /* Фон с фотографией mir1.jpg из твоей папки images */
-        .bg-image {
+        /* ФОН: Исправленный блок */
+        .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/mir1.jpg') no-repeat center center;
-            background-size: cover;
-            filter: blur(10px);
             z-index: -1;
-            transform: scale(1.1);
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            /* ПУТЬ К ТВОЕМУ ФАЙЛУ */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(15px); /* Размытие */
         }
 
         /* Навигация */
@@ -37,6 +49,8 @@
             gap: 40px;
             width: 100%;
             justify-content: center;
+            position: relative;
+            z-index: 10;
         }
 
         nav a {
@@ -60,9 +74,11 @@
             margin: 0 auto;
             padding: 20px 20px 100px;
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Вертикальные блоки без рамок */
+        /* Кнопки без рамок по вертикали */
         .experience-tabs {
             display: flex;
             flex-direction: column;
@@ -78,7 +94,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 15px 0;
             border: none;
             transition: 0.3s;
         }
@@ -102,16 +118,14 @@
             font-size: 13px;
             margin-top: 6px;
             opacity: 0.7;
-            letter-spacing: 1px;
             text-transform: none;
         }
 
-        /* Стрелка справа */
         .arrow {
             font-size: 26px;
             font-family: serif;
             opacity: 0.5;
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
 
         .tab:hover .arrow {
@@ -120,15 +134,16 @@
         }
 
         @media (max-width: 600px) {
-            .experience-tabs { gap: 70px; }
+            .experience-tabs { gap: 60px; }
             .tab span { font-size: 18px; }
-            .tab em { font-size: 12px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-image"></div>
+    <div class="bg-container">
+        <div class="bg-image"></div>
+    </div>
 
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
