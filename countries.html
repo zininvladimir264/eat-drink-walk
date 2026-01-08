@@ -16,19 +16,18 @@
             overflow-x: hidden;
         }
 
-        /* Фоновое изображение */
+        /* Фоновое изображение mir1.jpg */
         .bg-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Попробуй проверить название файла: mir.jpg или mir.JPG или mir.jpeg */
-            background: url('./images/mir.jpg') no-repeat center center;
+            background: url('images/mir1.jpg') no-repeat center center; /* Используем mir1.jpg */
             background-size: cover;
-            filter: blur(10px); 
+            filter: blur(10px); /* Размытие фона */
             z-index: -1;
-            transform: scale(1.1);
+            transform: scale(1.1); /* Компенсация белых краев при блюре */
         }
 
         /* Навигация */
@@ -51,6 +50,7 @@
             transition: 0.3s;
         }
 
+        /* Активная вкладка СТРАНЫ ярче */
         nav a.active {
             opacity: 1;
             text-shadow: 0 0 15px rgba(255,255,255,0.6);
@@ -59,15 +59,15 @@
         .container {
             max-width: 500px;
             margin: 0 auto;
-            padding: 20px 20px 100px;
+            padding: 20px 20px 100px; /* Поднял содержимое выше */
             text-align: center;
         }
 
-        /* Вертикальные разделы */
+        /* Таблички по одной вертикали без рамок */
         .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 80px; 
+            gap: 80px; /* Увеличенное расстояние между пунктами */
             align-items: center;
             margin-top: 40px;
         }
@@ -107,18 +107,21 @@
             text-transform: none;
         }
 
+        /* Стрелка справа */
         .arrow {
             font-size: 26px;
             font-family: serif;
             opacity: 0.5;
-            transition: 0.3s;
+            transition: transform 0.3s ease;
         }
 
+        /* Легкое смещение стрелки при наведении */
         .tab:hover .arrow {
             transform: translateX(10px);
             opacity: 1;
         }
 
+        /* Мобильные настройки */
         @media (max-width: 600px) {
             .experience-tabs { gap: 70px; }
             .tab span { font-size: 18px; }
