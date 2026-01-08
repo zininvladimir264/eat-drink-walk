@@ -5,35 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Сброс стилей */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body, html {
+        /* Важно: фон html черный (на случай если картинка не загрузится), а body прозрачный */
+        html {
+            background-color: #000;
+        }
+        
+        body {
             width: 100%;
             height: 100%;
-            background-color: #000;
-            color: #fff;
+            background-color: transparent; /* Убрал "штору", которая перекрывала фото */
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            color: #fff;
+            overflow-x: hidden;
         }
 
-        /* ГЛАВНЫЙ БЛОК ФОНА */
-        .bg-screen {
+        /* СЛОЙ ФОНА (Исправлена логика z-index) */
+        .bg-layer {
             position: fixed;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            z-index: -1;
-            /* Пробуем прямой путь к папке images */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('images/mir1.jpg') no-repeat center center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Слой 0 - самый нижний, но видимый */
+            z-index: 0; 
+            /* Путь к картинке */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
             background-size: cover;
+            /* Размытие */
             filter: blur(15px);
-            transform: translateZ(0);
+            /* Масштаб, чтобы убрать белые края от блюра */
+            transform: scale(1.1);
+            pointer-events: none; /* Чтобы фон не мешал кликам */
+        }
+
+        /* ОБЕРТКА КОНТЕНТА (Слой выше фона) */
+        .content-wrapper {
+            position: relative;
+            z-index: 2; /* Текст лежит ПОВЕРХ фона (0) */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Навигация */
@@ -42,8 +63,6 @@
             display: flex;
             gap: 40px;
             justify-content: center;
-            position: relative;
-            z-index: 10;
         }
 
         nav a {
@@ -57,29 +76,27 @@
             transition: 0.3s;
         }
 
-        /* Активная вкладка СТРАНЫ - свечение */
         nav a.active {
             opacity: 1;
-            text-shadow: 0 0 15px #fff, 0 0 30px rgba(255,255,255,0.5);
+            text-shadow: 0 0 15px rgba(255,255,255,1);
         }
 
+        /* Основной контейнер */
         .container {
             max-width: 500px;
-            margin: 20px auto 0;
+            margin: 0 auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 10;
+            margin-top: 40px;
         }
 
-        /* Список разделов - расстояние увеличено */
         .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 120px; 
+            gap: 120px;
         }
 
-        .tab-link {
-            width: 100%;
+        /* Ссылка-строка */
+        .tab-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -89,21 +106,20 @@
             transition: 0.3s;
         }
 
-        .tab-text {
+        .text-block {
             display: flex;
             flex-direction: column;
             text-align: left;
         }
 
-        .tab-text span {
+        .text-block span {
             font-size: 24px;
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
-            line-height: 1.1;
         }
 
-        .tab-text em {
+        .text-block em {
             font-family: Arial, sans-serif;
             font-style: italic;
             font-size: 14px;
@@ -112,53 +128,53 @@
             text-transform: none;
         }
 
-        /* Стрелка строго по правой вертикали */
-        .tab-arrow {
+        .arrow-icon {
             font-size: 30px;
             opacity: 0.5;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s;
         }
 
-        /* Анимация стрелки */
-        .tab-link:hover .tab-arrow {
+        .tab-row:hover .arrow-icon {
             transform: translateX(15px);
             opacity: 1;
         }
 
         @media (max-width: 600px) {
             .experience-tabs { gap: 80px; }
-            .tab-text span { font-size: 20px; }
+            .text-block span { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-screen"></div>
+    <div class="bg-layer"></div>
 
-    <nav>
-        <a href="index.html">ГЛАВНАЯ</a>
-        <a href="countries.html" class="active">СТРАНЫ</a>
-    </nav>
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="countries.html" class="active">СТРАНЫ</a>
+        </nav>
 
-    <div class="container">
-        <div class="experience-tabs">
-            
-            <a href="personal.html" class="tab-link">
-                <div class="tab-text">
-                    <span>ЛИЧНЫЙ ОПЫТ</span>
-                    <em>там, где был я</em>
-                </div>
-                <div class="tab-arrow">→</div>
-            </a>
+        <div class="container">
+            <div class="experience-tabs">
+                
+                <a href="personal.html" class="tab-row">
+                    <div class="text-block">
+                        <span>ЛИЧНЫЙ ОПЫТ</span>
+                        <em>там, где был я</em>
+                    </div>
+                    <div class="arrow-icon">→</div>
+                </a>
 
-            <a href="friends.html" class="tab-link">
-                <div class="tab-text">
-                    <span>ОПЫТ ДРУЗЕЙ</span>
-                    <em>там, где были они</em>
-                </div>
-                <div class="tab-arrow">→</div>
-            </a>
+                <a href="friends.html" class="tab-row">
+                    <div class="text-block">
+                        <span>ОПЫТ ДРУЗЕЙ</span>
+                        <em>там, где были они</em>
+                    </div>
+                    <div class="arrow-icon">→</div>
+                </a>
 
+            </div>
         </div>
     </div>
 
