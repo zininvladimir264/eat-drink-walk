@@ -5,52 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Базовые настройки страницы */
-        html, body {
+        /* Обнуление отступов */
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000; /* Резервный черный цвет */
-            color: #fff;
-            font-family: 'Arial Black', sans-serif;
+            box-sizing: border-box;
         }
 
-        /* ФОН: Исправленный блок */
-        .bg-container {
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial Black', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Оптимизированный блок фона */
+        .bg-fixed {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
-            background-color: #000;
-        }
-
-        .bg-image {
-            position: absolute;
-            top: -5%;
-            left: -5%;
-            width: 110%;
-            height: 110%;
-            /* ПУТЬ К ТВОЕМУ ФАЙЛУ */
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
+            /* Пробуем два варианта пути для надежности */
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/mir1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            filter: blur(15px); /* Размытие */
+            filter: blur(12px);
+            transform: scale(1.1); /* Убирает белые края при размытии */
         }
 
-        /* Навигация */
+        /* Навигация наверху */
         nav {
-            padding: 40px 0;
+            height: 100px;
             display: flex;
             gap: 40px;
-            width: 100%;
+            align-items: center;
             justify-content: center;
-            position: relative;
-            z-index: 10;
         }
 
         nav a {
@@ -60,113 +54,111 @@
             font-size: 13px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 0.4;
-            transition: 0.3s;
+            opacity: 0.3; /* Тусклая неактивная */
+            transition: 0.4s;
         }
 
+        /* Активная вкладка СТРАНЫ — максимально яркая */
         nav a.active {
             opacity: 1;
-            text-shadow: 0 0 15px rgba(255,255,255,0.6);
+            text-shadow: 0 0 20px rgba(255,255,255,0.8);
         }
 
-        .container {
+        /* Основной контейнер поднят выше */
+        .main-content {
             max-width: 500px;
             margin: 0 auto;
-            padding: 20px 20px 100px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
+            padding: 0 20px;
         }
 
-        /* Кнопки без рамок по вертикали */
-        .experience-tabs {
+        /* Вертикальный список разделов */
+        .experience-list {
             display: flex;
             flex-direction: column;
-            gap: 80px; 
-            align-items: center;
+            gap: 90px; /* Увеличенное расстояние между пунктами */
             margin-top: 40px;
         }
 
-        .tab {
-            width: 100%;
-            text-decoration: none;
-            color: #fff;
+        .item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 0;
-            border: none;
+            text-decoration: none;
+            color: #fff;
+            border: none; /* Никаких рамок */
+            padding: 10px 0;
             transition: 0.3s;
         }
 
-        .tab-content {
+        .text-group {
             display: flex;
             flex-direction: column;
             text-align: left;
         }
 
-        .tab span {
-            font-size: 22px;
-            text-transform: uppercase;
+        .text-group span {
+            font-size: 24px;
+            font-weight: 900;
             letter-spacing: 2px;
-            font-weight: bold;
+            text-transform: uppercase;
         }
 
-        .tab em {
+        .text-group em {
             font-family: Arial, sans-serif;
             font-style: italic;
-            font-size: 13px;
-            margin-top: 6px;
-            opacity: 0.7;
+            font-size: 14px;
+            opacity: 0.6;
+            margin-top: 4px;
             text-transform: none;
         }
 
-        .arrow {
-            font-size: 26px;
-            font-family: serif;
+        /* Стрелка справа по одной вертикали */
+        .arrow-icon {
+            font-size: 28px;
             opacity: 0.5;
-            transition: 0.3s;
+            transition: transform 0.3s ease, opacity 0.3s;
         }
 
-        .tab:hover .arrow {
-            transform: translateX(10px);
+        /* Анимация только стрелки */
+        .item:hover .arrow-icon {
+            transform: translateX(12px);
             opacity: 1;
         }
 
+        /* Адаптация для мобильных */
         @media (max-width: 600px) {
-            .experience-tabs { gap: 60px; }
-            .tab span { font-size: 18px; }
+            .experience-list { gap: 70px; }
+            .text-group span { font-size: 19px; }
+            nav { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-container">
-        <div class="bg-image"></div>
-    </div>
+    <div class="bg-fixed"></div>
 
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html" class="active">СТРАНЫ</a>
     </nav>
 
-    <div class="container">
-        <div class="experience-tabs">
+    <div class="main-content">
+        <div class="experience-list">
             
-            <a href="personal.html" class="tab">
-                <div class="tab-content">
+            <a href="personal.html" class="item">
+                <div class="text-group">
                     <span>ЛИЧНЫЙ ОПЫТ</span>
                     <em>там, где был я</em>
                 </div>
-                <div class="arrow">→</div>
+                <div class="arrow-icon">→</div>
             </a>
 
-            <a href="friends.html" class="tab">
-                <div class="tab-content">
+            <a href="friends.html" class="item">
+                <div class="text-group">
                     <span>ОПЫТ ДРУЗЕЙ</span>
                     <em>там, где были они</em>
                 </div>
-                <div class="arrow">→</div>
+                <div class="arrow-icon">→</div>
             </a>
 
         </div>
