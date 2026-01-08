@@ -39,33 +39,34 @@
 
         /* Контейнер */
         .container {
-            max-width: 600px; /* Сузил контейнер для вертикального ряда */
+            max-width: 600px;
             margin: 0 auto;
             padding: 40px 20px 100px;
             text-align: center;
         }
 
-        /* Таблички по одной вертикальной линии (в столбик) */
+        /* Таблички по одной вертикальной линии */
         .experience-tabs {
             display: flex;
-            flex-direction: column; /* СТРОГО В СТОЛБИК */
+            flex-direction: column;
             gap: 20px;
-            align-items: center; /* Центрируем по вертикали */
+            align-items: center;
             margin-bottom: 60px;
         }
 
         .tab {
             width: 100%;
-            max-width: 350px; /* Ограничиваем ширину табличек */
-            padding: 25px 20px;
+            max-width: 380px;
+            padding: 20px;
             border: 1px solid #fff;
             text-decoration: none;
             color: #fff;
             transition: 0.3s;
             display: flex;
+            flex-direction: column; /* Чтобы текст был один под другим */
             align-items: center;
             justify-content: center;
-            min-height: 60px;
+            min-height: 80px;
         }
 
         .tab:hover {
@@ -74,10 +75,25 @@
         }
 
         .tab span {
-            font-size: 16px;
+            font-size: 18px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: bold;
+        }
+
+        /* Стиль для курсива под заголовком */
+        .tab em {
+            font-family: Arial, sans-serif;
+            font-style: italic;
+            font-size: 13px;
+            margin-top: 8px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: none; /* Чтобы не всё было капсом */
+        }
+
+        .tab:hover em {
+            opacity: 1;
         }
 
         /* Список стран ниже */
@@ -87,18 +103,17 @@
             flex-direction: column;
             gap: 20px;
             font-family: Arial, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.8;
         }
 
-        /* Мобильная версия */
         @media (max-width: 600px) {
             .tab {
-                max-width: 100%; /* На мобилке на всю ширину */
+                max-width: 100%;
             }
             .tab span {
-                font-size: 14px;
+                font-size: 16px;
+            }
+            .tab em {
+                font-size: 12px;
             }
         }
     </style>
@@ -114,9 +129,12 @@
         <div class="experience-tabs">
             <a href="#" class="tab">
                 <span>ЛИЧНЫЙ ОПЫТ</span>
+                <em>там, где был я</em>
             </a>
+
             <a href="#" class="tab">
                 <span>ОПЫТ ДРУЗЕЙ</span>
+                <em>там, где были они</em>
             </a>
         </div>
 
