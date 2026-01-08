@@ -10,27 +10,27 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #000; /* Фон, если картинка не загрузится */
+            background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Фоновое изображение mir1.jpg */
+        /* Фон mir1.jpg */
         .bg-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/mir1.jpg') no-repeat center center; /* Используем mir1.jpg */
+            /* Путь должен точно совпадать с папкой на GitHub */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg') no-repeat center center;
             background-size: cover;
-            filter: blur(10px); /* Размытие фона */
+            filter: blur(10px);
             z-index: -1;
-            transform: scale(1.1); /* Компенсация белых краев при блюре */
+            transform: scale(1.1);
         }
 
-        /* Навигация */
         nav {
             padding: 40px 0;
             display: flex;
@@ -50,7 +50,6 @@
             transition: 0.3s;
         }
 
-        /* Активная вкладка СТРАНЫ ярче */
         nav a.active {
             opacity: 1;
             text-shadow: 0 0 15px rgba(255,255,255,0.6);
@@ -59,15 +58,14 @@
         .container {
             max-width: 500px;
             margin: 0 auto;
-            padding: 20px 20px 100px; /* Поднял содержимое выше */
+            padding: 20px 20px 100px;
             text-align: center;
         }
 
-        /* Таблички по одной вертикали без рамок */
         .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 80px; /* Увеличенное расстояние между пунктами */
+            gap: 80px; 
             align-items: center;
             margin-top: 40px;
         }
@@ -107,21 +105,18 @@
             text-transform: none;
         }
 
-        /* Стрелка справа */
         .arrow {
             font-size: 26px;
             font-family: serif;
             opacity: 0.5;
-            transition: transform 0.3s ease;
+            transition: 0.3s;
         }
 
-        /* Легкое смещение стрелки при наведении */
         .tab:hover .arrow {
             transform: translateX(10px);
             opacity: 1;
         }
 
-        /* Мобильные настройки */
         @media (max-width: 600px) {
             .experience-tabs { gap: 70px; }
             .tab span { font-size: 18px; }
