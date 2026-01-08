@@ -9,13 +9,27 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100%;
+            height: 100%;
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Навигация */
+        /* Фон с размытой картой */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('mir.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(8px); /* Размытие фона */
+            z-index: -1;
+            transform: scale(1.1); /* Чтобы края не белели при размытии */
+        }
+
         nav {
             padding: 40px 0;
             display: flex;
@@ -31,115 +45,114 @@
             font-size: 13px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 0.6;
+            opacity: 0.5;
             transition: 0.3s;
         }
 
-        nav a:hover { opacity: 1; }
+        /* Активная вкладка ярче */
+        nav a.active {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
 
-        /* Контейнер */
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 40px 20px 100px;
+            padding: 20px 20px 100px; /* Поднял всё выше */
             text-align: center;
         }
 
-        /* Таблички по одной вертикальной линии */
         .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 60px; /* Расстояние между кнопками увеличено в два раза */
             align-items: center;
-            margin-bottom: 60px;
+            margin-top: 20px;
         }
 
         .tab {
             width: 100%;
-            max-width: 380px;
-            padding: 20px;
-            border: 1px solid #fff;
+            max-width: 400px;
             text-decoration: none;
             color: #fff;
-            transition: 0.3s;
             display: flex;
-            flex-direction: column; /* Чтобы текст был один под другим */
             align-items: center;
-            justify-content: center;
-            min-height: 80px;
+            justify-content: space-between; /* Текст слева, стрелка справа */
+            padding: 10px 0;
+            border: none; /* Убрал рамки */
+            transition: 0.3s;
         }
 
-        .tab:hover {
-            background-color: #fff;
-            color: #000;
+        .tab-content {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
         }
 
         .tab span {
-            font-size: 18px;
+            font-size: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: bold;
         }
 
-        /* Стиль для курсива под заголовком */
         .tab em {
             font-family: Arial, sans-serif;
             font-style: italic;
             font-size: 13px;
-            margin-top: 8px;
-            opacity: 0.8;
-            letter-spacing: 1px;
-            text-transform: none; /* Чтобы не всё было капсом */
+            margin-top: 5px;
+            opacity: 0.7;
         }
 
-        .tab:hover em {
+        /* Стрелка справа */
+        .arrow {
+            font-size: 24px;
+            font-family: serif;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .tab:hover .arrow {
+            transform: translateX(10px);
             opacity: 1;
         }
 
-        /* Список стран ниже */
-        .countries-list {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            font-family: Arial, sans-serif;
-        }
-
         @media (max-width: 600px) {
-            .tab {
-                max-width: 100%;
-            }
-            .tab span {
-                font-size: 16px;
-            }
-            .tab em {
-                font-size: 12px;
-            }
+            .container { padding-top: 10px; }
+            .experience-tabs { gap: 50px; }
+            .tab span { font-size: 18px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-image"></div>
+
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
-        <a href="countries.html">СТРАНЫ</a>
+        <a href="countries.html" class="active">СТРАНЫ</a>
     </nav>
 
     <div class="container">
         <div class="experience-tabs">
+            
             <a href="#" class="tab">
-                <span>ЛИЧНЫЙ ОПЫТ</span>
-                <em>там, где был я</em>
+                <div class="tab-content">
+                    <span>ЛИЧНЫЙ ОПЫТ</span>
+                    <em>там, где был я</em>
+                </div>
+                <div class="arrow">→</div>
             </a>
 
             <a href="#" class="tab">
-                <span>ОПЫТ ДРУЗЕЙ</span>
-                <em>там, где были они</em>
+                <div class="tab-content">
+                    <span>ОПЫТ ДРУЗЕЙ</span>
+                    <em>там, где были они</em>
+                </div>
+                <div class="arrow">→</div>
             </a>
+
         </div>
-
-        <div class="countries-list">
-            </div>
     </div>
 
 </body>
