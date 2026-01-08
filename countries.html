@@ -10,26 +10,28 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background-color: #000; /* Фон, если картинка не загрузится */
             color: #fff;
             font-family: 'Arial Black', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Фон: берем файл из твоей папки images */
+        /* Фоновое изображение */
         .bg-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/mir.jpg') no-repeat center center;
+            /* Попробуй проверить название файла: mir.jpg или mir.JPG или mir.jpeg */
+            background: url('./images/mir.jpg') no-repeat center center;
             background-size: cover;
-            filter: blur(10px); /* Твое пожелание по размытию */
+            filter: blur(10px); 
             z-index: -1;
             transform: scale(1.1);
         }
 
+        /* Навигация */
         nav {
             padding: 40px 0;
             display: flex;
@@ -61,6 +63,7 @@
             text-align: center;
         }
 
+        /* Вертикальные разделы */
         .experience-tabs {
             display: flex;
             flex-direction: column;
