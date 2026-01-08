@@ -16,7 +16,7 @@
             overflow-x: hidden;
         }
 
-        /* Фон с размытой фотографией из папки images */
+        /* Фон: берем файл из твоей папки images */
         .bg-image {
             position: fixed;
             top: 0;
@@ -25,12 +25,11 @@
             height: 100%;
             background: url('images/mir.jpg') no-repeat center center;
             background-size: cover;
-            filter: blur(10px); /* Размытие */
+            filter: blur(10px); /* Твое пожелание по размытию */
             z-index: -1;
-            transform: scale(1.1); /* Компенсация белых краев при блюре */
+            transform: scale(1.1);
         }
 
-        /* Навигация */
         nav {
             padding: 40px 0;
             display: flex;
@@ -46,41 +45,38 @@
             font-size: 13px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 0.4; /* Неактивные тусклее */
+            opacity: 0.4;
             transition: 0.3s;
         }
 
-        /* Активная вкладка СТРАНЫ ярче */
         nav a.active {
             opacity: 1;
             text-shadow: 0 0 15px rgba(255,255,255,0.6);
         }
 
         .container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 10px 20px 100px; /* Поднял содержимое выше */
+            padding: 20px 20px 100px;
             text-align: center;
         }
 
-        /* Таблички по одной вертикали без рамок */
         .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 70px; /* Увеличенное расстояние между пунктами */
+            gap: 80px; 
             align-items: center;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .tab {
             width: 100%;
-            max-width: 400px;
             text-decoration: none;
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 0;
+            padding: 10px 0;
             border: none;
             transition: 0.3s;
         }
@@ -105,26 +101,23 @@
             margin-top: 6px;
             opacity: 0.7;
             letter-spacing: 1px;
+            text-transform: none;
         }
 
-        /* Стрелка справа */
         .arrow {
             font-size: 26px;
             font-family: serif;
-            opacity: 0.6;
-            transition: transform 0.3s ease;
+            opacity: 0.5;
+            transition: 0.3s;
         }
 
-        /* Легкое смещение стрелки при наведении */
         .tab:hover .arrow {
             transform: translateX(10px);
             opacity: 1;
         }
 
-        /* Мобильные настройки */
         @media (max-width: 600px) {
-            nav { padding: 30px 0; gap: 25px; }
-            .experience-tabs { gap: 60px; }
+            .experience-tabs { gap: 70px; }
             .tab span { font-size: 18px; }
             .tab em { font-size: 12px; }
         }
