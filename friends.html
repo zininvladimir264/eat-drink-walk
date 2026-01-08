@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОПЫТ ДРУЗЕЙ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #000;
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ФОН (единый стиль) */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 80px;
+        }
+
+        /* Навигация */
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-family: Arial, sans-serif;
+            opacity: 0.3;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 0.7; }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* КОНТИНЕНТЫ */
+        .continent-section {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        .continent-title {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #fff;
+            opacity: 0.4;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* СЕТКА (2 столбика) */
+        .countries-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px 40px;
+        }
+
+        .country-item {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .country-item:hover {
+            border-bottom: 1px solid rgba(255, 255, 255, 1);
+            transform: translateX(5px);
+        }
+
+        .country-name {
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .friend-tag {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            opacity: 0.5;
+            text-transform: none;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .countries-grid { gap: 12px 15px; }
+            .country-name { font-size: 11px; }
+            .page-title h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-layer"></div>
+
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="countries.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="page-title">
+            <h1>ОПЫТ ДРУЗЕЙ</h1>
+        </div>
+
+        <div class="continent-section">
+            <div class="continent-title">ЕВРОПА</div>
+            <div class="countries-grid">
+                <a href="france-friends.html" class="country-item">
+                    <span class="country-name">Франция</span>
+                    <span class="friend-tag">история от Андрея</span>
+                </a>
+                <a href="germany-friends.html" class="country-item">
+                    <span class="country-name">Германия</span>
+                    <span class="friend-tag">заметки Лены</span>
+                </a>
+                <a href="italy-friends.html" class="country-item">
+                    <span class="country-name">Италия</span>
+                    <span class="friend-tag">гастро-тур</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="continent-section">
+            <div class="continent-title">АЗИЯ</div>
+            <div class="countries-grid">
+                <a href="japan-friends.html" class="country-item">
+                    <span class="country-name">Япония</span>
+                    <span class="friend-tag">фото-отчет</span>
+                </a>
+                <a href="china-friends.html" class="country-item">
+                    <span class="country-name">Китай</span>
+                    <span class="friend-tag">советы по выживанию</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="continent-section">
+            <div class="continent-title">ДРУГИЕ МЕСТА</div>
+            <div class="countries-grid">
+                <a href="usa-friends.html" class="country-item">
+                    <span class="country-name">США</span>
+                    <span class="friend-tag">путешествие Павла</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
