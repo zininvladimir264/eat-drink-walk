@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление всех стилей */
+        /* Обнуление */
         * {
             margin: 0;
             padding: 0;
@@ -21,20 +21,19 @@
             overflow-x: hidden;
         }
 
-        /* Фоновый слой */
-        .background-overlay {
+        /* Фоновый слой — исправлен путь и наложение */
+        .bg-fixed-layer {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/mir1.jpg');
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('images/mir1.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             filter: blur(15px);
-            transform: scale(1.1);
+            z-index: -1;
+            transform: translateZ(0);
         }
 
         /* Навигация */
@@ -43,8 +42,6 @@
             display: flex;
             gap: 40px;
             justify-content: center;
-            position: relative;
-            z-index: 10;
         }
 
         nav a {
@@ -55,56 +52,56 @@
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
             opacity: 0.3;
-            transition: opacity 0.3s ease;
+            transition: 0.3s ease;
         }
 
-        /* Активная вкладка ярче всех */
+        /* Активная вкладка СТРАНЫ — светится */
         nav a.active {
             opacity: 1;
-            text-shadow: 0 0 15px rgba(255,255,255,1);
+            text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.5);
         }
 
-        .container {
+        /* Контейнер поднят выше */
+        .content-container {
             max-width: 500px;
-            margin: 0 auto;
+            margin: 20px auto 0; /* margin-top 20px чтобы поднять выше */
             padding: 0 20px;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Основной список */
-        .experience-sections {
+        /* Список разделов */
+        .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 90px; /* Увеличенное расстояние между пунктами */
-            margin-top: 50px;
+            gap: 120px; /* Увеличено в 2 раза */
         }
 
-        .section-link {
+        .tab-item {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             text-decoration: none;
             color: #fff;
-            border: none;
+            border: none; /* Без рамок */
             padding: 10px 0;
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
 
-        .text-box {
+        .tab-text {
             display: flex;
             flex-direction: column;
             text-align: left;
         }
 
-        .text-box span {
+        .tab-text span {
             font-size: 24px;
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
+            line-height: 1.1;
         }
 
-        .text-box em {
+        .tab-text em {
             font-family: Arial, sans-serif;
             font-style: italic;
             font-size: 14px;
@@ -113,53 +110,54 @@
             text-transform: none;
         }
 
-        /* Стрелка строго справа */
-        .arrow-indicator {
+        /* Стрелка справа — выровнена по вертикали */
+        .tab-arrow {
             font-size: 30px;
             opacity: 0.5;
             transition: transform 0.3s ease, opacity 0.3s ease;
+            font-family: serif;
         }
 
-        /* Анимация стрелки при наведении */
-        .section-link:hover .arrow-indicator {
-            transform: translateX(10px);
+        /* Анимация только стрелки */
+        .tab-item:hover .tab-arrow {
+            transform: translateX(15px);
             opacity: 1;
         }
 
-        /* Адаптация для телефонов */
+        /* Мобильная адаптация */
         @media (max-width: 600px) {
-            .experience-sections { gap: 70px; }
-            .text-box span { font-size: 20px; }
-            nav { gap: 25px; }
+            .experience-tabs { gap: 80px; }
+            .tab-text span { font-size: 20px; }
+            nav { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="background-overlay"></div>
+    <div class="bg-fixed-layer"></div>
 
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html" class="active">СТРАНЫ</a>
     </nav>
 
-    <div class="container">
-        <div class="experience-sections">
+    <div class="content-container">
+        <div class="experience-tabs">
             
-            <a href="personal.html" class="section-link">
-                <div class="text-box">
+            <a href="personal.html" class="tab-item">
+                <div class="tab-text">
                     <span>ЛИЧНЫЙ ОПЫТ</span>
                     <em>там, где был я</em>
                 </div>
-                <div class="arrow-indicator">→</div>
+                <div class="tab-arrow">→</div>
             </a>
 
-            <a href="friends.html" class="section-link">
-                <div class="text-box">
+            <a href="friends.html" class="tab-item">
+                <div class="tab-text">
                     <span>ОПЫТ ДРУЗЕЙ</span>
                     <em>там, где были они</em>
                 </div>
-                <div class="arrow-indicator">→</div>
+                <div class="tab-arrow">→</div>
             </a>
 
         </div>
