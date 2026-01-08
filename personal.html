@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛИЧНЫЙ ОПЫТ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            background-color: #000;
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ФОН (такой же, как на countries.html) */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 50px;
+        }
+
+        /* Навигация */
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-family: Arial, sans-serif;
+            opacity: 0.3;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Заголовок страницы */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* СЕТКА В ДВА СТОЛБИКА */
+        .countries-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Всегда два столбика */
+            gap: 30px 40px; /* Отступы между странами */
+            padding: 0 20px;
+        }
+
+        .country-item {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .country-item:hover {
+            border-bottom: 1px solid rgba(255, 255, 255, 1);
+            transform: translateY(-3px);
+        }
+
+        .country-name {
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .country-info {
+            font-family: Arial, sans-serif;
+            font-style: italic;
+            font-size: 12px;
+            opacity: 0.5;
+            margin-top: 5px;
+            text-transform: none;
+        }
+
+        /* Адаптация для мобильных (уменьшаем шрифты, но оставляем 2 колонки) */
+        @media (max-width: 600px) {
+            .countries-grid {
+                gap: 20px 20px;
+            }
+            .country-name {
+                font-size: 14px;
+            }
+            .page-title h1 {
+                font-size: 22px;
+            }
+            nav {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-layer"></div>
+
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="countries.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="page-title">
+            <h1>ЛИЧНЫЙ ОПЫТ</h1>
+        </div>
+
+        <div class="countries-grid">
+            
+            <a href="russia.html" class="country-item">
+                <span class="country-name">РОССИЯ</span>
+                <span class="country-info">дом</span>
+            </a>
+
+            <a href="turkey.html" class="country-item">
+                <span class="country-name">ТУРЦИЯ</span>
+                <span class="country-info">море и горы</span>
+            </a>
+
+            <a href="georgia.html" class="country-item">
+                <span class="country-name">ГРУЗИЯ</span>
+                <span class="country-info">вино и гостеприимство</span>
+            </a>
+
+            <a href="thailand.html" class="country-item">
+                <span class="country-name">ТАИЛАНД</span>
+                <span class="country-info">вечное лето</span>
+            </a>
+
+            <a href="armenia.html" class="country-item">
+                <span class="country-name">АРМЕНИЯ</span>
+                <span class="country-info">древность</span>
+            </a>
+
+            <a href="kazakhstan.html" class="country-item">
+                <span class="country-name">КАЗАХСТАН</span>
+                <span class="country-info">степи и города</span>
+            </a>
+
+            <a href="belarus.html" class="country-item">
+                <span class="country-name">БЕЛАРУСЬ</span>
+                <span class="country-info">спокойствие</span>
+            </a>
+
+            <a href="uzbekistan.html" class="country-item">
+                <span class="country-name">УЗБЕКИСТАН</span>
+                <span class="country-info">восточная сказка</span>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
