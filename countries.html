@@ -12,7 +12,7 @@
             box-sizing: border-box;
         }
 
-        /* Важно: фон html черный (на случай если картинка не загрузится), а body прозрачный */
+        /* Фон html черный, body прозрачный */
         html {
             background-color: #000;
         }
@@ -20,37 +20,34 @@
         body {
             width: 100%;
             height: 100%;
-            background-color: transparent; /* Убрал "штору", которая перекрывала фото */
+            background-color: transparent;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
             overflow-x: hidden;
         }
 
-        /* СЛОЙ ФОНА (Исправлена логика z-index) */
+        /* СЛОЙ ФОНА */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Слой 0 - самый нижний, но видимый */
             z-index: 0; 
-            /* Путь к картинке */
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
-            /* Размытие */
-            filter: blur(15px);
-            /* Масштаб, чтобы убрать белые края от блюра */
-            transform: scale(1.1);
-            pointer-events: none; /* Чтобы фон не мешал кликам */
+            /* УМЕНЬШИЛ РАЗМЫТИЕ: было 15px, стало 8px */
+            filter: blur(8px);
+            transform: scale(1.1); /* Масштаб, чтобы скрыть края размытия */
+            pointer-events: none;
         }
 
-        /* ОБЕРТКА КОНТЕНТА (Слой выше фона) */
+        /* ОБЕРТКА КОНТЕНТА */
         .content-wrapper {
             position: relative;
-            z-index: 2; /* Текст лежит ПОВЕРХ фона (0) */
+            z-index: 2;
             width: 100%;
             height: 100%;
             display: flex;
