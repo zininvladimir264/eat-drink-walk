@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление */
         * {
             margin: 0;
             padding: 0;
@@ -18,21 +17,22 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* Фоновый слой — исправлен путь и наложение */
-        .bg-fixed-layer {
+        /* ГЛАВНЫЙ БЛОК ФОНА */
+        .bg-screen {
             position: fixed;
-            top: -5%;
-            left: -5%;
-            width: 110%;
-            height: 110%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            z-index: -1;
+            /* Пробуем прямой путь к папке images */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('images/mir1.jpg') no-repeat center center;
             background-size: cover;
             filter: blur(15px);
-            z-index: -1;
             transform: translateZ(0);
         }
 
@@ -42,6 +42,8 @@
             display: flex;
             gap: 40px;
             justify-content: center;
+            position: relative;
+            z-index: 10;
         }
 
         nav a {
@@ -52,37 +54,37 @@
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
             opacity: 0.3;
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
 
-        /* Активная вкладка СТРАНЫ — светится */
+        /* Активная вкладка СТРАНЫ - свечение */
         nav a.active {
             opacity: 1;
-            text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.5);
+            text-shadow: 0 0 15px #fff, 0 0 30px rgba(255,255,255,0.5);
         }
 
-        /* Контейнер поднят выше */
-        .content-container {
+        .container {
             max-width: 500px;
-            margin: 20px auto 0; /* margin-top 20px чтобы поднять выше */
+            margin: 20px auto 0;
             padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Список разделов */
+        /* Список разделов - расстояние увеличено */
         .experience-tabs {
             display: flex;
             flex-direction: column;
-            gap: 120px; /* Увеличено в 2 раза */
+            gap: 120px; 
         }
 
-        .tab-item {
+        .tab-link {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             text-decoration: none;
             color: #fff;
-            border: none; /* Без рамок */
             padding: 10px 0;
             transition: 0.3s;
         }
@@ -110,41 +112,38 @@
             text-transform: none;
         }
 
-        /* Стрелка справа — выровнена по вертикали */
+        /* Стрелка строго по правой вертикали */
         .tab-arrow {
             font-size: 30px;
             opacity: 0.5;
             transition: transform 0.3s ease, opacity 0.3s ease;
-            font-family: serif;
         }
 
-        /* Анимация только стрелки */
-        .tab-item:hover .tab-arrow {
+        /* Анимация стрелки */
+        .tab-link:hover .tab-arrow {
             transform: translateX(15px);
             opacity: 1;
         }
 
-        /* Мобильная адаптация */
         @media (max-width: 600px) {
             .experience-tabs { gap: 80px; }
             .tab-text span { font-size: 20px; }
-            nav { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-image"></div>
+    <div class="bg-screen"></div>
 
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html" class="active">СТРАНЫ</a>
     </nav>
 
-    <div class="content-container">
+    <div class="container">
         <div class="experience-tabs">
             
-            <a href="personal.html" class="tab-item">
+            <a href="personal.html" class="tab-link">
                 <div class="tab-text">
                     <span>ЛИЧНЫЙ ОПЫТ</span>
                     <em>там, где был я</em>
@@ -152,7 +151,7 @@
                 <div class="tab-arrow">→</div>
             </a>
 
-            <a href="friends.html" class="tab-item">
+            <a href="friends.html" class="tab-link">
                 <div class="tab-text">
                     <span>ОПЫТ ДРУЗЕЙ</span>
                     <em>там, где были они</em>
