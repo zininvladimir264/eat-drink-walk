@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Базовые настройки страницы */
         body, html {
             margin: 0;
             padding: 0;
@@ -17,7 +16,6 @@
             overflow: hidden;
         }
 
-        /* Главный экран с твоим фото */
         .hero {
             position: relative;
             width: 100%;
@@ -26,11 +24,11 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            /* Настройки фона для компьютера */
             background: url('bravo1.jpg') no-repeat center center;
             background-size: cover;
         }
 
-        /* Навигация ЧЕРНЫМИ БУКВАМИ */
         nav {
             position: absolute;
             top: 40px;
@@ -43,25 +41,18 @@
 
         nav a {
             text-decoration: none;
-            color: #000; /* ЧЕРНЫЙ ЦВЕТ БУКВ */
+            color: #000;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 1;
-            /* Убрал тень, чтобы буквы были чистыми и черными */
         }
 
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        /* Блок с текстом - ПОДНЯТ ВЫШЕ */
         .content {
             position: relative;
             z-index: 2;
-            margin-top: -100px; /* Поднял еще чуть выше для баланса */
+            margin-top: -100px;
         }
 
         h1 {
@@ -70,7 +61,6 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: -3px;
-            /* Белый текст с тенью для объема */
             text-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
@@ -85,6 +75,37 @@
             font-weight: bold;
             padding: 0 20px;
             text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        /* --- ИСПРАВЛЕНИЕ ДЛЯ ТЕЛЕФОНОВ --- */
+        @media (max-width: 768px) {
+            .hero {
+                /* На телефоне центрируем фото так, чтобы оно не «зумилось» слишком сильно */
+                background-position: center center;
+                background-attachment: scroll; /* Убирает лишние рывки при прокрутке */
+            }
+
+            .content {
+                margin-top: -50px; /* На телефоне поднимаем чуть меньше, чтобы влезло в экран */
+            }
+
+            h1 {
+                font-size: 60px; /* Уменьшаем шрифт, чтобы буквы не вылезали за края экрана */
+            }
+
+            .manifest {
+                font-size: 13px; /* Уменьшаем манифест для мобилок */
+                line-height: 1.4;
+            }
+
+            nav {
+                top: 30px;
+                gap: 20px;
+            }
+            
+            nav a {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
