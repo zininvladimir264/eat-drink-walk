@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* ФОН (такой же, как на countries.html) */
+        /* ФОН (как на countries.html) */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -48,7 +48,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding-bottom: 50px;
+            padding-bottom: 80px;
         }
 
         /* Навигация */
@@ -91,8 +91,8 @@
             max-width: 800px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Всегда два столбика */
-            gap: 30px 40px; /* Отступы между странами */
+            grid-template-columns: 1fr 1fr; /* Два столбика везде */
+            gap: 20px 40px; 
             padding: 0 20px;
         }
 
@@ -102,43 +102,31 @@
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
+            padding-bottom: 8px;
             transition: 0.3s;
         }
 
         .country-item:hover {
             border-bottom: 1px solid rgba(255, 255, 255, 1);
-            transform: translateY(-3px);
+            transform: translateX(5px);
         }
 
         .country-name {
-            font-size: 18px;
+            font-size: 15px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .country-info {
-            font-family: Arial, sans-serif;
-            font-style: italic;
-            font-size: 12px;
-            opacity: 0.5;
-            margin-top: 5px;
-            text-transform: none;
-        }
-
-        /* Адаптация для мобильных (уменьшаем шрифты, но оставляем 2 колонки) */
+        /* Адаптация для мобильных */
         @media (max-width: 600px) {
             .countries-grid {
-                gap: 20px 20px;
+                gap: 15px 15px;
             }
             .country-name {
-                font-size: 14px;
+                font-size: 12px;
             }
             .page-title h1 {
-                font-size: 22px;
-            }
-            nav {
-                gap: 20px;
+                font-size: 20px;
             }
         }
     </style>
@@ -159,45 +147,34 @@
 
         <div class="countries-grid">
             
-            <a href="russia.html" class="country-item">
-                <span class="country-name">РОССИЯ</span>
-                <span class="country-info">дом</span>
-            </a>
-
-            <a href="turkey.html" class="country-item">
-                <span class="country-name">ТУРЦИЯ</span>
-                <span class="country-info">море и горы</span>
-            </a>
-
-            <a href="georgia.html" class="country-item">
-                <span class="country-name">ГРУЗИЯ</span>
-                <span class="country-info">вино и гостеприимство</span>
-            </a>
-
-            <a href="thailand.html" class="country-item">
-                <span class="country-name">ТАИЛАНД</span>
-                <span class="country-info">вечное лето</span>
-            </a>
-
-            <a href="armenia.html" class="country-item">
-                <span class="country-name">АРМЕНИЯ</span>
-                <span class="country-info">древность</span>
-            </a>
-
-            <a href="kazakhstan.html" class="country-item">
-                <span class="country-name">КАЗАХСТАН</span>
-                <span class="country-info">степи и города</span>
-            </a>
-
-            <a href="belarus.html" class="country-item">
-                <span class="country-name">БЕЛАРУСЬ</span>
-                <span class="country-info">спокойствие</span>
-            </a>
-
-            <a href="uzbekistan.html" class="country-item">
-                <span class="country-name">УЗБЕКИСТАН</span>
-                <span class="country-info">восточная сказка</span>
-            </a>
+            <a href="south-korea.html" class="country-item"><span class="country-name">Южная Корея</span></a>
+            <a href="malaysia.html" class="country-item"><span class="country-name">Малайзия</span></a>
+            <a href="vietnam.html" class="country-item"><span class="country-name">Вьетнам</span></a>
+            <a href="thailand.html" class="country-item"><span class="country-name">Таиланд</span></a>
+            <a href="cambodia.html" class="country-item"><span class="country-name">Камбоджа</span></a>
+            <a href="sri-lanka.html" class="country-item"><span class="country-name">Шри-Ланка</span></a>
+            <a href="india.html" class="country-item"><span class="country-name">Индия</span></a>
+            <a href="uzbekistan.html" class="country-item"><span class="country-name">Узбекистан</span></a>
+            <a href="kazakhstan.html" class="country-item"><span class="country-name">Казахстан</span></a>
+            <a href="kyrgyzstan.html" class="country-item"><span class="country-name">Кыргызстан</span></a>
+            <a href="tajikistan.html" class="country-item"><span class="country-name">Таджикистан</span></a>
+            <a href="georgia.html" class="country-item"><span class="country-name">Грузия</span></a>
+            <a href="armenia.html" class="country-item"><span class="country-name">Армения</span></a>
+            <a href="azerbaijan.html" class="country-item"><span class="country-name">Азербайджан</span></a>
+            <a href="egypt.html" class="country-item"><span class="country-name">Египет</span></a>
+            <a href="lebanon.html" class="country-item"><span class="country-name">Ливан</span></a>
+            <a href="turkey.html" class="country-item"><span class="country-name">Турция</span></a>
+            <a href="montenegro.html" class="country-item"><span class="country-name">Черногория</span></a>
+            <a href="serbia.html" class="country-item"><span class="country-name">Сербия</span></a>
+            <a href="portugal.html" class="country-item"><span class="country-name">Португалия</span></a>
+            <a href="spain.html" class="country-item"><span class="country-name">Испания</span></a>
+            <a href="abkhazia.html" class="country-item"><span class="country-name">Абхазия</span></a>
+            <a href="estonia.html" class="country-item"><span class="country-name">Эстония</span></a>
+            <a href="latvia.html" class="country-item"><span class="country-name">Латвия</span></a>
+            <a href="lithuania.html" class="country-item"><span class="country-name">Литва</span></a>
+            <a href="russia.html" class="country-item"><span class="country-name">Россия</span></a>
+            <a href="belarus.html" class="country-item"><span class="country-name">Беларусь</span></a>
+            <a href="moldova.html" class="country-item"><span class="country-name">Молдова</span></a>
 
         </div>
     </div>
