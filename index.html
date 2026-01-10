@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" href="icon-512.png">
     
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
@@ -38,6 +39,7 @@
             text-align: center;
         }
 
+        /* Меню по центру */
         .top-nav {
             position: absolute;
             top: 40px;
@@ -58,8 +60,10 @@
             letter-spacing: 2px;
         }
 
+        /* Основной блок текста */
         .main-box {
             z-index: 2;
+            /* Общий подъем заголовка */
             margin-top: -180px; 
         }
 
@@ -75,11 +79,12 @@
             text-transform: uppercase;
             line-height: 1.4;
             padding: 0 20px;
+            /* Черный цвет текста манифеста */
             color: #000000; 
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР (ЗАФИКСИРОВАНО) --- */
+        /* --- КОМПЬЮТЕР (Зафиксировано, не трогаем) --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -92,14 +97,16 @@
             }
         }
 
-        /* --- ТЕЛЕФОН (ЗАФИКСИРОВАНО) --- */
+        /* --- ТЕЛЕФОН (Android / iPhone) --- */
         @media (max-width: 1023px) {
             .main-box h1 {
+                /* Шрифт увеличен на 20% от базы */
                 font-size: 29px; 
                 font-weight: normal;
                 letter-spacing: 1px;
             }
             .manifest-txt {
+                /* Манифест на телефоне опущен ниже на 60px */
                 margin-top: 60px; 
                 font-size: 12px;
                 max-width: 300px;
