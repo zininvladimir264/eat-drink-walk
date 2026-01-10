@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
-    <link rel="icon" type="image/png" href="icon.png?v=104">
-    <link rel="apple-touch-icon" href="icon.png?v=104">
+    <link rel="icon" type="image/png" href="icon.png?v=999">
+    <link rel="apple-touch-icon" href="icon.png?v=999">
     
-    <link rel="manifest" href="manifest.json?v=104">
+    <link rel="manifest" href='data:application/json,{"name":"ЕМ ПЬЮ ХОЖУ","short_name":"ЕМ ПЬЮ","start_url":"index.html","display":"standalone","background_color":"#000000","theme_color":"#000000","icons":[{"src":"icon.png","sizes":"512x512","type":"image/png","purpose":"any"}]}'>
     
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
@@ -21,7 +21,7 @@
             height: 100%;
             background-color: #000;
             color: #fff;
-            font-family: sans-serif; /* Стандартный системный шрифт */
+            font-family: sans-serif;
             overflow: hidden;
         }
 
@@ -38,7 +38,6 @@
             text-align: center;
         }
 
-        /* Меню строго по центру */
         .top-nav {
             position: absolute;
             top: 40px;
@@ -59,10 +58,9 @@
             letter-spacing: 2px;
         }
 
-        /* Общий контейнер текста */
         .main-box {
             z-index: 2;
-            margin-top: -180px; /* Позиция заголовка */
+            margin-top: -180px; 
         }
 
         h1 {
@@ -77,11 +75,11 @@
             text-transform: uppercase;
             line-height: 1.4;
             padding: 0 20px;
-            color: #000000; /* Черный шрифт манифеста */
+            color: #000000; 
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР (Зафиксировано) --- */
+        /* --- КОМПЬЮТЕР (ЗАФИКСИРОВАНО) --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -94,16 +92,14 @@
             }
         }
 
-        /* --- ТЕЛЕФОН (Android стандарт + ваши правки) --- */
+        /* --- ТЕЛЕФОН (ЗАФИКСИРОВАНО) --- */
         @media (max-width: 1023px) {
             .main-box h1 {
-                /* Шрифт на 20% больше стандартного */
                 font-size: 29px; 
                 font-weight: normal;
                 letter-spacing: 1px;
             }
             .manifest-txt {
-                /* Опущено на 60px вниз */
                 margin-top: 60px; 
                 font-size: 12px;
                 max-width: 300px;
