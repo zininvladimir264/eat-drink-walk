@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* ФОН (ШРИ-ЛАНКА) */
+        /* ФОН */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -32,7 +32,6 @@
             width: 100%;
             height: 100%;
             z-index: 0; 
-            /* Путь изменен на images/ */
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/srilanka.webp');
             background-position: center center;
             background-repeat: no-repeat;
@@ -122,10 +121,6 @@
             background-color: #222;
         }
 
-        /* Конкретные фото городов Шри-Ланки из папки images/ */
-        .img-kolombo { background-image: url('images/kolombo.webp'); }
-        .img-negombo { background-image: url('images/negombo.webp'); }
-
         .city-name {
             font-size: 20px;
             letter-spacing: 2px;
@@ -174,12 +169,12 @@
         <div class="cities-container">
             
             <a href="kolombo.html" class="city-card">
-                <div class="city-image img-kolombo"></div>
+                <div class="city-image" style="background-image: url('images/kolombo.webp');"></div>
                 <span class="city-name">КОЛОМБО</span>
             </a>
 
             <a href="negombo.html" class="city-card">
-                <div class="city-image img-negombo"></div>
+                <div class="city-image" style="background-image: url('images/negombo.webp');"></div>
                 <span class="city-name">НЕГОМБО</span>
             </a>
 
