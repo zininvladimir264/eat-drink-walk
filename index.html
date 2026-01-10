@@ -6,11 +6,9 @@
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
     <link rel="apple-touch-icon" href="icon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="ЕМ ПЬЮ ХОЖУ">
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon.png">
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
 
     <style>
         body, html {
@@ -34,7 +32,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Настройки фона */
             background-image: url('bravo1.jpg');
             background-repeat: no-repeat;
             background-position: center center;
@@ -53,7 +50,7 @@
 
         nav a {
             text-decoration: none;
-            color: #000; /* Черный текст ссылок на светлом фоне фото */
+            color: #000;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 14px;
@@ -64,19 +61,20 @@
         .content {
             position: relative;
             z-index: 2;
-            margin-top: -100px; /* Текст поднят выше */
+            margin-top: -100px;
         }
 
         h1 {
-            font-size: clamp(50px, 12vw, 100px);
-            line-height: 0.9;
+            /* ШРИФТ УМЕНЬШЕН В 2 РАЗА (был 50-100px, стал 25-50px) */
+            font-size: clamp(25px, 6vw, 50px); 
+            line-height: 1.1;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: -3px;
+            letter-spacing: 2px; /* Чуть увеличил интервал, так как шрифт мельче */
             text-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
-        .manifest {
+        .manifest-text {
             max-width: 650px;
             margin: 30px auto 0;
             font-family: Arial, sans-serif;
@@ -89,25 +87,14 @@
             text-shadow: 0 2px 10px rgba(0,0,0,1);
         }
 
-        /* Умная настройка для мобильных */
         @media (max-width: 768px) {
-            .hero {
-                background-attachment: scroll;
-                background-size: cover; 
-            }
-            
-            .content {
-                margin-top: -60px;
-            }
-
             h1 {
-                font-size: 55px;
+                font-size: 28px; /* В два раза меньше, чем прошлые 55px */
             }
 
-            .manifest {
+            .manifest-text {
                 font-size: 13px;
                 line-height: 1.4;
-                margin-top: 20px;
             }
 
             nav {
@@ -127,7 +114,7 @@
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-            <div class="manifest">
+            <div class="manifest-text">
                 Рецептов не будет. Советов тоже.<br>
                 Только то, что было на моем столе<br>
                 в разных точках мира.
