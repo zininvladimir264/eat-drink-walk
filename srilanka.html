@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* ФОН (БЕРЕТСЯ ИЗ ПАПКИ images) */
+        /* ФОН */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -32,7 +32,6 @@
             width: 100%;
             height: 100%;
             z-index: 0; 
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/srilanka.webp');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -118,12 +117,8 @@
             border-radius: 12px;
             margin-bottom: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #222; /* Цвет заглушки, если фото не найдено */
+            background-color: #222;
         }
-
-        /* СТИЛИ ДЛЯ КОНКРЕТНЫХ ФОТО (ПРОВЕРЬТЕ НАЛИЧИЕ ФАЙЛОВ В images/) */
-        .img-kolombo { background-image: url('images/kolombo.webp'); }
-        .img-negombo { background-image: url('images/negombo.webp'); }
 
         .city-name {
             font-size: 20px;
@@ -158,7 +153,7 @@
 </head>
 <body>
 
-    <div class="bg-layer"></div>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/srilanka.webp');"></div>
 
     <div class="content-wrapper">
         <nav>
@@ -173,12 +168,12 @@
         <div class="cities-container">
             
             <a href="kolombo.html" class="city-card">
-                <div class="city-image img-kolombo"></div>
+                <div class="city-image" style="background-image: url('images/kolombo.webp');"></div>
                 <span class="city-name">КОЛОМБО</span>
             </a>
 
             <a href="negombo.html" class="city-card">
-                <div class="city-image img-negombo"></div>
+                <div class="city-image" style="background-image: url('images/negombo.webp');"></div>
                 <span class="city-name">НЕГОМБО</span>
             </a>
 
