@@ -2,186 +2,190 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ШРИ-ЛАНКА | ЕМ ПЬЮ ХОЖУ</title>
-
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-    <link rel="apple-touch-icon" href="icon-512.png">
-    <link rel="manifest" href="manifest.json">
-    
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#000000">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ШРИ-ЛАНКА — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        html, body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #000;
+        }
+        
+        body {
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
             color: #fff;
-            font-family: sans-serif;
             overflow-x: hidden;
         }
 
-        .screen-container {
+        /* ФОН (ШРИ-ЛАНКА) */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            /* Путь к фону в папке images */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/srilanka.webp');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
             position: relative;
+            z-index: 2;
             width: 100%;
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('srilanka.webp') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-bottom: 80px;
         }
 
-        /* Меню (черный шрифт) */
-        .top-nav {
-            position: absolute;
-            top: 40px;
-            width: 100%;
+        /* Навигация */
+        nav {
+            padding: 40px 0;
             display: flex;
-            justify-content: center;
             gap: 40px;
-            z-index: 10;
-        }
-
-        .top-nav a {
-            text-decoration: none;
-            color: #000000; 
-            font-weight: normal;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-
-        .main-box {
-            margin-top: 15vh;
-            text-align: center;
-            z-index: 2;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            margin: 0;
-            text-transform: uppercase;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
-            color: #ffffff;
-            line-height: 1.1;
-        }
-
-        /* Контейнер для карточек */
-        .cards-container {
-            display: flex;
-            gap: 20px;
-            padding: 20px;
-            width: 100%;
-            max-width: 900px;
             justify-content: center;
-            flex-wrap: wrap; /* Чтобы на мобильных падали друг под друга */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-family: Arial, sans-serif;
+            opacity: 0.3;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 0.7; }
+
+        /* Заголовок страны */
+        .country-title {
+            text-align: center;
             margin-bottom: 50px;
         }
 
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        /* СЕТКА ГОРОДОВ */
+        .cities-container {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* КАРТОЧКА ГОРОДА */
         .city-card {
-            position: relative;
-            width: 280px;
-            height: 380px;
-            border-radius: 2px;
-            overflow: hidden;
             text-decoration: none;
+            color: #fff;
             display: flex;
-            align-items: flex-end;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            flex-direction: column;
+            align-items: center;
             transition: transform 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .city-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
 
-        /* Фон карточек */
-        .card-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Общий стиль для фото */
+        .city-image {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 1 / 1;
             background-size: cover;
             background-position: center;
-            z-index: 1;
-            transition: transform 0.5s ease;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #222;
         }
 
-        .city-card:hover .card-bg {
-            transform: scale(1.1);
-        }
+        /* Фото городов из папки images */
+        .img-kolombo { background-image: url('images/kolombo.webp'); }
+        .img-negombo { background-image: url('images/negombo.webp'); }
 
-        /* Затемнение карточки */
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
-            z-index: 2;
-        }
-
-        .card-title {
-            position: relative;
-            z-index: 3;
-            color: #fff;
-            width: 100%;
-            text-align: center;
-            padding-bottom: 30px;
-            font-size: 18px;
+        .city-name {
+            font-size: 20px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
+            text-align: center;
         }
 
-        /* --- КОМПЬЮТЕР --- */
-        @media (min-width: 1024px) {
-            h1 { font-size: 80px; letter-spacing: 10px; }
+        /* Кнопка назад */
+        .back-btn {
+            margin-top: 60px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 2px;
+            opacity: 0.4;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
 
-        /* --- ТЕЛЕФОН --- */
-        @media (max-width: 1023px) {
-            h1 { font-size: 35px; font-weight: 600; letter-spacing: 3px; }
-            .top-nav { top: 25px; gap: 25px; }
-            .city-card { width: 90%; height: 250px; } /* На телефоне карточки пошире и пониже */
-            .main-box { margin-top: 12vh; }
+        .back-btn:hover { opacity: 1; }
+
+        @media (max-width: 600px) {
+            .cities-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .city-name { font-size: 14px; }
+            .country-title h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="screen-container">
-        <nav class="top-nav">
+    <div class="bg-layer"></div>
+
+    <div class="content-wrapper">
+        <nav>
             <a href="index.html">ГЛАВНАЯ</a>
             <a href="countries.html">СТРАНЫ</a>
         </nav>
 
-        <div class="main-box">
+        <div class="country-title">
             <h1>ШРИ-ЛАНКА</h1>
         </div>
 
-        <div class="cards-container">
+        <div class="cities-container">
+            
             <a href="kolombo.html" class="city-card">
-                <div class="card-bg" style="background-image: url('kolombo.webp');"></div>
-                <div class="card-overlay"></div>
-                <div class="card-title">КОЛОМБО</div>
+                <div class="city-image img-kolombo"></div>
+                <span class="city-name">КОЛОМБО</span>
             </a>
 
             <a href="negombo.html" class="city-card">
-                <div class="card-bg" style="background-image: url('negombo.webp');"></div>
-                <div class="card-overlay"></div>
-                <div class="card-title">НЕГОМБО</div>
+                <div class="city-image img-negombo"></div>
+                <span class="city-name">НЕГОМБО</span>
             </a>
+
         </div>
+
+        <a href="countries.html" class="back-btn">← ко всем странам</a>
     </div>
 
 </body>
