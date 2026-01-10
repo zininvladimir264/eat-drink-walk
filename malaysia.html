@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>МАЛАЙЗИЯ — ЕМ ПЬЮ ХОЖУ</title>
+    <title>ШРИ-ЛАНКА — ЕМ ПЬЮ ХОЖУ</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* ФОН */
+        /* ФОН (ШРИ-ЛАНКА) */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -32,7 +32,7 @@
             width: 100%;
             height: 100%;
             z-index: 0; 
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('srilanka.webp');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -121,9 +121,9 @@
             background-color: #222;
         }
 
-        /* Конкретные фото в формате WEBP */
-        .img-kl { background-image: url('images/kl.webp'); }
-        .img-georget { background-image: url('images/georget.webp'); }
+        /* Конкретные фото городов Шри-Ланки */
+        .img-kolombo { background-image: url('kolombo.webp'); }
+        .img-negombo { background-image: url('negombo.webp'); }
 
         .city-name {
             font-size: 20px;
@@ -167,24 +167,24 @@
         </nav>
 
         <div class="country-title">
-            <h1>МАЛАЙЗИЯ</h1>
+            <h1>ШРИ-ЛАНКА</h1>
         </div>
 
         <div class="cities-container">
             
-            <a href="kl-details.html" class="city-card">
-                <div class="city-image img-kl"></div>
-                <span class="city-name">КУАЛА-ЛУМПУР</span>
+            <a href="kolombo.html" class="city-card">
+                <div class="city-image img-kolombo"></div>
+                <span class="city-name">КОЛОМБО</span>
             </a>
 
-            <a href="georgetown-details.html" class="city-card">
-                <div class="city-image img-georget"></div>
-                <span class="city-name">ДЖОРДЖТАУН</span>
+            <a href="negombo.html" class="city-card">
+                <div class="city-image img-negombo"></div>
+                <span class="city-name">НЕГОМБО</span>
             </a>
 
         </div>
 
-        <a href="personal.html" class="back-btn">← ко всем странам</a>
+        <a href="countries.html" class="back-btn">← ко всем странам</a>
     </div>
 
 </body>
