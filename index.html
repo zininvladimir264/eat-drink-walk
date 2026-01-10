@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
+
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ЕМ ПЬЮ ХОЖУ">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+
     <style>
         body, html {
             margin: 0;
@@ -26,7 +34,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Настройки фона для всех устройств */
+            /* Настройки фона */
             background-image: url('bravo1.jpg');
             background-repeat: no-repeat;
             background-position: center center;
@@ -45,7 +53,7 @@
 
         nav a {
             text-decoration: none;
-            color: #000;
+            color: #000; /* Черный текст ссылок на светлом фоне фото */
             font-weight: bold;
             text-transform: uppercase;
             font-size: 14px;
@@ -84,13 +92,12 @@
         /* Умная настройка для мобильных */
         @media (max-width: 768px) {
             .hero {
-                /* Фото на весь экран, но с фокусом на центр без дикого зума */
                 background-attachment: scroll;
                 background-size: cover; 
             }
             
             .content {
-                margin-top: -60px; /* Чуть корректируем высоту на мобилке */
+                margin-top: -60px;
             }
 
             h1 {
