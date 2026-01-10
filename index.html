@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
-    <link rel="icon" type="image/png" href="icon.png?v=101">
-    <link rel="apple-touch-icon" href="icon.png?v=101">
-    <link rel="manifest" href="manifest.json?v=101">
+    <link rel="icon" type="image/png" href="icon.png?v=102">
+    <link rel="apple-touch-icon" href="icon.png?v=102">
+    <link rel="manifest" href="manifest.json?v=102">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
 
@@ -58,8 +58,8 @@
 
         .main-box {
             z-index: 2;
-            /* Подняли еще на 60px (итого -160px от центра экрана) */
-            margin-top: -160px; 
+            /* Подняли слова еще на 20px (итого -180px от центра) */
+            margin-top: -180px; 
         }
 
         h1 {
@@ -71,7 +71,8 @@
         }
 
         .manifest-txt {
-            margin: -20px auto 0; 
+            /* Опустили манифест на 20px вниз относительно заголовка (было -20px, стало 0px) */
+            margin: 0px auto 0; 
             text-transform: uppercase;
             line-height: 1.4;
             padding: 0 20px;
@@ -89,6 +90,7 @@
             .manifest-txt {
                 max-width: 600px !important;
                 font-size: 18px !important;
+                margin-top: 20px; /* Дополнительный отступ на ПК */
             }
         }
 
