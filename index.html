@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
-    <link rel="icon" type="image/png" href="icon.png?v=99">
-    <link rel="apple-touch-icon" href="icon.png?v=99">
-    
-    <link rel="manifest" href="manifest.json?v=99">
+    <link rel="icon" type="image/png" href="icon.png?v=100">
+    <link rel="apple-touch-icon" href="icon.png?v=100">
+    <link rel="manifest" href="manifest.json?v=100">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
 
     <style>
-        /* Сброс и базовый шрифт Android */
         html, body {
             margin: 0;
             padding: 0;
@@ -21,7 +19,7 @@
             height: 100%;
             background-color: #000;
             color: #fff;
-            font-family: sans-serif; /* Стандартный системный шрифт */
+            font-family: sans-serif;
             overflow: hidden;
         }
 
@@ -38,7 +36,6 @@
             text-align: center;
         }
 
-        /* Меню строго по центру */
         .top-nav {
             position: absolute;
             top: 40px;
@@ -59,10 +56,28 @@
             letter-spacing: 2px;
         }
 
-        /* Главный текст */
         .main-box {
             z-index: 2;
-            margin-top: -40px;
+            /* Подняли основной блок на 60px выше (было -40px, стало -100px) */
+            margin-top: -100px; 
+        }
+
+        h1 {
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: #ffffff;
+        }
+
+        .manifest-txt {
+            /* Подняли манифест относительно заголовка (было 20px, стало -20px, итого разница 40px) */
+            margin: -20px auto 0; 
+            text-transform: uppercase;
+            line-height: 1.4;
+            padding: 0 20px;
+            /* Сделали шрифт ЧЕРНЫМ */
+            color: #000000; 
+            font-weight: bold;
         }
 
         /* --- Только для КОМПЬЮТЕРА --- */
@@ -74,41 +89,25 @@
             .manifest-txt {
                 max-width: 600px !important;
                 font-size: 18px !important;
-                font-weight: 600;
             }
         }
 
-        /* --- Только для ТЕЛЕФОНА (Android стандарт) --- */
+        /* --- Только для ТЕЛЕФОНА --- */
         @media (max-width: 1023px) {
             .main-box h1 {
-                font-size: 24px; /* Маленький шрифт */
+                font-size: 24px;
                 font-weight: normal;
                 line-height: 1.2;
                 letter-spacing: 1px;
             }
             .manifest-txt {
-                font-size: 12px; /* Маленький шрифт */
+                font-size: 12px;
                 max-width: 300px;
-                font-weight: normal;
-                text-shadow: 1px 1px 2px #000;
             }
             .top-nav {
                 top: 25px;
                 gap: 25px;
             }
-        }
-
-        h1 {
-            margin: 0;
-            text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-        }
-
-        .manifest-txt {
-            margin: 20px auto 0;
-            text-transform: uppercase;
-            line-height: 1.4;
-            padding: 0 20px;
         }
     </style>
 </head>
