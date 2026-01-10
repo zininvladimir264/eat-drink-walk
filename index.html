@@ -5,95 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
-    <link rel="apple-touch-icon" href="icon.png?v=2">
-    <link rel="icon" type="image/png" sizes="192x192" href="icon.png?v=2">
-    <link rel="manifest" href="manifest.json?v=2">
+    <link rel="apple-touch-icon" href="icon.png?v=3">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon.png?v=3">
+    <link rel="manifest" href="manifest.json?v=3">
     <meta name="theme-color" content="#000000">
 
     <style>
+        /* Стандартный шрифт Android без жирности */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             background-color: #000;
-            color: #fff;
-            /* Стандартный системный шрифт Android */
-            font-family: Roboto, Arial, sans-serif;
+            color: #ffffff;
+            font-family: sans-serif; /* Обычный шрифт телефона */
             overflow: hidden;
         }
 
-        .hero {
+        .background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: url('bravo1.jpg') no-repeat center center;
+            background-size: cover;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-image: url('bravo1.jpg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
         }
 
         nav {
             position: absolute;
             top: 30px;
-            z-index: 10;
             display: flex;
             gap: 30px;
-            width: 100%;
-            justify-content: center;
+            z-index: 10;
         }
 
         nav a {
             text-decoration: none;
-            color: #000; /* Цвет ссылок */
-            font-weight: 400;
-            text-transform: uppercase;
+            color: #000000;
             font-size: 14px;
+            text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: normal;
         }
 
-        .content {
-            position: relative;
+        .main-text {
+            margin-top: -40px;
             z-index: 2;
-            margin-top: -30px;
         }
 
         h1 {
-            /* Обычный стандартный размер текста */
-            font-size: 28px; 
-            font-weight: normal; 
+            /* Уменьшенный стандартный размер */
+            font-size: 24px; 
+            font-weight: normal;
             line-height: 1.2;
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .description {
-            max-width: 450px;
-            margin: 15px auto 0;
-            font-size: 14px;
-            line-height: 1.5;
+        .sub-text {
+            max-width: 300px;
+            margin: 20px auto 0;
+            font-size: 13px;
+            line-height: 1.4;
             text-transform: uppercase;
-            padding: 0 20px;
-            text-shadow: 0 2px 8px rgba(0,0,0,1);
-            font-weight: normal;
+            opacity: 0.9;
         }
 
-        /* Мобильная версия */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 24px;
-            }
-            .description {
-                font-size: 13px;
-            }
+        /* Фикс для мобильных */
+        @media (max-width: 600px) {
+            h1 { font-size: 22px; }
+            .sub-text { font-size: 12px; }
+            nav { top: 20px; gap: 20px; }
         }
     </style>
 </head>
@@ -104,10 +95,10 @@
         <a href="countries.html">СТРАНЫ</a>
     </nav>
 
-    <div class="hero">
-        <div class="content">
+    <div class="background">
+        <div class="main-text">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-            <div class="description">
+            <div class="sub-text">
                 Рецептов не будет. Советов тоже.<br>
                 Только то, что было на моем столе<br>
                 в разных точках мира.
