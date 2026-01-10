@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* ФОН (ШРИ-ЛАНКА) */
+        /* ФОН (Размытый фон страны) */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -32,7 +32,7 @@
             width: 100%;
             height: 100%;
             z-index: 0; 
-            /* Путь к фону в папке images */
+            /* Используем главное фото страны для фона */
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/srilanka.webp');
             background-position: center center;
             background-repeat: no-repeat;
@@ -86,51 +86,22 @@
             text-transform: uppercase;
         }
 
-        /* СЕТКА ГОРОДОВ */
-        .cities-container {
+        /* ЛЕНТА ФОТОГРАФИЙ (Открывается при нажатии на страну) */
+        .photo-container {
             width: 100%;
-            max-width: 900px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 40px;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             padding: 0 20px;
         }
 
-        /* КАРТОЧКА ГОРОДА */
-        .city-card {
-            text-decoration: none;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease;
-        }
-
-        .city-card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Общий стиль для фото */
-        .city-image {
+        .photo-container img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            height: auto;
+            border-radius: 4px;
+            display: block;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #222;
-        }
-
-        /* Фото городов из папки images */
-        .img-kolombo { background-image: url('images/kolombo.webp'); }
-        .img-negombo { background-image: url('images/negombo.webp'); }
-
-        .city-name {
-            font-size: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-align: center;
         }
 
         /* Кнопка назад */
@@ -148,12 +119,8 @@
         .back-btn:hover { opacity: 1; }
 
         @media (max-width: 600px) {
-            .cities-container {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
-            .city-name { font-size: 14px; }
             .country-title h1 { font-size: 24px; }
+            nav { gap: 20px; }
         }
     </style>
 </head>
@@ -171,21 +138,14 @@
             <h1>ШРИ-ЛАНКА</h1>
         </div>
 
-        <div class="cities-container">
-            
-            <a href="kolombo.html" class="city-card">
-                <div class="city-image img-kolombo"></div>
-                <span class="city-name">КОЛОМБО</span>
-            </a>
-
-            <a href="negombo.html" class="city-card">
-                <div class="city-image img-negombo"></div>
-                <span class="city-name">НЕГОМБО</span>
-            </a>
-
+        <div class="photo-container">
+            <img src="images/srilanka1.webp" alt="Sri Lanka">
+            <img src="images/srilanka2.webp" alt="Sri Lanka">
+            <img src="images/srilanka3.webp" alt="Sri Lanka">
+            <img src="images/srilanka4.webp" alt="Sri Lanka">
         </div>
 
-        <a href="countries.html" class="back-btn">← ко всем странам</a>
+        <a href="index.html" class="back-btn">← на главную</a>
     </div>
 
 </body>
