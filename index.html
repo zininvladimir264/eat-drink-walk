@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
-    <link rel="icon" type="image/png" href="icon.png?v=102">
-    <link rel="apple-touch-icon" href="icon.png?v=102">
-    <link rel="manifest" href="manifest.json?v=102">
+    <link rel="icon" type="image/png" href="icon.png?v=103">
+    <link rel="apple-touch-icon" href="icon.png?v=103">
+    <link rel="manifest" href="manifest.json?v=103">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
 
@@ -58,7 +58,6 @@
 
         .main-box {
             z-index: 2;
-            /* Подняли слова еще на 20px (итого -180px от центра) */
             margin-top: -180px; 
         }
 
@@ -71,17 +70,14 @@
         }
 
         .manifest-txt {
-            /* Опустили манифест на 20px вниз относительно заголовка (было -20px, стало 0px) */
-            margin: 0px auto 0; 
             text-transform: uppercase;
             line-height: 1.4;
             padding: 0 20px;
-            /* Шрифт остается черным */
             color: #000000; 
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР --- */
+        /* --- КОМПЬЮТЕР (БЕЗ ИЗМЕНЕНИЙ) --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -90,18 +86,21 @@
             .manifest-txt {
                 max-width: 600px !important;
                 font-size: 18px !important;
-                margin-top: 20px; /* Дополнительный отступ на ПК */
+                margin-top: 20px;
             }
         }
 
-        /* --- ТЕЛЕФОН (Android стандарт) --- */
+        /* --- ТЕЛЕФОН (ИЗМЕНЕНИЯ) --- */
         @media (max-width: 1023px) {
             .main-box h1 {
-                font-size: 24px;
+                /* Увеличено на 20% (было 24px -> стало ~29px) */
+                font-size: 29px; 
                 font-weight: normal;
                 letter-spacing: 1px;
             }
             .manifest-txt {
+                /* Опущено ниже на 60px */
+                margin-top: 60px; 
                 font-size: 12px;
                 max-width: 300px;
             }
