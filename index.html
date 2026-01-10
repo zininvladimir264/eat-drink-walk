@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
 
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=10.0">
-    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png?v=10.0">
-    <link rel="apple-touch-icon" href="icon-512.png?v=10.0">
-    
-    <link rel="manifest" href="manifest.json?v=10.0">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=10.1">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png?v=10.1">
+    <link rel="apple-touch-icon" href="icon-512.png?v=10.1">
+    <link rel="manifest" href="manifest.json?v=10.1">
     
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
@@ -80,7 +79,7 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР --- */
+        /* --- КОМПЬЮТЕР (БЕЗ ИЗМЕНЕНИЙ) --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -93,17 +92,20 @@
             }
         }
 
-        /* --- ТЕЛЕФОН --- */
+        /* --- ТЕЛЕФОН (ОБНОВЛЕННЫЙ ШРИФТ) --- */
         @media (max-width: 1023px) {
             .main-box h1 {
-                font-size: 29px; 
-                font-weight: normal;
+                /* Было 29px + 6px = 35px */
+                font-size: 35px; 
+                /* Сделали буквы потолще */
+                font-weight: 600; 
                 letter-spacing: 1px;
             }
             .manifest-txt {
                 margin-top: 60px; 
                 font-size: 12px;
                 max-width: 300px;
+                font-weight: bold;
             }
             .top-nav {
                 top: 25px;
