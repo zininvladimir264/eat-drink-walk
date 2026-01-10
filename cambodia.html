@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КАМБОДЖА — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #000;
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ФОН */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 80px;
+        }
+
+        /* Навигация */
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-family: Arial, sans-serif;
+            opacity: 0.3;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 0.7; }
+
+        .country-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        /* СЕТКА ГОРОДОВ */
+        .cities-container {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* КАРТОЧКА ГОРОДА */
+        .city-card {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .city-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .city-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #222;
+        }
+
+        /* Изображения Камбоджи */
+        .img-pnomp { background-image: url('images/pnomp.webp'); }
+        .img-sian { background-image: url('images/sian.webp'); }
+        .img-siem { background-image: url('images/siem.webp'); }
+
+        .city-name {
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .back-btn {
+            margin-top: 60px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 2px;
+            opacity: 0.4;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { opacity: 1; }
+
+        @media (max-width: 600px) {
+            .cities-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .city-name { font-size: 13px; }
+            .country-title h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-layer"></div>
+
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="countries.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="country-title">
+            <h1>КАМБОДЖА</h1>
+        </div>
+
+        <div class="cities-container">
+            
+            <a href="phnom-penh.html" class="city-card">
+                <div class="city-image img-pnomp"></div>
+                <span class="city-name">ПНОМПЕНЬ</span>
+            </a>
+
+            <a href="sihanoukville.html" class="city-card">
+                <div class="city-image img-sian"></div>
+                <span class="city-name">СИАНУКВИЛЬ</span>
+            </a>
+
+            <a href="siem-reap.html" class="city-card">
+                <div class="city-image img-siem"></div>
+                <span class="city-name">СИЕМРЕАП</span>
+            </a>
+
+        </div>
+
+        <a href="personal.html" class="back-btn">← ко всем странам</a>
+    </div>
+
+</body>
+</html>
