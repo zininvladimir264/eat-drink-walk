@@ -47,10 +47,10 @@
             text-transform: uppercase;
         }
 
-        /* КОНТИНЕНТЫ - ЦЕНТРИРОВАНИЕ */
+        /* КОНТИНЕНТЫ */
         .continent-section {
             width: 100%;
-            max-width: 600px; /* Сузил для более аккуратного вида по центру */
+            max-width: 800px; /* Увеличил общую ширину, чтобы влез зазор */
             margin-bottom: 50px;
             padding: 0 20px;
         }
@@ -61,26 +61,26 @@
             color: #fff;
             opacity: 0.3;
             text-transform: uppercase;
-            text-align: center; /* Заголовок континента по центру */
+            text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 25px;
             padding-bottom: 8px;
         }
 
-        /* СИММЕТРИЧНАЯ СЕТКА */
+        /* СИММЕТРИЧНАЯ СЕТКА С УВЕЛИЧЕННЫМ РАССТОЯНИЕМ */
         .countries-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            gap: 15px 40px;
+            gap: 15px 80px; /* Увеличил расстояние по ширине в два раза (с 40 до 80) */
         }
 
         .country-item {
             text-decoration: none;
             color: #fff;
             transition: 0.3s;
-            /* Выравнивание текста в колонках: левая к правому краю, правая к левому для симметрии */
         }
 
+        /* Симметричное выравнивание */
         .country-item:nth-child(odd) { text-align: right; }
         .country-item:nth-child(even) { text-align: left; }
 
@@ -104,7 +104,7 @@
 
         @media (max-width: 600px) {
             .continent-section { max-width: 100%; }
-            .countries-grid { gap: 12px 20px; }
+            .countries-grid { gap: 12px 30px; } /* На мобилках зазор чуть меньше, чтобы не ломать верстку */
             .country-name { font-size: 11px; }
             .page-title h1 { font-size: 22px; }
         }
