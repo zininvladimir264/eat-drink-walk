@@ -3,127 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ШРИ-ЛАНКА — ЕМ ПЬЮ ХОЖУ</title>
+    <title>ЕМ ПЬЮ ХОЖУ — ГЛАВНАЯ</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { background-color: #000; }
         body {
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            font-family: 'Arial Black', sans-serif;
+            background-color: #000;
             color: #fff;
-            overflow-x: hidden;
-        }
-
-        .bg-layer {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0; 
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/srilanka.webp');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: blur(8px);
-            transform: scale(1.1);
-            pointer-events: none;
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            min-height: 100vh;
+            font-family: 'Arial Black', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 80px;
+            min-height: 100vh;
         }
-
-        nav { padding: 40px 0; display: flex; gap: 40px; justify-content: center; }
+        nav { padding: 40px 0; display: flex; gap: 40px; }
         nav a {
             text-decoration: none; color: #fff; text-transform: uppercase;
-            font-size: 13px; letter-spacing: 3px; font-family: Arial, sans-serif;
-            opacity: 0.3; transition: 0.3s;
+            font-size: 13px; letter-spacing: 3px; opacity: 0.3;
         }
-        nav a:hover { opacity: 0.7; }
-
-        .country-title { text-align: center; margin-bottom: 50px; }
-        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
-
-        .cities-container {
-            width: 100%;
-            max-width: 900px;
+        .main-title {
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 10px;
+            font-size: 32px;
+        }
+        .countries-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 40px;
-            padding: 0 20px;
-        }
-
-        .city-card {
-            text-decoration: none; color: #fff;
-            display: flex; flex-direction: column; align-items: center;
-            transition: transform 0.3s ease;
-        }
-        .city-card:hover { transform: translateY(-10px); }
-
-        .city-image {
+            gap: 30px;
             width: 100%;
-            aspect-ratio: 1 / 1;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        .country-card {
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .country-card:hover { transform: scale(1.05); }
+        .country-img {
+            width: 100%;
+            aspect-ratio: 16/9;
             background-size: cover;
             background-position: center;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #333; /* Серый фон, если картинка не загрузится */
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background-color: #222;
         }
+        /* Фото стран */
+        .img-thai { background-image: url('images/bravo.jpg'); }
+        .img-viet { background-image: url('images/ho.webp'); }
+        .img-malay { background-image: url('images/kl.webp'); }
+        .img-korea { background-image: url('images/seul.jpg'); }
+        .img-sri { background-image: url('images/kolombo.webp'); }
 
-        .city-name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
-
-        .back-btn {
-            margin-top: 60px; text-decoration: none; color: #fff;
-            font-size: 11px; letter-spacing: 2px; opacity: 0.4;
-            text-transform: uppercase; transition: 0.3s;
-        }
-        .back-btn:hover { opacity: 1; }
-
-        @media (max-width: 600px) {
-            .cities-container { grid-template-columns: 1fr 1fr; gap: 20px; }
-            .city-name { font-size: 14px; }
-            .country-title h1 { font-size: 24px; }
-        }
+        .country-name { font-size: 18px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="personal.html">ПЕРСОНАЛ</a>
+        <a href="friends.html">ДРУЗЬЯ</a>
+    </nav>
 
-    <div class="bg-layer"></div>
+    <h1 class="main-title">ЕМ ПЬЮ ХОЖУ</h1>
 
-    <div class="content-wrapper">
-        <nav>
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="countries.html">СТРАНЫ</a>
-        </nav>
-
-        <div class="country-title">
-            <h1>ШРИ-ЛАНКА</h1>
-        </div>
-
-        <div class="cities-container">
-            
-            <a href="kolombo.html" class="city-card">
-                <div class="city-image" style="background-image: url('images/kolombo.webp');"></div>
-                <span class="city-name">КОЛОМБО</span>
-            </a>
-
-            <a href="negombo.html" class="city-card">
-                <div class="city-image" style="background-image: url('images/negombo.webp');"></div>
-                <span class="city-name">НЕГОМБО</span>
-            </a>
-
-        </div>
-
-        <a href="countries.html" class="back-btn">← ко всем странам</a>
+    <div class="countries-grid">
+        <a href="thailand.html" class="country-card">
+            <div class="country-img img-thai"></div>
+            <div class="country-name">ТАИЛАНД</div>
+        </a>
+        <a href="vietnam.html" class="country-card">
+            <div class="country-img img-viet"></div>
+            <div class="country-name">ВЬЕТНАМ</div>
+        </a>
+        <a href="malaysia.html" class="country-card">
+            <div class="country-img img-malay"></div>
+            <div class="country-name">МАЛАЙЗИЯ</div>
+        </a>
+        <a href="south-korea.html" class="country-card">
+            <div class="country-img img-korea"></div>
+            <div class="country-name">ЮЖНАЯ КОРЕЯ</div>
+        </a>
+        <a href="srilanka.html" class="country-card">
+            <div class="country-img img-sri"></div>
+            <div class="country-name">ШРИ-ЛАНКА</div>
+        </a>
     </div>
-
 </body>
 </html>
