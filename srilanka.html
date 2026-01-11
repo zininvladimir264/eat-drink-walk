@@ -68,6 +68,10 @@
             transition: 0.3s;
         }
 
+        .city-card:hover {
+            transform: translateY(-10px);
+        }
+
         .city-image {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -75,13 +79,17 @@
             background-position: center;
             border-radius: 15px;
             margin-bottom: 15px;
-            background-color: #222;
-            /* Пробуем разные варианты путей для надежности */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #1a1a1a;
         }
 
-        /* ИСПОЛЬЗУЕМ АБСОЛЮТНЫЕ ПУТИ ОТ КОРНЯ ДОМЕНА */
-        .img-kolombo { background-image: url('/images/kolombo.webp'); }
-        .img-negombo { background-image: url('/images/negombo.webp'); }
+        /* ПОЛНЫЕ ССЫЛКИ ДЛЯ МАКСИМАЛЬНОЙ НАДЕЖНОСТИ */
+        .img-kolombo { 
+            background-image: url('https://vazinin.ru/images/kolombo.webp'); 
+        }
+        .img-negombo { 
+            background-image: url('https://vazinin.ru/images/negombo.webp'); 
+        }
 
         .city-name {
             font-size: 20px;
@@ -101,14 +109,15 @@
         @media (max-width: 600px) {
             .city-card { width: 140px; }
             .city-name { font-size: 12px; }
+            .country-title h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="/index.html">ГЛАВНАЯ</a>
-        <a href="/countries.html">СТРАНЫ</a>
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="countries.html">СТРАНЫ</a>
     </nav>
 
     <div class="country-title">
@@ -129,7 +138,7 @@
 
     </div>
 
-    <a href="/countries.html" class="back-btn">← назад к странам</a>
+    <a href="countries.html" class="back-btn">← назад к странам</a>
 
 </body>
 </html>
