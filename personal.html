@@ -50,7 +50,7 @@
         /* КОНТИНЕНТЫ */
         .continent-section {
             width: 100%;
-            max-width: 800px; /* Увеличил общую ширину, чтобы влез зазор */
+            max-width: 900px; 
             margin-bottom: 50px;
             padding: 0 20px;
         }
@@ -67,11 +67,11 @@
             padding-bottom: 8px;
         }
 
-        /* СИММЕТРИЧНАЯ СЕТКА С УВЕЛИЧЕННЫМ РАССТОЯНИЕМ */
+        /* СЕТКА С РАССТОЯНИЕМ 120PX */
         .countries-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            gap: 15px 80px; /* Увеличил расстояние по ширине в два раза (с 40 до 80) */
+            gap: 15px 120px; /* Установил ровно 120 пикселей между колонками */
         }
 
         .country-item {
@@ -80,7 +80,7 @@
             transition: 0.3s;
         }
 
-        /* Симметричное выравнивание */
+        /* Симметричное выравнивание текста */
         .country-item:nth-child(odd) { text-align: right; }
         .country-item:nth-child(even) { text-align: left; }
 
@@ -104,7 +104,7 @@
 
         @media (max-width: 600px) {
             .continent-section { max-width: 100%; }
-            .countries-grid { gap: 12px 30px; } /* На мобилках зазор чуть меньше, чтобы не ломать верстку */
+            .countries-grid { gap: 12px 30px; } /* На мобилках компактнее */
             .country-name { font-size: 11px; }
             .page-title h1 { font-size: 22px; }
         }
