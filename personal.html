@@ -47,31 +47,31 @@
             text-transform: uppercase;
         }
 
-        /* КОНТИНЕНТЫ */
+        /* КОНТИНЕНТЫ - ОБНОВЛЕННЫЙ СТИЛЬ */
         .continent-section {
             width: 100%;
             max-width: 900px; 
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             padding: 0 20px;
         }
 
         .continent-title {
-            font-size: 12px;
+            font-size: 22px; /* Увеличил на 10px (было 12px) */
             letter-spacing: 5px;
             color: #fff;
-            opacity: 0.3;
+            opacity: 1; /* Сделал максимально ярким */
             text-transform: uppercase;
             text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 25px;
-            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255,255,255,0.3); /* Линия чуть толще */
+            margin-bottom: 30px;
+            padding-bottom: 10px;
         }
 
-        /* СЕТКА С РАССТОЯНИЕМ 120PX */
+        /* СЕТКА СТРАН */
         .countries-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            gap: 15px 120px; /* Установил ровно 120 пикселей между колонками */
+            gap: 15px 120px;
         }
 
         .country-item {
@@ -80,9 +80,8 @@
             transition: 0.3s;
         }
 
-        /* Симметричное выравнивание текста */
         .country-item:nth-child(odd) { text-align: right; }
-        .country-item:nth-child(even) { text-align: left; }
+        .country-item:even { text-align: left; }
 
         .country-item:hover { opacity: 0.5; }
 
@@ -104,9 +103,10 @@
 
         @media (max-width: 600px) {
             .continent-section { max-width: 100%; }
-            .countries-grid { gap: 12px 30px; } /* На мобилках компактнее */
+            .countries-grid { gap: 12px 30px; }
             .country-name { font-size: 11px; }
             .page-title h1 { font-size: 22px; }
+            .continent-title { font-size: 18px; } /* На мобилках чуть меньше, но всё равно крупно */
         }
     </style>
 </head>
