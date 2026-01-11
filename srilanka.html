@@ -5,23 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ШРИ-ЛАНКА — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             background-color: #000;
-            font-family: 'Arial Black', sans-serif;
             color: #fff;
+            font-family: 'Arial Black', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* Навигация */
+        /* Навигация как в работающих файлах */
         nav {
             padding: 40px 0;
             display: flex;
@@ -34,16 +30,12 @@
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            font-family: Arial, sans-serif;
             opacity: 0.3;
-            transition: 0.3s;
         }
 
-        nav a:hover { opacity: 0.7; }
-
         .country-title {
-            text-align: center;
             margin-bottom: 50px;
+            text-align: center;
         }
 
         .country-title h1 {
@@ -53,64 +45,53 @@
         }
 
         /* Контейнер карточек */
-        .cities-container {
+        .cities-grid {
             width: 100%;
             max-width: 900px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            display: flex;
+            justify-content: center;
             gap: 40px;
+            flex-wrap: wrap;
             padding: 0 20px;
         }
 
-        .city-card {
+        .city-link {
             text-decoration: none;
             color: #fff;
+            width: 300px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.3s ease;
         }
 
-        .city-card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Картинка города */
-        .city-image {
+        /* Фотографии городов */
+        .photo {
             width: 100%;
             aspect-ratio: 1 / 1;
+            border-radius: 12px;
             background-size: cover;
             background-position: center;
-            border-radius: 12px;
             margin-bottom: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #222; /* Цвет заглушки */
+            background-color: #333; /* Показывает квадрат, если фото нет */
         }
 
-        /* Привязка фото из вашего GitHub */
+        /* Прямые ссылки на ваши файлы в GitHub */
         .img-kolombo { background-image: url('images/kolombo.webp'); }
         .img-negombo { background-image: url('images/negombo.webp'); }
 
-        .city-name {
+        .name {
             font-size: 20px;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .back-btn {
+        .back {
             margin-top: 60px;
             text-decoration: none;
             color: #fff;
             font-size: 11px;
-            letter-spacing: 2px;
             opacity: 0.4;
             text-transform: uppercase;
-            padding-bottom: 50px;
-        }
-
-        @media (max-width: 600px) {
-            .cities-container { grid-template-columns: 1fr 1fr; gap: 20px; }
-            .city-name { font-size: 14px; }
         }
     </style>
 </head>
@@ -125,21 +106,21 @@
         <h1>ШРИ-ЛАНКА</h1>
     </div>
 
-    <div class="cities-container">
+    <div class="cities-grid">
         
-        <a href="kolombo.html" class="city-card">
-            <div class="city-image img-kolombo"></div>
-            <span class="city-name">КОЛОМБО</span>
+        <a href="kolombo.html" class="city-link">
+            <div class="photo img-kolombo"></div>
+            <span class="name">КОЛОМБО</span>
         </a>
 
-        <a href="negombo.html" class="city-card">
-            <div class="city-image img-negombo"></div>
-            <span class="city-name">НЕГОМБО</span>
+        <a href="negombo.html" class="city-link">
+            <div class="photo img-negombo"></div>
+            <span class="name">НЕГОМБО</span>
         </a>
 
     </div>
 
-    <a href="countries.html" class="back-btn">← ко всем странам</a>
+    <a href="countries.html" class="back">← назад к странам</a>
 
 </body>
 </html>
