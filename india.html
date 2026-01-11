@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИНДИЯ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial Black', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.4;
+        }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .city-link {
+            text-decoration: none;
+            color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .city-link:hover {
+            transform: translateY(-10px);
+        }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+        }
+
+        /* ФОТО ИНДИИ */
+        .img-deli { background-image: url('images/deli.webp'); }
+        .img-djaypur { background-image: url('images/djaypur.webp'); }
+        .img-agra { background-image: url('images/agra.webp'); }
+
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .city-link { width: 140px; }
+            .name { font-size: 12px; }
+            .country-title h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="personal.html">СТРАНЫ</a>
+    </nav>
+
+    <div class="country-title">
+        <h1>ИНДИЯ</h1>
+    </div>
+
+    <div class="cities-grid">
+        <a href="deli.html" class="city-link">
+            <div class="photo img-deli"></div>
+            <span class="name">ДЕЛИ</span>
+        </a>
+
+        <a href="djaypur.html" class="city-link">
+            <div class="photo img-djaypur"></div>
+            <span class="name">ДЖАЙПУР</span>
+        </a>
+
+        <a href="agra.html" class="city-link">
+            <div class="photo img-agra"></div>
+            <span class="name">АГРА</span>
+        </a>
+    </div>
+
+    <a href="personal.html" class="back">← назад к странам</a>
+
+</body>
+</html>
