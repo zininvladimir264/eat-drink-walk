@@ -19,10 +19,9 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* Навигация */
+        /* Навигация сверху */
         nav {
             padding: 40px 0;
             display: flex;
@@ -36,11 +35,11 @@
             font-size: 13px;
             letter-spacing: 3px;
             font-family: Arial, sans-serif;
-            opacity: 0.3;
+            opacity: 0.4;
             transition: 0.3s;
         }
 
-        nav a:hover { opacity: 0.7; }
+        nav a:hover { opacity: 1; }
 
         .country-title {
             text-align: center;
@@ -53,7 +52,7 @@
             text-transform: uppercase;
         }
 
-        /* Сетка городов */
+        /* Сетка с городами */
         .cities-container {
             width: 100%;
             max-width: 900px;
@@ -78,19 +77,19 @@
             transform: translateY(-10px);
         }
 
-        /* Фотографии */
+        /* Блок для фото */
         .city-image {
             width: 100%;
             aspect-ratio: 1 / 1;
             background-size: cover;
             background-position: center;
-            border-radius: 12px;
+            border-radius: 15px;
             margin-bottom: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #222;
+            background-color: #222; /* Серый фон, если фото грузится долго */
         }
 
-        /* Пути без начального слеша — это важно для домена */
+        /* Привязка ваших картинок из папки images */
         .img-kolombo { background-image: url('images/kolombo.webp'); }
         .img-negombo { background-image: url('images/negombo.webp'); }
 
@@ -111,10 +110,12 @@
             text-transform: uppercase;
         }
 
+        /* Адаптация для мобильных */
         @media (max-width: 600px) {
             .city-card { width: 140px; }
             .city-name { font-size: 12px; }
             .country-title h1 { font-size: 24px; }
+            nav { gap: 20px; }
         }
     </style>
 </head>
@@ -143,7 +144,7 @@
 
     </div>
 
-    <a href="countries.html" class="back-btn">← ко всем странам</a>
+    <a href="countries.html" class="back-btn">← назад к странам</a>
 
 </body>
 </html>
