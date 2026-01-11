@@ -2,117 +2,134 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
+
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" href="icon-512.png">
+    
+    <link rel="manifest" href="manifest.json">
+    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+
     <style>
-        * {
+        html, body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
             width: 100%;
             height: 100%;
             background-color: #000;
-            font-family: 'Arial Black', sans-serif;
             color: #fff;
+            font-family: sans-serif;
             overflow: hidden;
         }
 
-        /* Фоновое изображение bravo1.jpg */
-        .background-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .screen-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bravo1.jpg');
+            background: url('bravo1.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .main-content {
-            position: relative;
-            z-index: 10;
-            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-        }
-
-        /* Верхняя навигация */
-        nav {
-            position: absolute;
-            top: 50px;
-            display: flex;
-            gap: 40px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 3px;
-            opacity: 0.6;
-            transition: 0.3s;
-            font-family: Arial, sans-serif;
-        }
-
-        nav a:hover {
-            opacity: 1;
-        }
-
-        /* Манифест / Название */
-        .manifest {
-            font-size: 60px;
-            letter-spacing: 15px;
-            text-transform: uppercase;
+            justify-content: center;
             text-align: center;
-            line-height: 1.2;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
-        /* Кнопка входа */
-        .enter-button {
-            margin-top: 40px;
+        /* Меню по центру */
+        .top-nav {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            z-index: 10;
+        }
+
+        .top-nav a {
             text-decoration: none;
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.5);
-            padding: 18px 45px;
-            font-size: 14px;
-            letter-spacing: 5px;
+            color: #000000;
+            font-weight: normal;
             text-transform: uppercase;
-            transition: 0.3s;
+            font-size: 14px;
+            letter-spacing: 2px;
         }
 
-        .enter-button:hover {
-            background-color: #fff;
-            color: #000;
+        /* Основной блок текста */
+        .main-box {
+            z-index: 2;
+            margin-top: -180px; 
         }
 
-        @media (max-width: 600px) {
-            .manifest { font-size: 32px; letter-spacing: 8px; }
-            nav { gap: 20px; }
+        h1 {
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .manifest-txt {
+            text-transform: uppercase;
+            line-height: 1.4;
+            padding: 0 20px;
+            color: #000000; 
+            font-weight: bold;
+        }
+
+        /* --- КОМПЬЮТЕР --- */
+        @media (min-width: 1024px) {
+            .main-box h1 {
+                font-size: 70px !important;
+                letter-spacing: 4px;
+            }
+            .manifest-txt {
+                max-width: 600px !important;
+                font-size: 18px !important;
+                margin-top: 20px;
+            }
+        }
+
+        /* --- ТЕЛЕФОН --- */
+        @media (max-width: 1023px) {
+            .main-box h1 {
+                font-size: 29px; 
+                font-weight: normal;
+                letter-spacing: 1px;
+            }
+            .manifest-txt {
+                margin-top: 60px; 
+                font-size: 12px;
+                max-width: 300px;
+            }
+            .top-nav {
+                top: 25px;
+                gap: 25px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="background-overlay"></div>
-
-    <div class="main-content">
-        <nav>
-            <a href="personal.html">ПЕРСОНАЛ</a>
-            <a href="friends.html">ДРУЗЬЯ</a>
+    <div class="screen-container">
+        <nav class="top-nav">
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="countries.html">СТРАНЫ</a>
         </nav>
 
-        <h1 class="manifest">ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-        
-        <a href="countries.html" class="enter-button">ВХОД</a>
+        <div class="main-box">
+            <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
+            <div class="manifest-txt">
+                Рецептов не будет. Советов тоже.<br>
+                Только то, что было на моем столе<br>
+                в разных точках мира.
+            </div>
+        </div>
     </div>
 
 </body>
