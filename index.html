@@ -5,90 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ — ГЛАВНАЯ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
             background-color: #000;
-            color: #fff;
             font-family: 'Arial Black', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a {
-            text-decoration: none; color: #fff; text-transform: uppercase;
-            font-size: 13px; letter-spacing: 3px; opacity: 0.3;
-        }
-        .main-title {
-            text-align: center;
-            margin-bottom: 50px;
-            letter-spacing: 10px;
-            font-size: 32px;
-        }
-        .countries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-        }
-        .country-card {
-            text-decoration: none;
             color: #fff;
-            text-align: center;
-            transition: 0.3s;
+            overflow: hidden; /* Чтобы не было прокрутки на главной */
         }
-        .country-card:hover { transform: scale(1.05); }
-        .country-img {
+
+        /* ТО САМОЕ ФОНОВОЕ ИЗОБРАЖЕНИЕ */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            aspect-ratio: 16/9;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bravo1.jpg');
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            background-color: #222;
+            z-index: 1;
         }
-        /* Фото стран */
-        .img-thai { background-image: url('images/bravo.jpg'); }
-        .img-viet { background-image: url('images/ho.webp'); }
-        .img-malay { background-image: url('images/kl.webp'); }
-        .img-korea { background-image: url('images/seul.jpg'); }
-        .img-sri { background-image: url('images/kolombo.webp'); }
 
-        .country-name { font-size: 18px; letter-spacing: 2px; }
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        nav {
+            position: absolute;
+            top: 40px;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-family: Arial, sans-serif;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        .main-title {
+            font-size: 48px;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .enter-link {
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 15px 40px;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .enter-link:hover {
+            background-color: #fff;
+            color: #000;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="personal.html">ПЕРСОНАЛ</a>
-        <a href="friends.html">ДРУЗЬЯ</a>
-    </nav>
 
-    <h1 class="main-title">ЕМ ПЬЮ ХОЖУ</h1>
+    <div class="bg-image"></div>
 
-    <div class="countries-grid">
-        <a href="thailand.html" class="country-card">
-            <div class="country-img img-thai"></div>
-            <div class="country-name">ТАИЛАНД</div>
-        </a>
-        <a href="vietnam.html" class="country-card">
-            <div class="country-img img-viet"></div>
-            <div class="country-name">ВЬЕТНАМ</div>
-        </a>
-        <a href="malaysia.html" class="country-card">
-            <div class="country-img img-malay"></div>
-            <div class="country-name">МАЛАЙЗИЯ</div>
-        </a>
-        <a href="south-korea.html" class="country-card">
-            <div class="country-img img-korea"></div>
-            <div class="country-name">ЮЖНАЯ КОРЕЯ</div>
-        </a>
-        <a href="srilanka.html" class="country-card">
-            <div class="country-img img-sri"></div>
-            <div class="country-name">ШРИ-ЛАНКА</div>
-        </a>
+    <div class="content">
+        <nav>
+            <a href="personal.html">ПЕРСОНАЛ</a>
+            <a href="friends.html">ДРУЗЬЯ</a>
+        </nav>
+
+        <h1 class="main-title">ЕМ ПЬЮ ХОЖУ</h1>
+        
+        <a href="countries.html" class="enter-link">СМОТРЕТЬ СТРАНЫ</a>
     </div>
+
 </body>
 </html>
