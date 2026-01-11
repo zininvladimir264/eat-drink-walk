@@ -3,60 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЛИЧНЫЙ ОПЫТ — ЕМ ПЬЮ ХОЖУ</title>
+    <title>СТРАНЫ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            background-color: #000;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            font-family: 'Arial Black', sans-serif;
+            background-color: #000;
             color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* ФОН */
-        .bg-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0; 
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: blur(8px);
-            transform: scale(1.1);
-            pointer-events: none;
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            min-height: 100vh;
+            font-family: 'Arial Black', sans-serif;
             display: flex;
             flex-direction: column;
-            padding-bottom: 80px;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* Навигация */
         nav {
             padding: 40px 0;
             display: flex;
             gap: 40px;
-            justify-content: center;
         }
 
         nav a {
@@ -65,144 +29,68 @@
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            font-family: Arial, sans-serif;
-            opacity: 0.3;
-            transition: 0.3s;
-        }
-
-        nav a:hover { opacity: 0.7; }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .page-title h1 {
-            font-size: 28px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        /* КОНТИНЕНТЫ - ЗАГОЛОВКИ */
-        .continent-section {
-            max-width: 800px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-        }
-
-        .continent-title {
-            font-size: 14px;
-            letter-spacing: 5px;
-            color: #fff;
             opacity: 0.4;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 20px;
-            padding-bottom: 5px;
-            font-family: Arial, sans-serif;
         }
 
-        /* СЕТКА СТРАН (2 столбика) */
-        .countries-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px 40px;
+        .title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .countries-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
         }
 
         .country-item {
             text-decoration: none;
             color: #fff;
-            display: flex;
-            flex-direction: column;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 8px;
-            transition: 0.3s;
+            font-size: 24px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
         }
 
         .country-item:hover {
-            border-bottom: 1px solid rgba(255, 255, 255, 1);
-            transform: translateX(5px);
+            opacity: 0.6;
         }
 
-        .country-name {
-            font-size: 14px;
-            letter-spacing: 1px;
+        .back-home {
+            margin-top: 60px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            opacity: 0.4;
             text-transform: uppercase;
-        }
-
-        @media (max-width: 600px) {
-            .countries-grid { gap: 12px 15px; }
-            .country-name { font-size: 11px; }
-            .page-title h1 { font-size: 20px; }
-            .continent-title { font-size: 11px; }
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-layer"></div>
+    <nav>
+        <a href="index.html">ГЛАВНАЯ</a>
+    </nav>
 
-    <div class="content-wrapper">
-        <nav>
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="countries.html">СТРАНЫ</a>
-        </nav>
-
-        <div class="page-title">
-            <h1>ЛИЧНЫЙ ОПЫТ</h1>
-        </div>
-
-        <div class="continent-section">
-            <div class="continent-title">АЗИЯ</div>
-            <div class="countries-grid">
-                <a href="south-korea.html" class="country-item"><span class="country-name">Южная Корея</span></a>
-                <a href="malaysia.html" class="country-item"><span class="country-name">Малайзия</span></a>
-                <a href="vietnam.html" class="country-item"><span class="country-name">Вьетнам</span></a>
-                <a href="thailand.html" class="country-item"><span class="country-name">Таиланд</span></a>
-                <a href="cambodia.html" class="country-item"><span class="country-name">Камбоджа</span></a>
-                <a href="srilanka.html" class="country-item"><span class="country-name">ШриЛанка</span></a>
-                <a href="india.html" class="country-item"><span class="country-name">Индия</span></a>
-                <a href="uzbekistan.html" class="country-item"><span class="country-name">Узбекистан</span></a>
-                <a href="kazakhstan.html" class="country-item"><span class="country-name">Казахстан</span></a>
-                <a href="kyrgyzstan.html" class="country-item"><span class="country-name">Кыргызстан</span></a>
-                <a href="tajikistan.html" class="country-item"><span class="country-name">Таджикистан</span></a>
-                <a href="lebanon.html" class="country-item"><span class="country-name">Ливан</span></a>
-                <a href="oman.html" class="country-item"><span class="country-name">Оман</span></a>
-                <a href="uae.html" class="country-item"><span class="country-name">ОАЭ</span></a>
-            </div>
-        </div>
-
-        <div class="continent-section">
-            <div class="continent-title">ЕВРОПА</div>
-            <div class="countries-grid">
-                <a href="montenegro.html" class="country-item"><span class="country-name">Черногория</span></a>
-                <a href="serbia.html" class="country-item"><span class="country-name">Сербия</span></a>
-                <a href="portugal.html" class="country-item"><span class="country-name">Португалия</span></a>
-                <a href="spain.html" class="country-item"><span class="country-name">Испания</span></a>
-                <a href="estonia.html" class="country-item"><span class="country-name">Эстония</span></a>
-                <a href="latvia.html" class="country-item"><span class="country-name">Латвия</span></a>
-                <a href="lithuania.html" class="country-item"><span class="country-name">Литва</span></a>
-                <a href="belarus.html" class="country-item"><span class="country-name">Беларусь</span></a>
-                <a href="moldova.html" class="country-item"><span class="country-name">Молдова</span></a>
-                <a href="bosnia.html" class="country-item"><span class="country-name">Босния и Герцеговина</span></a>
-                <a href="austria.html" class="country-item"><span class="country-name">Австрия</span></a>
-            </div>
-        </div>
-
-        <div class="continent-section">
-            <div class="continent-title">КАВКАЗ И ЕВРАЗИЯ</div>
-            <div class="countries-grid">
-                <a href="russia.html" class="country-item"><span class="country-name">Россия</span></a>
-                <a href="georgia.html" class="country-item"><span class="country-name">Грузия</span></a>
-                <a href="armenia.html" class="country-item"><span class="country-name">Армения</span></a>
-                <a href="azerbaijan.html" class="country-item"><span class="country-name">Азербайджан</span></a>
-                <a href="abkhazia.html" class="country-item"><span class="country-name">Абхазия</span></a>
-                <a href="turkey.html" class="country-item"><span class="country-name">Турция</span></a>
-                <a href="northern-cyprus.html" class="country-item"><span class="country-name">Северный Кипр</span></a>
-                <a href="egypt.html" class="country-item"><span class="country-name">Египет</span></a>
-            </div>
-        </div>
-
+    <div class="title">
+        <h1>СТРАНЫ</h1>
     </div>
+
+    <div class="countries-list">
+        <a href="malaysia.html" class="country-item">МАЛАЙЗИЯ</a>
+        <a href="srilanka.html" class="country-item">ШРИ-ЛАНКА</a>
+        <a href="kazakhstan.html" class="country-item">КАЗАХСТАН</a>
+    </div>
+
+    <a href="index.html" class="back-home">← на главную</a>
+
 </body>
 </html>
