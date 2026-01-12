@@ -15,7 +15,6 @@
             background-color: #000;
         }
 
-        /* ТЕПЕРЬ СТРОГО КАК В СЕРБИИ */
         body {
             width: 100%;
             height: 100%;
@@ -28,6 +27,7 @@
             align-items: center;
         }
 
+        /* Слой фона с размытием */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -35,7 +35,6 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.webp');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -44,6 +43,7 @@
             pointer-events: none;
         }
 
+        /* Обертка контента */
         .content-wrapper {
             position: relative;
             z-index: 2;
@@ -114,7 +114,7 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* ФОТО ГОРОДОВ */
+        /* КАРТИНКИ ГОРОДОВ */
         .img-tashkent { background-image: url('images/tash.webp'); }
         .img-samarkand { background-image: url('images/samark.webp'); }
         .img-bukhara { background-image: url('images/bukhara.webp'); }
@@ -147,7 +147,7 @@
 </head>
 <body>
 
-    <div class="bg-layer"></div>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
 
     <div class="content-wrapper">
         <nav>
