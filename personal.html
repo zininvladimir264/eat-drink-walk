@@ -47,7 +47,7 @@
             text-transform: uppercase;
         }
 
-        /* КОНТИНЕНТЫ - ОБНОВЛЕННЫЙ СТИЛЬ */
+        /* КОНТИНЕНТЫ */
         .continent-section {
             width: 100%;
             max-width: 900px; 
@@ -56,13 +56,13 @@
         }
 
         .continent-title {
-            font-size: 22px; /* Увеличил на 10px (было 12px) */
+            font-size: 22px;
             letter-spacing: 5px;
             color: #fff;
-            opacity: 1; /* Сделал максимально ярким */
+            opacity: 1;
             text-transform: uppercase;
             text-align: center;
-            border-bottom: 2px solid rgba(255,255,255,0.3); /* Линия чуть толще */
+            border-bottom: 2px solid rgba(255,255,255,0.3);
             margin-bottom: 30px;
             padding-bottom: 10px;
         }
@@ -78,10 +78,11 @@
             text-decoration: none;
             color: #fff;
             transition: 0.3s;
+            white-space: nowrap; /* Запрещаем перенос строки внутри названия */
         }
 
         .country-item:nth-child(odd) { text-align: right; }
-        .country-item:even { text-align: left; }
+        .country-item:nth-child(even) { text-align: left; }
 
         .country-item:hover { opacity: 0.5; }
 
@@ -106,7 +107,7 @@
             .countries-grid { gap: 12px 30px; }
             .country-name { font-size: 11px; }
             .page-title h1 { font-size: 22px; }
-            .continent-title { font-size: 18px; } /* На мобилках чуть меньше, но всё равно крупно */
+            .continent-title { font-size: 18px; }
         }
     </style>
 </head>
@@ -153,7 +154,7 @@
             <a href="lithuania.html" class="country-item"><span class="country-name">Литва</span></a>
             <a href="belarus.html" class="country-item"><span class="country-name">Беларусь</span></a>
             <a href="moldova.html" class="country-item"><span class="country-name">Молдова</span></a>
-            <a href="bosnia.html" class="country-item"><span class="country-name">Босния и Герцеговина</span></a>
+            <a href="bosnia.html" class="country-item"><span class="country-name">Босния</span></a>
             <a href="austria.html" class="country-item"><span class="country-name">Австрия</span></a>
         </div>
     </div>
