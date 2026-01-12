@@ -5,39 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>УЗБЕКИСТАН — ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Сброс стилей */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-            width: 100%;
+        html {
             background-color: #000;
-            font-family: 'Arial Black', sans-serif;
-            color: #fff;
-            margin: 0;
         }
 
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Фирменный слой фона с размытием */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
+            z-index: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.webp');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             filter: blur(8px);
             transform: scale(1.1);
+            pointer-events: none;
         }
 
+        /* Обертка контента */
         .content-wrapper {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -57,7 +68,10 @@
             font-size: 13px;
             letter-spacing: 3px;
             opacity: 0.5;
+            transition: 0.3s;
         }
+
+        nav a:hover { opacity: 1; }
 
         .country-title {
             margin-bottom: 50px;
@@ -70,6 +84,7 @@
             text-transform: uppercase;
         }
 
+        /* Сетка городов */
         .cities-grid {
             display: flex;
             flex-wrap: wrap;
@@ -102,9 +117,9 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* КАРТИНКИ ГОРОДОВ */
-        .img-tash { background-image: url('images/tash.webp'); }
-        .img-samark { background-image: url('images/samark.webp'); }
+        /* КАРТИНКИ ГОРОДОВ УЗБЕКИСТАНА */
+        .img-tashkent { background-image: url('images/tash.webp'); }
+        .img-samarkand { background-image: url('images/samark.webp'); }
         .img-bukhara { background-image: url('images/bukhara.webp'); }
         .img-jizak { background-image: url('images/jizak.webp'); }
         .img-fergana { background-image: url('images/fergana.webp'); }
@@ -125,10 +140,12 @@
             letter-spacing: 2px;
         }
 
+        /* Адаптив для мобилок */
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
             .name { font-size: 11px; }
+            .country-title h1 { font-size: 24px; }
         }
     </style>
 </head>
@@ -148,21 +165,25 @@
 
         <div class="cities-grid">
             <a href="tashkent.html" class="city-link">
-                <div class="photo img-tash"></div>
+                <div class="photo img-tashkent"></div>
                 <span class="name">ТАШКЕНТ</span>
             </a>
+
             <a href="samarkand.html" class="city-link">
-                <div class="photo img-samark"></div>
+                <div class="photo img-samarkand"></div>
                 <span class="name">САМАРКАНД</span>
             </a>
+
             <a href="bukhara.html" class="city-link">
                 <div class="photo img-bukhara"></div>
                 <span class="name">БУХАРА</span>
             </a>
+
             <a href="jizak.html" class="city-link">
                 <div class="photo img-jizak"></div>
                 <span class="name">ДЖИЗАК</span>
             </a>
+
             <a href="fergana.html" class="city-link">
                 <div class="photo img-fergana"></div>
                 <span class="name">ФЕРГАНА</span>
