@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             background-color: #000;
         }
@@ -27,7 +27,7 @@
             align-items: center;
         }
 
-        /* СЛОЙ ФОНА С MIR1.JPG */
+        /* СЛОЙ ФОНА (Строка 38 твоего кода) */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -35,8 +35,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* ИСПРАВЛЕНО НА .JPG */
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
+            /* Путь к файлу в папке images */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -47,7 +47,7 @@
 
         .content-wrapper {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -113,10 +113,9 @@
             margin-bottom: 15px;
             background-color: #222;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* КАРТИНКИ ГОРОДОВ */
+        /* КАРТИНКИ КАРТОЧЕК */
         .img-beograd { background-image: url('images/beograd.webp'); }
         .img-ns { background-image: url('images/ns.webp'); }
         .img-sremski { background-image: url('images/sremski.webp'); }
@@ -126,7 +125,6 @@
             font-size: 20px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-align: center;
         }
 
         .back {
