@@ -9,11 +9,11 @@
         
         body {
             background-color: #000;
-            /* ДОБАВЛЯЕМ ОБЩИЙ ФОН СТРАНИЦЫ */
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/beograd.webp'); 
+            /* ОСНОВНОЙ ФОН СТРАНИЦЫ (Замените beograd.webp на основной фон, если он другой) */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('beograd.webp'); 
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Фон не движется при скролле */
+            background-attachment: fixed;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
             display: flex;
@@ -26,6 +26,7 @@
             padding: 40px 0;
             display: flex;
             gap: 40px;
+            z-index: 10;
         }
 
         nav a {
@@ -34,7 +35,7 @@
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            opacity: 0.6;
+            opacity: 0.5;
             transition: 0.3s;
         }
 
@@ -43,13 +44,13 @@
         .country-title {
             margin-bottom: 50px;
             text-align: center;
+            position: relative;
         }
 
         .country-title h1 {
             font-size: 32px;
             letter-spacing: 6px;
             text-transform: uppercase;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8); /* Чтобы текст лучше читался на фоне */
         }
 
         .cities-grid {
@@ -59,6 +60,7 @@
             gap: 40px;
             max-width: 1100px;
             padding: 0 20px;
+            position: relative;
         }
 
         .city-link {
@@ -82,12 +84,11 @@
             background-position: center;
             border-radius: 12px;
             margin-bottom: 15px;
-            background-color: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #222;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* КАРТИНКИ ВНУТРИ КАРТОЧЕК */
+        /* КАРТИНКИ КАРТОЧЕК (Здесь оставил images/, если они там лежат) */
         .img-beograd { background-image: url('images/beograd.webp'); }
         .img-ns { background-image: url('images/ns.webp'); }
         .img-sremski { background-image: url('images/sremski.webp'); }
@@ -97,7 +98,6 @@
             font-size: 20px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
         .back {
@@ -106,13 +106,16 @@
             text-decoration: none;
             color: #fff;
             font-size: 11px;
-            opacity: 0.6;
+            opacity: 0.4;
             text-transform: uppercase;
             letter-spacing: 2px;
-            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.2);
             padding: 10px 20px;
-            border-radius: 20px;
+            border-radius: 30px;
+            transition: 0.3s;
         }
+
+        .back:hover { background: rgba(255,255,255,0.1); opacity: 1; }
 
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
