@@ -5,47 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЧЕРНОГОРИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html, body {
-            width: 100%;
-            height: 100%;
-            background-color: #000; /* Резервный черный цвет */
-            font-family: 'Arial Black', sans-serif;
-            color: #fff;
+        /* 1. Сброс стилей как на работающем скрине */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Тот самый слой фона, как в Сербии */
+        /* 2. Фон html черный, body прозрачный */
+        html {
+            background-color: #000;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 3. СЛОЙ ФОНА (Копируем настройки из работающей Сербии) */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Уводим строго под контент */
+            z-index: -1; /* Важно: как в Сербии */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             filter: blur(8px);
             transform: scale(1.1);
+            pointer-events: none;
         }
 
+        /* 4. ОБЕРТКА КОНТЕНТА */
         .content-wrapper {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
-        nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a { text-decoration: none; color: #fff; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 0.5; }
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+        }
 
-        .country-title { margin-bottom: 50px; text-align: center; }
-        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 1; }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
 
         .cities-grid {
             display: flex;
@@ -65,6 +103,7 @@
             align-items: center;
             transition: transform 0.3s;
         }
+
         .city-link:hover { transform: translateY(-10px); }
 
         .photo {
@@ -75,9 +114,10 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Города Черногории */
+        /* КАРТИНКИ ЧЕРНОГОРИИ */
         .img-podg { background-image: url('images/podg.webp'); }
         .img-budva { background-image: url('images/budva.webp'); }
         .img-kotor { background-image: url('images/kotor.webp'); }
@@ -86,19 +126,33 @@
         .img-petrovac { background-image: url('images/petrovac.webp'); }
         .img-bar { background-image: url('images/bar.webp'); }
 
-        .name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
-        .back { margin: 60px 0; text-decoration: none; color: #fff; font-size: 11px; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px; }
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
             .name { font-size: 11px; }
+            .country-title h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+    <div class="bg-layer"></div>
 
     <div class="content-wrapper">
         <nav>
