@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>УЗБЕКИСТАН — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         html, body {
             height: 100%;
             width: 100%;
             background-color: #000;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
+            margin: 0;
         }
 
-        /* Слой фона — копия из рабочих страниц */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -40,11 +44,31 @@
             align-items: center;
         }
 
-        nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a { text-decoration: none; color: #fff; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 0.5; }
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+        }
 
-        .country-title { margin-bottom: 50px; text-align: center; }
-        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.5;
+        }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
 
         .cities-grid {
             display: flex;
@@ -65,6 +89,8 @@
             transition: transform 0.3s;
         }
 
+        .city-link:hover { transform: translateY(-10px); }
+
         .photo {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -73,17 +99,31 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Фото городов */
+        /* КАРТИНКИ ГОРОДОВ */
         .img-tash { background-image: url('images/tash.webp'); }
         .img-samark { background-image: url('images/samark.webp'); }
         .img-bukhara { background-image: url('images/bukhara.webp'); }
         .img-jizak { background-image: url('images/jizak.webp'); }
         .img-fergana { background-image: url('images/fergana.webp'); }
 
-        .name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
-        .back { margin: 60px 0; text-decoration: none; color: #fff; font-size: 11px; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px; }
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
