@@ -20,7 +20,7 @@
             margin: 0;
         }
 
-        /* СЛОЙ ФОНА - ОДИН В ОДИН КАК В СЕРБИИ */
+        /* СЛОЙ ФОНА */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -28,7 +28,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
+            /* Добавил ?v=1 в конце пути, чтобы сбросить кэш */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg?v=1');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -100,10 +101,9 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* КАРТИНКИ ГОРОДОВ УЗБЕКИСТАНА */
+        /* Фото городов */
         .img-tash { background-image: url('images/tash.webp'); }
         .img-samark { background-image: url('images/samark.webp'); }
         .img-bukhara { background-image: url('images/bukhara.webp'); }
@@ -148,11 +148,26 @@
         </div>
 
         <div class="cities-grid">
-            <a href="tashkent.html" class="city-link"><div class="photo img-tash"></div><span class="name">ТАШКЕНТ</span></a>
-            <a href="samarkand.html" class="city-link"><div class="photo img-samark"></div><span class="name">САМАРКАНД</span></a>
-            <a href="bukhara.html" class="city-link"><div class="photo img-bukhara"></div><span class="name">БУХАРА</span></a>
-            <a href="jizak.html" class="city-link"><div class="photo img-jizak"></div><span class="name">ДЖИЗАК</span></a>
-            <a href="fergana.html" class="city-link"><div class="photo img-fergana"></div><span class="name">ФЕРГАНА</span></a>
+            <a href="tashkent.html" class="city-link">
+                <div class="photo img-tash"></div>
+                <span class="name">ТАШКЕНТ</span>
+            </a>
+            <a href="samarkand.html" class="city-link">
+                <div class="photo img-samark"></div>
+                <span class="name">САМАРКАНД</span>
+            </a>
+            <a href="bukhara.html" class="city-link">
+                <div class="photo img-bukhara"></div>
+                <span class="name">БУХАРА</span>
+            </a>
+            <a href="jizak.html" class="city-link">
+                <div class="photo img-jizak"></div>
+                <span class="name">ДЖИЗАК</span>
+            </a>
+            <a href="fergana.html" class="city-link">
+                <div class="photo img-fergana"></div>
+                <span class="name">ФЕРГАНА</span>
+            </a>
         </div>
 
         <a href="personal.html" class="back">← назад к странам</a>
