@@ -5,43 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СЕРБИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html, body {
-            height: 100%;
+        /* 1. Сброс стилей как на скрине */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 2. Фон html черный, body прозрачный */
+        html {
             background-color: #000;
         }
 
         body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden;
         }
 
-        /* Улучшенный слой фона */
+        /* 3. СЛОЙ ФОНА (взято с вашего скрина) */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            /* Попробуем путь БЕЗ images, если с ним не работает */
-            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('images/mir1.jpg'); 
+            z-index: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.webp');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed;
+            filter: blur(8px);
+            transform: scale(1.1); /* Чтобы скрыть края размытия */
+            pointer-events: none;
+        }
+
+        /* 4. ОБЕРТКА КОНТЕНТА */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         nav {
             padding: 40px 0;
             display: flex;
             gap: 40px;
-            z-index: 10;
         }
 
         nav a {
@@ -51,7 +69,10 @@
             font-size: 13px;
             letter-spacing: 3px;
             opacity: 0.5;
+            transition: 0.3s;
         }
+
+        nav a:hover { opacity: 1; }
 
         .country-title {
             margin-bottom: 50px;
@@ -80,7 +101,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: 0.3s;
+            transition: transform 0.3s;
         }
 
         .city-link:hover { transform: translateY(-10px); }
@@ -96,13 +117,17 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* КАРТОЧКИ ГОРОДОВ */
+        /* КАРТИНКИ ГОРОДОВ */
         .img-beograd { background-image: url('images/beograd.webp'); }
         .img-ns { background-image: url('images/ns.webp'); }
         .img-sremski { background-image: url('images/sremski.webp'); }
         .img-subotica { background-image: url('images/subotica.webp'); }
 
-        .name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
         .back {
             margin: 60px 0;
@@ -117,7 +142,7 @@
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
-            .name { font-size: 12px; }
+            .name { font-size: 11px; }
             .country-title h1 { font-size: 24px; }
         }
     </style>
@@ -126,35 +151,37 @@
 
     <div class="bg-layer"></div>
 
-    <nav>
-        <a href="index.html">ГЛАВНАЯ</a>
-        <a href="personal.html">СТРАНЫ</a>
-    </nav>
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="personal.html">СТРАНЫ</a>
+        </nav>
 
-    <div class="country-title">
-        <h1>СЕРБИЯ</h1>
+        <div class="country-title">
+            <h1>СЕРБИЯ</h1>
+        </div>
+
+        <div class="cities-grid">
+            <a href="belgrade.html" class="city-link">
+                <div class="photo img-beograd"></div>
+                <span class="name">БЕЛГРАД</span>
+            </a>
+            <a href="novisad.html" class="city-link">
+                <div class="photo img-ns"></div>
+                <span class="name">НОВИ САД</span>
+            </a>
+            <a href="sremski_karlovci.html" class="city-link">
+                <div class="photo img-sremski"></div>
+                <span class="name">СРЕМСКИ КАРЛОВЦИ</span>
+            </a>
+            <a href="subotica_city.html" class="city-link">
+                <div class="photo img-subotica"></div>
+                <span class="name">СУБОТИЦА</span>
+            </a>
+        </div>
+
+        <a href="personal.html" class="back">← назад к странам</a>
     </div>
-
-    <div class="cities-grid">
-        <a href="belgrade.html" class="city-link">
-            <div class="photo img-beograd"></div>
-            <span class="name">БЕЛГРАД</span>
-        </a>
-        <a href="novisad.html" class="city-link">
-            <div class="photo img-ns"></div>
-            <span class="name">НОВИ САД</span>
-        </a>
-        <a href="sremski_karlovci.html" class="city-link">
-            <div class="photo img-sremski"></div>
-            <span class="name">СРЕМСКИ КАРЛОВЦИ</span>
-        </a>
-        <a href="subotica_city.html" class="city-link">
-            <div class="photo img-subotica"></div>
-            <span class="name">СУБОТИЦА</span>
-        </a>
-    </div>
-
-    <a href="personal.html" class="back">← назад к странам</a>
 
 </body>
 </html>
