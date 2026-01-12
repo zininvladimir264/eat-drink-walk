@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЧЕРНОГОРИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Сброс стилей */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         html, body {
             width: 100%;
             height: 100%;
-            background-color: #000 !important; /* Черная подложка */
+            background-color: #000;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
             margin: 0;
+            overflow-x: hidden;
         }
 
         /* Слой фона */
@@ -23,25 +25,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Фон на нижнем слое */
-            /* Добавил ?v=2 чтобы сбросить кэш GitHub */
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg?v=2');
+            z-index: 1; /* Фон на слое 1 */
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             filter: blur(8px);
             transform: scale(1.1);
+            pointer-events: none;
         }
 
-        /* Контент поверх фона */
+        /* Обертка контента */
         .content-wrapper {
             position: relative;
-            z-index: 10; /* Контент точно выше фона */
+            z-index: 10; /* Контент на слое 10 (точно сверху) */
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            width: 100%;
         }
 
         nav { padding: 40px 0; display: flex; gap: 40px; }
@@ -78,6 +79,7 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Фото городов */
@@ -110,7 +112,7 @@
 </head>
 <body>
 
-    <div class="bg-layer"></div>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg') !important;"></div>
 
     <div class="content-wrapper">
         <nav>
