@@ -5,16 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ИНДИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
             background-color: #000;
-            color: #fff;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
             font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         nav {
@@ -29,8 +63,11 @@
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            opacity: 0.4;
+            opacity: 0.5;
+            transition: 0.3s;
         }
+
+        nav a:hover { opacity: 1; }
 
         .country-title {
             margin-bottom: 50px;
@@ -48,7 +85,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
-            max-width: 1000px;
+            max-width: 1100px;
             padding: 0 20px;
         }
 
@@ -62,9 +99,7 @@
             transition: transform 0.3s;
         }
 
-        .city-link:hover {
-            transform: translateY(-10px);
-        }
+        .city-link:hover { transform: translateY(-10px); }
 
         .photo {
             width: 100%;
@@ -74,12 +109,13 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* ФОТО ИНДИИ */
-        .img-deli { background-image: url('images/deli.webp'); }
-        .img-djaypur { background-image: url('images/djaypur.webp'); }
+        /* Фото городов Индии */
+        .img-delhi { background-image: url('images/delhi.webp'); }
         .img-agra { background-image: url('images/agra.webp'); }
+        .img-jaipur { background-image: url('images/jaipur.webp'); }
 
         .name {
             font-size: 20px;
@@ -88,52 +124,54 @@
         }
 
         .back {
-            margin-top: 60px;
-            margin-bottom: 60px;
+            margin: 60px 0;
             text-decoration: none;
             color: #fff;
             font-size: 11px;
-            opacity: 0.4;
+            opacity: 0.5;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         @media (max-width: 600px) {
+            .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
-            .name { font-size: 12px; }
+            .name { font-size: 11px; }
             .country-title h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html">ГЛАВНАЯ</a>
-        <a href="personal.html">СТРАНЫ</a>
-    </nav>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
 
-    <div class="country-title">
-        <h1>ИНДИЯ</h1>
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="personal.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="country-title">
+            <h1>ИНДИЯ</h1>
+        </div>
+
+        <div class="cities-grid">
+            <a href="delhi.html" class="city-link">
+                <div class="photo img-delhi"></div>
+                <span class="name">ДЕЛИ</span>
+            </a>
+            <a href="agra.html" class="city-link">
+                <div class="photo img-agra"></div>
+                <span class="name">АГРА</span>
+            </a>
+            <a href="jaipur.html" class="city-link">
+                <div class="photo img-jaipur"></div>
+                <span class="name">ДЖАЙПУР</span>
+            </a>
+        </div>
+
+        <a href="personal.html" class="back">← назад к странам</a>
     </div>
-
-    <div class="cities-grid">
-        <a href="deli.html" class="city-link">
-            <div class="photo img-deli"></div>
-            <span class="name">ДЕЛИ</span>
-        </a>
-
-        <a href="djaypur.html" class="city-link">
-            <div class="photo img-djaypur"></div>
-            <span class="name">ДЖАЙПУР</span>
-        </a>
-
-        <a href="agra.html" class="city-link">
-            <div class="photo img-agra"></div>
-            <span class="name">АГРА</span>
-        </a>
-    </div>
-
-    <a href="personal.html" class="back">← назад к странам</a>
 
 </body>
 </html>
