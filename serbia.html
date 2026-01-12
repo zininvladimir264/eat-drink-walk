@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СЕРБИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Точный перенос свойств со скриншота */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Сброс стилей */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { background-color: #000; }
 
-        html, body {
-            margin: 0;
-            padding: 0;
+        body {
             width: 100%;
-            height: 100%; /* Критически важно для отображения фона */
-            background-color: #000;
+            height: 100%;
+            background-color: transparent;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Блок фона из строк 30-46 вашего кода */
+        /* СЛОЙ ФОНА (как на ваших скринах) */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* На вашем скрине z-index может конфликтовать, ставим 0 */
+            z-index: 0;
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.webp');
             background-position: center center;
             background-repeat: no-repeat;
@@ -39,15 +39,14 @@
             pointer-events: none;
         }
 
-        /* Обертка для контента, чтобы он был поверх слоя bg-layer */
-        .main-content {
+        /* ОБЕРТКА КОНТЕНТА */
+        .content-wrapper {
             position: relative;
-            z-index: 10;
+            z-index: 2;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            width: 100%;
         }
 
         nav {
@@ -116,11 +115,7 @@
         .img-sremski { background-image: url('images/sremski.webp'); }
         .img-subotica { background-image: url('images/subotica.webp'); }
 
-        .name {
-            font-size: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        .name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
 
         .back {
             margin: 60px 0;
@@ -133,6 +128,7 @@
         }
 
         @media (max-width: 600px) {
+            .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
             .name { font-size: 11px; }
             .country-title h1 { font-size: 24px; }
@@ -140,40 +136,20 @@
     </style>
 </head>
 <body>
-
     <div class="bg-layer"></div>
-
-    <div class="main-content">
+    <div class="content-wrapper">
         <nav>
             <a href="index.html">ГЛАВНАЯ</a>
             <a href="personal.html">СТРАНЫ</a>
         </nav>
-
-        <div class="country-title">
-            <h1>СЕРБИЯ</h1>
-        </div>
-
+        <div class="country-title"><h1>СЕРБИЯ</h1></div>
         <div class="cities-grid">
-            <a href="belgrade.html" class="city-link">
-                <div class="photo img-beograd"></div>
-                <span class="name">БЕЛГРАД</span>
-            </a>
-            <a href="novisad.html" class="city-link">
-                <div class="photo img-ns"></div>
-                <span class="name">НОВИ САД</span>
-            </a>
-            <a href="sremski_karlovci.html" class="city-link">
-                <div class="photo img-sremski"></div>
-                <span class="name">СРЕМСКИ КАРЛОВЦИ</span>
-            </a>
-            <a href="subotica_city.html" class="city-link">
-                <div class="photo img-subotica"></div>
-                <span class="name">СУБОТИЦА</span>
-            </a>
+            <a href="belgrade.html" class="city-link"><div class="photo img-beograd"></div><span class="name">БЕЛГРАД</span></a>
+            <a href="novisad.html" class="city-link"><div class="photo img-ns"></div><span class="name">НОВИ САД</span></a>
+            <a href="sremski_karlovci.html" class="city-link"><div class="photo img-sremski"></div><span class="name">СРЕМСКИ КАРЛОВЦИ</span></a>
+            <a href="subotica_city.html" class="city-link"><div class="photo img-subotica"></div><span class="name">СУБОТИЦА</span></a>
         </div>
-
         <a href="personal.html" class="back">← назад к странам</a>
     </div>
-
 </body>
 </html>
