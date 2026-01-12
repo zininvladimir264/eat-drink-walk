@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СЕРБИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс стилей */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        html { background-color: #000; }
+        html {
+            background-color: #000;
+        }
 
         body {
             width: 100%;
@@ -22,15 +27,16 @@
             align-items: center;
         }
 
-        /* СЛОЙ ФОНА (как на ваших скринах) */
+        /* СЛОЙ ФОНА С MIR1.JPG */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.webp');
+            z-index: -1;
+            /* ИСПРАВЛЕНО НА .JPG */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -39,10 +45,9 @@
             pointer-events: none;
         }
 
-        /* ОБЕРТКА КОНТЕНТА */
         .content-wrapper {
             position: relative;
-            z-index: 2;
+            z-index: 1;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -108,14 +113,21 @@
             margin-bottom: 15px;
             background-color: #222;
             border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        /* КАРТИНКИ ГОРОДОВ */
         .img-beograd { background-image: url('images/beograd.webp'); }
         .img-ns { background-image: url('images/ns.webp'); }
         .img-sremski { background-image: url('images/sremski.webp'); }
         .img-subotica { background-image: url('images/subotica.webp'); }
 
-        .name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
 
         .back {
             margin: 60px 0;
@@ -136,20 +148,40 @@
     </style>
 </head>
 <body>
+
     <div class="bg-layer"></div>
+
     <div class="content-wrapper">
         <nav>
             <a href="index.html">ГЛАВНАЯ</a>
             <a href="personal.html">СТРАНЫ</a>
         </nav>
-        <div class="country-title"><h1>СЕРБИЯ</h1></div>
-        <div class="cities-grid">
-            <a href="belgrade.html" class="city-link"><div class="photo img-beograd"></div><span class="name">БЕЛГРАД</span></a>
-            <a href="novisad.html" class="city-link"><div class="photo img-ns"></div><span class="name">НОВИ САД</span></a>
-            <a href="sremski_karlovci.html" class="city-link"><div class="photo img-sremski"></div><span class="name">СРЕМСКИ КАРЛОВЦИ</span></a>
-            <a href="subotica_city.html" class="city-link"><div class="photo img-subotica"></div><span class="name">СУБОТИЦА</span></a>
+
+        <div class="country-title">
+            <h1>СЕРБИЯ</h1>
         </div>
+
+        <div class="cities-grid">
+            <a href="belgrade.html" class="city-link">
+                <div class="photo img-beograd"></div>
+                <span class="name">БЕЛГРАД</span>
+            </a>
+            <a href="novisad.html" class="city-link">
+                <div class="photo img-ns"></div>
+                <span class="name">НОВИ САД</span>
+            </a>
+            <a href="sremski_karlovci.html" class="city-link">
+                <div class="photo img-sremski"></div>
+                <span class="name">СРЕМСКИ КАРЛОВЦИ</span>
+            </a>
+            <a href="subotica_city.html" class="city-link">
+                <div class="photo img-subotica"></div>
+                <span class="name">СУБОТИЦА</span>
+            </a>
+        </div>
+
         <a href="personal.html" class="back">← назад к странам</a>
     </div>
+
 </body>
 </html>
