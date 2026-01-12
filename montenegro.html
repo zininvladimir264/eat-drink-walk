@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЧЕРНОГОРИЯ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial Black', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.4;
+        }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
+
+        .city-link {
+            text-decoration: none;
+            color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .city-link:hover {
+            transform: translateY(-10px);
+        }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+        }
+
+        /* ФОТО ЧЕРНОГОРИИ */
+        .img-podgorica { background-image: url('images/podg.webp'); }
+        .img-budva { background-image: url('images/budva.webp'); }
+        .img-kotor { background-image: url('images/kotor.webp'); }
+        .img-tivat { background-image: url('images/tivat.webp'); }
+        .img-perast { background-image: url('images/perast.webp'); }
+        .img-petrovac { background-image: url('images/petrovac.webp'); }
+        .img-bar { background-image: url('images/bar.webp'); }
+
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .back {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .cities-grid { gap: 20px; }
+            .city-link { width: 140px; }
+            .name { font-size: 12px; }
+            .country-title h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="personal.html">СТРАНЫ</a>
+    </nav>
+
+    <div class="country-title">
+        <h1>ЧЕРНОГОРИЯ</h1>
+    </div>
+
+    <div class="cities-grid">
+        <a href="podgorica.html" class="city-link">
+            <div class="photo img-podgorica"></div>
+            <span class="name">ПОДГОРИЦА</span>
+        </a>
+
+        <a href="budva_city.html" class="city-link">
+            <div class="photo img-budva"></div>
+            <span class="name">БУДВА</span>
+        </a>
+
+        <a href="kotor_city.html" class="city-link">
+            <div class="photo img-kotor"></div>
+            <span class="name">КОТОР</span>
+        </a>
+
+        <a href="tivat_city.html" class="city-link">
+            <div class="photo img-tivat"></div>
+            <span class="name">ТИВАТ</span>
+        </a>
+
+        <a href="perast_city.html" class="city-link">
+            <div class="photo img-perast"></div>
+            <span class="name">ПЕРАСТ</span>
+        </a>
+
+        <a href="petrovac_city.html" class="city-link">
+            <div class="photo img-petrovac"></div>
+            <span class="name">ПЕТРОВАЦ</span>
+        </a>
+
+        <a href="bar_city.html" class="city-link">
+            <div class="photo img-bar"></div>
+            <span class="name">БАР</span>
+        </a>
+    </div>
+
+    <a href="personal.html" class="back">← назад к странам</a>
+
+</body>
+</html>
