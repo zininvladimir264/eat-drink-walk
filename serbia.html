@@ -5,55 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СЕРБИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* 1. Сброс стилей как на скрине */
+        /* Стили из вашего оригинала */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 2. Фон html черный, body прозрачный */
-        html {
-            background-color: #000;
-        }
-
-        body {
+        html, body {
             width: 100%;
             height: 100%;
-            background-color: transparent;
+            background-color: #000;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        /* 3. СЛОЙ ФОНА (взято с вашего скрина) */
+        /* СЛОЙ ФОНА С СКРИНШОТА */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: 1;
+            /* Пробуем путь без начального слэша, как на скрине */
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.webp');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             filter: blur(8px);
-            transform: scale(1.1); /* Чтобы скрыть края размытия */
-            pointer-events: none;
+            transform: scale(1.1); /* Чтобы не было белых полос по краям при блюре */
         }
 
-        /* 4. ОБЕРТКА КОНТЕНТА */
-        .content-wrapper {
+        /* Оболочка, чтобы контент был над фоном */
+        .wrapper {
             position: relative;
             z-index: 2;
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
         nav {
@@ -142,7 +134,7 @@
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
-            .name { font-size: 11px; }
+            .name { font-size: 12px; }
             .country-title h1 { font-size: 24px; }
         }
     </style>
@@ -151,7 +143,7 @@
 
     <div class="bg-layer"></div>
 
-    <div class="content-wrapper">
+    <div class="wrapper">
         <nav>
             <a href="index.html">ГЛАВНАЯ</a>
             <a href="personal.html">СТРАНЫ</a>
