@@ -9,8 +9,7 @@
         
         body {
             background-color: #000;
-            /* ОСНОВНОЙ ФОН СТРАНИЦЫ (Замените beograd.webp на основной фон, если он другой) */
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('beograd.webp'); 
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/countries.webp'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -26,7 +25,6 @@
             padding: 40px 0;
             display: flex;
             gap: 40px;
-            z-index: 10;
         }
 
         nav a {
@@ -35,16 +33,12 @@
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            opacity: 0.5;
-            transition: 0.3s;
+            opacity: 0.4;
         }
-
-        nav a:hover { opacity: 1; }
 
         .country-title {
             margin-bottom: 50px;
             text-align: center;
-            position: relative;
         }
 
         .country-title h1 {
@@ -60,7 +54,6 @@
             gap: 40px;
             max-width: 1100px;
             padding: 0 20px;
-            position: relative;
         }
 
         .city-link {
@@ -73,9 +66,7 @@
             transition: transform 0.3s;
         }
 
-        .city-link:hover {
-            transform: translateY(-10px);
-        }
+        .city-link:hover { transform: translateY(-10px); }
 
         .photo {
             width: 100%;
@@ -85,10 +76,8 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* КАРТИНКИ КАРТОЧЕК (Здесь оставил images/, если они там лежат) */
         .img-beograd { background-image: url('images/beograd.webp'); }
         .img-ns { background-image: url('images/ns.webp'); }
         .img-sremski { background-image: url('images/sremski.webp'); }
@@ -101,21 +90,14 @@
         }
 
         .back {
-            margin-top: 60px;
-            margin-bottom: 60px;
+            margin: 60px 0;
             text-decoration: none;
             color: #fff;
             font-size: 11px;
             opacity: 0.4;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: 0.3s;
         }
-
-        .back:hover { background: rgba(255,255,255,0.1); opacity: 1; }
 
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
@@ -126,39 +108,17 @@
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="personal.html">СТРАНЫ</a>
     </nav>
-
-    <div class="country-title">
-        <h1>СЕРБИЯ</h1>
-    </div>
-
+    <div class="country-title"><h1>СЕРБИЯ</h1></div>
     <div class="cities-grid">
-        <a href="belgrade.html" class="city-link">
-            <div class="photo img-beograd"></div>
-            <span class="name">БЕЛГРАД</span>
-        </a>
-
-        <a href="novisad.html" class="city-link">
-            <div class="photo img-ns"></div>
-            <span class="name">НОВИ САД</span>
-        </a>
-
-        <a href="sremski_karlovci.html" class="city-link">
-            <div class="photo img-sremski"></div>
-            <span class="name">СРЕМСКИ КАРЛОВЦИ</span>
-        </a>
-
-        <a href="subotica_city.html" class="city-link">
-            <div class="photo img-subotica"></div>
-            <span class="name">СУБОТИЦА</span>
-        </a>
+        <a href="belgrade.html" class="city-link"><div class="photo img-beograd"></div><span class="name">БЕЛГРАД</span></a>
+        <a href="novisad.html" class="city-link"><div class="photo img-ns"></div><span class="name">НОВИ САД</span></a>
+        <a href="sremski_karlovci.html" class="city-link"><div class="photo img-sremski"></div><span class="name">СРЕМСКИ КАРЛОВЦИ</span></a>
+        <a href="subotica_city.html" class="city-link"><div class="photo img-subotica"></div><span class="name">СУБОТИЦА</span></a>
     </div>
-
     <a href="personal.html" class="back">← назад к странам</a>
-
 </body>
 </html>
