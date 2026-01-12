@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>УЗБЕКИСТАН — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс стилей */
         * {
             margin: 0;
             padding: 0;
@@ -16,6 +15,7 @@
             background-color: #000;
         }
 
+        /* ТЕПЕРЬ СТРОГО КАК В СЕРБИИ */
         body {
             width: 100%;
             height: 100%;
@@ -28,7 +28,6 @@
             align-items: center;
         }
 
-        /* Фирменный слой фона с размытием */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -45,7 +44,6 @@
             pointer-events: none;
         }
 
-        /* Обертка контента */
         .content-wrapper {
             position: relative;
             z-index: 2;
@@ -84,7 +82,6 @@
             text-transform: uppercase;
         }
 
-        /* Сетка городов */
         .cities-grid {
             display: flex;
             flex-wrap: wrap;
@@ -117,7 +114,7 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* КАРТИНКИ ГОРОДОВ УЗБЕКИСТАНА */
+        /* ФОТО ГОРОДОВ */
         .img-tashkent { background-image: url('images/tash.webp'); }
         .img-samarkand { background-image: url('images/samark.webp'); }
         .img-bukhara { background-image: url('images/bukhara.webp'); }
@@ -140,7 +137,6 @@
             letter-spacing: 2px;
         }
 
-        /* Адаптив для мобилок */
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
@@ -168,22 +164,18 @@
                 <div class="photo img-tashkent"></div>
                 <span class="name">ТАШКЕНТ</span>
             </a>
-
             <a href="samarkand.html" class="city-link">
                 <div class="photo img-samarkand"></div>
                 <span class="name">САМАРКАНД</span>
             </a>
-
             <a href="bukhara.html" class="city-link">
                 <div class="photo img-bukhara"></div>
                 <span class="name">БУХАРА</span>
             </a>
-
             <a href="jizak.html" class="city-link">
                 <div class="photo img-jizak"></div>
                 <span class="name">ДЖИЗАК</span>
             </a>
-
             <a href="fergana.html" class="city-link">
                 <div class="photo img-fergana"></div>
                 <span class="name">ФЕРГАНА</span>
