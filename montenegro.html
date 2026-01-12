@@ -3,45 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>УЗБЕКИСТАН — ЕМ ПЬЮ ХОЖУ</title>
+    <title>ЧЕРНОГОРИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Сброс всего */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { width: 100%; height: 100%; background-color: #000; font-family: 'Arial Black', sans-serif; color: #fff; margin: 0; }
-        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background-position: center center; background-repeat: no-repeat; background-size: cover; filter: blur(8px); transform: scale(1.1); }
-        .content-wrapper { position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; min-height: 100vh; width: 100%; }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000 !important; /* Гарантируем черный фон подложки */
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+        }
+
+        /* Слой фона */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1; /* Фон на первом слое */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg') !important;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+        }
+
+        /* Контент выше фона */
+        .content-wrapper {
+            position: relative;
+            z-index: 5; /* Контент на пятом слое, точно выше фона */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+        }
+
         nav { padding: 40px 0; display: flex; gap: 40px; }
         nav a { text-decoration: none; color: #fff; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 0.5; }
+
         .country-title { margin-bottom: 50px; text-align: center; }
         .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
-        .cities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
-        .city-link { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
-        .city-link:hover { transform: translateY(-10px); }
-        .photo { width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 15px; background-color: #222; }
-        
-        .img-tash { background-image: url('images/tash.webp'); }
-        .img-samark { background-image: url('images/samark.webp'); }
-        .img-bukhara { background-image: url('images/bukhara.webp'); }
-        .img-jizak { background-image: url('images/jizak.webp'); }
-        .img-fergana { background-image: url('images/fergana.webp'); }
 
-        .name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
-        .back { margin: 60px 0; text-decoration: none; color: #fff; font-size: 11px; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px; }
-        @media (max-width: 600px) { .cities-grid { gap: 20px; } .city-link { width: 140px; } .name { font-size: 11px; } }
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
+
+        .city-link {
+            text-decoration: none;
+            color: #fff;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .city-link:hover { transform: translateY(-10px); }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+        }
+
+        /* Фото городов */
+        .img-podg { background-image: url('images/podg.webp'); }
+        .img-budva { background-image: url('images/budva.webp'); }
+        .img-kotor { background-image: url('images/kotor.webp'); }
+        .img-tivat { background-image: url('images/tivat.webp'); }
+        .img-perast { background-image: url('images/perast.webp'); }
+        .img-petrovac { background-image: url('images/petrovac.webp'); }
+        .img-bar { background-image: url('images/bar.webp'); }
+
+        .name { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
+
+        .back {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .cities-grid { gap: 20px; }
+            .city-link { width: 140px; }
+            .name { font-size: 11px; }
+        }
     </style>
 </head>
 <body>
-    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+
+    <div class="bg-layer"></div>
+
     <div class="content-wrapper">
-        <nav><a href="index.html">ГЛАВНАЯ</a><a href="personal.html">СТРАНЫ</a></nav>
-        <div class="country-title"><h1>УЗБЕКИСТАН</h1></div>
-        <div class="cities-grid">
-            <a href="tashkent.html" class="city-link"><div class="photo img-tash"></div><span class="name">ТАШКЕНТ</span></a>
-            <a href="samarkand.html" class="city-link"><div class="photo img-samark"></div><span class="name">САМАРКАНД</span></a>
-            <a href="bukhara.html" class="city-link"><div class="photo img-bukhara"></div><span class="name">БУХАРА</span></a>
-            <a href="jizak.html" class="city-link"><div class="photo img-jizak"></div><span class="name">ДЖИЗАК</span></a>
-            <a href="fergana.html" class="city-link"><div class="photo img-fergana"></div><span class="name">ФЕРГАНА</span></a>
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="personal.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="country-title">
+            <h1>ЧЕРНОГОРИЯ</h1>
         </div>
+
+        <div class="cities-grid">
+            <a href="podgorica.html" class="city-link">
+                <div class="photo img-podg"></div>
+                <span class="name">ПОДГОРИЦА</span>
+            </a>
+            <a href="budva.html" class="city-link">
+                <div class="photo img-budva"></div>
+                <span class="name">БУДВА</span>
+            </a>
+            <a href="kotor.html" class="city-link">
+                <div class="photo img-kotor"></div>
+                <span class="name">КОТОР</span>
+            </a>
+            <a href="tivat.html" class="city-link">
+                <div class="photo img-tivat"></div>
+                <span class="name">ТИВАТ</span>
+            </a>
+            <a href="perast.html" class="city-link">
+                <div class="photo img-perast"></div>
+                <span class="name">ПЕРАСТ</span>
+            </a>
+            <a href="petrovac.html" class="city-link">
+                <div class="photo img-petrovac"></div>
+                <span class="name">ПЕТРОВАЦ</span>
+            </a>
+            <a href="bar.html" class="city-link">
+                <div class="photo img-bar"></div>
+                <span class="name">БАР</span>
+            </a>
+        </div>
+
         <a href="personal.html" class="back">← назад к странам</a>
     </div>
+
 </body>
 </html>
