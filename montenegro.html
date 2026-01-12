@@ -5,51 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЧЕРНОГОРИЯ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* 1. Сброс стилей как на работающем скрине */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 2. Фон html черный, body прозрачный */
-        html {
-            background-color: #000;
-        }
-
-        body {
-            width: 100%;
+        html, body {
             height: 100%;
-            background-color: transparent;
+            width: 100%;
+            background-color: #000;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin: 0;
         }
 
-        /* 3. СЛОЙ ФОНА (Копируем настройки из работающей Сербии) */
+        /* СЛОЙ ФОНА - СКОПИРОВАНО ИЗ РАБОЧЕЙ СЕРБИИ */
         .bg-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Важно: как в Сербии */
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mir1.jpg');
+            z-index: -1;
+            /* Проверь, чтобы в папке images файл назывался именно mir1.jpg (маленькими буквами) */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             filter: blur(8px);
             transform: scale(1.1);
-            pointer-events: none;
         }
 
-        /* 4. ОБЕРТКА КОНТЕНТА */
         .content-wrapper {
             position: relative;
-            z-index: 2;
+            z-index: 1;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -69,10 +59,7 @@
             font-size: 13px;
             letter-spacing: 3px;
             opacity: 0.5;
-            transition: 0.3s;
         }
-
-        nav a:hover { opacity: 1; }
 
         .country-title {
             margin-bottom: 50px;
@@ -117,7 +104,7 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* КАРТИНКИ ЧЕРНОГОРИИ */
+        /* КАРТИНКИ ГОРОДОВ */
         .img-podg { background-image: url('images/podg.webp'); }
         .img-budva { background-image: url('images/budva.webp'); }
         .img-kotor { background-image: url('images/kotor.webp'); }
@@ -146,7 +133,6 @@
             .cities-grid { gap: 20px; }
             .city-link { width: 140px; }
             .name { font-size: 11px; }
-            .country-title h1 { font-size: 24px; }
         }
     </style>
 </head>
