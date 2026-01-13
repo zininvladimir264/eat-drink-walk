@@ -27,7 +27,6 @@
             align-items: center;
         }
 
-        /* Оставил только позиционирование и блюр, фон здесь НЕ ПИСАТЬ */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -139,7 +138,12 @@
 </head>
 <body>
 
-    <div class="bg-layer" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg') center/cover no-repeat;"></div>
+    <div class="bg-layer" style="
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    "></div>
 
     <div class="content-wrapper">
         <nav>
