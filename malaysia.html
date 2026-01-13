@@ -27,6 +27,7 @@
             align-items: center;
         }
 
+        /* ТУТ ТОЛЬКО НАСТРОЙКИ — КАРТИНКИ НЕТ (КАК В ЛИВАНЕ) */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -34,6 +35,9 @@
             width: 100%;
             height: 100%;
             z-index: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
             filter: blur(8px);
             transform: scale(1.1);
             pointer-events: none;
@@ -106,9 +110,10 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* Фото городов Малайзии */
         .img-kualalumpur { background-image: url('images/kualalumpur.webp'); }
         .img-penang { background-image: url('images/penang.webp'); }
 
@@ -138,12 +143,7 @@
 </head>
 <body>
 
-    <div class="bg-layer" style="
-        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    "></div>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
 
     <div class="content-wrapper">
         <nav>
