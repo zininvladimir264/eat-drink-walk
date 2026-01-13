@@ -5,45 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ТАИЛАНД — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { background-color: #000; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #000;
+        }
+
         body {
-            width: 100%; height: 100%; background-color: transparent;
-            font-family: 'Arial Black', sans-serif; color: #fff;
-            overflow-x: hidden; display: flex; flex-direction: column; align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
         .bg-layer {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
-            background-position: center center; background-repeat: no-repeat; background-size: cover;
-            filter: blur(8px); transform: scale(1.1); pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
         }
-        .content-wrapper { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
-        nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a { text-decoration: none; color: #fff; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 0.5; transition: 0.3s; }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
         nav a:hover { opacity: 1; }
-        .country-title { margin-bottom: 50px; text-align: center; }
-        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
-        .cities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
-        .city-link { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
+
+        .city-link {
+            text-decoration: none;
+            color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
         .city-link:hover { transform: translateY(-10px); }
-        .photo { width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 15px; background-color: #222; border: 1px solid rgba(255,255,255,0.1); }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Фото городов Таиланда */
         .img-bangkok { background-image: url('images/bangkok.webp'); }
         .img-phuket { background-image: url('images/phuket.webp'); }
-        .name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
-        .back { margin: 60px 0; text-decoration: none; color: #fff; font-size: 11px; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px; }
-        @media (max-width: 600px) { .cities-grid { gap: 20px; } .city-link { width: 140px; } .name { font-size: 11px; } .country-title h1 { font-size: 24px; } }
+        .img-pattaya { background-image: url('images/pattaya.webp'); }
+        .img-krabi { background-image: url('images/krabi.webp'); }
+        .img-phiphi { background-image: url('images/phiphi.webp'); }
+        .img-ayutthaya { background-image: url('images/ayutthaya.webp'); }
+        .img-chonburi { background-image: url('images/chonburi.webp'); }
+
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #fff;
+            font-size: 11px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .cities-grid { gap: 20px; }
+            .city-link { width: 140px; }
+            .name { font-size: 11px; }
+            .country-title h1 { font-size: 24px; }
+        }
     </style>
 </head>
 <body>
+
     <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+
     <div class="content-wrapper">
-        <nav><a href="index.html">ГЛАВНАЯ</a><a href="personal.html">СТРАНЫ</a></nav>
-        <div class="country-title"><h1>ТАИЛАНД</h1></div>
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="personal.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="country-title">
+            <h1>ТАИЛАНД</h1>
+        </div>
+
         <div class="cities-grid">
             <a href="bangkok.html" class="city-link"><div class="photo img-bangkok"></div><span class="name">БАНГКОК</span></a>
             <a href="phuket.html" class="city-link"><div class="photo img-phuket"></div><span class="name">ПХУКЕТ</span></a>
+            <a href="pattaya.html" class="city-link"><div class="photo img-pattaya"></div><span class="name">ПАТТАЙЯ</span></a>
+            <a href="krabi.html" class="city-link"><div class="photo img-krabi"></div><span class="name">КРАБИ</span></a>
+            <a href="phiphi.html" class="city-link"><div class="photo img-phiphi"></div><span class="name">ПХИПХИ</span></a>
+            <a href="ayutthaya.html" class="city-link"><div class="photo img-ayutthaya"></div><span class="name">АЮТТХАЯ</span></a>
+            <a href="chonburi.html" class="city-link"><div class="photo img-chonburi"></div><span class="name">ЧОНБУРИ</span></a>
         </div>
+
         <a href="personal.html" class="back">← назад к странам</a>
     </div>
+
 </body>
 </html>
