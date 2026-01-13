@@ -27,7 +27,7 @@
             align-items: center;
         }
 
-        /* Слой фона (строго без картинки в этом блоке) */
+        /* Слой фона (СТРОГО КАК В ЛИВАНЕ) */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -68,7 +68,9 @@
             transition: 0.3s;
         }
 
-        nav a:hover { opacity: 1; }
+        nav a:hover {
+            opacity: 1;
+        }
 
         .country-title {
             margin-bottom: 50px;
@@ -100,7 +102,9 @@
             transition: transform 0.3s;
         }
 
-        .city-link:hover { transform: translateY(-10px); }
+        .city-link:hover {
+            transform: translateY(-10px);
+        }
 
         .photo {
             width: 100%;
@@ -110,9 +114,10 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Фото городов */
         .img-kualalumpur { background-image: url('images/kualalumpur.webp'); }
         .img-penang { background-image: url('images/penang.webp'); }
 
@@ -133,10 +138,18 @@
         }
 
         @media (max-width: 600px) {
-            .cities-grid { gap: 20px; }
-            .city-link { width: 140px; }
-            .name { font-size: 11px; }
-            .country-title h1 { font-size: 24px; }
+            .cities-grid {
+                gap: 20px;
+            }
+            .city-link {
+                width: 140px;
+            }
+            .name {
+                font-size: 11px;
+            }
+            .country-title h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
