@@ -1,1 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БЕЛАРУСЬ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            background-color: #000;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff !important;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 0.7; }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
+
+        .city-link {
+            text-decoration: none;
+            color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .city-link:hover { transform: translateY(-10px); }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ТВОЙ СПИСОК ГОРОДОВ БЕЛАРУСИ */
+        .img-minsk { background-image: url('images/minsk.webp'); }
+        .img-grodno { background-image: url('images/grodno.webp'); }
+        .img-vitebsk { background-image: url('images/vitebsk.webp'); }
+        .img-mogilev { background-image: url('images/mogilev.webp'); }
+        .img-gomel { background-image: url('images/gomel.webp'); }
+        .img-polotsk { background-image: url('images/polotsk.webp'); }
+        .img-novopolotsk { background-image: url('images/novopolotsk.webp'); }
+        .img-verkhnedvinsk { background-image: url('images/verkhnedvinsk.webp'); }
+        .img-shklov { background-image: url('images/shklov.webp'); }
+        .img-bobruisk { background-image: url('images/bobruisk.webp'); }
+        .img-lida { background-image: url('images/lida.webp'); }
+        .img-orsha { background-image: url('images/orsha.webp'); }
+        .img-rechitsa { background-image: url('images/rechitsa.webp'); }
+        .img-glubokoe { background-image: url('images/glubokoe.webp'); }
+        .img-nesvizh { background-image: url('images/nesvizh.webp'); }
+        .img-mir { background-image: url('images/mir_castle.webp'); }
+        .img-slonim { background-image: url('images/slonim.webp'); }
+        .img-mozyr { background-image: url('images/mozyr.webp'); }
+        .img-smorgon { background-image: url('images/smorgon.webp'); }
+        .img-ushachi { background-image: url('images/ushachi.webp'); }
+
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .back {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #fff !important;
+            font-size: 11px;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .back:hover { opacity: 0.7; }
+
+        @media (max-width: 600px) {
+            .cities-grid { gap: 20px; }
+            .city-link { width: 140px; }
+            .name { font-size: 11px; }
+            .country-title h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="personal.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="country-title">
+            <h1>БЕЛАРУСЬ</h1>
+        </div>
+
+        <div class="cities-grid">
+            <a href="minsk.html" class="city-link">
+                <div class="photo img-minsk"></div>
+                <span class="name">МИНСК</span>
+            </a>
+            <a href="grodno.html" class="city-link">
+                <div class="photo img-grodno"></div>
+                <span class="name">ГРОДНО</span>
+            </a>
+            <a href="vitebsk.html" class="city-link">
+                <div class="photo img-vitebsk"></div>
+                <span class="name">ВИТЕБСК</span>
+            </a>
+            <a href="mogilev.html" class="city-link">
+                <div class="photo img-mogilev"></div>
+                <span class="name">МОГИЛЁВ</span>
+            </a>
+            <a href="gomel.html" class="city-link">
+                <div class="photo img-gomel"></div>
+                <span class="name">ГОМЕЛЬ</span>
+            </a>
+            <a href="polotsk.html" class="city-link">
+                <div class="photo img-polotsk"></div>
+                <span class="name">ПОЛОЦК</span>
+            </a>
+            <a href="novopolotsk.html" class="city-link">
+                <div class="photo img-novopolotsk"></div>
+                <span class="name">НОВОПОЛОЦК</span>
+            </a>
+            <a href="verkhnedvinsk.html" class="city-link">
+                <div class="photo img-verkhnedvinsk"></div>
+                <span class="name">ВЕРХНЕДВИНСК</span>
+            </a>
+            <a href="shklov.html" class="city-link">
+                <div class="photo img-shklov"></div>
+                <span class="name">ШКЛОВ</span>
+            </a>
+            <a href="bobruisk.html" class="city-link">
+                <div class="photo img-bobruisk"></div>
+                <span class="name">БОБРУЙСК</span>
+            </a>
+            <a href="lida.html" class="city-link">
+                <div class="photo img-lida"></div>
+                <span class="name">ЛИДА</span>
+            </a>
+            <a href="orsha.html" class="city-link">
+                <div class="photo img-orsha"></div>
+                <span class="name">ОРША</span>
+            </a>
+            <a href="rechitsa.html" class="city-link">
+                <div class="photo img-rechitsa"></div>
+                <span class="name">РЕЧИЦА</span>
+            </a>
+            <a href="glubokoe.html" class="city-link">
+                <div class="photo img-glubokoe"></div>
+                <span class="name">ГЛУБОКОЕ</span>
+            </a>
+            <a href="nesvizh.html" class="city-link">
+                <div class="photo img-nesvizh"></div>
+                <span class="name">НЕСВИЖ</span>
+            </a>
+            <a href="mir-castle.html" class="city-link">
+                <div class="photo img-mir"></div>
+                <span class="name">МИР</span>
+            </a>
+            <a href="slonim.html" class="city-link">
+                <div class="photo img-slonim"></div>
+                <span class="name">СЛОНИМ</span>
+            </a>
+            <a href="mozyr.html" class="city-link">
+                <div class="photo img-mozyr"></div>
+                <span class="name">МОЗЫРЬ</span>
+            </a>
+            <a href="smorgon.html" class="city-link">
+                <div class="photo img-smorgon"></div>
+                <span class="name">СМОРГОНЬ</span>
+            </a>
+            <a href="ushachi.html" class="city-link">
+                <div class="photo img-ushachi"></div>
+                <span class="name">УШАЧИ</span>
+            </a>
+        </div>
+
+        <a href="personal.html" class="back">← назад к странам</a>
+    </div>
+
+</body>
+</html>
