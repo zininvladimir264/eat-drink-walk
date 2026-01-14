@@ -59,15 +59,16 @@
 
         nav a {
             text-decoration: none;
-            color: #fff;
+            color: #fff !important;
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            opacity: 0.5;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
             transition: 0.3s;
         }
 
-        nav a:hover { opacity: 1; }
+        nav a:hover { opacity: 0.7; }
 
         .country-title {
             margin-bottom: 50px;
@@ -109,11 +110,11 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Названия фото в папке images */
-        .img-kualalumpur { background-image: url('images/kualalumpur.webp'); }
+        /* ТОЛЬКО ТВОИ ОРИГИНАЛЬНЫЕ ФОТО МАЛАЙЗИИ */
+        .img-kl { background-image: url('images/kl.webp'); }
         .img-penang { background-image: url('images/penang.webp'); }
 
         .name {
@@ -125,12 +126,16 @@
         .back {
             margin: 60px 0;
             text-decoration: none;
-            color: #fff;
+            color: #fff !important;
             font-size: 11px;
-            opacity: 0.5;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
             text-transform: uppercase;
             letter-spacing: 2px;
+            transition: 0.3s;
         }
+
+        .back:hover { opacity: 0.7; }
 
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
@@ -155,8 +160,8 @@
         </div>
 
         <div class="cities-grid">
-            <a href="kualalumpur.html" class="city-link">
-                <div class="photo img-kualalumpur"></div>
+            <a href="kl.html" class="city-link">
+                <div class="photo img-kl"></div>
                 <span class="name">КУАЛА-ЛУМПУР</span>
             </a>
             <a href="penang.html" class="city-link">
