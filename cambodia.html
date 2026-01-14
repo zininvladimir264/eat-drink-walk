@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>КЫРГЫЗСТАН — ЕМ ПЬЮ ХОЖУ</title>
+    <title>КАМБОДЖА — ЕМ ПЬЮ ХОЖУ</title>
     <style>
         * {
             margin: 0;
@@ -59,16 +59,15 @@
 
         nav a {
             text-decoration: none;
-            color: #fff; /* ЧИСТО БЕЛЫЙ */
+            color: #fff !important;
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            opacity: 1 !important; /* УБРАЛ ВСЮ ПРОЗРАЧНОСТЬ */
+            opacity: 1 !important; /* ЯРКИЙ ТЕКСТ */
             transition: 0.3s;
         }
 
-        /* Чтобы при наведении они не исчезали, а просто чуть подсвечивались или оставались такими же */
-        nav a:hover { opacity: 0.8; }
+        nav a:hover { opacity: 0.7; }
 
         .country-title {
             margin-bottom: 50px;
@@ -110,10 +109,13 @@
             border-radius: 12px;
             margin-bottom: 15px;
             background-color: #222;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .img-bishkek { background-image: url('images/bishkek.webp'); }
+        /* ТВОИ ТРИ ГОРОДА КАМБОДЖИ */
+        .img-phnompenh { background-image: url('images/phnompenh.webp'); }
+        .img-sihanoukville { background-image: url('images/sihanoukville.webp'); }
+        .img-siemreap { background-image: url('images/siemreap.webp'); }
 
         .name {
             font-size: 20px;
@@ -124,13 +126,15 @@
         .back {
             margin: 60px 0;
             text-decoration: none;
-            color: #fff; /* ЧИСТО БЕЛЫЙ */
+            color: #fff !important;
             font-size: 11px;
-            opacity: 1 !important; /* УБРАЛ ВСЮ ПРОЗРАЧНОСТЬ */
+            opacity: 1 !important; /* ЯРКИЙ ТЕКСТ */
             text-transform: uppercase;
             letter-spacing: 2px;
-            display: inline-block;
+            transition: 0.3s;
         }
+
+        .back:hover { opacity: 0.7; }
 
         @media (max-width: 600px) {
             .cities-grid { gap: 20px; }
@@ -151,13 +155,21 @@
         </nav>
 
         <div class="country-title">
-            <h1>КЫРГЫЗСТАН</h1>
+            <h1>КАМБОДЖА</h1>
         </div>
 
         <div class="cities-grid">
-            <a href="bishkek.html" class="city-link">
-                <div class="photo img-bishkek"></div>
-                <span class="name">БИШКЕК</span>
+            <a href="phnompenh.html" class="city-link">
+                <div class="photo img-phnompenh"></div>
+                <span class="name">ПНОМПЕНЬ</span>
+            </a>
+            <a href="siemreap.html" class="city-link">
+                <div class="photo img-siemreap"></div>
+                <span class="name">СИЕМРЕАП</span>
+            </a>
+            <a href="sihanoukville.html" class="city-link">
+                <div class="photo img-sihanoukville"></div>
+                <span class="name">СИАНУКВИЛЬ</span>
             </a>
         </div>
 
