@@ -59,15 +59,17 @@
 
         nav a {
             text-decoration: none;
-            color: #fff;
+            color: #fff; /* Чистый белый */
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 3px;
-            opacity: 0.5;
+            opacity: 1; /* Убрал блёклость */
             transition: 0.3s;
         }
 
-        nav a:hover { opacity: 1; }
+        nav a:hover { 
+            opacity: 0.7; /* При наведении чуть затухает */
+        }
 
         .country-title {
             margin-bottom: 50px;
@@ -112,7 +114,6 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Здесь подставь свои названия файлов, если они отличаются */
         .img-colombo { background-image: url('images/colombo.webp'); }
         .img-negombo { background-image: url('images/negombo.webp'); }
 
@@ -125,11 +126,16 @@
         .back {
             margin: 60px 0;
             text-decoration: none;
-            color: #fff;
+            color: #fff; /* Чистый белый */
             font-size: 11px;
-            opacity: 0.5;
+            opacity: 1; /* Убрал блёклость */
             text-transform: uppercase;
             letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            opacity: 0.7;
         }
 
         @media (max-width: 600px) {
