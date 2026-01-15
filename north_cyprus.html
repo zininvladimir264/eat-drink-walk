@@ -7,89 +7,82 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { background-color: #000; }
-        body { width: 100%; height: 100%; font-family: 'Arial Black', sans-serif; color: #fff; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; }
+        body { width: 100%; height: 100%; background-color: transparent; font-family: 'Arial Black', sans-serif; color: #fff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
         
-        .bg-img {
+        .background-box {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
             background-size: cover; background-position: center; filter: blur(8px); transform: scale(1.1);
         }
 
-        .main-content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        .container { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
 
-        nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a { 
+        .top-nav { padding: 40px 0; display: flex; gap: 40px; }
+        .top-nav a { 
             text-decoration: none; color: #ffffff !important; text-transform: uppercase; 
             font-size: 13px; letter-spacing: 3px; opacity: 1 !important; transition: 0.3s; 
         }
-        nav a:hover { opacity: 0.7; }
 
-        .title-box { margin-bottom: 50px; text-align: center; }
-        .title-box h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        .main-header { margin-bottom: 50px; text-align: center; }
+        .main-header h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
 
-        .cards-container { 
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; 
-            max-width: 1100px; padding: 0 20px; 
-        }
+        .list-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
 
-        .item-link { 
-            text-decoration: none; color: #fff; width: 300px; 
-            display: flex; flex-direction: column; align-items: center; transition: 0.3s; 
-        }
-        .item-link:hover { transform: translateY(-10px); }
+        .card-box { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
+        .card-box:hover { transform: translateY(-10px); }
 
-        .city-image { 
+        .img-box { 
             width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center; 
             border-radius: 12px; margin-bottom: 15px; background-color: #222; 
             border: 1px solid rgba(255,255,255,0.1); 
         }
 
-        .city-1 { background-image: url('images/girne.webp'); }
-        .city-2 { background-image: url('images/lefkosa.webp'); }
+        /* Фото */
+        .img-1 { background-image: url('images/girne.webp'); }
+        .img-2 { background-image: url('images/lefkosa.webp'); }
 
-        .city-name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
+        .card-name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
 
-        .go-back { 
+        .footer-link { 
             margin: 60px 0; text-decoration: none; color: #ffffff !important; 
             font-size: 11px; opacity: 1 !important; text-transform: uppercase; 
-            letter-spacing: 2px; transition: 0.3s; 
+            letter-spacing: 2px; 
         }
-        .go-back:hover { opacity: 0.7; }
 
         @media (max-width: 600px) {
-            .cards-container { gap: 20px; }
-            .item-link { width: 140px; }
-            .city-name { font-size: 11px; }
-            .title-box h1 { font-size: 24px; }
+            .list-grid { gap: 20px; }
+            .card-box { width: 140px; }
+            .card-name { font-size: 11px; }
+            .main-header h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-img"></div>
+    <div class="background-box"></div>
 
-    <div class="main-content">
-        <nav>
+    <div class="container">
+        <nav class="top-nav">
             <a href="index.html">ГЛАВНАЯ</a>
             <a href="personal.html">СТРАНЫ</a>
         </nav>
 
-        <div class="title-box">
+        <div class="main-header">
             <h1>СЕВЕРНЫЙ КИПР</h1>
         </div>
 
-        <div class="cards-container">
-            <a href="girne.html" class="item-link">
-                <div class="city-image city-1"></div>
-                <span class="city-name">ГИРНЕ</span>
+        <div class="list-grid">
+            <a href="girne.html" class="card-box">
+                <div class="img-box img-1"></div>
+                <span class="card-name">ГИРНЕ</span>
             </a>
-            <a href="lefkosa.html" class="item-link">
-                <div class="city-image city-2"></div>
-                <span class="city-name">ЛЕФКОША</span>
+            <a href="lefkosa.html" class="card-box">
+                <div class="img-box img-2"></div>
+                <span class="card-name">ЛЕФКОША</span>
             </a>
         </div>
 
-        <a href="personal.html" class="go-back">← назад к странам</a>
+        <a href="personal.html" class="footer-link">← назад к странам</a>
     </div>
 
 </body>
