@@ -3,86 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОСТРОВ — ЕМ ПЬЮ ХОЖУ</title>
+    <title>КИПР — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { background-color: #000; }
-        body { width: 100%; height: 100%; background-color: transparent; font-family: 'Arial Black', sans-serif; color: #fff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
-        
-        .background-box {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #000;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
-            background-size: cover; background-position: center; filter: blur(8px); transform: scale(1.1);
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
         }
 
-        .container { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
-
-        .top-nav { padding: 40px 0; display: flex; gap: 40px; }
-        .top-nav a { 
-            text-decoration: none; color: #ffffff !important; text-transform: uppercase; 
-            font-size: 13px; letter-spacing: 3px; opacity: 1 !important; transition: 0.3s; 
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .main-header { margin-bottom: 50px; text-align: center; }
-        .main-header h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
-
-        .list-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
-
-        .card-box { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
-        .card-box:hover { transform: translateY(-10px); }
-
-        .img-box { 
-            width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center; 
-            border-radius: 12px; margin-bottom: 15px; background-color: #222; 
-            border: 1px solid rgba(255,255,255,0.1); 
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
         }
 
-        /* Фото */
+        nav a {
+            text-decoration: none;
+            color: #ffffff !important;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            /* ЯРКИЕ НАДПИСИ */
+            opacity: 1 !important;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 0.7; }
+
+        .page-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
+
+        .city-card {
+            text-decoration: none;
+            color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .city-card:hover { transform: translateY(-10px); }
+
+        .city-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ТВОИ ГОРОДА */
         .img-1 { background-image: url('images/girne.webp'); }
         .img-2 { background-image: url('images/lefkosa.webp'); }
 
-        .card-name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
-
-        .footer-link { 
-            margin: 60px 0; text-decoration: none; color: #ffffff !important; 
-            font-size: 11px; opacity: 1 !important; text-transform: uppercase; 
-            letter-spacing: 2px; 
+        .city-label {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
+        .return-link {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #ffffff !important;
+            font-size: 11px;
+            /* ЯРКАЯ НАДПИСЬ */
+            opacity: 1 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .return-link:hover { opacity: 0.7; }
+
         @media (max-width: 600px) {
-            .list-grid { gap: 20px; }
-            .card-box { width: 140px; }
-            .card-name { font-size: 11px; }
-            .main-header h1 { font-size: 24px; }
+            .cities-grid { gap: 20px; }
+            .city-card { width: 140px; }
+            .city-label { font-size: 11px; }
+            .page-title h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="background-box"></div>
+    <div class="bg-overlay"></div>
 
-    <div class="container">
-        <nav class="top-nav">
+    <div class="main-wrapper">
+        <nav>
             <a href="index.html">ГЛАВНАЯ</a>
             <a href="personal.html">СТРАНЫ</a>
         </nav>
 
-        <div class="main-header">
-            <h1>СЕВЕРНЫЙ КИПР</h1>
+        <div class="page-title">
+            <h1>КИПР</h1>
         </div>
 
-        <div class="list-grid">
-            <a href="girne.html" class="card-box">
-                <div class="img-box img-1"></div>
-                <span class="card-name">ГИРНЕ</span>
+        <div class="cities-grid">
+            <a href="girne.html" class="city-card">
+                <div class="city-photo img-1"></div>
+                <span class="city-label">ГИРНЕ</span>
             </a>
-            <a href="lefkosa.html" class="card-box">
-                <div class="img-box img-2"></div>
-                <span class="card-name">ЛЕФКОША</span>
+            <a href="lefkosa.html" class="city-card">
+                <div class="city-photo img-2"></div>
+                <span class="city-label">ЛЕФКОША</span>
             </a>
         </div>
 
-        <a href="personal.html" class="footer-link">← назад к странам</a>
+        <a href="personal.html" class="return-link">← назад к странам</a>
     </div>
 
 </body>
