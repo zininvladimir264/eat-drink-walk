@@ -3,96 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СЕВЕРНЫЙ КИПР — ЕМ ПЬЮ ХОЖУ</title>
+    <title>С. КИПР — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { background-color: #000; }
-        body { 
-            width: 100%; height: 100%; background-color: transparent; 
-            font-family: 'Arial Black', sans-serif; color: #fff; 
-            display: flex; flex-direction: column; align-items: center; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
+        html {
+            background-color: #000;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .bg-layer {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
-            background-size: cover; background-position: center; filter: blur(8px); transform: scale(1.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
         }
 
-        .content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
-
-        nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a { 
-            text-decoration: none; color: #ffffff !important; text-transform: uppercase; 
-            font-size: 13px; letter-spacing: 3px; opacity: 1 !important; 
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .header { margin-bottom: 50px; text-align: center; }
-        .header h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
-
-        .grid { 
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; 
-            max-width: 1100px; padding: 0 20px; 
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
         }
 
-        .card { 
-            text-decoration: none; color: #fff; width: 300px; 
-            display: flex; flex-direction: column; align-items: center; transition: 0.3s; 
+        nav a {
+            text-decoration: none;
+            color: #ffffff !important;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
+            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-10px); }
 
-        .pic { 
-            width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center; 
-            border-radius: 12px; margin-bottom: 15px; background-color: #222; 
-            border: 1px solid rgba(255,255,255,0.1); 
+        nav a:hover { opacity: 0.7; }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
         }
 
-        /* Фото городов */
-        .img-1 { background-image: url('images/girne.webp'); }
-        .img-2 { background-image: url('images/lefkosa.webp'); }
-
-        .city-name { font-size: 20px; letter-spacing: 2px; text-transform: uppercase; }
-
-        .back-btn { 
-            margin: 60px 0; text-decoration: none; color: #ffffff !important; 
-            font-size: 11px; opacity: 1 !important; text-transform: uppercase; 
-            letter-spacing: 2px; 
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
         }
+
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
+
+        .city-link {
+            text-decoration: none;
+            color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .city-link:hover { transform: translateY(-10px); }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Фото для этого раздела */
+        .img-city1 { background-image: url('images/girne.webp'); }
+        .img-city2 { background-image: url('images/lefkosa.webp'); }
+
+        .name {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #ffffff !important;
+            font-size: 11px;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .back:hover { opacity: 0.7; }
 
         @media (max-width: 600px) {
-            .grid { gap: 20px; }
-            .card { width: 140px; }
-            .city-name { font-size: 11px; }
-            .header h1 { font-size: 24px; }
+            .cities-grid { gap: 20px; }
+            .city-link { width: 140px; }
+            .name { font-size: 11px; }
+            .country-title h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-layer"></div>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
 
-    <div class="content">
+    <div class="content-wrapper">
         <nav>
             <a href="index.html">ГЛАВНАЯ</a>
             <a href="personal.html">СТРАНЫ</a>
         </nav>
 
-        <div class="header">
-            <h1>СЕВЕРНЫЙ КИПР</h1>
+        <div class="country-title">
+            <h1>СЕВЕРНЫЙ&#x200B; КИПР</h1>
         </div>
 
-        <div class="grid">
-            <a href="girne.html" class="card">
-                <div class="pic img-1"></div>
-                <span class="city-name">ГИРНЕ</span>
+        <div class="cities-grid">
+            <a href="girne.html" class="city-link">
+                <div class="photo img-city1"></div>
+                <span class="name">ГИРНЕ</span>
             </a>
-            <a href="lefkosa.html" class="card">
-                <div class="pic img-2"></div>
-                <span class="city-name">ЛЕФКОША</span>
+            <a href="lefkosa.html" class="city-link">
+                <div class="photo img-city2"></div>
+                <span class="name">ЛЕФКОША</span>
             </a>
         </div>
 
-        <a href="personal.html" class="back-btn">← назад к странам</a>
+        <a href="personal.html" class="back">← назад к странам</a>
     </div>
 
 </body>
