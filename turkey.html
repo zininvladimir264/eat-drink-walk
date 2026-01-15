@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТУРЦИЯ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #000;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            padding: 40px 0;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff !important;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 0.7; }
+
+        .country-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .country-title h1 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .cities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
+
+        .city-link {
+            text-decoration: none;
+            color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .city-link:hover { transform: translateY(-10px); }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #222;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* КЛАССЫ ДЛЯ ФОТО ТУРЦИИ */
+        .img-istanbul { background-image: url('images/istanbul.webp'); }
+        .img-ankara { background-image: url('images/ankara.webp'); }
+        .img-konya { background-image: url('images/konya.webp'); }
+        .img-antalya { background-image: url('images/antalya.webp'); }
+        .img-avsallar { background-image: url('images/avsallar.webp'); }
+        .img-alanya { background-image: url('images/alanya.webp'); }
+        .img-trabzon { background-image: url('images/trabzon.webp'); }
+        .img-cappadocia { background-image: url('images/cappadocia.webp'); }
+        .img-izmir { background-image: url('images/izmir.webp'); }
+        .img-kusadasi { background-image: url('images/kusadasi.webp'); }
+        .img-bodrum { background-image: url('images/bodrum.webp'); }
+        .img-fethiye { background-image: url('images/fethiye.webp'); }
+        .img-cesme { background-image: url('images/cesme.webp'); }
+        .img-denizli { background-image: url('images/denizli.webp'); }
+
+        .name {
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .back {
+            margin: 60px 0;
+            text-decoration: none;
+            color: #ffffff !important;
+            font-size: 11px;
+            /* ЯРКИЙ ТЕКСТ */
+            opacity: 1 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .back:hover { opacity: 0.7; }
+
+        @media (max-width: 600px) {
+            .cities-grid { gap: 20px; }
+            .city-link { width: 140px; }
+            .name { font-size: 11px; }
+            .country-title h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+
+    <div class="content-wrapper">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="personal.html">СТРАНЫ</a>
+        </nav>
+
+        <div class="country-title">
+            <h1>ТУРЦИЯ</h1>
+        </div>
+
+        <div class="cities-grid">
+            <a href="istanbul.html" class="city-link">
+                <div class="photo img-istanbul"></div>
+                <span class="name">СТАМБУЛ</span>
+            </a>
+            <a href="ankara.html" class="city-link">
+                <div class="photo img-ankara"></div>
+                <span class="name">АНКАРА</span>
+            </a>
+            <a href="konya.html" class="city-link">
+                <div class="photo img-konya"></div>
+                <span class="name">КОНЬЯ</span>
+            </a>
+            <a href="antalya.html" class="city-link">
+                <div class="photo img-antalya"></div>
+                <span class="name">АНТАЛИЯ</span>
+            </a>
+            <a href="avsallar.html" class="city-link">
+                <div class="photo img-avsallar"></div>
+                <span class="name">АВТСАЛЛАР</span>
+            </a>
+            <a href="alanya.html" class="city-link">
+                <div class="photo img-alanya"></div>
+                <span class="name">АЛАНИЯ</span>
+            </a>
+            <a href="trabzon.html" class="city-link">
+                <div class="photo img-trabzon"></div>
+                <span class="name">ТРАБЗОН</span>
+            </a>
+            <a href="cappadocia.html" class="city-link">
+                <div class="photo img-cappadocia"></div>
+                <span class="name">КАППАДОКИЯ</span>
+            </a>
+            <a href="izmir.html" class="city-link">
+                <div class="photo img-izmir"></div>
+                <span class="name">ИЗМИР</span>
+            </a>
+            <a href="kusadasi.html" class="city-link">
+                <div class="photo img-kusadasi"></div>
+                <span class="name">КУШАДАСЫ</span>
+            </a>
+            <a href="bodrum.html" class="city-link">
+                <div class="photo img-bodrum"></div>
+                <span class="name">БОДРУМ</span>
+            </a>
+            <a href="fethiye.html" class="city-link">
+                <div class="photo img-fethiye"></div>
+                <span class="name">ФЕТХИЕ</span>
+            </a>
+            <a href="cesme.html" class="city-link">
+                <div class="photo img-cesme"></div>
+                <span class="name">ЧЕШМЕ</span>
+            </a>
+            <a href="denizli.html" class="city-link">
+                <div class="photo img-denizli"></div>
+                <span class="name">ДЕНИЗЛИ</span>
+            </a>
+        </div>
+
+        <a href="personal.html" class="back">← назад к странам</a>
+    </div>
+
+</body>
+</html>
