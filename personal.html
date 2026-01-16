@@ -21,11 +21,7 @@
 
         .bg-layer { 
             position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            z-index: 0; 
+            top: 0; left: 0; width: 100%; height: 100%; z-index: 0; 
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
             background-position: center center; 
             background-repeat: no-repeat; 
@@ -39,86 +35,92 @@
             position: relative; 
             z-index: 2; 
             width: 100%; 
+            max-width: 1200px;
             display: flex; 
             flex-direction: column; 
             align-items: center; 
         }
 
-        /* ЯРКАЯ НАВИГАЦИЯ */
-        nav { padding: 50px 0; display: flex; gap: 50px; }
+        /* НАВИГАЦИЯ КАК НА ГЛАВНОЙ */
+        nav { padding: 60px 0; display: flex; gap: 60px; }
         nav a { 
             text-decoration: none; 
             color: #fff !important; 
             text-transform: uppercase; 
-            font-size: 20px; 
+            font-size: 28px; /* Крупный размер как на главной */
             font-weight: 900; 
-            letter-spacing: 6px; 
+            letter-spacing: 8px; 
             opacity: 1 !important; 
             transition: 0.3s;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         }
-        nav a:hover { 
-            opacity: 0.8; 
-            text-shadow: 0 0 25px rgba(255, 255, 255, 1);
-            transform: scale(1.1);
+        nav a:hover { opacity: 0.7; transform: scale(1.05); }
+
+        .country-title { margin-bottom: 40px; text-align: center; }
+        .country-title h1 { font-size: 36px; letter-spacing: 10px; text-transform: uppercase; }
+
+        /* СТИЛЬ ЯРКИХ ЗАГОЛОВКОВ РАЗДЕЛОВ */
+        .section-label {
+            grid-column: 1 / -1; /* Заголовок на всю ширину колонок */
+            font-size: 22px;
+            color: #fff;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+            width: 100%;
         }
 
-        .country-title { margin-bottom: 30px; text-align: center; }
-        .country-title h1 { 
-            font-size: 32px; 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-        }
-
-        .regions-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 10px;
-            padding-bottom: 60px;
+        /* ДВЕ КОЛОНКИ */
+        .regions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 40px;
+            width: 100%;
+            padding: 0 20px 80px 20px;
         }
 
         .region-link {
             text-decoration: none;
             color: #fff;
-            font-size: 19px;
+            font-size: 18px;
             letter-spacing: 3px;
             text-transform: uppercase;
             transition: 0.3s;
-            text-align: center;
+            opacity: 0.8;
         }
 
         .region-link:hover {
-            opacity: 0.5;
-            transform: scale(1.03);
+            opacity: 1;
+            transform: translateX(10px);
         }
 
-        .section-label {
-            font-size: 11px;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 4px;
-            margin-top: 30px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
+        /* Выравнивание колонок: левая колонка по правому краю, правая по левому */
+        .region-link:nth-child(odd) { text-align: right; }
+        .region-link:nth-child(even) { text-align: left; }
 
         .back { 
-            margin: 40px 0; 
+            margin-bottom: 60px; 
             text-decoration: none; 
             color: #fff !important; 
             font-size: 11px; 
-            opacity: 1 !important; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
             transition: 0.3s; 
         }
         .back:hover { opacity: 0.7; }
 
-        @media (max-width: 600px) { 
-            nav { gap: 25px; }
-            nav a { font-size: 15px; letter-spacing: 3px; }
-            .region-link { font-size: 14px; letter-spacing: 2px; }
+        @media (max-width: 768px) { 
+            nav { gap: 30px; }
+            nav a { font-size: 18px; letter-spacing: 4px; }
+            .regions-grid { grid-template-columns: 1fr; } /* На мобилках в одну колонку */
+            .region-link { text-align: center !important; font-size: 16px; }
+            .country-title h1 { font-size: 24px; }
+            .section-label { font-size: 18px; }
         }
     </style>
 </head>
@@ -135,8 +137,8 @@
             <h1>ЛИЧНЫЙ ОПЫТ</h1>
         </div>
 
-        <div class="regions-list">
-            <div class="section-label">— АЗИЯ —</div>
+        <div class="regions-grid">
+            <div class="section-label">АЗИЯ</div>
             <a href="korea.html" class="region-link">ЮЖНАЯ КОРЕЯ</a>
             <a href="vietnam.html" class="region-link">ВЬЕТНАМ</a>
             <a href="cambodia.html" class="region-link">КАМБОДЖА</a>
@@ -152,7 +154,7 @@
             <a href="lebanon.html" class="region-link">ЛИВАН</a>
             <a href="uae.html" class="region-link">ОАЭ</a>
 
-            <div class="section-label">— ЕВРОПА —</div>
+            <div class="section-label">ЕВРОПА</div>
             <a href="montenegro.html" class="region-link">ЧЕРНОГОРИЯ</a>
             <a href="portugal.html" class="region-link">ПОРТУГАЛИЯ</a>
             <a href="estonia.html" class="region-link">ЭСТОНИЯ</a>
@@ -165,7 +167,7 @@
             <a href="belarus.html" class="region-link">БЕЛАРУСЬ</a>
             <a href="bosnia.html" class="region-link">БОСНИЯ</a>
 
-            <div class="section-label">— КАВКАЗ И ЕВРАЗИЯ —</div>
+            <div class="section-label">КАВКАЗ И ЕВРАЗИЯ</div>
             <a href="russia.html" class="region-link">РОССИЯ</a>
             <a href="armenia.html" class="region-link">АРМЕНИЯ</a>
             <a href="abkhazia.html" class="region-link">АБХАЗИЯ</a>
