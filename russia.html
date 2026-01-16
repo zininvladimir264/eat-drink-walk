@@ -7,128 +7,142 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { background-color: #000; }
-        body { 
-            width: 100%; 
-            height: 100%; 
-            background-color: transparent; 
-            font-family: 'Arial Black', sans-serif; 
-            color: #fff; 
-            overflow-x: hidden; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-
-        .bg-layer { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            z-index: 0; 
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');
-            background-position: center center; 
-            background-repeat: no-repeat; 
-            background-size: cover; 
-            filter: blur(8px); 
-            transform: scale(1.1); 
-            pointer-events: none; 
-        }
-
-        .content-wrapper { 
-            position: relative; 
-            z-index: 2; 
-            width: 100%; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-
-        nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a { 
-            text-decoration: none; 
-            color: #fff !important; 
-            text-transform: uppercase; 
-            font-size: 13px; 
-            letter-spacing: 3px; 
-            opacity: 1 !important; 
-            transition: 0.3s; 
-        }
-        nav a:hover { opacity: 0.7; }
-
-        .country-title { margin-bottom: 40px; text-align: center; }
-        .country-title h1 { 
-            font-size: 32px; 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-        }
-
-        /* СПИСОК РАЗДЕЛОВ */
-        .regions-list {
+        
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 25px;
-            margin-top: 20px;
         }
 
-        .region-link {
+        /* ФОН */
+        .bg-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/russia-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        /* НАВИГАЦИЯ */
+        nav {
+            padding: 40px 0 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
             text-decoration: none;
             color: #fff;
-            font-size: 22px;
-            letter-spacing: 4px;
             text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
             transition: 0.3s;
+        }
+
+        /* КОНТЕНТ */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 60px;
+        }
+
+        /* ЗАГОЛОВОК РЕГИОНА */
+        .region-section {
+            width: 100%;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .region-title {
+            font-size: 20px;
+            letter-spacing: 5px;
+            color: #fff;
+            font-weight: normal;
+            text-transform: uppercase;
             text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            margin-bottom: 25px;
+            padding-bottom: 8px;
+            width: fit-content;
         }
 
-        .region-link:hover {
-            opacity: 0.6;
-            transform: scale(1.05);
+        /* СЕТКА ГОРОДОВ (2 КОЛОНКИ) */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 12px 40px;
+            width: 100%;
+            padding: 0 15px;
         }
 
-        .back { 
-            margin: 60px 0; 
-            text-decoration: none; 
-            color: #fff !important; 
-            font-size: 11px; 
-            opacity: 1 !important; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            transition: 0.3s; 
+        .city-item {
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+            display: block;
+            opacity: 0.9;
         }
-        .back:hover { opacity: 0.7; }
 
-        @media (max-width: 600px) { 
-            .region-link { font-size: 16px; letter-spacing: 2px; }
-            .country-title h1 { font-size: 24px; }
+        .city-item:hover { 
+            opacity: 1;
+            transform: scale(1.02); 
+        }
+
+        .city-name {
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .cities-grid { gap: 12px 10px; }
+            .city-name { font-size: 11px; }
+            .region-title { font-size: 16px; letter-spacing: 3px; }
         }
     </style>
 </head>
 <body>
+
     <div class="bg-layer"></div>
 
+    <nav>
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="countries.html">СТРАНЫ</a>
+    </nav>
+
     <div class="content-wrapper">
-        <nav>
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="personal.html">СТРАНЫ</a>
-        </nav>
-
-        <div class="country-title">
-            <h1>РОССИЯ</h1>
+        
+        <div class="region-section">
+            <div class="region-title">УРАЛ</div>
+            <div class="cities-grid">
+                <a href="izhevsk.html" class="city-item"><span class="city-name">Ижевск</span></a>
+                <a href="votkinsk.html" class="city-item"><span class="city-name">Воткинск</span></a>
+                <a href="chaikovsky.html" class="city-item"><span class="city-name">Чайковский</span></a>
+                </div>
         </div>
 
-        <div class="regions-list">
-            <a href="central.html" class="region-link">Центральная Россия</a>
-            <a href="northwest.html" class="region-link">Северо-Запад</a>
-            <a href="povolzhye.html" class="region-link">Поволжье</a>
-            <a href="south.html" class="region-link">Юг России</a>
-            <a href="caucasus.html" class="region-link">Северный Кавказ</a>
-            <a href="ural.html" class="region-link">Урал</a>
-            <a href="siberia.html" class="region-link">Сибирь</a>
         </div>
 
-        <a href="personal.html" class="back">← назад к странам</a>
-    </div>
 </body>
 </html>
