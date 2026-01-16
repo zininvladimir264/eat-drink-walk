@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЕВЕРО-ЗАПАД — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { background-color: #000; }
+        body { width: 100%; height: 100%; background-color: transparent; font-family: 'Arial Black', sans-serif; color: #fff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-position: center center; background-repeat: no-repeat; background-size: cover; filter: blur(8px); transform: scale(1.1); pointer-events: none; }
+        .content-wrapper { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        nav { padding: 40px 0; display: flex; gap: 40px; }
+        nav a { text-decoration: none; color: #fff !important; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 1 !important; transition: 0.3s; }
+        nav a:hover { opacity: 0.7; }
+        .country-title { margin-bottom: 50px; text-align: center; }
+        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        .cities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
+        .city-link { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
+        .city-link:hover { transform: translateY(-10px); }
+        .photo { width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 15px; background-color: #222; border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* ФОТО ГОРОДОВ СЕВЕРО-ЗАПАДА */
+        .img-apatity { background-image: url('images/apatity.webp'); }
+        .img-valday { background-image: url('images/valday.webp'); }
+        .img-vnovgorod { background-image: url('images/vnovgorod.webp'); }
+        .img-vologda { background-image: url('images/vologda.webp'); }
+        .img-vyborg { background-image: url('images/vyborg.webp'); }
+        .img-gatchina { background-image: url('images/gatchina.webp'); }
+        .img-kargopol { background-image: url('images/kargopol.webp'); }
+        .img-kirillov { background-image: url('images/kirillov.webp'); }
+        .img-petrozavodsk { background-image: url('images/petrozavodsk.webp'); }
+        .img-pechory { background-image: url('images/pechory.webp'); }
+        .img-priozersk { background-image: url('images/priozersk.webp'); }
+        .img-pskov { background-image: url('images/pskov.webp'); }
+        .img-pushgory { background-image: url('images/pushgory.webp'); }
+        .img-spb { background-image: url('images/spb.webp'); }
+        .img-cherepovets { background-image: url('images/cherepovets.webp'); }
+
+        .name { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
+        .back { margin: 60px 0; text-decoration: none; color: #fff !important; font-size: 11px; opacity: 1 !important; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .back:hover { opacity: 0.7; }
+        @media (max-width: 600px) { .city-link { width: 140px; } .name { font-size: 11px; } .country-title h1 { font-size: 24px; } }
+    </style>
+</head>
+<body>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+    <div class="content-wrapper">
+        <nav><a href="index.html">ГЛАВНАЯ</a><a href="russia.html">РОССИЯ</a></nav>
+        <div class="country-title"><h1>СЕВЕРО-ЗАПАД</h1></div>
+        <div class="cities-grid">
+            <a href="apatity.html" class="city-link">
+                <div class="photo img-apatity"></div>
+                <span class="name">АПАТИТЫ</span>
+            </a>
+            <a href="valday.html" class="city-link">
+                <div class="photo img-valday"></div>
+                <span class="name">ВАЛДАЙ</span>
+            </a>
+            <a href="vnovgorod.html" class="city-link">
+                <div class="photo img-vnovgorod"></div>
+                <span class="name">ВЕЛИКИЙ НОВГОРОД</span>
+            </a>
+            <a href="vologda.html" class="city-link">
+                <div class="photo img-vologda"></div>
+                <span class="name">ВОЛОГДА</span>
+            </a>
+            <a href="vyborg.html" class="city-link">
+                <div class="photo img-vyborg"></div>
+                <span class="name">ВЫБОРГ</span>
+            </a>
+            <a href="gatchina.html" class="city-link">
+                <div class="photo img-gatchina"></div>
+                <span class="name">ГАТЧИНА</span>
+            </a>
+            <a href="kargopol.html" class="city-link">
+                <div class="photo img-kargopol"></div>
+                <span class="name">КАРГОПОЛЬ</span>
+            </a>
+            <a href="kirillov.html" class="city-link">
+                <div class="photo img-kirillov"></div>
+                <span class="name">КИРИЛЛОВ</span>
+            </a>
+            <a href="petrozavodsk.html" class="city-link">
+                <div class="photo img-petrozavodsk"></div>
+                <span class="name">ПЕТРОЗАВОДСК</span>
+            </a>
+            <a href="pechory.html" class="city-link">
+                <div class="photo img-pechory"></div>
+                <span class="name">ПЕЧОРЫ</span>
+            </a>
+            <a href="priozersk.html" class="city-link">
+                <div class="photo img-priozersk"></div>
+                <span class="name">ПРИОЗЕРСК</span>
+            </a>
+            <a href="pskov.html" class="city-link">
+                <div class="photo img-pskov"></div>
+                <span class="name">ПСКОВ</span>
+            </a>
+            <a href="pushgory.html" class="city-link">
+                <div class="photo img-pushgory"></div>
+                <span class="name">ПУШКИНСКИЕ ГОРЫ</span>
+            </a>
+            <a href="spb.html" class="city-link">
+                <div class="photo img-spb"></div>
+                <span class="name">САНКТ-ПЕТЕРБУРГ</span>
+            </a>
+            <a href="cherepovets.html" class="city-link">
+                <div class="photo img-cherepovets"></div>
+                <span class="name">ЧЕРЕПОВЕЦ</span>
+            </a>
+        </div>
+        <a href="russia.html" class="back">← назад к регионам</a>
+    </div>
+</body>
+</html>
