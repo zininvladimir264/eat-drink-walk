@@ -50,20 +50,20 @@
             text-decoration: none; 
             color: #fff !important; 
             text-transform: uppercase; 
-            font-size: 18px; 
+            font-size: 20px; 
             font-weight: 900; 
-            letter-spacing: 5px; 
+            letter-spacing: 6px; 
             opacity: 1 !important; 
             transition: 0.3s;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         }
         nav a:hover { 
             opacity: 0.8; 
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 1);
             transform: scale(1.1);
         }
 
-        .country-title { margin-bottom: 40px; text-align: center; }
+        .country-title { margin-bottom: 30px; text-align: center; }
         .country-title h1 { 
             font-size: 32px; 
             letter-spacing: 6px; 
@@ -74,32 +74,32 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 10px;
-            padding-bottom: 40px;
+            padding-bottom: 60px;
         }
 
         .region-link {
             text-decoration: none;
             color: #fff;
-            font-size: 20px;
-            letter-spacing: 4px;
+            font-size: 19px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             transition: 0.3s;
             text-align: center;
         }
 
         .region-link:hover {
-            opacity: 0.6;
-            transform: scale(1.05);
+            opacity: 0.5;
+            transform: scale(1.03);
         }
 
-        /* Стиль для подзаголовков разделов (Азия, Европа и т.д.) */
         .section-label {
-            font-size: 12px;
+            font-size: 11px;
             color: rgba(255,255,255,0.4);
-            letter-spacing: 3px;
-            margin-top: 20px;
+            letter-spacing: 4px;
+            margin-top: 30px;
+            margin-bottom: 5px;
             text-transform: uppercase;
         }
 
@@ -116,10 +116,9 @@
         .back:hover { opacity: 0.7; }
 
         @media (max-width: 600px) { 
-            nav { gap: 30px; }
-            nav a { font-size: 14px; letter-spacing: 3px; }
-            .region-link { font-size: 15px; letter-spacing: 2px; }
-            .country-title h1 { font-size: 24px; }
+            nav { gap: 25px; }
+            nav a { font-size: 15px; letter-spacing: 3px; }
+            .region-link { font-size: 14px; letter-spacing: 2px; }
         }
     </style>
 </head>
@@ -137,22 +136,44 @@
         </div>
 
         <div class="regions-list">
-            <a href="russia.html" class="region-link">РОССИЯ</a>
-            
-            <div class="section-label">— КАВКАЗ —</div>
-            <a href="armenia.html" class="region-link">АРМЕНИЯ</a>
-            <a href="georgia.html" class="region-link">ГРУЗИЯ</a>
-            <a href="azerbaijan.html" class="region-link">АЗЕРБАЙДЖАН</a>
-
             <div class="section-label">— АЗИЯ —</div>
-            <a href="egypt.html" class="region-link">ЕГИПЕТ</a>
-            <a href="turkey.html" class="region-link">ТУРЦИЯ</a>
-            <a href="north_cyprus.html" class="region-link">СЕВЕРНЫЙ КИПР</a>
+            <a href="korea.html" class="region-link">ЮЖНАЯ КОРЕЯ</a>
+            <a href="vietnam.html" class="region-link">ВЬЕТНАМ</a>
+            <a href="cambodia.html" class="region-link">КАМБОДЖА</a>
+            <a href="india.html" class="region-link">ИНДИЯ</a>
+            <a href="kazakhstan.html" class="region-link">КАЗАХСТАН</a>
+            <a href="tajikistan.html" class="region-link">ТАДЖИКИСТАН</a>
+            <a href="oman.html" class="region-link">ОМАН</a>
+            <a href="malaysia.html" class="region-link">МАЛАЙЗИЯ</a>
             <a href="thailand.html" class="region-link">ТАИЛАНД</a>
+            <a href="srilanka.html" class="region-link">ШРИ-ЛАНКА</a>
+            <a href="uzbekistan.html" class="region-link">УЗБЕКИСТАН</a>
+            <a href="kyrgyzstan.html" class="region-link">КИРГИЗИЯ</a>
+            <a href="lebanon.html" class="region-link">ЛИВАН</a>
+            <a href="uae.html" class="region-link">ОАЭ</a>
 
             <div class="section-label">— ЕВРОПА —</div>
+            <a href="montenegro.html" class="region-link">ЧЕРНОГОРИЯ</a>
+            <a href="portugal.html" class="region-link">ПОРТУГАЛИЯ</a>
+            <a href="estonia.html" class="region-link">ЭСТОНИЯ</a>
+            <a href="lithuania.html" class="region-link">ЛИТВА</a>
+            <a href="moldova.html" class="region-link">МОЛДОВА</a>
             <a href="austria.html" class="region-link">АВСТРИЯ</a>
+            <a href="serbia.html" class="region-link">СЕРБИЯ</a>
+            <a href="spain.html" class="region-link">ИСПАНИЯ</a>
+            <a href="latvia.html" class="region-link">ЛАТВИЯ</a>
             <a href="belarus.html" class="region-link">БЕЛАРУСЬ</a>
+            <a href="bosnia.html" class="region-link">БОСНИЯ</a>
+
+            <div class="section-label">— КАВКАЗ И ЕВРАЗИЯ —</div>
+            <a href="russia.html" class="region-link">РОССИЯ</a>
+            <a href="armenia.html" class="region-link">АРМЕНИЯ</a>
+            <a href="abkhazia.html" class="region-link">АБХАЗИЯ</a>
+            <a href="north_cyprus.html" class="region-link">СЕВЕРНЫЙ КИПР</a>
+            <a href="georgia.html" class="region-link">ГРУЗИЯ</a>
+            <a href="azerbaijan.html" class="region-link">АЗЕРБАЙДЖАН</a>
+            <a href="turkey.html" class="region-link">ТУРЦИЯ</a>
+            <a href="egypt.html" class="region-link">ЕГИПЕТ</a>
         </div>
 
         <a href="index.html" class="back">← на главную</a>
