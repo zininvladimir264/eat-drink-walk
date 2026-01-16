@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПОВОЛЖЬЕ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { background-color: #000; }
+        body { width: 100%; height: 100%; background-color: transparent; font-family: 'Arial Black', sans-serif; color: #fff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-position: center center; background-repeat: no-repeat; background-size: cover; filter: blur(8px); transform: scale(1.1); pointer-events: none; }
+        .content-wrapper { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        nav { padding: 40px 0; display: flex; gap: 40px; }
+        nav a { text-decoration: none; color: #fff !important; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 1 !important; transition: 0.3s; }
+        nav a:hover { opacity: 0.7; }
+        .country-title { margin-bottom: 50px; text-align: center; }
+        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        .cities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
+        .city-link { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
+        .city-link:hover { transform: translateY(-10px); }
+        .photo { width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 15px; background-color: #222; border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* ФОТО ГОРОДОВ ПОВОЛЖЬЯ */
+        .img-gorokhovets { background-image: url('images/gorokhovets.webp'); }
+        .img-kazan { background-image: url('images/kazan.webp'); }
+        .img-kanash { background-image: url('images/kanash.webp'); }
+        .img-marks { background-image: url('images/marks.webp'); }
+        .img-chelny { background-image: url('images/chelny.webp'); }
+        .img-nnovgorod { background-image: url('images/nnovgorod.webp'); }
+        .img-nizhnekamsk { background-image: url('images/nizhnekamsk.webp'); }
+        .img-novospasskoe { background-image: url('images/novospasskoe.webp'); }
+        .img-pavlovo { background-image: url('images/pavlovo.webp'); }
+        .img-samara { background-image: url('images/samara.webp'); }
+        .img-saratov { background-image: url('images/saratov.webp'); }
+        .img-tolyatti { background-image: url('images/tolyatti.webp'); }
+        .img-ulyanovsk { background-image: url('images/ulyanovsk.webp'); }
+        .img-urmary { background-image: url('images/urmary.webp'); }
+        .img-ufa { background-image: url('images/ufa.webp'); }
+        .img-cheboksary { background-image: url('images/cheboksary.webp'); }
+
+        .name { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
+        .back { margin: 60px 0; text-decoration: none; color: #fff !important; font-size: 11px; opacity: 1 !important; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .back:hover { opacity: 0.7; }
+        @media (max-width: 600px) { .city-link { width: 140px; } .name { font-size: 11px; } .country-title h1 { font-size: 24px; } }
+    </style>
+</head>
+<body>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+    <div class="content-wrapper">
+        <nav><a href="index.html">ГЛАВНАЯ</a><a href="russia.html">РОССИЯ</a></nav>
+        <div class="country-title"><h1>ПОВОЛЖЬЕ</h1></div>
+        <div class="cities-grid">
+            <a href="gorokhovets.html" class="city-link">
+                <div class="photo img-gorokhovets"></div>
+                <span class="name">ГОРОХОВЕЦ</span>
+            </a>
+            <a href="kazan.html" class="city-link">
+                <div class="photo img-kazan"></div>
+                <span class="name">КАЗАНЬ</span>
+            </a>
+            <a href="kanash.html" class="city-link">
+                <div class="photo img-kanash"></div>
+                <span class="name">КАНАШ</span>
+            </a>
+            <a href="marks.html" class="city-link">
+                <div class="photo img-marks"></div>
+                <span class="name">МАРКС</span>
+            </a>
+            <a href="n_chelny.html" class="city-link">
+                <div class="photo img-chelny"></div>
+                <span class="name">НАБЕРЕЖНЫЕ ЧЕЛНЫ</span>
+            </a>
+            <a href="n_novgorod.html" class="city-link">
+                <div class="photo img-nnovgorod"></div>
+                <span class="name">НИЖНИЙ НОВГОРОД</span>
+            </a>
+            <a href="nizhnekamsk.html" class="city-link">
+                <div class="photo img-nizhnekamsk"></div>
+                <span class="name">НИЖНЕКАМСК</span>
+            </a>
+            <a href="novospasskoe.html" class="city-link">
+                <div class="photo img-novospasskoe"></div>
+                <span class="name">НОВОСПАССКОЕ</span>
+            </a>
+            <a href="pavlovo.html" class="city-link">
+                <div class="photo img-pavlovo"></div>
+                <span class="name">ПАВЛОВО НА ОКЕ</span>
+            </a>
+            <a href="samara.html" class="city-link">
+                <div class="photo img-samara"></div>
+                <span class="name">САМАРА</span>
+            </a>
+            <a href="saratov.html" class="city-link">
+                <div class="photo img-saratov"></div>
+                <span class="name">САРАТОВ</span>
+            </a>
+            <a href="tolyatti.html" class="city-link">
+                <div class="photo img-tolyatti"></div>
+                <span class="name">ТОЛЬЯТТИ</span>
+            </a>
+            <a href="ulyanovsk.html" class="city-link">
+                <div class="photo img-ulyanovsk"></div>
+                <span class="name">УЛЬЯНОВСК</span>
+            </a>
+            <a href="urmary.html" class="city-link">
+                <div class="photo img-urmary"></div>
+                <span class="name">УРМАРЫ</span>
+            </a>
+            <a href="ufa.html" class="city-link">
+                <div class="photo img-ufa"></div>
+                <span class="name">УФА</span>
+            </a>
+            <a href="cheboksary.html" class="city-link">
+                <div class="photo img-cheboksary"></div>
+                <span class="name">ЧЕБОКСАРЫ</span>
+            </a>
+        </div>
+        <a href="russia.html" class="back">← назад к регионам</a>
+    </div>
+</body>
+</html>
