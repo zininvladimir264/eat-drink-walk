@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЮГ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { background-color: #000; }
+        body { width: 100%; height: 100%; background-color: transparent; font-family: 'Arial Black', sans-serif; color: #fff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-position: center center; background-repeat: no-repeat; background-size: cover; filter: blur(8px); transform: scale(1.1); pointer-events: none; }
+        .content-wrapper { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        nav { padding: 40px 0; display: flex; gap: 40px; }
+        nav a { text-decoration: none; color: #fff !important; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 1 !important; transition: 0.3s; }
+        nav a:hover { opacity: 0.7; }
+        .country-title { margin-bottom: 50px; text-align: center; }
+        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        .cities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
+        .city-link { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
+        .city-link:hover { transform: translateY(-10px); }
+        .photo { width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 15px; background-color: #222; border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* ФОТО ГОРОДОВ ЮГА */
+        .img-alushta { background-image: url('images/alushta.webp'); }
+        .img-balaklava { background-image: url('images/balaklava.webp'); }
+        .img-gelendzhik { background-image: url('images/gelendzhik.webp'); }
+        .img-krasnodar { background-image: url('images/krasnodar.webp'); }
+        .img-novoros { background-image: url('images/novoros.webp'); }
+        .img-novocherk { background-image: url('images/novocherk.webp'); }
+        .img-sochi { background-image: url('images/sochi.webp'); }
+        .img-sudak { background-image: url('images/sudak.webp'); }
+        .img-feodosiya { background-image: url('images/feodosiya.webp'); }
+        .img-yalta { background-image: url('images/yalta.webp'); }
+
+        .name { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
+        .back { margin: 60px 0; text-decoration: none; color: #fff !important; font-size: 11px; opacity: 1 !important; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .back:hover { opacity: 0.7; }
+        @media (max-width: 600px) { .city-link { width: 140px; } .name { font-size: 11px; } .country-title h1 { font-size: 24px; } }
+    </style>
+</head>
+<body>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+    <div class="content-wrapper">
+        <nav><a href="index.html">ГЛАВНАЯ</a><a href="russia.html">РОССИЯ</a></nav>
+        <div class="country-title"><h1>ЮГ</h1></div>
+        <div class="cities-grid">
+            <a href="alushta.html" class="city-link">
+                <div class="photo img-alushta"></div>
+                <span class="name">АЛУШТА</span>
+            </a>
+            <a href="balaklava.html" class="city-link">
+                <div class="photo img-balaklava"></div>
+                <span class="name">БАЛАКЛАВА</span>
+            </a>
+            <a href="gelendzhik.html" class="city-link">
+                <div class="photo img-gelendzhik"></div>
+                <span class="name">ГЕЛЕНДЖИК</span>
+            </a>
+            <a href="krasnodar.html" class="city-link">
+                <div class="photo img-krasnodar"></div>
+                <span class="name">КРАСНОДАР</span>
+            </a>
+            <a href="novorossiysk.html" class="city-link">
+                <div class="photo img-novoros"></div>
+                <span class="name">НОВОРОССИЙСК</span>
+            </a>
+            <a href="novocherkassk.html" class="city-link">
+                <div class="photo img-novocherk"></div>
+                <span class="name">НОВОЧЕРКАССК</span>
+            </a>
+            <a href="sochi.html" class="city-link">
+                <div class="photo img-sochi"></div>
+                <span class="name">СОЧИ</span>
+            </a>
+            <a href="sudak.html" class="city-link">
+                <div class="photo img-sudak"></div>
+                <span class="name">СУДАК</span>
+            </a>
+            <a href="feodosiya.html" class="city-link">
+                <div class="photo img-feodosiya"></div>
+                <span class="name">ФЕОДОСИЯ</span>
+            </a>
+            <a href="yalta.html" class="city-link">
+                <div class="photo img-yalta"></div>
+                <span class="name">ЯЛТА</span>
+            </a>
+        </div>
+        <a href="russia.html" class="back">← назад к регионам</a>
+    </div>
+</body>
+</html>
