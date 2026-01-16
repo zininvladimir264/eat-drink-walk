@@ -44,22 +44,22 @@
             align-items: center; 
         }
 
-        /* ОБНОВЛЕННАЯ ЯРКАЯ НАВИГАЦИЯ */
+        /* ЯРКАЯ НАВИГАЦИЯ */
         nav { padding: 50px 0; display: flex; gap: 50px; }
         nav a { 
             text-decoration: none; 
             color: #fff !important; 
             text-transform: uppercase; 
-            font-size: 18px; /* Сделал крупнее */
-            font-weight: 900; /* Максимальная жирность */
-            letter-spacing: 5px; /* Больше отступ для яркости */
+            font-size: 18px; 
+            font-weight: 900; 
+            letter-spacing: 5px; 
             opacity: 1 !important; 
             transition: 0.3s;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Легкое свечение */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
         nav a:hover { 
             opacity: 0.8; 
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Яркое свечение при наведении */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
             transform: scale(1.1);
         }
 
@@ -74,14 +74,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 20px;
+            margin-top: 10px;
+            padding-bottom: 40px;
         }
 
         .region-link {
             text-decoration: none;
             color: #fff;
-            font-size: 22px;
+            font-size: 20px;
             letter-spacing: 4px;
             text-transform: uppercase;
             transition: 0.3s;
@@ -93,8 +94,17 @@
             transform: scale(1.05);
         }
 
+        /* Стиль для подзаголовков разделов (Азия, Европа и т.д.) */
+        .section-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 3px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
         .back { 
-            margin: 60px 0; 
+            margin: 40px 0; 
             text-decoration: none; 
             color: #fff !important; 
             font-size: 11px; 
@@ -108,7 +118,7 @@
         @media (max-width: 600px) { 
             nav { gap: 30px; }
             nav a { font-size: 14px; letter-spacing: 3px; }
-            .region-link { font-size: 16px; letter-spacing: 2px; }
+            .region-link { font-size: 15px; letter-spacing: 2px; }
             .country-title h1 { font-size: 24px; }
         }
     </style>
@@ -127,11 +137,22 @@
         </div>
 
         <div class="regions-list">
-            <a href="russia.html" class="region-link">Россия</a>
-            <a href="austria.html" class="region-link">Австрия</a>
-            <a href="egypt.html" class="region-link">Египет</a>
-            <a href="armenia.html" class="region-link">Армения</a>
-            <a href="north_cyprus.html" class="region-link">Северный Кипр</a>
+            <a href="russia.html" class="region-link">РОССИЯ</a>
+            
+            <div class="section-label">— КАВКАЗ —</div>
+            <a href="armenia.html" class="region-link">АРМЕНИЯ</a>
+            <a href="georgia.html" class="region-link">ГРУЗИЯ</a>
+            <a href="azerbaijan.html" class="region-link">АЗЕРБАЙДЖАН</a>
+
+            <div class="section-label">— АЗИЯ —</div>
+            <a href="egypt.html" class="region-link">ЕГИПЕТ</a>
+            <a href="turkey.html" class="region-link">ТУРЦИЯ</a>
+            <a href="north_cyprus.html" class="region-link">СЕВЕРНЫЙ КИПР</a>
+            <a href="thailand.html" class="region-link">ТАИЛАНД</a>
+
+            <div class="section-label">— ЕВРОПА —</div>
+            <a href="austria.html" class="region-link">АВСТРИЯ</a>
+            <a href="belarus.html" class="region-link">БЕЛАРУСЬ</a>
         </div>
 
         <a href="index.html" class="back">← на главную</a>
