@@ -7,171 +7,83 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { background-color: #000; }
-        body { 
-            width: 100%; 
-            height: 100%; 
-            background-color: transparent; 
-            font-family: 'Arial Black', sans-serif; 
-            color: #fff; 
-            overflow-x: hidden; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-        
-        .bg-layer { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            z-index: 0; 
-            background-position: center center; 
-            background-repeat: no-repeat; 
-            background-size: cover; 
-            filter: blur(8px); 
-            transform: scale(1.1); 
-            pointer-events: none; 
-        }
-
-        .content-wrapper { 
-            position: relative; 
-            z-index: 2; 
-            width: 100%; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-
+        body { width: 100%; height: 100%; background-color: transparent; font-family: 'Arial Black', sans-serif; color: #fff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-position: center center; background-repeat: no-repeat; background-size: cover; filter: blur(8px); transform: scale(1.1); pointer-events: none; }
+        .content-wrapper { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
         nav { padding: 40px 0; display: flex; gap: 40px; }
-        nav a { 
-            text-decoration: none; 
-            color: #fff !important; 
-            text-transform: uppercase; 
-            font-size: 13px; 
-            letter-spacing: 3px; 
-            opacity: 1 !important; 
-            transition: 0.3s; 
-        }
+        nav a { text-decoration: none; color: #fff !important; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 1 !important; transition: 0.3s; }
         nav a:hover { opacity: 0.7; }
-
         .country-title { margin-bottom: 50px; text-align: center; }
-        .country-title h1 { 
-            font-size: 32px; 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-        }
-
-        .cities-grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 40px; 
-            max-width: 1100px; 
-            padding: 0 20px; 
-        }
-
-        .city-link { 
-            text-decoration: none; 
-            color: #fff; 
-            width: 300px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            transition: transform 0.3s; 
-        }
+        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        .cities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
+        .city-link { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
         .city-link:hover { transform: translateY(-10px); }
-
-        .photo { 
-            width: 100%; 
-            aspect-ratio: 1 / 1; 
-            background-size: cover; 
-            background-position: center; 
-            border-radius: 12px; 
-            margin-bottom: 15px; 
-            background-color: #222; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-        }
+        .photo { width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 15px; background-color: #222; border: 1px solid rgba(255, 255, 255, 0.1); }
         
-        /* ФОТО ГОРОДОВ УРАЛА */
+        /* ФОТО ГОРОДОВ УРАЛА (АЛФАВИТНЫЙ ПОРЯДОК) */
+        .img-votkinsk { background-image: url('images/votkinsk.webp'); }
         .img-ekb { background-image: url('images/ekaterinburg.webp'); }
+        .img-izhevsk { background-image: url('images/izhevsk.webp'); }
         .img-magnitka { background-image: url('images/magnitogorsk.webp'); }
         .img-miass { background-image: url('images/miass.webp'); }
         .img-perm { background-image: url('images/perm.webp'); }
-        .img-chelyabinsk { background-image: url('images/chelyabinsk.webp'); }
-        .img-izhevsk { background-image: url('images/izhevsk.webp'); }
-        .img-votkinsk { background-image: url('images/votkinsk.webp'); }
         .img-chaikovsky { background-image: url('images/chaikovsky.webp'); }
+        .img-chelyabinsk { background-image: url('images/chelyabinsk.webp'); }
 
         .name { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
-
-        .back { 
-            margin: 60px 0; 
-            text-decoration: none; 
-            color: #fff !important; 
-            font-size: 11px; 
-            opacity: 1 !important; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            transition: 0.3s; 
-        }
+        .back { margin: 60px 0; text-decoration: none; color: #fff !important; font-size: 11px; opacity: 1 !important; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         .back:hover { opacity: 0.7; }
-
-        @media (max-width: 600px) { 
-            .city-link { width: 140px; } 
-            .name { font-size: 11px; } 
-            .country-title h1 { font-size: 24px; } 
-            .cities-grid { gap: 20px; }
-        }
+        @media (max-width: 600px) { .city-link { width: 140px; } .name { font-size: 11px; } .country-title h1 { font-size: 24px; } .cities-grid { gap: 20px; } }
     </style>
 </head>
 <body>
     <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
-    
     <div class="content-wrapper">
-        <nav>
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="russia.html">РОССИЯ</a>
-        </nav>
-
+        <nav><a href="index.html">ГЛАВНАЯ</a><a href="russia.html">РОССИЯ</a></nav>
         <div class="country-title"><h1>УРАЛ</h1></div>
-
         <div class="cities-grid">
+            
+            <a href="votkinsk.html" class="city-link">
+                <div class="photo img-votkinsk"></div>
+                <span class="name">Воткинск</span>
+            </a>
+
             <a href="ekaterinburg.html" class="city-link">
                 <div class="photo img-ekb"></div>
                 <span class="name">Екатеринбург</span>
-            </a>
-            <a href="magnitogorsk.html" class="city-link">
-                <div class="photo img-magnitka"></div>
-                <span class="name">Магнитогорск</span>
-            </a>
-            <a href="miass.html" class="city-link">
-                <div class="photo img-miass"></div>
-                <span class="name">Миасс</span>
-            </a>
-            <a href="perm.html" class="city-link">
-                <div class="photo img-perm"></div>
-                <span class="name">Пермь</span>
-            </a>
-            <a href="chelyabinsk.html" class="city-link">
-                <div class="photo img-chelyabinsk"></div>
-                <span class="name">Челябинск</span>
             </a>
 
             <a href="izhevsk.html" class="city-link">
                 <div class="photo img-izhevsk"></div>
                 <span class="name">Ижевск</span>
             </a>
-            <a href="votkinsk.html" class="city-link">
-                <div class="photo img-votkinsk"></div>
-                <span class="name">Воткинск</span>
+
+            <a href="magnitogorsk.html" class="city-link">
+                <div class="photo img-magnitka"></div>
+                <span class="name">Магнитогорск</span>
             </a>
+
+            <a href="miass.html" class="city-link">
+                <div class="photo img-miass"></div>
+                <span class="name">Миасс</span>
+            </a>
+
+            <a href="perm.html" class="city-link">
+                <div class="photo img-perm"></div>
+                <span class="name">Пермь</span>
+            </a>
+
             <a href="chaikovsky.html" class="city-link">
                 <div class="photo img-chaikovsky"></div>
                 <span class="name">Чайковский</span>
             </a>
-        </div>
 
+            <a href="chelyabinsk.html" class="city-link">
+                <div class="photo img-chelyabinsk"></div>
+                <span class="name">Челябинск</span>
+            </a>
+
+        </div>
         <a href="russia.html" class="back">← назад к регионам</a>
     </div>
 </body>
