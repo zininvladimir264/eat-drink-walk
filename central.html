@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЦЕНТРАЛЬНАЯ РОССИЯ — ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { background-color: #000; }
+        body { width: 100%; height: 100%; background-color: transparent; font-family: 'Arial Black', sans-serif; color: #fff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-position: center center; background-repeat: no-repeat; background-size: cover; filter: blur(8px); transform: scale(1.1); pointer-events: none; }
+        .content-wrapper { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        nav { padding: 40px 0; display: flex; gap: 40px; }
+        nav a { text-decoration: none; color: #fff !important; text-transform: uppercase; font-size: 13px; letter-spacing: 3px; opacity: 1 !important; transition: 0.3s; }
+        nav a:hover { opacity: 0.7; }
+        .country-title { margin-bottom: 50px; text-align: center; }
+        .country-title h1 { font-size: 32px; letter-spacing: 6px; text-transform: uppercase; }
+        .cities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; padding: 0 20px; }
+        .city-link { text-decoration: none; color: #fff; width: 300px; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s; }
+        .city-link:hover { transform: translateY(-10px); }
+        .photo { width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 15px; background-color: #222; border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* ФОТО ГОРОДОВ ЦЕНТРАЛЬНОЙ РОССИИ */
+        .img-vladimir { background-image: url('images/vladimir.webp'); }
+        .img-ivanovo { background-image: url('images/ivanovo.webp'); }
+        .img-istra { background-image: url('images/istra.webp'); }
+        .img-kaluga { background-image: url('images/kaluga.webp'); }
+        .img-kostroma { background-image: url('images/kostroma.webp'); }
+        .img-krasnoarm { background-image: url('images/krasnoarm.webp'); }
+        .img-moscow { background-image: url('images/moscow.webp'); }
+        .img-pereslavl { background-image: url('images/pereslavl.webp'); }
+        .img-petushki { background-image: url('images/petushki.webp'); }
+        .img-ryazan { background-image: url('images/ryazan.webp'); }
+        .img-smolensk { background-image: url('images/smolensk.webp'); }
+        .img-tver { background-image: url('images/tver.webp'); }
+        .img-torzhok { background-image: url('images/torzhok.webp'); }
+        .img-tula { background-image: url('images/tula.webp'); }
+        .img-yaroslavl { background-image: url('images/yaroslavl.webp'); }
+
+        .name { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; text-align: center; }
+        .back { margin: 60px 0; text-decoration: none; color: #fff !important; font-size: 11px; opacity: 1 !important; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .back:hover { opacity: 0.7; }
+        @media (max-width: 600px) { .city-link { width: 140px; } .name { font-size: 11px; } .country-title h1 { font-size: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
+    <div class="content-wrapper">
+        <nav><a href="index.html">ГЛАВНАЯ</a><a href="russia.html">РОССИЯ</a></nav>
+        <div class="country-title"><h1>ЦЕНТРАЛЬНАЯ РОССИЯ</h1></div>
+        <div class="cities-grid">
+            <a href="vladimir.html" class="city-link">
+                <div class="photo img-vladimir"></div>
+                <span class="name">ВЛАДИМИР</span>
+            </a>
+            <a href="ivanovo.html" class="city-link">
+                <div class="photo img-ivanovo"></div>
+                <span class="name">ИВАНОВО</span>
+            </a>
+            <a href="istra.html" class="city-link">
+                <div class="photo img-istra"></div>
+                <span class="name">ИСТРА</span>
+            </a>
+            <a href="kaluga.html" class="city-link">
+                <div class="photo img-kaluga"></div>
+                <span class="name">КАЛУГА</span>
+            </a>
+            <a href="kostroma.html" class="city-link">
+                <div class="photo img-kostroma"></div>
+                <span class="name">КОСТРОМА</span>
+            </a>
+            <a href="krasnoarmeysk.html" class="city-link">
+                <div class="photo img-krasnoarm"></div>
+                <span class="name">КРАСНОАРМЕЙСК</span>
+            </a>
+            <a href="moscow.html" class="city-link">
+                <div class="photo img-moscow"></div>
+                <span class="name">МОСКВА</span>
+            </a>
+            <a href="pereslavl.html" class="city-link">
+                <div class="photo img-pereslavl"></div>
+                <span class="name">ПЕРЕСЛАВЛЬ-ЗАЛЕССКИЙ</span>
+            </a>
+            <a href="petushki.html" class="city-link">
+                <div class="photo img-petushki"></div>
+                <span class="name">ПЕТУШКИ</span>
+            </a>
+            <a href="ryazan.html" class="city-link">
+                <div class="photo img-ryazan"></div>
+                <span class="name">РЯЗАНЬ</span>
+            </a>
+            <a href="smolensk.html" class="city-link">
+                <div class="photo img-smolensk"></div>
+                <span class="name">СМОЛЕНСК</span>
+            </a>
+            <a href="tver.html" class="city-link">
+                <div class="photo img-tver"></div>
+                <span class="name">ТВЕРЬ</span>
+            </a>
+            <a href="torzhok.html" class="city-link">
+                <div class="photo img-torzhok"></div>
+                <span class="name">ТОРЖОК</span>
+            </a>
+            <a href="tula.html" class="city-link">
+                <div class="photo img-tula"></div>
+                <span class="name">ТУЛА</span>
+            </a>
+            <a href="yaroslavl.html" class="city-link">
+                <div class="photo img-yaroslavl"></div>
+                <span class="name">ЯРОСЛАВЛЬ</span>
+            </a>
+        </div>
+        <a href="russia.html" class="back">← назад к регионам</a>
+    </div>
+</body>
+</html>
