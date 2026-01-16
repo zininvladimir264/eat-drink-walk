@@ -19,7 +19,6 @@
             overflow: hidden;
         }
 
-        /* ФОНОВОЕ ИЗОБРАЖЕНИЕ */
         .bg-image {
             position: fixed;
             top: 0;
@@ -34,7 +33,6 @@
             transform: scale(1.1);
         }
 
-        /* НАВИГАЦИЯ */
         nav {
             position: absolute;
             top: 50px;
@@ -55,13 +53,12 @@
 
         nav a:hover { opacity: 1; }
 
-        /* ГЛАВНЫЙ ЗАГОЛОВОК */
         .main-title {
             text-align: center;
         }
 
         .main-title h1 {
-            font-size: 48px; /* Оставил стандартный размер для ПК */
+            font-size: 48px;
             letter-spacing: 15px;
             text-transform: uppercase;
             font-weight: normal; 
@@ -80,9 +77,8 @@
         /* ПРАВКИ ТОЛЬКО ДЛЯ МОБИЛЬНОЙ ВЕРСИИ */
         @media (max-width: 600px) {
             .main-title h1 {
-                /* Если базовый мобильный был, например, 28px, то теперь 38px */
-                font-size: 38px; 
-                font-weight: 900; /* Сделал жирнее */
+                font-size: 38px; /* Увеличено на 10px по сравнению со стандартом мобильной версии (28px) */
+                font-weight: 900; /* Сделано жирнее */
                 letter-spacing: 8px;
             }
             nav { gap: 20px; }
