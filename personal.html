@@ -21,7 +21,7 @@
             align-items: center;
         }
 
-        /* ФОН */
+        /* СЛОЙ ФОНА */
         .bg-layer {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
@@ -30,11 +30,12 @@
             background-position: center;
             filter: blur(8px);
             transform: scale(1.1);
+            pointer-events: none;
         }
 
-        /* НАВИГАЦИЯ — КАК В COUNTRIES.HTML */
+        /* НАВИГАЦИЯ */
         nav {
-            padding: 40px 0;
+            padding: 40px 0 30px 0; /* Уменьшил нижний отступ с 40px до 30px (-10px) */
             display: flex;
             justify-content: center;
             gap: 40px;
@@ -67,7 +68,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 20px;
             padding-bottom: 60px;
         }
 
@@ -97,9 +97,9 @@
         .countries-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            gap: 15px 40px;
+            gap: 12px 40px; /* Уменьшил вертикальный шаг между странами с 15px до 12px */
             width: 100%;
-            padding: 0 15px; /* Отступы по краям на мобильных */
+            padding: 0 15px;
         }
 
         .country-item {
@@ -124,11 +124,11 @@
             display: block;
         }
 
-        /* Адаптация для мобильных: оставляем 2 колонки, но уменьшаем шрифт */
+        /* Адаптация для мобильных */
         @media (max-width: 600px) {
-            nav { gap: 20px; }
-            .countries-grid { gap: 15px 10px; } /* Уменьшаем горизонтальный разрыв */
-            .country-name { font-size: 11px; } /* Уменьшаем шрифт, чтобы влезло в 2 колонки */
+            nav { gap: 20px; padding-bottom: 20px; } /* Ещё плотнее на мобильных */
+            .countries-grid { gap: 12px 10px; }
+            .country-name { font-size: 11px; }
             .continent-title { font-size: 16px; letter-spacing: 3px; }
         }
     </style>
