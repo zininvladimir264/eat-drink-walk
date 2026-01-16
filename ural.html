@@ -43,6 +43,7 @@
             display: flex; 
             flex-direction: column; 
             align-items: center; 
+            padding: 0 20px;
         }
 
         nav { padding: 40px 0; display: flex; gap: 40px; }
@@ -64,28 +65,36 @@
             text-transform: uppercase; 
         }
 
-        /* СЕТКА КАРТОЧЕК ГОРОДОВ */
+        /* СЕТКА КАРТОЧЕК */
         .cities-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px 40px;
+            gap: 20px;
             width: 100%;
-            padding: 0 20px;
+            margin-top: 20px;
         }
 
-        .city-link {
+        /* СТИЛЬ КАРТОЧКИ */
+        .city-card {
             text-decoration: none;
             color: #fff;
-            font-size: 18px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Граница карточки */
+            padding: 30px 10px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.05); /* Легкий фон */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .city-link:hover {
-            opacity: 0.6;
-            transform: scale(1.05);
+        .city-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-5px);
         }
 
         .back { 
@@ -101,8 +110,8 @@
         .back:hover { opacity: 0.7; }
 
         @media (max-width: 600px) { 
-            .cities-grid { grid-template-columns: 1fr 1fr; gap: 20px 15px; }
-            .city-link { font-size: 14px; letter-spacing: 1px; }
+            .cities-grid { gap: 15px; }
+            .city-card { padding: 20px 5px; font-size: 11px; letter-spacing: 1px; }
             .region-title h1 { font-size: 24px; }
         }
     </style>
@@ -121,15 +130,14 @@
         </div>
 
         <div class="cities-grid">
-            <a href="ekaterinburg.html" class="city-link">Екатеринбург</a>
-            <a href="magnitogorsk.html" class="city-link">Магнитогорск</a>
-            <a href="miass.html" class="city-link">Миасс</a>
-            <a href="perm.html" class="city-link">Пермь</a>
-            <a href="chelyabinsk.html" class="city-link">Челябинск</a>
-            
-            <a href="izhevsk.html" class="city-link">Ижевск</a>
-            <a href="votkinsk.html" class="city-link">Воткинск</a>
-            <a href="chaikovsky.html" class="city-link">Чайковский</a>
+            <a href="ekaterinburg.html" class="city-card">Екатеринбург</a>
+            <a href="magnitogorsk.html" class="city-card">Магнитогорск</a>
+            <a href="miass.html" class="city-card">Миасс</a>
+            <a href="perm.html" class="city-card">Пермь</a>
+            <a href="chelyabinsk.html" class="city-card">Челябинск</a>
+            <a href="izhevsk.html" class="city-card">Ижевск</a>
+            <a href="votkinsk.html" class="city-card">Воткинск</a>
+            <a href="chaikovsky.html" class="city-card">Чайковский</a>
         </div>
 
         <a href="russia.html" class="back">← назад к регионам</a>
