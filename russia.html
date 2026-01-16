@@ -10,7 +10,7 @@
         
         body {
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             background-color: transparent;
             font-family: Arial, sans-serif;
             color: #fff;
@@ -20,22 +20,24 @@
             align-items: center;
         }
 
+        /* ФОНОВЫЙ СЛОЙ */
         .bg-layer {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/russia-bg.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/mir1.jpg'); /* Убедись, что путь верный */
             background-size: cover;
             background-position: center;
             filter: blur(8px);
             transform: scale(1.1);
-            pointer-events: none;
         }
 
+        /* НАВИГАЦИЯ */
         nav {
             padding: 40px 0 30px 0;
             display: flex;
             justify-content: center;
             gap: 40px;
+            width: 100%;
         }
 
         nav a {
@@ -49,71 +51,78 @@
             transition: 0.3s;
         }
 
+        /* КОНТЕНТ */
         .content-wrapper {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 900px;
+            max-width: 600px; /* Сузил для более аккуратного вида */
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-bottom: 60px;
         }
 
+        /* РАЗДЕЛ РЕГИОНА */
         .region-section {
             width: 100%;
-            margin-bottom: 50px;
+            margin-top: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .region-title {
-            font-size: 20px;
+            font-size: 18px;
             letter-spacing: 5px;
             color: #fff;
             font-weight: normal;
             text-transform: uppercase;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             padding-bottom: 8px;
             width: fit-content;
         }
 
+        /* СЕТКА ГОРОДОВ (2 КОЛОНКИ) */
         .cities-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            gap: 12px 40px;
+            gap: 20px 40px;
             width: 100%;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         .city-item {
             text-decoration: none;
             color: #fff;
-            transition: 0.3s;
             display: block;
-            opacity: 0.9;
+            transition: 0.3s;
         }
 
-        .city-item:hover { 
-            opacity: 1;
-            transform: scale(1.02); 
+        .city-item:hover {
+            transform: scale(1.05);
+            opacity: 0.7;
         }
 
         .city-name {
-            font-size: 15px;
+            font-size: 14px;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-align: center;
             display: block;
         }
 
+        /* МОБИЛЬНАЯ ВЕРСИЯ */
         @media (max-width: 600px) {
-            .cities-grid { gap: 12px 10px; }
+            nav { gap: 20px; }
+            .cities-grid { 
+                grid-template-columns: 1fr 1fr; /* ПРИНУДИТЕЛЬНО 2 КОЛОНКИ */
+                gap: 20px 10px; 
+            }
             .city-name { font-size: 11px; }
-            .region-title { font-size: 16px; letter-spacing: 3px; }
+            .region-title { font-size: 16px; }
         }
     </style>
 </head>
@@ -130,6 +139,7 @@
         
         <div class="region-section">
             <div class="region-title">УРАЛ</div>
+            
             <div class="cities-grid">
                 <a href="ekaterinburg.html" class="city-item"><span class="city-name">Екатеринбург</span></a>
                 <a href="magnitogorsk.html" class="city-item"><span class="city-name">Магнитогорск</span></a>
