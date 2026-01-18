@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
     <link rel="apple-touch-icon" href="icon-512.png">
-    
     <link rel="manifest" href="manifest.json">
     
     <meta name="theme-color" content="#000000">
@@ -75,6 +74,7 @@
             line-height: 1.1;
         }
 
+        /* Общий стиль текста под заголовком (для телефона) */
         .manifest-txt {
             text-transform: uppercase;
             line-height: 1.4;
@@ -83,21 +83,25 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР: Твои настройки --- */
+        /* --- КОМПЬЮТЕР: Изменения шрифта и высоты --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
                 letter-spacing: 4px;
-                margin-top: -30px; 
+                margin-top: -30px; /* Твой подъем заголовка */
             }
             .manifest-txt {
                 max-width: 600px !important;
-                font-size: 18px !important;
-                margin-top: 8px; 
+                margin-top: 8px;   /* Твой подъем текста */
+                
+                /* Шрифт как у "Главная" и "Страны" */
+                font-weight: normal !important; 
+                font-size: 14px !important;
+                letter-spacing: 2px !important;
             }
         }
 
-        /* --- ТЕЛЕФОН --- */
+        /* --- ТЕЛЕФОН: Без изменений --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -139,7 +143,6 @@
     </div>
 
     <script>
-        // Регистрация SW для Android
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }
