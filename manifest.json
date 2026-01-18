@@ -1,7 +1,7 @@
 {
   "name": "ЕМ ПЬЮ ХОЖУ",
   "short_name": "ЕМ ПЬЮ ХОЖУ",
-  "start_url": "/eat-drink-walk/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
