@@ -70,7 +70,7 @@
         }
 
         h1 {
-            margin: 10px 0 0 0; /* Отступ 10 пикселей сверху */
+            margin: 0;
             text-transform: uppercase;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
             color: #ffffff;
@@ -83,22 +83,23 @@
             padding: 0 20px;
             color: #000000; 
             font-weight: bold;
-            margin-top: 6px; /* Отступ 6 пикселей сверху */
         }
 
-        /* --- КОМПЬЮТЕР --- */
+        /* --- КОМПЬЮТЕР: ПОДНИМАЕМ ЭЛЕМЕНТЫ ТУТ --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
                 letter-spacing: 4px;
+                margin-top: -10px; /* Поднял заголовок на 10px */
             }
             .manifest-txt {
                 max-width: 600px !important;
                 font-size: 18px !important;
+                margin-top: 14px; /* Было 20px, сделал 14px (поднял на 6px относительно заголовка) */
             }
         }
 
-        /* --- ТЕЛЕФОН --- */
+        /* --- ТЕЛЕФОН: ОСТАВЛЯЕМ КАК БЫЛО --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -107,8 +108,10 @@
                 font-size: 39px; 
                 font-weight: bold;
                 letter-spacing: 1px;
+                margin-top: 0;
             }
             .manifest-txt {
+                margin-top: 50px;
                 font-size: 12px;
                 max-width: 300px;
             }
