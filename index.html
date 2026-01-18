@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
-    <link rel="manifest" href="manifest.json?v=3">
+    <link rel="manifest" href="manifest.json">
     
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,6 +44,7 @@
             text-align: center;
         }
 
+        /* Меню по центру */
         .top-nav {
             position: absolute;
             top: 40px;
@@ -64,6 +65,7 @@
             letter-spacing: 2px;
         }
 
+        /* Основной блок текста */
         .main-box {
             z-index: 2;
             margin-top: -180px; 
@@ -77,20 +79,19 @@
             line-height: 1.1;
         }
 
-        /* ШРИФТ КАК НА ЭКРАНЕ АНДРОИДА (Roboto 12px) */
         .manifest-txt {
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.4;
             padding: 0 20px;
             color: #000000; 
-            font-weight: 400; /* Стандартная толщина как у иконок */
-            font-family: 'Roboto', 'Segoe UI', sans-serif; /* Системные шрифты Android */
-            font-size: 12px; /* Стандартный размер подписи иконки */
-            letter-spacing: 0.5px;
+            font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР --- */
+        /* --- КОМПЬЮТЕР (ВСЁ КАК БЫЛО) --- */
         @media (min-width: 1024px) {
+            .main-box {
+                margin-top: -180px; /* Вернул позицию на ПК */
+            }
             .main-box h1 {
                 font-size: 70px !important;
                 letter-spacing: 4px;
@@ -99,10 +100,11 @@
                 max-width: 600px !important;
                 font-size: 18px !important;
                 margin-top: 20px;
+                display: block !important; /* Гарантируем видимость */
             }
         }
 
-        /* --- ТЕЛЕФОН --- */
+        /* --- ТЕЛЕФОН (ВСЁ КАК БЫЛО) --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -114,7 +116,7 @@
             }
             .manifest-txt {
                 margin-top: 50px; 
-                /* Размер уже задан выше как 12px для мобильных */
+                font-size: 12px;
                 max-width: 300px;
             }
             .top-nav {
