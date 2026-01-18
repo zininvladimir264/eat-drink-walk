@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
     <link rel="apple-touch-icon" href="icon-512.png">
@@ -85,7 +83,7 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР: ПОДНЯТО НА 30px и 6px --- */
+        /* --- КОМПЬЮТЕР --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -99,7 +97,7 @@
             }
         }
 
-        /* --- ТЕЛЕФОН: БЕЗ ИЗМЕНЕНИЙ --- */
+        /* --- ТЕЛЕФОН --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -140,5 +138,10 @@
         </div>
     </div>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
