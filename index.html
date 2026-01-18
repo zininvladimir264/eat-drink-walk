@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=20">
-    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png?v=20">
-    <link rel="apple-touch-icon" href="icon-512.png?v=20">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" href="icon-512.png">
     
-    <link rel="manifest" href="manifest.json?v=20">
+    <link rel="manifest" href="manifest.json">
     
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -82,7 +82,7 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР --- */
+        /* --- КОМПЬЮТЕР: Твои правки высоты --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -96,7 +96,7 @@
             }
         }
 
-        /* --- ТЕЛЕФОН --- */
+        /* --- ТЕЛЕФОН: Без изменений --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -138,18 +138,9 @@
     </div>
 
     <script>
-        // Скрипт очистки и регистрации
+        // Простая регистрация для Android
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                for(let registration of registrations) {
-                    registration.unregister();
-                }
-            });
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js?v=20')
-                .then(reg => console.log('Успех'))
-                .catch(err => console.log('Ошибка', err));
-            });
+            navigator.serviceWorker.register('sw.js');
         }
     </script>
 </body>
