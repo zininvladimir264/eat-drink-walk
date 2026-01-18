@@ -15,6 +15,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="ЕМ ПЬЮ ХОЖУ">
     
     <style>
         html, body {
@@ -82,17 +83,17 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР --- */
+        /* --- КОМПЬЮТЕР: СОХРАНЯЕМ ТВОИ НАСТРОЙКИ --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
                 letter-spacing: 4px;
-                margin-top: -30px; 
+                margin-top: -30px; /* Твой подъем заголовка */
             }
             .manifest-txt {
                 max-width: 600px !important;
                 font-size: 18px !important;
-                margin-top: 8px; 
+                margin-top: 8px; /* Твой подъем текста */
             }
         }
 
@@ -138,8 +139,13 @@
     </div>
 
     <script>
+        // Регистрация Service Worker для Android с учетом пути GitHub Pages
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/eat-drink-walk/sw.js')
+                .then(reg => console.log('SW registered'))
+                .catch(err => console.log('SW error:', err));
+            });
         }
     </script>
 </body>
