@@ -15,6 +15,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="ЕМ ПЬЮ ХОЖУ">
     
     <style>
         html, body {
@@ -82,7 +83,7 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР: Твои правки высоты --- */
+        /* --- КОМПЬЮТЕР: -30px и 8px --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -96,7 +97,7 @@
             }
         }
 
-        /* --- ТЕЛЕФОН: Без изменений --- */
+        /* --- ТЕЛЕФОН: ОСТАВЛЯЕМ КАК БЫЛО --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -138,9 +139,13 @@
     </div>
 
     <script>
-        // Простая регистрация для Android
+        // Принудительная регистрация новой версии воркера
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw-v2.js')
+                .then(reg => console.log('Новый SW зарегистрирован'))
+                .catch(err => console.log('Ошибка SW:', err));
+            });
         }
     </script>
 </body>
