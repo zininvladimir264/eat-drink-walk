@@ -12,10 +12,13 @@
     <link rel="manifest" href="manifest.json">
     
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="ЕМ ПЬЮ ХОЖУ">
+    
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-title" content="ЕМ ПЬЮ ХОЖУ">
+    
+    <meta name="theme-color" content="#000000">
     
     <style>
         html, body {
@@ -97,7 +100,7 @@
             }
         }
 
-        /* --- ТЕЛЕФОН: ОСТАВЛЯЕМ КАК БЫЛО --- */
+        /* --- ТЕЛЕФОН --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -138,15 +141,5 @@
         </div>
     </div>
 
-    <script>
-        // Принудительная регистрация новой версии воркера
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw-v2.js')
-                .then(reg => console.log('Новый SW зарегистрирован'))
-                .catch(err => console.log('Ошибка SW:', err));
-            });
-        }
-    </script>
 </body>
 </html>
