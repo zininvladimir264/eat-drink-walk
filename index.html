@@ -74,7 +74,7 @@
             line-height: 1.1;
         }
 
-        /* Общий стиль текста под заголовком (для телефона) */
+        /* Общий стиль для телефона */
         .manifest-txt {
             text-transform: uppercase;
             line-height: 1.4;
@@ -83,25 +83,25 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР: Изменения шрифта и высоты --- */
+        /* --- КОМПЬЮТЕР --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
                 letter-spacing: 4px;
-                margin-top: -30px; /* Твой подъем заголовка */
+                margin-top: -30px; 
             }
             .manifest-txt {
                 max-width: 600px !important;
-                margin-top: 8px;   /* Твой подъем текста */
+                margin-top: 8px;   
                 
-                /* Шрифт как у "Главная" и "Страны" */
-                font-weight: normal !important; 
+                /* Сделал чуть-чуть пожирнее (500 вместо normal) */
+                font-weight: 500 !important; 
                 font-size: 14px !important;
                 letter-spacing: 2px !important;
             }
         }
 
-        /* --- ТЕЛЕФОН: Без изменений --- */
+        /* --- ТЕЛЕФОН --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
