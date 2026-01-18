@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="icon-512.png">
     
     <link rel="manifest" href="manifest.json">
     
@@ -17,7 +17,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <meta name="apple-mobile-web-app-title" content="ЕМ ПЬЮ ХОЖУ">
     
     <style>
         html, body {
@@ -44,7 +43,6 @@
             text-align: center;
         }
 
-        /* Меню по центру */
         .top-nav {
             position: absolute;
             top: 40px;
@@ -65,7 +63,6 @@
             letter-spacing: 2px;
         }
 
-        /* Основной блок текста */
         .main-box {
             z-index: 2;
             margin-top: -180px; 
@@ -87,11 +84,7 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР (ВСЁ КАК БЫЛО) --- */
         @media (min-width: 1024px) {
-            .main-box {
-                margin-top: -180px; /* Вернул позицию на ПК */
-            }
             .main-box h1 {
                 font-size: 70px !important;
                 letter-spacing: 4px;
@@ -100,11 +93,9 @@
                 max-width: 600px !important;
                 font-size: 18px !important;
                 margin-top: 20px;
-                display: block !important; /* Гарантируем видимость */
             }
         }
 
-        /* --- ТЕЛЕФОН (ВСЁ КАК БЫЛО) --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
