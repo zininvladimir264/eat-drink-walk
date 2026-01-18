@@ -1,8 +1,8 @@
 {
   "name": "Ем Пью Хожу",
   "short_name": "Ем Пью Хожу",
-  "description": "Ем Пью Хожу — рецептов не будет",
-  "start_url": "/eat-drink-walk/",
+  "description": "Ем Пью Хожу",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
