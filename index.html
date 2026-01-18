@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
-    <link rel="manifest" href="manifest.json?v=2">
+    <link rel="manifest" href="manifest.json?v=3">
     
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -77,14 +77,19 @@
             line-height: 1.1;
         }
 
+        /* ШРИФТ КАК НА ЭКРАНЕ АНДРОИДА (Roboto 12px) */
         .manifest-txt {
             text-transform: uppercase;
-            line-height: 1.4;
+            line-height: 1.2;
             padding: 0 20px;
             color: #000000; 
-            font-weight: bold;
+            font-weight: 400; /* Стандартная толщина как у иконок */
+            font-family: 'Roboto', 'Segoe UI', sans-serif; /* Системные шрифты Android */
+            font-size: 12px; /* Стандартный размер подписи иконки */
+            letter-spacing: 0.5px;
         }
 
+        /* --- КОМПЬЮТЕР --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -97,6 +102,7 @@
             }
         }
 
+        /* --- ТЕЛЕФОН --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
@@ -108,7 +114,7 @@
             }
             .manifest-txt {
                 margin-top: 50px; 
-                font-size: 12px;
+                /* Размер уже задан выше как 12px для мобильных */
                 max-width: 300px;
             }
             .top-nav {
