@@ -103,24 +103,29 @@
         }
 
         .item-info {
-            padding: 12px;
+            padding: 15px;
             flex-grow: 1;
         }
 
+        /* НАЗВАНИЕ: УВЕЛИЧЕНО В 2 РАЗА */
         .item-info h3 {
-            margin: 0 0 5px 0;
+            margin: 0 0 10px 0;
             text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
+            font-size: 26px; /* Было 13px */
+            letter-spacing: 1px;
+            line-height: 1.1;
+            font-weight: 900;
+            color: #fff;
         }
 
+        /* ОПИСАНИЕ: СДЕЛАНО ЯРКИМ (БЕЛЫМ) И ЧИТАЕМЫМ */
         .item-info p {
             margin: 0;
-            font-size: 10px;
-            color: #777;
-            line-height: 1.3;
+            font-size: 14px;
+            color: #eee; /* Более яркий светлый цвет вместо серого */
+            line-height: 1.4;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .back-btn {
@@ -145,11 +150,18 @@
             }
             .grid-container {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                gap: 12px;
                 padding: 10px;
             }
-            .item-info h3 { font-size: 11px; }
-            .item-info p { font-size: 9px; }
+            .item-info {
+                padding: 12px 8px;
+            }
+            .item-info h3 {
+                font-size: 20px; /* Адаптация под мобильные */
+            }
+            .item-info p {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
@@ -170,75 +182,75 @@
     <div id="food" class="grid-container active">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/kimchi.webp');"></div>
-            <div class="item-info"><h3>КИМЧИ</h3><p>Острая капуста. Главная корейская традиция.</p></div>
+            <div class="item-info"><h3>КИМЧИ</h3><p>Острая капуста. Основа стола.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/tokpoki.webp');"></div>
-            <div class="item-info"><h3>ТОКПОКИ</h3><p>Рисовые клецки. Жгучий вкус улиц.</p></div>
+            <div class="item-info"><h3>ТОКПОКИ</h3><p>Рисовые клецки в огне.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/mandu.webp');"></div>
-            <div class="item-info"><h3>МАНДУ</h3><p>Сытные пельмени. Тонкое тесто, много начинки.</p></div>
+            <div class="item-info"><h3>МАНДУ</h3><p>Корейские пельмени.</p></div>
         </div>
     </div>
 
     <div id="strong" class="grid-container">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/soju.webp');"></div>
-            <div class="item-info"><h3>СОДЖУ</h3><p>Прозрачный вкус. Самый популярный крепкий алкоголь.</p></div>
+            <div class="item-info"><h3>СОДЖУ</h3><p>Прозрачный и вездесущий.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/makkoli.webp');"></div>
-            <div class="item-info"><h3>МАКГОЛИ</h3><p>Рисовое вино. Традиционный мутный напиток.</p></div>
+            <div class="item-info"><h3>МАКГОЛИ</h3><p>Рисовое вино. Коварное.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/sool.webp');"></div>
-            <div class="item-info"><h3>SOOL</h3><p>Корейский крафтовый алкоголь с глубоким вкусом.</p></div>
+            <div class="item-info"><h3>SOOL</h3><p>Крафтовый корейский алкоголь.</p></div>
         </div>
     </div>
 
     <div id="beer" class="grid-container">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/hite.webp');"></div>
-            <div class="item-info"><h3>HITE</h3><p>Корейский лагер. Пьется легко и освежает.</p></div>
+            <div class="item-info"><h3>HITE</h3><p>Легкий корейский лагер.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/oriental_brewery.webp');"></div>
-            <div class="item-info"><h3>ORIENTAL BREWERY</h3><p>Классика корейского пивоварения (OB).</p></div>
+            <div class="item-info"><h3>OB</h3><p>Классика от Oriental Brewery.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/jazz.webp');"></div>
-            <div class="item-info"><h3>ДЖАЗ</h3><p>Авторский крафт. Для тех, кто ценит нюансы.</p></div>
+            <div class="item-info"><h3>ДЖАЗ</h3><p>Сложный вкус для своих.</p></div>
         </div>
     </div>
 
     <div id="drinks" class="grid-container">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/dalgona.webp');"></div>
-            <div class="item-info"><h3>DALGONA</h3><p>Знаменитый взбитый кофе с карамельным вкусом.</p></div>
+            <div class="item-info"><h3>DALGONA</h3><p>Знаменитый взбитый кофе.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/sujongva.webp');"></div>
-            <div class="item-info"><h3>СУДЖОНГВА</h3><p>Холодный пунш из сушеной хурмы и корицы.</p></div>
+            <div class="item-info"><h3>СУДЖОНГВА</h3><p>Хурма и корица.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/somaek.webp');"></div>
-            <div class="item-info"><h3>СОМАЕК</h3><p>Соджу + Пиво. Коктейль для долгого вечера.</p></div>
+            <div class="item-info"><h3>СОМАЕК</h3><p>Смесь пива и соджу.</p></div>
         </div>
     </div>
 
     <div id="places" class="grid-container">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/coex.webp');"></div>
-            <div class="item-info"><h3>БИБЛИОТЕКА COEX</h3><p>Огромные книжные стены под открытым небом.</p></div>
+            <div class="item-info"><h3>COEX</h3><p>Книжные стены и масштаб.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/gangnam.webp');"></div>
-            <div class="item-info"><h3>ГАНГАМ СТАЙЛ</h3><p>Эпицентр современной корейской культуры.</p></div>
+            <div class="item-info"><h3>ГАНГАМ</h3><p>Неоновое сердце города.</p></div>
         </div>
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/myeongdong.webp');"></div>
-            <div class="item-info"><h3>МЕНДОН</h3><p>Бесконечные ряды шоппинга и стритфуда.</p></div>
+            <div class="item-info"><h3>МЕНДОН</h3><p>Рай уличной еды.</p></div>
         </div>
     </div>
 
