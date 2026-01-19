@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-    <link rel="apple-touch-icon" href="icon-512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
     <link rel="manifest" href="manifest.json">
     
     <meta name="theme-color" content="#000000">
@@ -74,7 +75,6 @@
             line-height: 1.1;
         }
 
-        /* Общий стиль для телефона (жирный по умолчанию) */
         .manifest-txt {
             text-transform: uppercase;
             line-height: 1.4;
@@ -83,7 +83,7 @@
             font-weight: bold;
         }
 
-        /* --- КОМПЬЮТЕР: Настройки шрифта 600 --- */
+        /* --- КОМПЬЮТЕР: Шрифт 600 и твои высоты --- */
         @media (min-width: 1024px) {
             .main-box h1 {
                 font-size: 70px !important;
@@ -93,15 +93,13 @@
             .manifest-txt {
                 max-width: 600px !important;
                 margin-top: 8px;   
-                
-                /* Установлено значение 600 (полужирный) */
                 font-weight: 600 !important; 
                 font-size: 14px !important;
                 letter-spacing: 2px !important;
             }
         }
 
-        /* --- ТЕЛЕФОН: Оставляем без изменений --- */
+        /* --- ТЕЛЕФОН --- */
         @media (max-width: 1023px) {
             .main-box {
                 margin-top: -186px; 
