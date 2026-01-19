@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>СЕУЛ - ЕМ ПЬЮ ХОЖУ</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+
+        .category-nav button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 5px 0;
+            transition: 0.3s;
+        }
+
+        .category-nav button.active {
+            color: #fff;
+            border-bottom: 2px solid #fff;
+        }
+
+        .city-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .city-header h1 {
+            margin: 0;
+            font-size: 50px;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-weight: 800;
+        }
+
+        .grid-container {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-container.active {
+            display: grid;
+        }
+
+        .item-card {
+            background: #000;
+            border: 1px solid #222;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .item-card:hover {
+            border-color: #444;
+        }
+
+        .item-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+        }
+
+        .item-info {
+            padding: 20px;
+        }
+
+        .item-info h3 {
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .item-info p {
+            margin: 0;
+            font-size: 13px;
+            color: #777;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 60px auto;
+            color: #444;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .category-nav { gap: 10px; padding: 15px 5px; }
+            .category-nav button { font-size: 9px; letter-spacing: 1px; }
+            .city-header h1 { font-size: 32px; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="category-nav">
+        <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
+        <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
+        <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
+        <button class="tab-link" onclick="openCategory(event, 'drinks')">НАПИТКИ</button>
+        <button class="tab-link" onclick="openCategory(event, 'places')">МЕСТА</button>
+    </nav>
+
+    <div class="city-header">
+        <h1>СЕУЛ</h1>
+    </div>
+
+    <div id="food" class="grid-container active">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/kimchi.jpg');"></div>
+            <div class="item-info"><h3>КИМЧИ</h3><p>Основа всего. Острая ферментированная капуста, без которой стол — не стол.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/tokpoki.jpg');"></div>
+            <div class="item-info"><h3>ТОКПОКИ</h3><p>Рисовые клецки в густом огненном соусе. Главный уличный деликатес.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/mandu.jpg');"></div>
+            <div class="item-info"><h3>МАНДУ</h3><p>Корейские пельмени. Тонкое тесто и много сочной начинки.</p></div>
+        </div>
+    </div>
+
+    <div id="strong" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/soju.jpg');"></div>
+            <div class="item-info"><h3>СОДЖУ</h3><p>Национальный напиток. Прозрачный, крепкий и вездесущий.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/makkoli.jpg');"></div>
+            <div class="item-info"><h3>МАКГОЛИ</h3><p>Традиционное рисовое вино. Мутное, слегка игристое и очень коварное.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/strong3.jpg');"></div>
+            <div class="item-info"><h3>ДРУГОЕ КРЕПКОЕ</h3><p>То, что стоит попробовать помимо классики.</p></div>
+        </div>
+    </div>
+
+    <div id="beer" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/hite.jpg');"></div>
+            <div class="item-info"><h3>HITE</h3><p>Классический корейский лагер. Максимально легкий и освежающий.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/cass.jpg');"></div>
+            <div class="item-info"><h3>CASS</h3><p>Главный конкурент на полке. Идеально под жареное мясо.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/jazz.jpg');"></div>
+            <div class="item-info"><h3>КРАФТОВЫЙ ДЖАЗ</h3><p>Когда хочется чего-то сложнее обычного лагера.</p></div>
+        </div>
+    </div>
+
+    <div id="drinks" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/sujongva.jpg');"></div>
+            <div class="item-info"><h3>СУДЖОНГВА</h3><p>Пряный десертный напиток из хурмы и корицы. Холодный и сладкий.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/somaek.jpg');"></div>
+            <div class="item-info"><h3>СОМАЕК</h3><p>Культовый коктейль из пива и соджу. Правило простое: смешать, но не взбалтывать.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/drink3.jpg');"></div>
+            <div class="item-info"><h3>ЦИТРУСОВЫЙ ЧАЙ</h3><p>Густой экстракт юдзы, согревающий в любой вечер.</p></div>
+        </div>
+    </div>
+
+    <div id="places" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/coex.jpg');"></div>
+            <div class="item-info"><h3>БИБЛИОТЕКА COEX</h3><p>Гигантские книжные стены. Самое фотогеничное место города.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/gangnam.jpg');"></div>
+            <div class="item-info"><h3>ГАНГАМ СТАЙЛ</h3><p>Сердце современного Сеула. Неон, шоппинг и та самая статуя рук.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('img/seoul/myeongdong.jpg');"></div>
+            <div class="item-info"><h3>МЕНДОН</h3><p>Район, который никогда не ест в одиночку. Лучший стритфуд здесь.</p></div>
+        </div>
+    </div>
+
+    <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
+
+    <script>
+        function openCategory(evt, categoryName) {
+            var i, gridContent, tabLinks;
+            gridContent = document.getElementsByClassName("grid-container");
+            for (i = 0; i < gridContent.length; i++) {
+                gridContent[i].classList.remove("active");
+            }
+            tabLinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+            document.getElementById(categoryName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
