@@ -11,36 +11,35 @@
     <link rel="manifest" href="manifest.json">
 
     <style>
-        html { -webkit-text-size-adjust: 100%; }
+        html {
+            /* Запрещаем мобильным браузерам менять размер шрифта на свой вкус */
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            /* ТОЛЬКО BRAVO1.JPG - БЕЗ ЭФФЕКТОВ ГЛАВНОЙ СТРАНИЦЫ */
             background-color: #000;
-            background-image: url('bravo1.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: scroll; /* Убрал fixed, чтобы не было эффекта главной */
             color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
         }
 
-        /* НАВИГАЦИЯ */
+        /* КРУПНАЯ НАВИГАЦИЯ */
         .category-nav {
             position: sticky;
             top: 0;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             padding: 25px 0;
             display: flex;
             justify-content: center;
             gap: 25px;
             z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid #222;
             backdrop-filter: blur(10px);
             overflow-x: auto;
             white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
         }
 
         .category-nav::-webkit-scrollbar { display: none; }
@@ -51,10 +50,11 @@
             color: #666;
             font-size: 24px; 
             font-weight: 800;
-            text-transform: uppercase; /* Все капсом для компьютера */
+            text-transform: uppercase;
             letter-spacing: 1.5px;
             cursor: pointer;
             padding: 10px 0;
+            transition: 0.3s;
             outline: none;
         }
 
@@ -89,10 +89,11 @@
             display: grid;
         }
 
-        /* КАРТОЧКИ: ПОЛНОСТЬЮ ПРОЗРАЧНЫЕ */
         .item-card {
-            background: transparent;
-            border: none;
+            background: #000;
+            border: 1px solid #222;
+            border-radius: 4px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
@@ -103,13 +104,14 @@
             background-size: cover;
             background-position: center;
             background-color: #111;
-            border-radius: 4px;
         }
 
         .item-info {
-            padding: 15px 0;
+            padding: 15px;
+            flex-grow: 1;
         }
 
+        /* НАЗВАНИЕ: ОЧЕНЬ КРУПНО */
         .item-info h3 {
             margin: 0 0 10px 0;
             text-transform: uppercase;
@@ -117,11 +119,14 @@
             letter-spacing: 1px;
             line-height: 1.1;
             font-weight: 900;
+            color: #fff;
         }
 
+        /* ОПИСАНИЕ: ЯРКО И ЧЕТКО */
         .item-info p {
             margin: 0;
-            font-size: 16px; 
+            font-size: 16px; /* Увеличено для лучшей читаемости */
+            color: #ffffff; /* Чистый белый для максимальной яркости */
             line-height: 1.5;
             text-transform: uppercase;
             font-weight: 600;
@@ -132,15 +137,14 @@
             display: block;
             text-align: center;
             margin: 50px auto;
-            color: #fff;
+            color: #666;
             text-decoration: none;
             font-size: 14px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            opacity: 0.5;
         }
 
-        /* МОБИЛЬНАЯ ВЕРСИЯ */
+        /* КОРРЕКЦИЯ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
         @media (max-width: 768px) {
             .category-nav {
                 justify-content: flex-start;
@@ -148,24 +152,23 @@
                 gap: 20px;
             }
             .category-nav button {
-                font-size: 20px; 
+                font-size: 20px; /* Фиксируем крупный размер меню */
             }
-
-            /* ТОЛЬКО НА ТЕЛЕФОНЕ ПЕРВАЯ КНОПКА Еда */
-            .category-nav button:first-child {
-                text-transform: none; 
-            }
-
             .grid-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
                 padding: 10px;
             }
+            .item-info {
+                padding: 12px 10px;
+            }
             .item-info h3 {
-                font-size: 22px !important;
+                font-size: 22px !important; /* Принудительно крупный заголовок */
+                margin-bottom: 8px;
             }
             .item-info p {
-                font-size: 12px !important;
+                font-size: 12px !important; /* Принудительно четкий шрифт описания */
+                line-height: 1.4;
             }
         }
     </style>
@@ -173,7 +176,7 @@
 <body>
 
     <nav class="category-nav">
-        <button class="tab-link active" onclick="openCategory(event, 'food')">Еда</button>
+        <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
         <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
         <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
         <button class="tab-link" onclick="openCategory(event, 'drinks')">НАПИТКИ</button>
@@ -193,12 +196,69 @@
             <div class="item-image" style="background-image: url('images/tokpoki.webp');"></div>
             <div class="item-info"><h3>ТОКПОКИ</h3><p>Рисовые клецки в огне.</p></div>
         </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/mandu.webp');"></div>
+            <div class="item-info"><h3>МАНДУ</h3><p>Корейские пельмени.</p></div>
+        </div>
     </div>
 
     <div id="strong" class="grid-container">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/soju.webp');"></div>
             <div class="item-info"><h3>СОДЖУ</h3><p>Прозрачный и вездесущий.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/makkoli.webp');"></div>
+            <div class="item-info"><h3>МАКГОЛИ</h3><p>Рисовое вино. Коварное.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/sool.webp');"></div>
+            <div class="item-info"><h3>SOOL</h3><p>Крафтовый алкоголь.</p></div>
+        </div>
+    </div>
+
+    <div id="beer" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/hite.webp');"></div>
+            <div class="item-info"><h3>HITE</h3><p>Легкий корейский лагер.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/oriental_brewery.webp');"></div>
+            <div class="item-info"><h3>OB</h3><p>Классика пивоварения.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/jazz.webp');"></div>
+            <div class="item-info"><h3>ДЖАЗ</h3><p>Сложный вкус для своих.</p></div>
+        </div>
+    </div>
+
+    <div id="drinks" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/dalgona.webp');"></div>
+            <div class="item-info"><h3>DALGONA</h3><p>Взбитый кофе.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/sujongva.webp');"></div>
+            <div class="item-info"><h3>СУДЖОНГВА</h3><p>Хурма и корица.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/somaek.webp');"></div>
+            <div class="item-info"><h3>СОМАЕК</h3><p>Смесь пива и соджу.</p></div>
+        </div>
+    </div>
+
+    <div id="places" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/coex.webp');"></div>
+            <div class="item-info"><h3>COEX</h3><p>Книги и масштаб.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/gangnam.webp');"></div>
+            <div class="item-info"><h3>ГАНГАМ</h3><p>Неоновое сердце.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/myeongdong.webp');"></div>
+            <div class="item-info"><h3>МЕНДОН</h3><p>Рай уличной еды.</p></div>
         </div>
     </div>
 
