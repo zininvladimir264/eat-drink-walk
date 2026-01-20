@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ПНОМПЕНЬ - Ем ПЬЮ ХОЖУ</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .category-nav button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 10px 0;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .category-nav button.active {
+            color: #fff;
+            border-bottom: 3px solid #fff;
+        }
+
+        .city-header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .city-header h1 {
+            margin: 0;
+            font-size: 45px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 800;
+        }
+
+        .grid-container {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-container.active {
+            display: grid;
+        }
+
+        .item-card {
+            background: transparent;
+            border: none;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+            border-radius: 4px;
+        }
+
+        .item-info {
+            padding: 15px 0;
+            flex-grow: 1;
+        }
+
+        .item-info h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 28px; 
+            letter-spacing: 1px;
+            line-height: 1.1;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .item-info p {
+            margin: 0;
+            font-size: 16px; 
+            color: #ffffff; 
+            line-height: 1.5;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 50px auto;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .category-nav {
+                justify-content: flex-start;
+                padding-left: 20px;
+                gap: 20px;
+            }
+            .category-nav button {
+                font-size: 20px; 
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 10px;
+            }
+            .item-info h3 {
+                font-size: 22px !important;
+                margin-bottom: 8px;
+            }
+            .item-info p {
+                font-size: 12px !important;
+                line-height: 1.4;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="category-nav">
+        <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
+        <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
+        <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
+        <button class="tab-link" onclick="openCategory(event, 'drinks')">НАПИТКИ</button>
+        <button class="tab-link" onclick="openCategory(event, 'places')">МЕСТА</button>
+    </nav>
+
+    <div class="city-header">
+        <h1>ПНОМПЕНЬ</h1>
+    </div>
+
+    <div id="food" class="grid-container active">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/amok.webp');"></div>
+            <div class="item-info"><h3>АМОК</h3><p>Рыба в кокосовом карри на пару.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/bai_sach_chrouk.webp');"></div>
+            <div class="item-info"><h3>БАИ САЧ ЧРОУК</h3><p>Свинина с рисом на гриле.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/lap_khmer.webp');"></div>
+            <div class="item-info"><h3>ЛАП ХМЕР</h3><p>Острый салат с говядиной.</p></div>
+        </div>
+    </div>
+
+    <div id="strong" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/spa_special.webp');"></div>
+            <div class="item-info"><h3>SPA SPECIAL</h3><p>Местный крепкий специалитет.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/black_whisky.webp');"></div>
+            <div class="item-info"><h3>BLACK WHISKY</h3><p>Классика камбоджийского виски.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/khmer_whisky.webp');"></div>
+            <div class="item-info"><h3>KHMER WHISKY</h3><p>Традиционный хмерский вкус.</p></div>
+        </div>
+    </div>
+
+    <div id="beer" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/angkor_premium.webp');"></div>
+            <div class="item-info"><h3>ANGKOR PREMIUM</h3><p>Премиальный лагер Камбоджи.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/cambodia_lager.webp');"></div>
+            <div class="item-info"><h3>CAMBODIA LAGER</h3><p>Освежающее светлое пиво.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/kingdom_max.webp');"></div>
+            <div class="item-info"><h3>KINGDOM MAX</h3><p>Крепкий местный вкус.</p></div>
+        </div>
+    </div>
+
+    <div id="drinks" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/tikalok.webp');"></div>
+            <div class="item-info"><h3>ТИКАЛОК</h3><p>Тропический фруктовый шейк.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/palm_juice.webp');"></div>
+            <div class="item-info"><h3>ПАЛЬМОВЫЙ СОК</h3><p>Натуральная сладость пальмы.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/bamboo_juice.webp');"></div>
+            <div class="item-info"><h3>БАМБУКОВЫЙ СОК</h3><p>Свежевыжатый сок бамбука.</p></div>
+        </div>
+    </div>
+
+    <div id="places" class="grid-container">
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/riverside.webp');"></div>
+            <div class="item-info"><h3>НАБЕРЕЖНАЯ</h3><p>Прогулки вдоль Меконга.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/wat_phnom.webp');"></div>
+            <div class="item-info"><h3>ВАТ ПНОМ</h3><p>Легендарный храм на холме.</p></div>
+        </div>
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('images/psar_thmey.webp');"></div>
+            <div class="item-info"><h3>ПСАР ТМЕЙ</h3><p>Знаменитый желтый рынок.</p></div>
+        </div>
+    </div>
+
+    <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
+
+    <script>
+        function openCategory(evt, categoryName) {
+            var i, gridContent, tabLinks;
+            gridContent = document.getElementsByClassName("grid-container");
+            for (i = 0; i < gridContent.length; i++) {
+                gridContent[i].classList.remove("active");
+            }
+            tabLinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+            document.getElementById(categoryName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
