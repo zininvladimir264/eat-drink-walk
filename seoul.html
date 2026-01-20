@@ -11,11 +11,7 @@
     <link rel="manifest" href="manifest.json">
 
     <style>
-        html {
-            /* Запрещаем мобильным браузерам менять размер шрифта на свой вкус */
-            -webkit-text-size-adjust: 100%;
-        }
-
+        html { -webkit-text-size-adjust: 100%; }
         body {
             margin: 0;
             padding: 0;
@@ -25,7 +21,6 @@
             min-height: 100vh;
         }
 
-        /* КРУПНАЯ НАВИГАЦИЯ */
         .category-nav {
             position: sticky;
             top: 0;
@@ -90,9 +85,8 @@
         }
 
         .item-card {
-            background: #000;
-            border: 1px solid #222;
-            border-radius: 4px;
+            background: transparent;
+            border: none;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -104,14 +98,14 @@
             background-size: cover;
             background-position: center;
             background-color: #111;
+            border-radius: 4px;
         }
 
         .item-info {
-            padding: 15px;
+            padding: 15px 0;
             flex-grow: 1;
         }
 
-        /* НАЗВАНИЕ: ОЧЕНЬ КРУПНО */
         .item-info h3 {
             margin: 0 0 10px 0;
             text-transform: uppercase;
@@ -122,11 +116,10 @@
             color: #fff;
         }
 
-        /* ОПИСАНИЕ: ЯРКО И ЧЕТКО */
         .item-info p {
             margin: 0;
-            font-size: 16px; /* Увеличено для лучшей читаемости */
-            color: #ffffff; /* Чистый белый для максимальной яркости */
+            font-size: 16px; 
+            color: #ffffff; 
             line-height: 1.5;
             text-transform: uppercase;
             font-weight: 600;
@@ -144,7 +137,6 @@
             text-transform: uppercase;
         }
 
-        /* КОРРЕКЦИЯ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
         @media (max-width: 768px) {
             .category-nav {
                 justify-content: flex-start;
@@ -152,22 +144,25 @@
                 gap: 20px;
             }
             .category-nav button {
-                font-size: 20px; /* Фиксируем крупный размер меню */
+                font-size: 20px; 
             }
+            
+            /* ТОЛЬКО ТУТ ИЗМЕНЕНИЕ: Первая кнопка становится Еда */
+            .category-nav button:first-child {
+                text-transform: none !important;
+            }
+
             .grid-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
                 padding: 10px;
             }
-            .item-info {
-                padding: 12px 10px;
-            }
             .item-info h3 {
-                font-size: 22px !important; /* Принудительно крупный заголовок */
+                font-size: 22px !important;
                 margin-bottom: 8px;
             }
             .item-info p {
-                font-size: 12px !important; /* Принудительно четкий шрифт описания */
+                font-size: 12px !important;
                 line-height: 1.4;
             }
         }
@@ -176,7 +171,7 @@
 <body>
 
     <nav class="category-nav">
-        <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
+        <button class="tab-link active" onclick="openCategory(event, 'food')">Еда</button>
         <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
         <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
         <button class="tab-link" onclick="openCategory(event, 'drinks')">НАПИТКИ</button>
@@ -207,28 +202,12 @@
             <div class="item-image" style="background-image: url('images/soju.webp');"></div>
             <div class="item-info"><h3>СОДЖУ</h3><p>Прозрачный и вездесущий.</p></div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/makkoli.webp');"></div>
-            <div class="item-info"><h3>МАКГОЛИ</h3><p>Рисовое вино. Коварное.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/sool.webp');"></div>
-            <div class="item-info"><h3>SOOL</h3><p>Крафтовый алкоголь.</p></div>
-        </div>
     </div>
 
     <div id="beer" class="grid-container">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/hite.webp');"></div>
             <div class="item-info"><h3>HITE</h3><p>Легкий корейский лагер.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/oriental_brewery.webp');"></div>
-            <div class="item-info"><h3>OB</h3><p>Классика пивоварения.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/jazz.webp');"></div>
-            <div class="item-info"><h3>ДЖАЗ</h3><p>Сложный вкус для своих.</p></div>
         </div>
     </div>
 
@@ -237,28 +216,12 @@
             <div class="item-image" style="background-image: url('images/dalgona.webp');"></div>
             <div class="item-info"><h3>DALGONA</h3><p>Взбитый кофе.</p></div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/sujongva.webp');"></div>
-            <div class="item-info"><h3>СУДЖОНГВА</h3><p>Хурма и корица.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/somaek.webp');"></div>
-            <div class="item-info"><h3>СОМАЕК</h3><p>Смесь пива и соджу.</p></div>
-        </div>
     </div>
 
     <div id="places" class="grid-container">
         <div class="item-card">
             <div class="item-image" style="background-image: url('images/coex.webp');"></div>
             <div class="item-info"><h3>COEX</h3><p>Книги и масштаб.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/gangnam.webp');"></div>
-            <div class="item-info"><h3>ГАНГАМ</h3><p>Неоновое сердце.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/myeongdong.webp');"></div>
-            <div class="item-info"><h3>МЕНДОН</h3><p>Рай уличной еды.</p></div>
         </div>
     </div>
 
