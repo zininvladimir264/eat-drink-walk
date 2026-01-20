@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>СЕУЛ - ЕМ ПЬЮ ХОЖУ</title>
+    <title>СЕУЛ - Ем ПЬЮ ХОЖУ</title>
     
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
@@ -45,7 +45,7 @@
             color: #666;
             font-size: 24px; 
             font-weight: 800;
-            text-transform: uppercase;
+            text-transform: uppercase; /* ВЕЗДЕ КАПС, включая мобильный */
             letter-spacing: 1.5px;
             cursor: pointer;
             padding: 10px 0;
@@ -145,11 +145,7 @@
             }
             .category-nav button {
                 font-size: 20px; 
-            }
-
-            /* Заглавная Еда на мобильном */
-            .category-nav button:first-child {
-                text-transform: none !important;
+                /* Удалил text-transform: none, теперь ЕДА как и ПИВО */
             }
 
             .grid-container {
@@ -171,7 +167,7 @@
 <body>
 
     <nav class="category-nav">
-        <button class="tab-link active" onclick="openCategory(event, 'food')">Еда</button>
+        <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
         <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
         <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
         <button class="tab-link" onclick="openCategory(event, 'drinks')">НАПИТКИ</button>
