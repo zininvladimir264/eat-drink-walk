@@ -15,9 +15,13 @@
         body {
             margin: 0;
             padding: 0;
-            /* ФОН СТРАНИЦЫ - BRAVO1 */
-            background: #000 url('bravo1.jpg') no-repeat center center fixed;
+            /* ТОЛЬКО BRAVO1.JPG - БЕЗ ЭФФЕКТОВ ГЛАВНОЙ СТРАНИЦЫ */
+            background-color: #000;
+            background-image: url('bravo1.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
+            background-attachment: scroll; /* Убрал fixed, чтобы не было эффекта главной */
             color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
@@ -37,7 +41,6 @@
             backdrop-filter: blur(10px);
             overflow-x: auto;
             white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
         }
 
         .category-nav::-webkit-scrollbar { display: none; }
@@ -48,7 +51,7 @@
             color: #666;
             font-size: 24px; 
             font-weight: 800;
-            text-transform: uppercase; 
+            text-transform: uppercase; /* Все капсом для компьютера */
             letter-spacing: 1.5px;
             cursor: pointer;
             padding: 10px 0;
@@ -86,11 +89,10 @@
             display: grid;
         }
 
-        /* КАРТОЧКИ БЕЗ СОБСТВЕННОГО ФОНА */
+        /* КАРТОЧКИ: ПОЛНОСТЬЮ ПРОЗРАЧНЫЕ */
         .item-card {
             background: transparent;
             border: none;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
@@ -100,13 +102,12 @@
             aspect-ratio: 1 / 1;
             background-size: cover;
             background-position: center;
-            background-color: rgba(255,255,255,0.05);
+            background-color: #111;
             border-radius: 4px;
         }
 
         .item-info {
             padding: 15px 0;
-            flex-grow: 1;
         }
 
         .item-info h3 {
@@ -116,13 +117,11 @@
             letter-spacing: 1px;
             line-height: 1.1;
             font-weight: 900;
-            color: #fff;
         }
 
         .item-info p {
             margin: 0;
             font-size: 16px; 
-            color: #ffffff; 
             line-height: 1.5;
             text-transform: uppercase;
             font-weight: 600;
@@ -152,7 +151,7 @@
                 font-size: 20px; 
             }
 
-            /* Только на телефоне первая кнопка — Еда */
+            /* ТОЛЬКО НА ТЕЛЕФОНЕ ПЕРВАЯ КНОПКА Еда */
             .category-nav button:first-child {
                 text-transform: none; 
             }
@@ -164,11 +163,9 @@
             }
             .item-info h3 {
                 font-size: 22px !important;
-                margin-bottom: 8px;
             }
             .item-info p {
                 font-size: 12px !important;
-                line-height: 1.4;
             }
         }
     </style>
@@ -196,9 +193,12 @@
             <div class="item-image" style="background-image: url('images/tokpoki.webp');"></div>
             <div class="item-info"><h3>ТОКПОКИ</h3><p>Рисовые клецки в огне.</p></div>
         </div>
+    </div>
+
+    <div id="strong" class="grid-container">
         <div class="item-card">
-            <div class="item-image" style="background-image: url('images/mandu.webp');"></div>
-            <div class="item-info"><h3>МАНДУ</h3><p>Корейские пельмени.</p></div>
+            <div class="item-image" style="background-image: url('images/soju.webp');"></div>
+            <div class="item-info"><h3>СОДЖУ</h3><p>Прозрачный и вездесущий.</p></div>
         </div>
     </div>
 
