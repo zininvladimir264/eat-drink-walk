@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>СЕУЛ - Ем ПЬЮ ХОЖУ</title>
     
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="manifest.json">
-
     <style>
         html { -webkit-text-size-adjust: 100%; }
         body {
@@ -20,7 +15,8 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
             overflow-x: hidden; 
-            touch-action: pan-y; /* Позволяет вертикальный скролл, но дает JS перехватить горизонт */
+            /* Позволяет скроллить вверх-вниз, но не мешает JS ловить лево-право */
+            touch-action: pan-y; 
         }
 
         .category-nav {
@@ -36,7 +32,6 @@
             backdrop-filter: blur(10px);
             overflow-x: auto;
             white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
         }
 
         .category-nav::-webkit-scrollbar { display: none; }
@@ -73,10 +68,10 @@
             font-weight: 800;
         }
 
-        /* Область свайпа — должна охватывать контент */
-        #swipe-area {
-            min-height: 60vh;
+        /* Обертка для контента, на которой слушаем свайпы */
+        #swipe-container {
             width: 100%;
+            min-height: 70vh;
         }
 
         .grid-container {
@@ -94,8 +89,6 @@
 
         .item-card {
             background: transparent;
-            border: none;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
@@ -111,27 +104,20 @@
 
         .item-info {
             padding: 15px 0;
-            flex-grow: 1;
         }
 
         .item-info h3 {
             margin: 0 0 10px 0;
             text-transform: uppercase;
             font-size: 28px; 
-            letter-spacing: 1px;
-            line-height: 1.1;
             font-weight: 900;
-            color: #fff;
         }
 
         .item-info p {
             margin: 0;
             font-size: 16px; 
-            color: #ffffff; 
-            line-height: 1.5;
             text-transform: uppercase;
             font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
         .back-btn {
@@ -141,51 +127,33 @@
             color: #666;
             text-decoration: none;
             font-size: 14px;
-            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         @media (max-width: 768px) {
-            .category-nav {
-                justify-content: flex-start;
-                padding-left: 20px;
-                gap: 20px;
-            }
-            .category-nav button {
-                font-size: 20px; 
-            }
-
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                padding: 10px;
-            }
-            .item-info h3 {
-                font-size: 22px !important;
-                margin-bottom: 8px;
-            }
-            .item-info p {
-                font-size: 12px !important;
-                line-height: 1.4;
-            }
+            .category-nav { justify-content: flex-start; padding-left: 20px; }
+            .category-nav button { font-size: 20px; }
+            .grid-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .item-info h3 { font-size: 22px !important; }
+            .item-info p { font-size: 12px !important; }
         }
     </style>
 </head>
 <body>
 
     <nav class="category-nav">
-        <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
-        <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
-        <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
-        <button class="tab-link" onclick="openCategory(event, 'drinks')">НАПИТКИ</button>
-        <button class="tab-link" onclick="openCategory(event, 'places')">МЕСТА</button>
+        <button class="tab-btn active" data-target="food">ЕДА</button>
+        <button class="tab-btn" data-target="strong">КРЕПКОЕ</button>
+        <button class="tab-btn" data-target="beer">ПИВО</button>
+        <button class="tab-btn" data-target="drinks">НАПИТКИ</button>
+        <button class="tab-btn" data-target="places">МЕСТА</button>
     </nav>
 
     <div class="city-header">
         <h1>СЕУЛ</h1>
     </div>
 
-    <div id="swipe-area">
+    <div id="swipe-container">
         <div id="food" class="grid-container active">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/kimchi.webp');"></div>
@@ -268,54 +236,73 @@
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
         let currentIdx = 0;
 
-        function openCategory(evt, categoryName) {
-            currentIdx = categories.indexOf(categoryName);
-            
-            const gridContainers = document.querySelectorAll(".grid-container");
-            const tabLinks = document.querySelectorAll(".tab-link");
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const containers = document.querySelectorAll('.grid-container');
+        const swipeContainer = document.getElementById('swipe-container');
 
-            gridContainers.forEach(container => container.classList.remove("active"));
-            tabLinks.forEach(link => link.classList.remove("active"));
-
-            document.getElementById(categoryName).classList.add("active");
+        // Функция переключения
+        function switchTab(index) {
+            if (index < 0 || index >= categories.length) return;
             
-            // Подсвечиваем нужную кнопку
-            tabLinks[currentIdx].classList.add("active");
+            currentIdx = index;
+            const targetId = categories[currentIdx];
+
+            // Обновляем кнопки
+            tabBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-target') === targetId);
+            });
+
+            // Обновляем контент
+            containers.forEach(cont => {
+                cont.classList.toggle('active', cont.id === targetId);
+            });
+
             // Центрируем кнопку в меню
-            tabLinks[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            const activeBtn = document.querySelector('.tab-btn.active');
+            activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // Логика свайпов
-        let touchstartX = 0;
-        let touchendX = 0;
-        const swipeArea = document.getElementById('swipe-area');
+        // Клик по кнопкам
+        tabBtns.forEach((btn, idx) => {
+            btn.addEventListener('click', () => switchTab(idx));
+        });
 
-        swipeArea.addEventListener('touchstart', e => {
-            touchstartX = e.changedTouches[0].screenX;
-        }, {passive: true});
+        // Логика свайпа
+        let xDown = null;                                                        
+        let yDown = null;
 
-        swipeArea.addEventListener('touchend', e => {
-            touchendX = e.changedTouches[0].screenX;
-            handleGesture();
-        }, {passive: true});
+        swipeContainer.addEventListener('touchstart', (evt) => {
+            xDown = evt.touches[0].clientX;                                      
+            yDown = evt.touches[0].clientY;                                      
+        }, false);
 
-        function handleGesture() {
-            const threshold = 60; // Чувствительность
-            if (touchendX < touchstartX - threshold) {
-                // Влево -> Вперед
-                if (currentIdx < categories.length - 1) {
-                    openCategory(null, categories[currentIdx + 1]);
+        swipeContainer.addEventListener('touchmove', (evt) => {
+            if (!xDown || !yDown) return;
+
+            let xUp = evt.touches[0].clientX;                                    
+            let yUp = evt.touches[0].clientY;
+
+            let xDiff = xDown - xUp;
+            let yDiff = yDown - yUp;
+
+            // Проверяем, что это именно горизонтальный свайп, а не вертикальный скролл
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                if (Math.abs(xDiff) > 30) { // Порог чувствительности
+                    if (xDiff > 0) {
+                        /* Свайп влево (палец идет влево) -> следующая вкладка */
+                        switchTab(currentIdx + 1);
+                    } else {
+                        /* Свайп вправо (палец идет вправо) -> предыдущая вкладка */
+                        switchTab(currentIdx - 1);
+                    }
+                    // Сбрасываем, чтобы не срабатывало по сто раз за одно движение
+                    xDown = null;
+                    yDown = null;
                 }
             }
-            if (touchendX > touchstartX + threshold) {
-                // Вправо -> Назад
-                if (currentIdx > 0) {
-                    openCategory(null, categories[currentIdx - 1]);
-                }
-            }
-        }
+        }, false);
     </script>
 </body>
 </html>
