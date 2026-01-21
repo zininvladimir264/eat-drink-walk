@@ -19,7 +19,8 @@
             color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
-            overflow-x: hidden; /* Предотвращает горизонтальную прокрутку при свайпе */
+            overflow-x: hidden; 
+            touch-action: pan-y; /* Позволяет вертикальный скролл, но дает JS перехватить горизонт */
         }
 
         .category-nav {
@@ -72,9 +73,10 @@
             font-weight: 800;
         }
 
-        /* Область свайпа */
+        /* Область свайпа — должна охватывать контент */
         #swipe-area {
             min-height: 60vh;
+            width: 100%;
         }
 
         .grid-container {
@@ -171,7 +173,7 @@
 </head>
 <body>
 
-    <nav class="category-nav" id="tab-nav">
+    <nav class="category-nav">
         <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
         <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
         <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
@@ -269,24 +271,18 @@
         function openCategory(evt, categoryName) {
             currentIdx = categories.indexOf(categoryName);
             
-            var i, gridContent, tabLinks;
-            gridContent = document.getElementsByClassName("grid-container");
-            for (i = 0; i < gridContent.length; i++) {
-                gridContent[i].classList.remove("active");
-            }
-            tabLinks = document.getElementsByClassName("tab-link");
-            for (i = 0; i < tabLinks.length; i++) {
-                tabLinks[i].classList.remove("active");
-            }
-            
+            const gridContainers = document.querySelectorAll(".grid-container");
+            const tabLinks = document.querySelectorAll(".tab-link");
+
+            gridContainers.forEach(container => container.classList.remove("active"));
+            tabLinks.forEach(link => link.classList.remove("active"));
+
             document.getElementById(categoryName).classList.add("active");
             
-            if (evt && evt.currentTarget) {
-                evt.currentTarget.classList.add("active");
-            } else {
-                tabLinks[currentIdx].classList.add("active");
-                tabLinks[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
+            // Подсвечиваем нужную кнопку
+            tabLinks[currentIdx].classList.add("active");
+            // Центрируем кнопку в меню
+            tabLinks[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
@@ -306,13 +302,15 @@
         }, {passive: true});
 
         function handleGesture() {
-            const threshold = 60; 
+            const threshold = 60; // Чувствительность
             if (touchendX < touchstartX - threshold) {
+                // Влево -> Вперед
                 if (currentIdx < categories.length - 1) {
                     openCategory(null, categories[currentIdx + 1]);
                 }
             }
             if (touchendX > touchstartX + threshold) {
+                // Вправо -> Назад
                 if (currentIdx > 0) {
                     openCategory(null, categories[currentIdx - 1]);
                 }
