@@ -19,6 +19,7 @@
             color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
+            overflow-x: hidden; /* Важно для свайпов */
         }
 
         .category-nav {
@@ -69,6 +70,11 @@
             text-transform: uppercase;
             letter-spacing: 6px;
             font-weight: 800;
+        }
+
+        /* Обертка для контента, чтобы ловить свайпы */
+        #swipe-area {
+            min-height: 60vh;
         }
 
         .grid-container {
@@ -165,7 +171,7 @@
 </head>
 <body>
 
-    <nav class="category-nav">
+    <nav class="category-nav" id="tab-nav">
         <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
         <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
         <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
@@ -177,85 +183,93 @@
         <h1>ПНОМПЕНЬ</h1>
     </div>
 
-    <div id="food" class="grid-container active">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/amok.webp');"></div>
-            <div class="item-info"><h3>АМОК</h3><p>Рыба в кокосовом карри на пару.</p></div>
+    <div id="swipe-area">
+        <div id="food" class="grid-container active">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/amok.webp');"></div>
+                <div class="item-info"><h3>АМОК</h3><p>Рыба в кокосовом карри на пару.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/bai_sach_chrouk.webp');"></div>
+                <div class="item-info"><h3>БАИ САЧ ЧРОУК</h3><p>Свинина с рисом на гриле.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/lap_khmer.webp');"></div>
+                <div class="item-info"><h3>ЛАП ХМЕР</h3><p>Острый салат с говядиной.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/bai_sach_chrouk.webp');"></div>
-            <div class="item-info"><h3>БАИ САЧ ЧРОУК</h3><p>Свинина с рисом на гриле.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/lap_khmer.webp');"></div>
-            <div class="item-info"><h3>ЛАП ХМЕР</h3><p>Острый салат с говядиной.</p></div>
-        </div>
-    </div>
 
-    <div id="strong" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/spa_special.webp');"></div>
-            <div class="item-info"><h3>SPA SPECIAL</h3><p>Местный крепкий специалитет.</p></div>
+        <div id="strong" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/spa_special.webp');"></div>
+                <div class="item-info"><h3>SPA SPECIAL</h3><p>Местный крепкий специалитет.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/black_whisky.webp');"></div>
+                <div class="item-info"><h3>BLACK WHISKY</h3><p>Классика камбоджийского виски.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/khmer_whisky.webp');"></div>
+                <div class="item-info"><h3>KHMER WHISKY</h3><p>Традиционный хмерский вкус.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/black_whisky.webp');"></div>
-            <div class="item-info"><h3>BLACK WHISKY</h3><p>Классика камбоджийского виски.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/khmer_whisky.webp');"></div>
-            <div class="item-info"><h3>KHMER WHISKY</h3><p>Традиционный хмерский вкус.</p></div>
-        </div>
-    </div>
 
-    <div id="beer" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/angkor_premium.webp');"></div>
-            <div class="item-info"><h3>ANGKOR PREMIUM</h3><p>Премиальный лагер Камбоджи.</p></div>
+        <div id="beer" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/angkor_premium.webp');"></div>
+                <div class="item-info"><h3>ANGKOR PREMIUM</h3><p>Премиальный лагер Камбоджи.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/cambodia_lager.webp');"></div>
+                <div class="item-info"><h3>CAMBODIA LAGER</h3><p>Освежающее светлое пиво.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/kingdom_max.webp');"></div>
+                <div class="item-info"><h3>KINGDOM MAX</h3><p>Крепкий местный вкус.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/cambodia_lager.webp');"></div>
-            <div class="item-info"><h3>CAMBODIA LAGER</h3><p>Освежающее светлое пиво.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/kingdom_max.webp');"></div>
-            <div class="item-info"><h3>KINGDOM MAX</h3><p>Крепкий местный вкус.</p></div>
-        </div>
-    </div>
 
-    <div id="drinks" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/tikalok.webp');"></div>
-            <div class="item-info"><h3>ТИКАЛОК</h3><p>Тропический фруктовый шейк.</p></div>
+        <div id="drinks" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/tikalok.webp');"></div>
+                <div class="item-info"><h3>ТИКАЛОК</h3><p>Тропический фруктовый шейк.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/palm_juice.webp');"></div>
+                <div class="item-info"><h3>ПАЛЬМОВЫЙ СОК</h3><p>Натуральная сладость пальмы.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/bamboo_juice.webp');"></div>
+                <div class="item-info"><h3>БАМБУКОВЫЙ СОК</h3><p>Свежевыжатый сок бамбука.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/palm_juice.webp');"></div>
-            <div class="item-info"><h3>ПАЛЬМОВЫЙ СОК</h3><p>Натуральная сладость пальмы.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/bamboo_juice.webp');"></div>
-            <div class="item-info"><h3>БАМБУКОВЫЙ СОК</h3><p>Свежевыжатый сок бамбука.</p></div>
-        </div>
-    </div>
 
-    <div id="places" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/riverside.webp');"></div>
-            <div class="item-info"><h3>НАБЕРЕЖНАЯ</h3><p>Прогулки вдоль Меконга.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/wat_phnom.webp');"></div>
-            <div class="item-info"><h3>ВАТ ПНОМ</h3><p>Легендарный храм на холме.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/psar_thmey.webp');"></div>
-            <div class="item-info"><h3>ПСАР ТМЕЙ</h3><p>Знаменитый желтый рынок.</p></div>
+        <div id="places" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/riverside.webp');"></div>
+                <div class="item-info"><h3>НАБЕРЕЖНАЯ</h3><p>Прогулки вдоль Меконга.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/wat_phnom.webp');"></div>
+                <div class="item-info"><h3>ВАТ ПНОМ</h3><p>Легендарный храм на холме.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/psar_thmey.webp');"></div>
+                <div class="item-info"><h3>ПСАР ТМЕЙ</h3><p>Знаменитый желтый рынок.</p></div>
+            </div>
         </div>
     </div>
 
     <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
 
     <script>
+        // Список категорий по порядку
+        const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
+        let currentIdx = 0;
+
         function openCategory(evt, categoryName) {
+            currentIdx = categories.indexOf(categoryName);
+            
             var i, gridContent, tabLinks;
             gridContent = document.getElementsByClassName("grid-container");
             for (i = 0; i < gridContent.length; i++) {
@@ -265,9 +279,50 @@
             for (i = 0; i < tabLinks.length; i++) {
                 tabLinks[i].classList.remove("active");
             }
+            
             document.getElementById(categoryName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            
+            // Если вызов через клик
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add("active");
+            } else {
+                // Если вызов через свайп (подсвечиваем нужную кнопку)
+                tabLinks[currentIdx].classList.add("active");
+                // Прокручиваем меню, если кнопка ушла за экран на мобилке
+                tabLinks[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            
             window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Логика свайпов
+        let touchstartX = 0;
+        let touchendX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        });
+
+        swipeArea.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+
+        function handleGesture() {
+            const threshold = 50; // Минимальное расстояние для свайпа
+            if (touchendX < touchstartX - threshold) {
+                // Свайп влево -> следующий раздел
+                if (currentIdx < categories.length - 1) {
+                    openCategory(null, categories[currentIdx + 1]);
+                }
+            }
+            if (touchendX > touchstartX + threshold) {
+                // Свайп вправо -> предыдущий раздел
+                if (currentIdx > 0) {
+                    openCategory(null, categories[currentIdx - 1]);
+                }
+            }
         }
     </script>
 </body>
