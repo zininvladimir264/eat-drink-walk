@@ -19,6 +19,7 @@
             color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
+            overflow-x: hidden; /* Предотвращает горизонтальную прокрутку при свайпе */
         }
 
         .category-nav {
@@ -45,7 +46,7 @@
             color: #666;
             font-size: 24px; 
             font-weight: 800;
-            text-transform: uppercase; /* ВЕЗДЕ КАПС, включая мобильный */
+            text-transform: uppercase;
             letter-spacing: 1.5px;
             cursor: pointer;
             padding: 10px 0;
@@ -69,6 +70,11 @@
             text-transform: uppercase;
             letter-spacing: 6px;
             font-weight: 800;
+        }
+
+        /* Область свайпа */
+        #swipe-area {
+            min-height: 60vh;
         }
 
         .grid-container {
@@ -145,7 +151,6 @@
             }
             .category-nav button {
                 font-size: 20px; 
-                /* Удалил text-transform: none, теперь ЕДА как и ПИВО */
             }
 
             .grid-container {
@@ -166,7 +171,7 @@
 </head>
 <body>
 
-    <nav class="category-nav">
+    <nav class="category-nav" id="tab-nav">
         <button class="tab-link active" onclick="openCategory(event, 'food')">ЕДА</button>
         <button class="tab-link" onclick="openCategory(event, 'strong')">КРЕПКОЕ</button>
         <button class="tab-link" onclick="openCategory(event, 'beer')">ПИВО</button>
@@ -178,85 +183,92 @@
         <h1>СЕУЛ</h1>
     </div>
 
-    <div id="food" class="grid-container active">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/kimchi.webp');"></div>
-            <div class="item-info"><h3>КИМЧИ</h3><p>Острая капуста. Основа стола.</p></div>
+    <div id="swipe-area">
+        <div id="food" class="grid-container active">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/kimchi.webp');"></div>
+                <div class="item-info"><h3>КИМЧИ</h3><p>Острая капуста. Основа стола.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/tokpoki.webp');"></div>
+                <div class="item-info"><h3>ТОКПОКИ</h3><p>Рисовые клецки в огне.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/mandu.webp');"></div>
+                <div class="item-info"><h3>МАНДУ</h3><p>Корейские пельмени.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/tokpoki.webp');"></div>
-            <div class="item-info"><h3>ТОКПОКИ</h3><p>Рисовые клецки в огне.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/mandu.webp');"></div>
-            <div class="item-info"><h3>МАНДУ</h3><p>Корейские пельмени.</p></div>
-        </div>
-    </div>
 
-    <div id="strong" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/soju.webp');"></div>
-            <div class="item-info"><h3>СОДЖУ</h3><p>Прозрачный и вездесущий.</p></div>
+        <div id="strong" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/soju.webp');"></div>
+                <div class="item-info"><h3>СОДЖУ</h3><p>Прозрачный и вездесущий.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/makkoli.webp');"></div>
+                <div class="item-info"><h3>МАКГОЛИ</h3><p>Рисовое вино. Коварное.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/sool.webp');"></div>
+                <div class="item-info"><h3>SOOL</h3><p>Крафтовый алкоголь.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/makkoli.webp');"></div>
-            <div class="item-info"><h3>МАКГОЛИ</h3><p>Рисовое вино. Коварное.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/sool.webp');"></div>
-            <div class="item-info"><h3>SOOL</h3><p>Крафтовый алкоголь.</p></div>
-        </div>
-    </div>
 
-    <div id="beer" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/hite.webp');"></div>
-            <div class="item-info"><h3>HITE</h3><p>Легкий корейский лагер.</p></div>
+        <div id="beer" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/hite.webp');"></div>
+                <div class="item-info"><h3>HITE</h3><p>Легкий корейский лагер.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/oriental_brewery.webp');"></div>
+                <div class="item-info"><h3>OB</h3><p>Классика пивоварения.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/jazz.webp');"></div>
+                <div class="item-info"><h3>JAZZ</h3><p>Самое популярное в Корее.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/oriental_brewery.webp');"></div>
-            <div class="item-info"><h3>OB</h3><p>Классика пивоварения.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/jazz.webp');"></div>
-            <div class="item-info"><h3>JAZZ</h3><p>Самое популярное в Корее.</p></div>
-        </div>
-    </div>
 
-    <div id="drinks" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/dalgona.webp');"></div>
-            <div class="item-info"><h3>DALGONA</h3><p>Взбитый кофе.</p></div>
+        <div id="drinks" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/dalgona.webp');"></div>
+                <div class="item-info"><h3>DALGONA</h3><p>Взбитый кофе.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/sujongva.webp');"></div>
+                <div class="item-info"><h3>СУДЖОНГВА</h3><p>Хурма и корица.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/somaek.webp');"></div>
+                <div class="item-info"><h3>СОМАЕК</h3><p>Смесь пива и соджу.</p></div>
+            </div>
         </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/sujongva.webp');"></div>
-            <div class="item-info"><h3>СУДЖОНГВА</h3><p>Хурма и корица.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/somaek.webp');"></div>
-            <div class="item-info"><h3>СОМАЕК</h3><p>Смесь пива и соджу.</p></div>
-        </div>
-    </div>
 
-    <div id="places" class="grid-container">
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/coex.webp');"></div>
-            <div class="item-info"><h3>COEX</h3><p>Книги и масштаб.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/gangnam.webp');"></div>
-            <div class="item-info"><h3>ГАНГАМ</h3><p>Неоновое сердце.</p></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image" style="background-image: url('images/myeongdong.webp');"></div>
-            <div class="item-info"><h3>МЕНДОН</h3><p>Рай уличной еды.</p></div>
+        <div id="places" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/coex.webp');"></div>
+                <div class="item-info"><h3>COEX</h3><p>Книги и масштаб.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/gangnam.webp');"></div>
+                <div class="item-info"><h3>ГАНГАМ</h3><p>Неоновое сердце.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/myeongdong.webp');"></div>
+                <div class="item-info"><h3>МЕНДОН</h3><p>Рай уличной еды.</p></div>
+            </div>
         </div>
     </div>
 
     <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
 
     <script>
+        const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
+        let currentIdx = 0;
+
         function openCategory(evt, categoryName) {
+            currentIdx = categories.indexOf(categoryName);
+            
             var i, gridContent, tabLinks;
             gridContent = document.getElementsByClassName("grid-container");
             for (i = 0; i < gridContent.length; i++) {
@@ -266,9 +278,45 @@
             for (i = 0; i < tabLinks.length; i++) {
                 tabLinks[i].classList.remove("active");
             }
+            
             document.getElementById(categoryName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add("active");
+            } else {
+                tabLinks[currentIdx].classList.add("active");
+                tabLinks[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            
             window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Логика свайпов
+        let touchstartX = 0;
+        let touchendX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        swipeArea.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, {passive: true});
+
+        function handleGesture() {
+            const threshold = 60; 
+            if (touchendX < touchstartX - threshold) {
+                if (currentIdx < categories.length - 1) {
+                    openCategory(null, categories[currentIdx + 1]);
+                }
+            }
+            if (touchendX > touchstartX + threshold) {
+                if (currentIdx > 0) {
+                    openCategory(null, categories[currentIdx - 1]);
+                }
+            }
         }
     </script>
 </body>
