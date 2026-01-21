@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>СЕУЛ - Ем ПЬЮ ХОЖУ</title>
+    <title>СЕУЛ - ЕМ ПЬЮ ХОЖУ</title>
     
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
     <style>
         html { -webkit-text-size-adjust: 100%; }
         body {
@@ -15,7 +20,6 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
             overflow-x: hidden; 
-            /* Позволяет скроллить вверх-вниз, но не мешает JS ловить лево-право */
             touch-action: pan-y; 
         }
 
@@ -68,7 +72,6 @@
             font-weight: 800;
         }
 
-        /* Обертка для контента, на которой слушаем свайпы */
         #swipe-container {
             width: 100%;
             min-height: 70vh;
@@ -128,6 +131,7 @@
             text-decoration: none;
             font-size: 14px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         @media (max-width: 768px) {
@@ -240,36 +244,30 @@
         const containers = document.querySelectorAll('.grid-container');
         const swipeContainer = document.getElementById('swipe-container');
 
-        // Функция переключения
         function switchTab(index) {
             if (index < 0 || index >= categories.length) return;
             
             currentIdx = index;
             const targetId = categories[currentIdx];
 
-            // Обновляем кнопки
             tabBtns.forEach(btn => {
                 btn.classList.toggle('active', btn.getAttribute('data-target') === targetId);
             });
 
-            // Обновляем контент
             containers.forEach(cont => {
                 cont.classList.toggle('active', cont.id === targetId);
             });
 
-            // Центрируем кнопку в меню
             const activeBtn = document.querySelector('.tab-btn.active');
             activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // Клик по кнопкам
         tabBtns.forEach((btn, idx) => {
             btn.addEventListener('click', () => switchTab(idx));
         });
 
-        // Логика свайпа
         let xDown = null;                                                        
         let yDown = null;
 
@@ -287,17 +285,13 @@
             let xDiff = xDown - xUp;
             let yDiff = yDown - yUp;
 
-            // Проверяем, что это именно горизонтальный свайп, а не вертикальный скролл
             if (Math.abs(xDiff) > Math.abs(yDiff)) {
-                if (Math.abs(xDiff) > 30) { // Порог чувствительности
+                if (Math.abs(xDiff) > 40) { 
                     if (xDiff > 0) {
-                        /* Свайп влево (палец идет влево) -> следующая вкладка */
                         switchTab(currentIdx + 1);
                     } else {
-                        /* Свайп вправо (палец идет вправо) -> предыдущая вкладка */
                         switchTab(currentIdx - 1);
                     }
-                    // Сбрасываем, чтобы не срабатывало по сто раз за одно движение
                     xDown = null;
                     yDown = null;
                 }
