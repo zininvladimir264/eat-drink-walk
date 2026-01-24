@@ -204,10 +204,6 @@
                 <div class="item-image" style="background-image: url('images/tawandang.webp');"></div>
                 <div class="item-info"><h3>TAWANDANG</h3><p>Пиво из немецкой пивоварни.</p></div>
             </div>
-            <div class="item-card">
-                <div class="item-image" style="background-image: url('images/arnos_craft.webp');"></div>
-                <div class="item-info"><h3>ARNOS CRAFT</h3><p>Авторский крафт.</p></div>
-            </div>
         </div>
 
         <div id="drinks" class="grid-container">
@@ -236,12 +232,10 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/wat_pariwat.webp');"></div>
-                <div class="item-info"><h3>WAT PARIWAT</h3><p>Храм Давида Бекхэма.</p></div>
+                <div class="item-info"><h3>WAT PARIWAT</h3><p>Храм Дэвида Бекхэма.</p></div>
             </div>
         </div>
     </div>
-
-    <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
 
     <script>
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
@@ -253,57 +247,26 @@
 
         function switchTab(index) {
             if (index < 0 || index >= categories.length) return;
-            
             currentIdx = index;
             const targetId = categories[currentIdx];
-
-            tabBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-target') === targetId);
-            });
-
-            containers.forEach(cont => {
-                cont.classList.toggle('active', cont.id === targetId);
-            });
-
+            tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
+            containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
             const activeBtn = document.querySelector('.tab-btn.active');
-            if (activeBtn) {
-                activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-            
+            if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        tabBtns.forEach((btn, idx) => {
-            btn.addEventListener('click', () => switchTab(idx));
-        });
+        tabBtns.forEach((btn, idx) => btn.addEventListener('click', () => switchTab(idx)));
 
-        let xDown = null;                                                        
-        let yDown = null;
-
-        swipeContainer.addEventListener('touchstart', (evt) => {
-            xDown = evt.touches[0].clientX;                                      
-            yDown = evt.touches[0].clientY;                                      
-        }, false);
-
+        let xDown = null, yDown = null;
+        swipeContainer.addEventListener('touchstart', (evt) => { xDown = evt.touches[0].clientX; yDown = evt.touches[0].clientY; }, false);
         swipeContainer.addEventListener('touchmove', (evt) => {
             if (!xDown || !yDown) return;
-
-            let xUp = evt.touches[0].clientX;                                    
-            let yUp = evt.touches[0].clientY;
-
-            let xDiff = xDown - xUp;
-            let yDiff = yDown - yUp;
-
-            if (Math.abs(xDiff) > Math.abs(yDiff)) {
-                if (Math.abs(xDiff) > 40) { 
-                    if (xDiff > 0) {
-                        switchTab(currentIdx + 1);
-                    } else {
-                        switchTab(currentIdx - 1);
-                    }
-                    xDown = null;
-                    yDown = null;
-                }
+            let xUp = evt.touches[0].clientX, yUp = evt.touches[0].clientY;
+            let xDiff = xDown - xUp, yDiff = yDown - yUp;
+            if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 40) {
+                xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
+                xDown = null; yDown = null;
             }
         }, false);
     </script>
