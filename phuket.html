@@ -168,7 +168,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/pad_thai.webp');"></div>
-                <div class="item-info"><h3>PAD THAI</h3><p>Тайская жареная лапша.</p></div>
+                <div class="item-info"><h3>PAD THAI</h3><p>Жареная лапша.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/som_tam.webp');"></div>
@@ -183,14 +183,14 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/hong_thong.webp');"></div>
-                <div class="item-info"><h3>HONG THONG</h3><p>Тайский крепкий напиток.</p></div>
+                <div class="item-info"><h3>HONG THONG</h3><p>Тайский виски.</p></div>
             </div>
         </div>
 
         <div id="beer" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/phuket_beer.webp');"></div>
-                <div class="item-info"><h3>PHUKET BEER</h3><p>Местный островной лагер.</p></div>
+                <div class="item-info"><h3>PHUKET BEER</h3><p>Островной лагер.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/chang.webp');"></div>
@@ -198,11 +198,11 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/leo.webp');"></div>
-                <div class="item-info"><h3>LEO</h3><p>Светлое тайское пиво.</p></div>
+                <div class="item-info"><h3>LEO</h3><p>Тайское светлое пиво.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/archa.webp');"></div>
-                <div class="item-info"><h3>ARCHA</h3><p>Тайский лагер с лошадью.</p></div>
+                <div class="item-info"><h3>ARCHA</h3><p>Бюджетный лагер.</p></div>
             </div>
         </div>
 
@@ -224,20 +224,18 @@
         <div id="places" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/big_buddha.webp');"></div>
-                <div class="item-info"><h3>BIG BUDDHA</h3><p>Статуя на вершине холма.</p></div>
+                <div class="item-info"><h3>BIG BUDDHA</h3><p>Большой Будда.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/wat_chalong.webp');"></div>
-                <div class="item-info"><h3>WAT CHALONG</h3><p>Крупнейший храм острова.</p></div>
+                <div class="item-info"><h3>WAT CHALONG</h3><p>Главный храм острова.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/old_town.webp');"></div>
-                <div class="item-info"><h3>OLD TOWN</h3><p>Старый Пхукет-таун.</p></div>
+                <div class="item-info"><h3>OLD TOWN</h3><p>Старый город.</p></div>
             </div>
         </div>
-    </div>
-
-    <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
+    </div> <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
 
     <script>
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
@@ -253,6 +251,7 @@
             const targetId = categories[currentIdx];
             tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
             containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
+            
             const activeBtn = document.querySelector('.tab-btn.active');
             if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             window.scrollTo({top: 0, behavior: 'smooth'});
@@ -265,12 +264,17 @@
             xDown = evt.touches[0].clientX; 
             yDown = evt.touches[0].clientY; 
         }, false);
+
         swipeContainer.addEventListener('touchmove', (evt) => {
             if (!xDown || !yDown) return;
-            let xUp = evt.touches[0].clientX, yUp = evt.touches[0].clientY;
-            let xDiff = xDown - xUp, yDiff = yDown - yUp;
+            let xUp = evt.touches[0].clientX;
+            let yUp = evt.touches[0].clientY;
+            let xDiff = xDown - xUp;
+            let yDiff = yDown - yUp;
+
             if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 40) {
-                xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
+                if (xDiff > 0) switchTab(currentIdx + 1);
+                else switchTab(currentIdx - 1);
                 xDown = null; yDown = null;
             }
         }, false);
