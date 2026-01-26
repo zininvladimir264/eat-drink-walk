@@ -190,7 +190,7 @@
         <div id="beer" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/phuket_beer.webp');"></div>
-                <div class="item-info"><h3>PHUKET BEER</h3><p>Островной лагер.</p></div>
+                <div class="item-info"><h3>PHUKET BEER</h3><p>Местный лагер.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/chang.webp');"></div>
@@ -202,7 +202,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/archa.webp');"></div>
-                <div class="item-info"><h3>ARCHA</h3><p>Местное пиво.</p></div>
+                <div class="item-info"><h3>ARCHA</h3><p>Тайский лагер.</p></div>
             </div>
         </div>
 
@@ -224,7 +224,7 @@
         <div id="places" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/big_buddha.webp');"></div>
-                <div class="item-info"><h3>BIG BUDDHA</h3><p>Статуя на холме.</p></div>
+                <div class="item-info"><h3>BIG BUDDHA</h3><p>Статуя на вершине.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/wat_chalong.webp');"></div>
@@ -232,7 +232,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/old_town.webp');"></div>
-                <div class="item-info"><h3>OLD TOWN</h3><p>Исторический центр.</p></div>
+                <div class="item-info"><h3>OLD TOWN</h3><p>Старый город.</p></div>
             </div>
         </div>
     </div> <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
@@ -249,7 +249,6 @@
             if (index < 0 || index >= categories.length) return;
             currentIdx = index;
             const targetId = categories[currentIdx];
-            
             tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
             containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
             
