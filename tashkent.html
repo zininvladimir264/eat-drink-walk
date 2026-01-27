@@ -182,7 +182,8 @@
                 <div class="item-info"><h3>DUTOR</h3><p>Водка Дутор.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('');"></div> <div class="item-info"><h3>TOSHKENT</h3><p>Водка Ташкент.</p></div>
+                <div class="item-image" style="background-image: url('images/toshkent.webp');"></div>
+                <div class="item-info"><h3>TOSHKENT</h3><p>Водка Ташкент.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/uzbekiston.webp');"></div>
@@ -191,6 +192,9 @@
         </div>
 
         <div id="beer" class="grid-container">
+        </div>
+
+        <div id="drinks" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/sarboz.webp');"></div>
                 <div class="item-info"><h3>SARBOZ</h3><p>Местный лагер.</p></div>
@@ -203,9 +207,6 @@
                 <div class="item-image" style="background-image: url('images/bamberg.webp');"></div>
                 <div class="item-info"><h3>BAMBERG</h3><p>Крафтовое немецкое.</p></div>
             </div>
-        </div>
-
-        <div id="drinks" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/zinnur.webp');"></div>
                 <div class="item-info"><h3>ZINNUR</h3><p>Лимонад Зиннур.</p></div>
@@ -251,7 +252,7 @@
             currentIdx = index;
             const targetId = categories[currentIdx];
             tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
-            containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
+            containers.forEach(cont => cont.id === targetId ? cont.classList.add('active') : cont.classList.remove('active'));
             const activeBtn = document.querySelector('.tab-btn.active');
             if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             window.scrollTo({top: 0, behavior: 'smooth'});
