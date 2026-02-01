@@ -200,12 +200,16 @@
                 <div class="item-image" style="background-image: url('images/east_west.webp');"></div>
                 <div class="item-info"><h3>EAST WEST</h3><p>Вьетнамский крафт.</p></div>
             </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/sapporo.webp');"></div>
+                <div class="item-info"><h3>SAPPORO</h3><p>Японский премиум-лагер.</p></div>
+            </div>
         </div>
 
         <div id="drinks" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/ladora.webp');"></div>
-                <div class="item-info"><h3>LADORA VANS</h3><p>Знаменитое вино Далата.</p></div>
+                <div class="item-info"><h3>LADORA VANS</h3><p>Вино из Далата.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/196_coffee.webp');"></div>
@@ -220,15 +224,15 @@
         <div id="places" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/crazy_house.webp');"></div>
-                <div class="item-info"><h3>CRAZY HOUSE</h3><p>Сюрреалистичный отель.</p></div>
+                <div class="item-info"><h3>CRAZY HOUSE</h3><p>Сюрреалистичный дом.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/prenn_waterfall.webp');"></div>
-                <div class="item-info"><h3>ВОДОПАД PRENN</h3><p>Природный парк.</p></div>
+                <div class="item-info"><h3>ВОДОПАД PRENN</h3><p>Живописный парк.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/bao_dai_palace.webp');"></div>
-                <div class="item-info"><h3>BAO DAI PALACE</h3><p>Летняя резиденция императора.</p></div>
+                <div class="item-info"><h3>BAO DAI PALACE</h3><p>Резиденция императора.</p></div>
             </div>
         </div>
     </div>
@@ -238,6 +242,7 @@
     <script>
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
         let currentIdx = 0;
+
         const tabBtns = document.querySelectorAll('.tab-btn');
         const containers = document.querySelectorAll('.grid-container');
         const swipeContainer = document.getElementById('swipe-container');
