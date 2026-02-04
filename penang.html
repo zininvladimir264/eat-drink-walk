@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ПЕНАНГ - Ем ПЬЮ ХОЖУ</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden; 
+            touch-action: pan-y; 
+        }
+
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .category-nav button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 10px 0;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .category-nav button.active {
+            color: #fff;
+            border-bottom: 3px solid #fff;
+        }
+
+        .city-header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .city-header h1 {
+            margin: 0;
+            font-size: 45px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 800;
+        }
+
+        #swipe-container {
+            width: 100%;
+            min-height: 70vh;
+        }
+
+        .grid-container {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-container.active {
+            display: grid;
+        }
+
+        .item-card {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+            border-radius: 4px;
+        }
+
+        .item-info {
+            padding: 15px 0;
+        }
+
+        .item-info h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 28px; 
+            font-weight: 900;
+        }
+
+        .item-info p {
+            margin: 0;
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 50px auto;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .category-nav { justify-content: flex-start; padding-left: 20px; }
+            .category-nav button { font-size: 20px; }
+            .grid-container { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+            .item-info h3 { font-size: 18px !important; }
+            .item-info p { font-size: 11px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="category-nav">
+        <button class="tab-btn active" data-target="food">ЕДА</button>
+        <button class="tab-btn" data-target="strong">КРЕПКОЕ</button>
+        <button class="tab-btn" data-target="beer">ПИВО</button>
+        <button class="tab-btn" data-target="drinks">НАПИТКИ</button>
+        <button class="tab-btn" data-target="places">МЕСТА</button>
+    </nav>
+
+    <div class="city-header">
+        <h1>ПЕНАНГ</h1>
+    </div>
+
+    <div id="swipe-container">
+        <div id="food" class="grid-container active">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/nasi_lemak.webp');"></div>
+                <div class="item-info"><h3>NASI LEMAK</h3><p>Рис в кокосовом молоке.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/laksa.webp');"></div>
+                <div class="item-info"><h3>LAKSA</h3><p>Острый рыбный суп.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/cendol.webp');"></div>
+                <div class="item-info"><h3>CENDOL</h3><p>Ледяной десерт.</p></div>
+            </div>
+        </div>
+
+        <div id="strong" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/cachaga_51.webp');"></div>
+                <div class="item-info"><h3>CACHAGA 51</h3><p>Бразильский дух на острове.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/churchill.webp');"></div>
+                <div class="item-info"><h3>CHURCHILL</h3><p>Классический крепкий выбор.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/3_axes.webp');"></div>
+                <div class="item-info"><h3>3 AXES</h3><p>Крепкий местный бренд.</p></div>
+            </div>
+        </div>
+
+        <div id="beer" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/coopers.webp');"></div>
+                <div class="item-info"><h3>COOPERS</h3><p>Австралийский эль.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/boba_beer.webp');"></div>
+                <div class="item-info"><h3>BOBA BEER</h3><p>Необычный микс.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/malta.webp');"></div>
+                <div class="item-info"><h3>MALTA</h3><p>Солодовый напиток.</p></div>
+            </div>
+        </div>
+
+        <div id="drinks" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/somersby.webp');"></div>
+                <div class="item-info"><h3>SOMERSBY</h3><p>Популярный сидр.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/chinchao.webp');"></div>
+                <div class="item-info"><h3>ЧИНЧАО</h3><p>Травяное желе.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/malai.webp');"></div>
+                <div class="item-info"><h3>MALAI</h3><p>Сливочный напиток.</p></div>
+            </div>
+        </div>
+
+        <div id="places" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/graffiti.webp');"></div>
+                <div class="item-info"><h3>ГРАФФИТИ</h3><p>Стрит-арт Джорджтауна.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/penang_hill.webp');"></div>
+                <div class="item-info"><h3>ПЕНАНГ ХИЛЛ</h3><p>Вид на весь остров.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/kek_lok_si.webp');"></div>
+                <div class="item-info"><h3>КЕК ЛОК СИ</h3><p>Храм Высшего Блаженства.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
+
+    <script>
+        const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
+        let currentIdx = 0;
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const containers = document.querySelectorAll('.grid-container');
+        const swipeContainer = document.getElementById('swipe-container');
+
+        function switchTab(index) {
+            if (index < 0 || index >= categories.length) return;
+            currentIdx = index;
+            const targetId = categories[currentIdx];
+            tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
+            containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
+            const activeBtn = document.querySelector('.tab-btn.active');
+            if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        tabBtns.forEach((btn, idx) => btn.addEventListener('click', () => switchTab(idx)));
+
+        let xDown = null, yDown = null;
+        swipeContainer.addEventListener('touchstart', (evt) => { xDown = evt.touches[0].clientX; yDown = evt.touches[0].clientY; }, false);
+        swipeContainer.addEventListener('touchmove', (evt) => {
+            if (!xDown || !yDown) return;
+            let xUp = evt.touches[0].clientX, yUp = evt.touches[0].clientY;
+            let xDiff = xDown - xUp, yDiff = yDown - yUp;
+            if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 40) {
+                xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
+                xDown = null; yDown = null;
+            }
+        }, false);
+    </script>
+</body>
+</html>
