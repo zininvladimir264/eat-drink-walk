@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KL - Ем ПЬЮ ХОЖУ</title>
+    <title>КУАЛА-ЛУМПУР - Ем ПЬЮ ХОЖУ</title>
     
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
@@ -66,9 +66,9 @@
 
         .city-header h1 {
             margin: 0;
-            font-size: 45px;
+            font-size: 38px; /* Чуть уменьшил, чтобы длинное слово влезло на мобильных */
             text-transform: uppercase;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             font-weight: 800;
         }
 
@@ -137,11 +137,12 @@
         @media (max-width: 768px) {
             .category-nav { justify-content: flex-start; padding-left: 20px; }
             .category-nav button { font-size: 20px; }
+            .city-header h1 { font-size: 28px; letter-spacing: 2px; }
             .grid-container { 
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 12px; 
             }
-            .item-info h3 { font-size: 20px !important; }
+            .item-info h3 { font-size: 18px !important; }
             .item-info p { font-size: 11px !important; }
         }
     </style>
@@ -157,7 +158,7 @@
     </nav>
 
     <div class="city-header">
-        <h1>KL</h1>
+        <h1>КУАЛА-ЛУМПУР</h1>
     </div>
 
     <div id="swipe-container">
@@ -172,7 +173,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/popian.webp');"></div>
-                <div class="item-info"><h3>POPIAN</h3><p>Спринг-роллы.</p></div>
+                <div class="item-info"><h3>POPIAN</h3><p>Местные роллы.</p></div>
             </div>
         </div>
 
@@ -183,18 +184,18 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/club_99.webp');"></div>
-                <div class="item-info"><h3>CLUB 99</h3><p>Местный алкоголь.</p></div>
+                <div class="item-info"><h3>CLUB 99</h3><p>Местный крепкий выбор.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/vodka_sochi.webp');"></div>
-                <div class="item-info"><h3>VODKA SOCHI</h3><p>Крепкий выбор.</p></div>
+                <div class="item-info"><h3>VODKA SOCHI</h3><p>Локальный бренд.</p></div>
             </div>
         </div>
 
         <div id="beer" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/rose.webp');"></div>
-                <div class="item-info"><h3>ROSE</h3><p>Легкое пиво.</p></div>
+                <div class="item-image" style="background-image: url('images/rose_beer.webp');"></div>
+                <div class="item-info"><h3>ROSE</h3><p>Легкий сорт.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/kirin.webp');"></div>
@@ -224,7 +225,7 @@
         <div id="places" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/petronas.webp');"></div>
-                <div class="item-info"><h3>БАШНИ ПЕТРОНАС</h3><p>Twin Towers.</p></div>
+                <div class="item-info"><h3>БАШНИ ПЕТРОНАС</h3><p>Символ столицы.</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/masjid_jamek.webp');"></div>
@@ -232,7 +233,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/batu_caves.webp');"></div>
-                <div class="item-info"><h3>ПЕЩЕРЫ БАТУ</h3><p>Святыня в скалах.</p></div>
+                <div class="item-info"><h3>ПЕЩЕРЫ БАТУ</h3><p>Индуистский храм.</p></div>
             </div>
         </div>
     </div>
