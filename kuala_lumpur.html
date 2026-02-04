@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>КУАЛА-ЛУМПУР - Ем ПЬЮ ХОЖУ</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden; 
+            touch-action: pan-y; 
+        }
+
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .category-nav button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 10px 0;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .category-nav button.active {
+            color: #fff;
+            border-bottom: 3px solid #fff;
+        }
+
+        .city-header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .city-header h1 {
+            margin: 0;
+            font-size: 45px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 800;
+        }
+
+        #swipe-container {
+            width: 100%;
+            min-height: 70vh;
+        }
+
+        .grid-container {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-container.active {
+            display: grid;
+        }
+
+        .item-card {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+            border-radius: 4px;
+        }
+
+        .item-info {
+            padding: 15px 0;
+        }
+
+        .item-info h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 28px; 
+            font-weight: 900;
+        }
+
+        .item-info p {
+            margin: 0;
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 50px auto;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .category-nav { justify-content: flex-start; padding-left: 20px; }
+            .category-nav button { font-size: 20px; }
+            .grid-container { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+            .item-info h3 { font-size: 20px !important; }
+            .item-info p { font-size: 11px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="category-nav">
+        <button class="tab-btn active" data-target="food">ЕДА</button>
+        <button class="tab-btn" data-target="strong">КРЕПКОЕ</button>
+        <button class="tab-btn" data-target="beer">ПИВО</button>
+        <button class="tab-btn" data-target="drinks">НАПИТКИ</button>
+        <button class="tab-btn" data-target="places">МЕСТА</button>
+    </nav>
+
+    <div class="city-header">
+        <h1>КУАЛА-ЛУМПУР</h1>
+    </div>
+
+    <div id="swipe-container">
+        <div id="food" class="grid-container active">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/nasi_goreng.webp');"></div>
+                <div class="item-info"><h3>NASI GORENG</h3><p>Жареный рис по-малайски.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/sate.webp');"></div>
+                <div class="item-info"><h3>SATE</h3><p>Мини-шашлычки с арахисовым соусом.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/popian.webp');"></div>
+                <div class="item-info"><h3>POPIAN</h3><p>Местные спринг-роллы.</p></div>
+            </div>
+        </div>
+
+        <div id="strong" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/tuak.webp');"></div>
+                <div class="item-info"><h3>TUAK</h3><p>Традиционное рисовое вино/самогон.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/club_99.webp');"></div>
+                <div class="item-info"><h3>CLUB 99</h3><p>Популярный местный бренд.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/vodka_sochi.webp');"></div>
+                <div class="item-info"><h3>VODKA SOCHI</h3><p>Местный крепкий выбор.</p></div>
+            </div>
+        </div>
+
+        <div id="beer" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/rose_beer.webp');"></div>
+                <div class="item-info"><h3>ROSE</h3><p>Освежающий сорт.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/kirin_ichiban.webp');"></div>
+                <div class="item-info"><h3>KIRIN ICHIBAN</h3><p>Премиальный лагер.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/typhon.webp');"></div>
+                <div class="item-info"><h3>TYPHON</h3><p>Крепкое крафтовое пиво.</p></div>
+            </div>
+        </div>
+
+        <div id="drinks" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/teh_tarik.webp');"></div>
+                <div class="item-info"><h3>TEH TARIK</h3><p>Знаменитый "тянутый" чай.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/apple_fox.webp');"></div>
+                <div class="item-info"><h3>APPLE FOX</h3><p>Популярный сидр.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/bandung.webp');"></div>
+                <div class="item-info"><h3>БАНДУНГ</h3><p>Розовое молоко с сиропом.</p></div>
+            </div>
+        </div>
+
+        <div id="places" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/petronas.webp');"></div>
+                <div class="item-info"><h3>БАШНИ ПЕТРОНАС</h3><p>Символ современного города.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/masjid_jamek.webp');"></div>
+                <div class="item-info"><h3>МАСДЖИД-ДЖАМЕ</h3><p>Старейшая мечеть города.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/batu_caves.webp');"></div>
+                <div class="item-info"><h3>ПЕЩЕРЫ БАТУ</h3><p>Индуистская святыня в скалах.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
+
+    <script>
+        const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
+        let currentIdx = 0;
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const containers = document.querySelectorAll('.grid-container');
+        const swipeContainer = document.getElementById('swipe-container');
+
+        function switchTab(index) {
+            if (index < 0 || index >= categories.length) return;
+            currentIdx = index;
+            const targetId = categories[currentIdx];
+            tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
+            containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
+            const activeBtn = document.querySelector('.tab-btn.active');
+            if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        tabBtns.forEach((btn, idx) => btn.addEventListener('click', () => switchTab(idx)));
+
+        let xDown = null, yDown = null;
+        swipeContainer.addEventListener('touchstart', (evt) => { xDown = evt.touches[0].clientX; yDown = evt.touches[0].clientY; }, false);
+        swipeContainer.addEventListener('touchmove', (evt) => {
+            if (!xDown || !yDown) return;
+            let xUp = evt.touches[0].clientX, yUp = evt.touches[0].clientY;
+            let xDiff = xDown - xUp, yDiff = yDown - yUp;
+            if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 40) {
+                xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
+                xDown = null; yDown = null;
+            }
+        }, false);
+    </script>
+</body>
+</html>
