@@ -163,48 +163,58 @@
     <div id="swipe-container">
         <div id="food" class="grid-container active">
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/mamaliga.webp);"></div>
+                <div class="item-image" style="background-image: url('images/mamaliga.webp');"></div>
                 <div class="item-info"><h3>МАМАЛЫГА</h3><p>Плотная каша из кукурузной муки.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/mititei.webp);"></div>
+                <div class="item-image" style="background-image: url('images/mititei.webp');"></div>
                 <div class="item-info"><h3>МИТИТЕИ</h3><p>Традиционные маленькие колбаски.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/tokana.webp);"></div>
+                <div class="item-image" style="background-image: url('images/tokana.webp');"></div>
                 <div class="item-info"><h3>ТОКАНА</h3><p>Насыщенное мясное рагу.</p></div>
             </div>
         </div>
 
         <div id="strong" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/basamak.webp);"></div>
+                <div class="item-image" style="background-image: url('images/basamak.webp');"></div>
                 <div class="item-info"><h3>БАСАМАК</h3><p>Виноградный дистиллят.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/cuica.webp);"></div>
+                <div class="item-image" style="background-image: url('images/cuica.webp');"></div>
                 <div class="item-info"><h3>ЦУЙКА</h3><p>Фруктовый крепкий напиток.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/perfect_vodka.webp);"></div>
+                <div class="item-image" style="background-image: url('images/perfect_vodka.webp');"></div>
                 <div class="item-info"><h3>ВОДКА PERFECT</h3><p>Классическая крепкая водка.</p></div>
             </div>
         </div>
 
         <div id="beer" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/gold_beer.webp);"></div>
+                <div class="item-image" style="background-image: url('images/gold_beer.webp');"></div>
                 <div class="item-info"><h3>GOLD BEER</h3><p>Светлое пиво.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url(images/cis.webp);"></div>
+                <div class="item-image" style="background-image: url('images/cis.webp');"></div>
                 <div class="item-info"><h3>CHISINAU</h3><p>Главное пиво Молдовы.</p></div>
             </div>
         </div>
 
-        <div id="drinks" class="grid-container"></div>
+        <div id="drinks" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/atu.webp');"></div>
+                <div class="item-info"><h3>ATU</h3><p>Вина первой городской винодельни.</p></div>
+            </div>
+        </div>
 
-        <div id="places" class="grid-container"></div>
+        <div id="places" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/little_prince.webp');"></div>
+                <div class="item-info"><h3>МАЛЕНЬКИЙ ПРИНЦ</h3><p>Статуя в парке Валя Морилор.</p></div>
+            </div>
+        </div>
     </div>
 
     <a href="moldova.html" class="back-btn">← НАЗАД К ГОРОДАМ</a>
@@ -222,9 +232,24 @@
             const targetId = categories[currentIdx];
             tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
             containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
+            const activeBtn = document.querySelector('.tab-btn.active');
+            if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
         tabBtns.forEach((btn, idx) => btn.addEventListener('click', () => switchTab(idx)));
+
+        let xDown = null, yDown = null;
+        swipeContainer.addEventListener('touchstart', (evt) => { xDown = evt.touches[0].clientX; yDown = evt.touches[0].clientY; }, false);
+        swipeContainer.addEventListener('touchmove', (evt) => {
+            if (!xDown || !yDown) return;
+            let xUp = evt.touches[0].clientX, yUp = evt.touches[0].clientY;
+            let xDiff = xDown - xUp, yDiff = yDown - yUp;
+            if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 40) {
+                xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
+                xDown = null; yDown = null;
+            }
+        }, false);
     </script>
 </body>
 </html>
