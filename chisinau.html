@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ГОРОДА - Ем ПЬЮ ХОЖУ</title>
+    <title>МОЛДОВА - Ем ПЬЮ ХОЖУ</title>
     
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
@@ -95,6 +95,17 @@
             color: #000;
         }
 
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 30px auto;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
         @media (max-width: 768px) {
             .cities-grid {
                 grid-template-columns: 1fr;
@@ -107,7 +118,7 @@
 <body>
 
     <div class="header">
-        <h1>ГОРОДА</h1>
+        <h1>МОЛДОВА</h1>
     </div>
 
     <div class="cities-grid">
@@ -119,43 +130,9 @@
                 <a href="chisinau.html" class="city-link">ПОСМОТРЕТЬ</a>
             </div>
         </div>
-
-        <div class="city-card">
-            <div class="city-image" style="background-image: url('images/riga_main.webp');"></div>
-            <div class="city-info">
-                <h3>РИГА</h3>
-                <p>Латвия</p>
-                <a href="riga.html" class="city-link">ПОСМОТРЕТЬ</a>
-            </div>
-        </div>
-
-        <div class="city-card">
-            <div class="city-image" style="background-image: url('images/tallinn_main.webp');"></div>
-            <div class="city-info">
-                <h3>ТАЛЛИН</h3>
-                <p>Эстония</p>
-                <a href="tallinn.html" class="city-link">ПОСМОТРЕТЬ</a>
-            </div>
-        </div>
-
-        <div class="city-card">
-            <div class="city-image" style="background-image: url('images/petrovac_main.webp');"></div>
-            <div class="city-info">
-                <h3>ПЕТРОВАЦ</h3>
-                <p>Черногория</p>
-                <a href="petrovac.html" class="city-link">ПОСМОТРЕТЬ</a>
-            </div>
-        </div>
-
-        <div class="city-card">
-            <div class="city-image" style="background-image: url('images/bar_main.webp');"></div>
-            <div class="city-info">
-                <h3>БАР</h3>
-                <p>Черногория</p>
-                <a href="bar.html" class="city-link">ПОСМОТРЕТЬ</a>
-            </div>
-        </div>
     </div>
+
+    <a href="countries.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
 
 </body>
 </html>
