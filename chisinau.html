@@ -186,7 +186,7 @@
                 <div class="item-info"><h3>ЦУЙКА</h3><p>Фруктовый крепкий напиток.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/perfect_vodka.webp');"></div>
+                <div class="item-image" style="background-image: url('images/perfekt_vodka.webp');"></div>
                 <div class="item-info"><h3>ВОДКА PERFECT</h3><p>Классическая крепкая водка.</p></div>
             </div>
         </div>
@@ -227,7 +227,7 @@
                 <div class="item-info"><h3>LA VALNA</h3><p>Живописное место в Кишиневе.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/pushkin.webp');"></div>
+                <div class="item-image" style="background-image: url('images/pushkin_museum.webp');"></div>
                 <div class="item-info"><h3>ДОМ МУЗЕЙ ПУШКИНА</h3><p>Историческая усадьба.</p></div>
             </div>
         </div>
@@ -248,8 +248,6 @@
             const targetId = categories[currentIdx];
             tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
             containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
-            const activeBtn = document.querySelector('.tab-btn.active');
-            if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
