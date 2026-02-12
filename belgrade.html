@@ -151,6 +151,7 @@
     <nav class="category-nav">
         <button class="tab-btn active" data-target="food">ЕДА</button>
         <button class="tab-btn" data-target="strong">КРЕПКОЕ</button>
+        <button class="tab-btn" data-target="beer">ПИВО</button>
         <button class="tab-btn" data-target="drinks">НАПИТКИ</button>
         <button class="tab-btn" data-target="places">МЕСТА</button>
     </nav>
@@ -183,6 +184,21 @@
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/lozovaca.webp');"></div>
                 <div class="item-info"><h3>lozovaca</h3></div>
+            </div>
+        </div>
+
+        <div id="beer" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/jelen.webp');"></div>
+                <div class="item-info"><h3>jelen</h3></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/lov.webp');"></div>
+                <div class="item-info"><h3>lov</h3></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/lasko.webp');"></div>
+                <div class="item-info"><h3>lasko</h3></div>
             </div>
         </div>
 
@@ -220,7 +236,7 @@
     <a href="serbia.html" class="back-btn">← НАЗАД К ГОРОДАМ</a>
 
     <script>
-        const categories = ['food', 'strong', 'drinks', 'places'];
+        const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
         let currentIdx = 0;
         const tabBtns = document.querySelectorAll('.tab-btn');
         const containers = document.querySelectorAll('.grid-container');
