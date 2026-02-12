@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>НОВИ САД - Ем ПЬЮ ХОЖУ</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden; 
+            touch-action: pan-y; 
+        }
+
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .category-nav button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 10px 0;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .category-nav button.active {
+            color: #fff;
+            border-bottom: 3px solid #fff;
+        }
+
+        .city-header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .city-header h1 {
+            margin: 0;
+            font-size: 45px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 800;
+        }
+
+        #swipe-container {
+            width: 100%;
+            min-height: 70vh;
+        }
+
+        .grid-container {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-container.active {
+            display: grid;
+        }
+
+        .item-card {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+            border-radius: 4px;
+        }
+
+        .item-info {
+            padding: 15px 0;
+        }
+
+        .item-info h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 28px; 
+            font-weight: 900;
+        }
+
+        .item-info p {
+            margin: 0;
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #ccc;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 50px auto;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .category-nav { justify-content: flex-start; padding-left: 20px; }
+            .category-nav button { font-size: 20px; }
+            .grid-container { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+            .item-info h3 { font-size: 18px !important; }
+            .item-info p { font-size: 11px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="category-nav">
+        <button class="tab-btn active" data-target="food">ЕДА</button>
+        <button class="tab-btn" data-target="strong">КРЕПКОЕ</button>
+        <button class="tab-btn" data-target="beer">ПИВО</button>
+        <button class="tab-btn" data-target="drinks">НАПИТКИ</button>
+        <button class="tab-btn" data-target="places">МЕСТА</button>
+    </nav>
+
+    <div class="city-header">
+        <h1>НОВИ САД</h1>
+    </div>
+
+    <div id="swipe-container">
+        <div id="food" class="grid-container active">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/karadordeva_snicla.webp');"></div>
+                <div class="item-info"><h3>karadordeva snicla</h3><p>Рулет из мяса с начинкой из каймака.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/sarma.webp');"></div>
+                <div class="item-info"><h3>sarma</h3><p>Фарш с рисом в листьях квашеной капусты.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/corba.webp');"></div>
+                <div class="item-info"><h3>corba</h3><p>Густой наваристый суп.</p></div>
+            </div>
+        </div>
+
+        <div id="strong" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/rubinov_vinjak.webp');"></div>
+                <div class="item-info"><h3>rubinov vinjak</h3><p>Знаменитый сербский виноградный бренди.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/klekovaca.webp');"></div>
+                <div class="item-info"><h3>klekovaca</h3><p>Ракия, настоянная на плодах можжевельника.</p></div>
+            </div>
+        </div>
+
+        <div id="beer" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/mb_pils.webp');"></div>
+                <div class="item-info"><h3>mb pils</h3><p>Местное светлое пиво.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/stella_artua.webp');"></div>
+                <div class="item-info"><h3>stella artua</h3><p>Популярный лагер.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/zajecarsko.webp');"></div>
+                <div class="item-info"><h3>заечарское</h3><p>Легендарное сербское пиво.</p></div>
+            </div>
+        </div>
+
+        <div id="drinks" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/vino_kalem.webp');"></div>
+                <div class="item-info"><h3>vino kalem</h3><p>Локальные вина региона.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/bambus.webp');"></div>
+                <div class="item-info"><h3>бамбус</h3><p>Коктейль из красного вина и колы.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/grasac.webp');"></div>
+                <div class="item-info"><h3>грашац</h3><p>Традиционное белое вино Воеводины.</p></div>
+            </div>
+        </div>
+
+        <div id="places" class="grid-container">
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/petrovaradin.webp');"></div>
+                <div class="item-info"><h3>петроварадин</h3><p>Мощная крепость над Дунаем.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/sinagoga.webp');"></div>
+                <div class="item-info"><h3>синагога</h3><p>Архитектурная жемчужина города.</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-image: url('images/zmaj_jovina.webp');"></div>
+                <div class="item-info"><h3>Змај Јовина</h3><p>Главная пешеходная улица центра.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="serbia.html" class="back-btn">← НАЗАД К ГОРОДАМ</a>
+
+    <script>
+        const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
+        let currentIdx = 0;
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const containers = document.querySelectorAll('.grid-container');
+        const swipeContainer = document.getElementById('swipe-container');
+
+        function switchTab(index) {
+            if (index < 0 || index >= categories.length) return;
+            currentIdx = index;
+            const targetId = categories[currentIdx];
+            tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
+            containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        tabBtns.forEach((btn, idx) => btn.addEventListener('click', () => switchTab(idx)));
+
+        let xDown = null, yDown = null;
+        swipeContainer.addEventListener('touchstart', (evt) => { xDown = evt.touches[0].clientX; yDown = evt.touches[0].clientY; }, false);
+        swipeContainer.addEventListener('touchmove', (evt) => {
+            if (!xDown || !yDown) return;
+            let xUp = evt.touches[0].clientX, yUp = evt.touches[0].clientY;
+            let xDiff = xDown - xUp, yDiff = yDown - yUp;
+            if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 40) {
+                xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
+                xDown = null; yDown = null;
+            }
+        }, false);
+    </script>
+</body>
+</html>
