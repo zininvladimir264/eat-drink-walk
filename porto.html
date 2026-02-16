@@ -5,65 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ПОРТУ - Ем ПЬЮ ХОЖУ</title>
     
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <style>
         html { -webkit-text-size-adjust: 100%; }
         body {
-            margin: 0; padding: 0;
-            background-color: #000; color: #fff;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh; overflow-x: hidden; touch-action: pan-y; 
+            min-height: 100vh;
+            overflow-x: hidden; 
+            touch-action: pan-y; 
         }
 
         .category-nav {
-            position: sticky; top: 0;
+            position: sticky;
+            top: 0;
             background: rgba(0, 0, 0, 0.95);
-            padding: 25px 0; display: flex;
-            justify-content: center; gap: 25px;
-            z-index: 100; border-bottom: 1px solid #222;
-            backdrop-filter: blur(10px); overflow-x: auto;
+            padding: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         .category-nav button {
-            background: none; border: none; color: #666;
-            font-size: 24px; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 1.5px;
-            cursor: pointer; padding: 10px 0; transition: 0.3s;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 10px 0;
+            transition: 0.3s;
+            outline: none;
         }
 
-        .category-nav button.active { color: #fff; border-bottom: 3px solid #fff; }
+        .category-nav button.active {
+            color: #fff;
+            border-bottom: 3px solid #fff;
+        }
 
-        .city-header { text-align: center; padding: 40px 20px 20px; }
-        .city-header h1 { margin: 0; font-size: 45px; text-transform: uppercase; letter-spacing: 6px; font-weight: 800; }
+        .city-header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .city-header h1 {
+            margin: 0;
+            font-size: 45px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 800;
+        }
+
+        #swipe-container {
+            width: 100%;
+            min-height: 70vh;
+        }
 
         .grid-container {
-            display: none; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto;
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .grid-container.active { display: grid; }
+        .grid-container.active {
+            display: grid;
+        }
 
-        .item-card { background: transparent; display: flex; flex-direction: column; }
+        .item-card {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+        }
 
         .item-image {
-            width: 100%; aspect-ratio: 1 / 1;
-            background-size: cover; background-position: center;
-            background-color: #111; border-radius: 4px;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+            border-radius: 4px;
         }
 
-        .item-info { padding: 15px 0; }
-        .item-info h3 { margin: 0 0 10px 0; text-transform: uppercase; font-size: 28px; font-weight: 900; }
-        .item-info p { margin: 0; font-size: 16px; font-weight: 400; color: #ccc; text-transform: none; }
+        .item-info {
+            padding: 15px 0;
+        }
+
+        .item-info h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 28px; 
+            font-weight: 900;
+        }
+
+        .item-info p {
+            margin: 0;
+            font-size: 16px; 
+            font-weight: 400;
+            color: #ccc;
+        }
 
         .back-btn {
-            display: block; text-align: center; margin: 50px auto;
-            color: #666; text-decoration: none; font-size: 14px;
-            text-transform: uppercase; letter-spacing: 2px;
+            display: block;
+            text-align: center;
+            margin: 50px auto;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         @media (max-width: 768px) {
             .category-nav { justify-content: flex-start; padding-left: 20px; }
             .category-nav button { font-size: 20px; }
-            .grid-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .grid-container { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
             .item-info h3 { font-size: 18px !important; }
             .item-info p { font-size: 11px !important; }
         }
@@ -79,92 +153,95 @@
         <button class="tab-btn" data-target="places">МЕСТА</button>
     </nav>
 
-    <div class="city-header"><h1>ПОРТУ</h1></div>
+    <div class="city-header">
+        <h1>ПОРТУ</h1>
+    </div>
 
     <div id="swipe-container">
         <div id="food" class="grid-container active">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/francesinha.webp');"></div>
-                <div class="item-info"><h3>francesinha</h3><p>Легендарный португальский многослойный сэндвич в соусе.</p></div>
+                <div class="item-image" style="background-image: url('images/food/francesinha.webp');"></div>
+                <div class="item-info"><h3>francesinha</h3><p>Многослойный сэндвич с мясом и сыром в соусе.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/bifana.webp');"></div>
-                <div class="item-info"><h3>bifana</h3><p>Традиционный сэндвич с тонко нарезанной маринованной свининой.</p></div>
+                <div class="item-image" style="background-image: url('images/food/bifana.webp');"></div>
+                <div class="item-info"><h3>bifana</h3><p>Классическая булочка с сочной свининой.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/bacalhau_a_bras.webp');"></div>
-                <div class="item-info"><h3>бакалау а браш</h3><p>Классика из сушеной трески, картофельной соломки и яиц.</p></div>
+                <div class="item-image" style="background-image: url('images/food/bacalhau_a_bras.webp');"></div>
+                <div class="item-info"><h3>bacalhau а bras</h3><p>Треска с картофельной соломкой и яйцом.</p></div>
             </div>
         </div>
 
         <div id="strong" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/aguardente.webp');"></div>
-                <div class="item-info"><h3>aguardente</h3><p>Крепкий португальский бренди, выгнанный из вина.</p></div>
+                <div class="item-image" style="background-image: url('images/strong/aguardente.webp');"></div>
+                <div class="item-info"><h3>aguardente</h3><p>Традиционный виноградный бренди.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/medronho.webp');"></div>
-                <div class="item-info"><h3>медронья</h3><p>Дистиллят из плодов земляничного дерева.</p></div>
+                <div class="item-image" style="background-image: url('images/strong/medronho.webp');"></div>
+                <div class="item-info"><h3>медронья</h3><p>Крепкий дистиллят из ягод земляничного дерева.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/sharish.webp');"></div>
-                <div class="item-info"><h3>джин sharish</h3><p>Крафтовый португальский джин с уникальным набором ботаникалов.</p></div>
+                <div class="item-image" style="background-image: url('images/strong/sharish.webp');"></div>
+                <div class="item-info"><h3>джин sharish</h3><p>Популярный португальский крафтовый джин.</p></div>
             </div>
         </div>
 
         <div id="beer" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/sagres.webp');"></div>
-                <div class="item-info"><h3>sagres</h3><p>Самый узнаваемый светлый лагер Португалии.</p></div>
+                <div class="item-image" style="background-image: url('images/beer/sagres.webp');"></div>
+                <div class="item-info"><h3>sagres</h3><p>Светлое пиво, популярное по всей стране.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/super_bock.webp');"></div>
-                <div class="item-info"><h3>super bock</h3><p>Безусловный лидер пивного рынка на севере страны.</p></div>
+                <div class="item-image" style="background-image: url('images/beer/super_bock.webp');"></div>
+                <div class="item-info"><h3>super bock</h3><p>Главный пивной бренд севера Португалии.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/simple.webp');"></div>
-                <div class="item-info"><h3>simple</h3><p>Местное легкое пиво для жаркого дня.</p></div>
+                <div class="item-image" style="background-image: url('images/beer/simple.webp');"></div>
+                <div class="item-info"><h3>simple</h3><p>Местное освежающее пиво.</p></div>
             </div>
         </div>
 
         <div id="drinks" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/port.webp');"></div>
-                <div class="item-info"><h3>портвейн</h3><p>Крепленое вино из винограда долины Дору.</p></div>
+                <div class="item-image" style="background-image: url('images/drinks/port.webp');"></div>
+                <div class="item-info"><h3>портвейн</h3><p>Знаменитое крепленое вино из долины Дору.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/madeira.webp');"></div>
-                <div class="item-info"><h3>мадера</h3><p>Знаменитое крепленое вино с острова Мадейра.</p></div>
+                <div class="item-image" style="background-image: url('images/drinks/madeira.webp');"></div>
+                <div class="item-info"><h3>мадера</h3><p>Крепленое вино с острова Мадейра.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/sumol.webp');"></div>
-                <div class="item-info"><h3>sumol</h3><p>Освежающая португальская газировка с соком.</p></div>
+                <div class="item-image" style="background-image: url('images/drinks/sumol.webp');"></div>
+                <div class="item-info"><h3>sumol</h3><p>Фруктовая газировка из Португалии.</p></div>
             </div>
         </div>
 
         <div id="places" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/ribeira.webp');"></div>
-                <div class="item-info"><h3>Квартал Рибейра</h3><p>Атмосферная старинная набережная реки Дору.</p></div>
+                <div class="item-image" style="background-image: url('images/places/ribeira.webp');"></div>
+                <div class="item-info"><h3>Квартал Рибейра</h3><p>Старейший и самый колоритный район у реки.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/santa_catarina.webp');"></div>
-                <div class="item-info"><h3>Улица Санта Катарина</h3><p>Главная торговая и пешеходная зона Порту.</p></div>
+                <div class="item-image" style="background-image: url('images/places/santa_catarina.webp');"></div>
+                <div class="item-info"><h3>Улица Санта Катарина</h3><p>Главная торговая артерия города.</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/sao_bento.webp');"></div>
-                <div class="item-info"><h3>Вокзал Сан-Бенту</h3><p>Один из самых красивых вокзалов мира с панно из азулежу.</p></div>
+                <div class="item-image" style="background-image: url('images/places/sao_bento.webp');"></div>
+                <div class="item-info"><h3>Вокзал Сан-Бенту</h3><p>Вокзал с уникальными панно из азулежу.</p></div>
             </div>
         </div>
     </div>
 
-    <a href="index.html" class="back-btn">← НА ГЛАВНУЮ</a>
+    <a href="index.html" class="back-btn">← НА ГЛАВНУЮ К ГОРОДАМ</a>
 
     <script>
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
         let currentIdx = 0;
         const tabBtns = document.querySelectorAll('.tab-btn');
         const containers = document.querySelectorAll('.grid-container');
+        const swipeContainer = document.getElementById('swipe-container');
 
         function switchTab(index) {
             if (index < 0 || index >= categories.length) return;
@@ -177,16 +254,17 @@
 
         tabBtns.forEach((btn, idx) => btn.addEventListener('click', () => switchTab(idx)));
 
-        let xDown = null;
-        document.getElementById('swipe-container').addEventListener('touchstart', (e) => { xDown = e.touches[0].clientX; });
-        document.getElementById('swipe-container').addEventListener('touchmove', (e) => {
-            if (!xDown) return;
-            let xDiff = xDown - e.touches[0].clientX;
-            if (Math.abs(xDiff) > 50) {
+        let xDown = null, yDown = null;
+        swipeContainer.addEventListener('touchstart', (evt) => { xDown = evt.touches[0].clientX; yDown = evt.touches[0].clientY; }, false);
+        swipeContainer.addEventListener('touchmove', (evt) => {
+            if (!xDown || !yDown) return;
+            let xUp = evt.touches[0].clientX, yUp = evt.touches[0].clientY;
+            let xDiff = xDown - xUp, yDiff = yDown - yUp;
+            if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 40) {
                 xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
-                xDown = null;
+                xDown = null; yDown = null;
             }
-        });
+        }, false);
     </script>
 </body>
 </html>
