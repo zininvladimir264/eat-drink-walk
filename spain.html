@@ -34,19 +34,22 @@
 
         .city-grid {
             display: grid;
+            /* Фиксированный размер как в других странах */
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 20px;
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
+            justify-items: center;
         }
 
         .city-card {
             text-decoration: none;
             color: #fff;
+            width: 100%;
+            max-width: 300px; /* Ограничение ширины карточки */
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         .city-image {
@@ -56,11 +59,6 @@
             background-position: center;
             background-color: #111;
             border-radius: 4px;
-            transition: transform 0.3s ease;
-        }
-
-        .city-card:hover .city-image {
-            transform: scale(1.02);
         }
 
         .city-info {
@@ -70,10 +68,9 @@
 
         .city-info h2 {
             margin: 0;
-            font-size: 24px;
+            font-size: 28px;
             text-transform: uppercase;
             font-weight: 900;
-            letter-spacing: 2px;
         }
 
         .back-btn {
@@ -90,10 +87,11 @@
         @media (max-width: 768px) {
             .city-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                padding: 15px;
+                gap: 12px;
+                padding: 12px;
             }
-            .city-info h2 { font-size: 16px; }
+            .city-card { max-width: none; }
+            .city-info h2 { font-size: 18px; }
             .header h1 { font-size: 30px; }
         }
     </style>
