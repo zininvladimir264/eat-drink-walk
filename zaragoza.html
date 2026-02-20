@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>САРАГОСА - Ем ПЬЮ ХОЖУ</title>
+    <title>ТАРРАГОНА - Ем ПЬЮ ХОЖУ</title>
     
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
@@ -81,6 +81,7 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
+            justify-items: center; /* Центрирование карточек в сетке */
         }
 
         .grid-container.active {
@@ -91,6 +92,9 @@
             background: transparent;
             display: flex;
             flex-direction: column;
+            align-items: center; /* Центрирование содержимого карточки */
+            width: 100%;
+            max-width: 300px;
         }
 
         .item-image {
@@ -104,6 +108,7 @@
 
         .item-info {
             padding: 15px 0;
+            text-align: center; /* Название и описание по центру */
         }
 
         .item-info h3 {
@@ -156,81 +161,83 @@
     </nav>
 
     <div class="city-header">
-        <h1>САРАГОСА</h1>
+        <h1>ТАРРАГОНА</h1>
     </div>
 
     <div id="swipe-container">
         <div id="food" class="grid-container active">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/food/pisto.webp');"></div>
-                <div class="item-info"><h3>pisto</h3><p>тушеные овощи</p></div>
+                <div class="item-image" style="background-image: url('images/food/lasagna.webp');"></div>
+                <div class="item-info"><h3>лазанья</h3><p>слоеная паста</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/food/empanadillas.webp');"></div>
-                <div class="item-info"><h3>empanadillas</h3><p>обжаренные пирожки</p></div>
+                <div class="item-image" style="background-image: url('images/food/habas_con_jamon.webp');"></div>
+                <div class="item-info"><h3>habas con jamon</h3><p>бобы с хамоном</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/food/arroz_negro.webp');"></div>
-                <div class="item-info"><h3>arroz negro</h3><p>рис с чернилами каракатицы</p></div>
+                <div class="item-image" style="background-image: url('images/food/sopa_de_ajo.webp');"></div>
+                <div class="item-info"><h3>sopa de ajo</h3><p>чесночный суп</p></div>
             </div>
         </div>
 
         <div id="strong" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/spirits/haran.webp');"></div>
-                <div class="item-info"><h3>haran</h3><p>крепкий виски</p></div>
+                <div class="item-image" style="background-image: url('images/spirits/chinchon.webp');"></div>
+                <div class="item-info"><h3>chinchon</h3><p>анисовый ликер</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/spirits/pere_di_poli.webp');"></div>
-                <div class="item-info"><h3>pere di poli</h3><p>грушевый дистиллят</p></div>
+                <div class="item-image" style="background-image: url('images/spirits/sambuca_molinari.webp');"></div>
+                <div class="item-info"><h3>sambuca molinari</h3><p>итальянская классика</p></div>
             </div>
         </div>
 
         <div id="beer" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/beer/inedit_damm.webp');"></div>
-                <div class="item-info"><h3>inedit damm</h3><p>солодовое пряное</p></div>
+                <div class="item-image" style="background-image: url('images/beer/domus_pangea.webp');"></div>
+                <div class="item-info"><h3>domus pangea</h3><p>светлый эль</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/beer/domus_summa.webp');"></div>
-                <div class="item-info"><h3>domus summa</h3><p>медовый эль</p></div>
+                <div class="item-image" style="background-image: url('images/beer/toro.webp');"></div>
+                <div class="item-info"><h3>toro</h3><p>крепкое выдержанное</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/beer/bock.webp');"></div>
-                <div class="item-info"><h3>bock</h3><p>темный крепкий лагер</p></div>
+                <div class="item-image" style="background-image: url('images/beer/moritz_tovrada.webp');"></div>
+                <div class="item-info"><h3>moritz tovrada</h3><p>барселонский лагер</p></div>
             </div>
         </div>
 
         <div id="drinks" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/drinks/casera.webp');"></div>
-                <div class="item-info"><h3>casera</h3><p>газированная вода</p></div>
+                <div class="item-image" style="background-image: url('images/drinks/k-bios.webp');"></div>
+                <div class="item-info"><h3>k-bios</h3><p>натуральный сок</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/drinks/vida.webp');"></div>
-                <div class="item-info"><h3>vida</h3><p>фруктовый сок</p></div>
+                <div class="item-image" style="background-image: url('images/drinks/revoltosa.webp');"></div>
+                <div class="item-info"><h3>revoltosa</h3><p>сладкая газировка</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/drinks/kas.webp');"></div>
-                <div class="item-info"><h3>kas</h3><p>лимонная газировка</p></div>
+                <div class="item-image" style="background-image: url('images/drinks/manzana.webp');"></div>
+                <div class="item-info"><h3>manzana</h3><p>яблочный напиток</p></div>
             </div>
         </div>
 
         <div id="places" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/locations/aljaferia.webp');"></div>
-                <div class="item-info"><h3>дворец Альхаферия</h3><p>мавританская крепость</p></div>
+                <div class="item-image" style="background-image: url('images/locations/las_ferreres.webp');"></div>
+                <div class="item-info"><h3>Акведук Лас-Ферререс</h3><p>римский мост</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/locations/pilar.webp');"></div>
-                <div class="item-info"><h3>Базилика Пилар</h3><p>барочный собор</p></div>
+                <div class="item-image" style="background-image: url('images/locations/part_alta.webp');"></div>
+                <div class="item-info"><h3>Парт Альта</h3><p>старый город</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/locations/central_market.webp');"></div>
-                <div class="item-info"><h3>Рынок Сентраль</h3><p>продуктовый рынок</p></div>
+                <div class="item-image" style="background-image: url('images/locations/rambla_nova.webp');"></div>
+                <div class="item-info"><h3>Улица Рамбла-Нова</h3><p>главный бульвар</p></div>
             </div>
         </div>
     </div>
+
+    <a href="spain.html" class="back-btn">← НАЗАД К ГОРОДАМ ИСПАНИИ</a>
 
     <script>
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
