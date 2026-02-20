@@ -2,211 +2,133 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ИСПАНИЯ — ЕМ ПЬЮ ХОЖУ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ИСПАНИЯ - Ем ПЬЮ ХОЖУ</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
             background-color: #000;
-        }
-
-        body {
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            font-family: 'Arial Black', sans-serif;
             color: #fff;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        .bg-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: blur(8px);
-            transform: scale(1.1);
-            pointer-events: none;
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        nav {
-            padding: 40px 0;
-            display: flex;
-            gap: 40px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff !important;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 3px;
-            /* ЯРКИЙ ТЕКСТ */
-            opacity: 1 !important;
-            transition: 0.3s;
-        }
-
-        nav a:hover { opacity: 0.7; }
-
-        .country-title {
-            margin-bottom: 50px;
+        .header {
             text-align: center;
+            padding: 60px 20px 40px;
         }
 
-        .country-title h1 {
-            font-size: 32px;
-            letter-spacing: 6px;
+        .header h1 {
+            margin: 0;
+            font-size: 40px;
             text-transform: uppercase;
+            letter-spacing: 8px;
+            font-weight: 900;
         }
 
-        .cities-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1100px;
-            padding: 0 20px;
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .city-link {
+        .city-card {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 4px;
             text-decoration: none;
             color: #fff;
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s;
         }
 
-        .city-link:hover { transform: translateY(-10px); }
-
-        .photo {
+        .city-image {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            height: 100%;
             background-size: cover;
             background-position: center;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            background-color: #222;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s ease;
         }
 
-        /* ТВОИ ДЕВЯТЬ ГОРОДОВ ИСПАНИИ */
-        .img-madrid { background-image: url('images/madrid.webp'); }
-        .img-seville { background-image: url('images/seville.webp'); }
-        .img-rioja { background-image: url('images/rioja.webp'); }
-        .img-girona { background-image: url('images/girona.webp'); }
-        .img-figueres { background-image: url('images/figueres.webp'); }
-        .img-barcelona { background-image: url('images/barcelona.webp'); }
-        .img-zaragoza { background-image: url('images/zaragoza.webp'); }
-        .img-tarragona { background-image: url('images/tarragona.webp'); }
-        .img-pamplona { background-image: url('images/pamplona.webp'); }
+        .city-card:hover .city-image {
+            transform: scale(1.05);
+        }
 
-        .name {
-            font-size: 20px;
-            letter-spacing: 2px;
+        .city-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+
+        .city-overlay h2 {
+            margin: 0;
+            font-size: 28px;
             text-transform: uppercase;
+            font-weight: 900;
         }
 
-        .back {
-            margin: 60px 0;
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 40px auto;
+            color: #666;
             text-decoration: none;
-            color: #fff !important;
-            font-size: 11px;
-            /* ЯРКИЙ ТЕКСТ */
-            opacity: 1 !important;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: 0.3s;
         }
 
-        .back:hover { opacity: 0.7; }
-
-        @media (max-width: 600px) {
-            .cities-grid { gap: 20px; }
-            .city-link { width: 140px; }
-            .name { font-size: 11px; }
-            .country-title h1 { font-size: 24px; }
+        @media (max-width: 768px) {
+            .city-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 10px;
+            }
+            .city-overlay h2 { font-size: 18px; }
+            .header h1 { font-size: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/mir1.jpg');"></div>
-
-    <div class="content-wrapper">
-        <nav>
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="personal.html">СТРАНЫ</a>
-        </nav>
-
-        <div class="country-title">
-            <h1>ИСПАНИЯ</h1>
-        </div>
-
-        <div class="cities-grid">
-            <a href="madrid.html" class="city-link">
-                <div class="photo img-madrid"></div>
-                <span class="name">МАДРИД</span>
-            </a>
-            <a href="seville.html" class="city-link">
-                <div class="photo img-seville"></div>
-                <span class="name">СЕВИЛЬЯ</span>
-            </a>
-            <a href="rioja.html" class="city-link">
-                <div class="photo img-rioja"></div>
-                <span class="name">РИОХА</span>
-            </a>
-            <a href="girona.html" class="city-link">
-                <div class="photo img-girona"></div>
-                <span class="name">ЖИРОНА</span>
-            </a>
-            <a href="figueres.html" class="city-link">
-                <div class="photo img-figueres"></div>
-                <span class="name">ФИГЕРАС</span>
-            </a>
-            <a href="barcelona.html" class="city-link">
-                <div class="photo img-barcelona"></div>
-                <span class="name">БАРСЕЛОНА</span>
-            </a>
-            <a href="zaragoza.html" class="city-link">
-                <div class="photo img-zaragoza"></div>
-                <span class="name">САРАГОСА</span>
-            </a>
-            <a href="tarragona.html" class="city-link">
-                <div class="photo img-tarragona"></div>
-                <span class="name">ТАРРАГОНА</span>
-            </a>
-            <a href="pamplona.html" class="city-link">
-                <div class="photo img-pamplona"></div>
-                <span class="name">ПАМПЛОНА</span>
-            </a>
-        </div>
-
-        <a href="personal.html" class="back">← назад к странам</a>
+    <div class="header">
+        <h1>ИСПАНИЯ</h1>
     </div>
+
+    <div class="city-grid">
+        <a href="madrid.html" class="city-card">
+            <div class="city-image" style="background-image: url('images/cities/madrid.webp');"></div>
+            <div class="city-overlay">
+                <h2>мадрид</h2>
+            </div>
+        </a>
+
+        <a href="sevilla.html" class="city-card">
+            <div class="city-image" style="background-image: url('images/cities/sevilla.webp');"></div>
+            <div class="city-overlay">
+                <h2>севилья</h2>
+            </div>
+        </a>
+
+        <a href="logrono.html" class="city-card">
+            <div class="city-image" style="background-image: url('images/cities/logrono.webp');"></div>
+            <div class="city-overlay">
+                <h2>логроньо</h2>
+            </div>
+        </a>
+    </div>
+
+    <a href="index.html" class="back-btn">← НАЗАД К СТРАНАМ</a>
 
 </body>
 </html>
