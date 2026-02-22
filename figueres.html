@@ -81,7 +81,6 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            justify-items: center;
         }
 
         .grid-container.active {
@@ -93,8 +92,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
-            max-width: 300px;
         }
 
         .item-image {
@@ -102,8 +99,10 @@
             aspect-ratio: 1 / 1;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             background-color: #111;
             border-radius: 20px;
+            display: block;
         }
 
         .item-info {
@@ -124,17 +123,6 @@
             text-transform: uppercase;
             font-weight: 600;
             color: #ccc;
-        }
-
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin: 50px auto;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         @media (max-width: 768px) {
@@ -182,30 +170,30 @@
 
         <div id="strong" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/spirits/larios.webp');"></div>
-                <div class="item-info"><h3>larios</h3><p>сухой средиземноморский джин</p></div>
+                <div class="item-image" style="background-image: url('images/strong/larios.webp');"></div>
+                <div class="item-info"><h3>larios</h3><p>средиземноморский джин</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/spirits/atxa_gin.webp');"></div>
+                <div class="item-image" style="background-image: url('images/strong/atxa_gin.webp');"></div>
                 <div class="item-info"><h3>atxa gin</h3><p>крафтовый джин</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/spirits/old_bardett.webp');"></div>
-                <div class="item-info"><h3>old bardett</h3><p>выдержанный крепкий дух</p></div>
+                <div class="item-image" style="background-image: url('images/strong/old_bardett.webp');"></div>
+                <div class="item-info"><h3>old bardett</h3><p>крепкий виски</p></div>
             </div>
         </div>
 
         <div id="beer" class="grid-container">
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/beer/cruzcampo.webp');"></div>
-                <div class="item-info"><h3>cruzcampo</h3><p>популярный андалузский лагер</p></div>
+                <div class="item-info"><h3>cruzcampo</h3><p>андалузский лагер</p></div>
             </div>
             <div class="item-card">
                 <div class="item-image" style="background-image: url('images/beer/la_virgen.webp');"></div>
                 <div class="item-info"><h3>la virgen</h3><p>мадридское крафтовое</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/beer/victoria.webp');"></div>
+                <div class="item-image" style="background-image: url('images/beer/victoria_malaga.webp');"></div>
                 <div class="item-info"><h3>victoria malaga</h3><p>освежающее светлое</p></div>
             </div>
         </div>
@@ -227,21 +215,19 @@
 
         <div id="places" class="grid-container">
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/locations/san_fernando.webp');"></div>
+                <div class="item-image" style="background-image: url('images/places/san_fernando.webp');"></div>
                 <div class="item-info"><h3>Замок Сан-Фернандо</h3><p>мощная крепость</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/locations/dali_museum.webp');"></div>
-                <div class="item-info"><h3>Музей Дали</h3><p>сюрреалистичный театр-музей</p></div>
+                <div class="item-image" style="background-image: url('images/places/dali_museum.webp');"></div>
+                <div class="item-info"><h3>Музей Дали</h3><p>театр-музей</p></div>
             </div>
             <div class="item-card">
-                <div class="item-image" style="background-image: url('images/locations/rambla.webp');"></div>
-                <div class="item-info"><h3>Бульвар Ла Рамбла</h3><p>центр городской жизни</p></div>
+                <div class="item-image" style="background-image: url('images/places/rambla.webp');"></div>
+                <div class="item-info"><h3>Бульвар Ла Рамбла</h3><p>центр города</p></div>
             </div>
         </div>
     </div>
-
-    <a href="spain.html" class="back-btn">← НАЗАД К ГОРОДАМ ИСПАНИИ</a>
 
     <script>
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
