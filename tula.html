@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ТУЛА - Ем ПЬЮ ХОЖУ</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <style>
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden; 
+            touch-action: pan-y; 
+        }
+
+        .категория-нав {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .категория-нав button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 10px 0;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .категория-нав button.active {
+            color: #fff;
+            border-bottom: 3px solid #fff;
+        }
+
+        .заголовок-города {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .заголовок-города h1 {
+            margin: 0;
+            font-size: 45px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 800;
+        }
+
+        #свайп-контейнер {
+            width: 100%;
+            min-height: 70vh;
+        }
+
+        .сетка-контейнер {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .сетка-контейнер.active {
+            display: grid;
+        }
+
+        .карточка-элемента {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .изображение-элемента {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #111;
+            border-radius: 20px;
+            display: block;
+            border: 1px solid #222;
+        }
+
+        .инфо-элемента {
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .инфо-элемента h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 24px; 
+            font-weight: 900;
+        }
+
+        .инфо-элемента p {
+            margin: 0;
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .категория-нав { justify-content: flex-start; padding-left: 20px; }
+            .категория-нав button { font-size: 20px; }
+            .сетка-контейнер { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+            .инфо-элемента h3 { font-size: 18px !important; }
+            .инфо-элемента p { font-size: 11px !important; }
+            .изображение-элемента { border-radius: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="категория-нав">
+        <button class="таб-кнопка active" data-target="еда">ЕДА</button>
+        <button class="таб-кнопка" data-target="крепкое">КРЕПКОЕ</button>
+        <button class="таб-кнопка" data-target="пиво">ПИВО</button>
+        <button class="таб-кнопка" data-target="напитки">НАПИТКИ</button>
+        <button class="таб-кнопка" data-target="места">МЕСТА</button>
+    </nav>
+
+    <div class="заголовок-города">
+        <h1>ТУЛА</h1>
+    </div>
+
+    <div id="свайп-контейнер">
+        <div id="еда" class="сетка-контейнер active">
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/food/vinegret.webp');"></div>
+                <div class="инфо-элемента"><h3>Винегрет</h3><p>овощная классика</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/food/kotlety.webp');"></div>
+                <div class="инфо-элемента"><h3>Пожарские котлеты</h3><p>знаменитый рецепт</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/food/rassolnik.webp');"></div>
+                <div class="инфо-элемента"><h3>Рассольник</h3><p>сытный суп</p></div>
+            </div>
+        </div>
+
+        <div id="крепкое" class="сетка-контейнер">
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/spirits/tchaikovsky.webp');"></div>
+                <div class="инфо-элемента"><h3>Tchaikovsky</h3><p>премиальное качество</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/spirits/khortitsya.webp');"></div>
+                <div class="инфо-элемента"><h3>Хортиця</h3><p>мягкий вкус</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/spirits/tsarskaya.webp');"></div>
+                <div class="инфо-элемента"><h3>ЦАРСКАЯ</h3><p>высокий стандарт</p></div>
+            </div>
+        </div>
+
+        <div id="пиво" class="сетка-контейнер">
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/beer/kruzhka.webp');"></div>
+                <div class="инфо-элемента"><h3>Большая Кружка</h3><p>пенное удовольствие</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/beer/zatecky.webp');"></div>
+                <div class="инфо-элемента"><h3>Zatecky Gus</h3><p>чешские традиции</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/beer/baltika.webp');"></div>
+                <div class="инфо-элемента"><h3>Балтика Сезонное</h3><p>лимитированная варка</p></div>
+            </div>
+        </div>
+
+        <div id="напитки" class="сетка-контейнер">
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/drinks/sidgo.webp');"></div>
+                <div class="инфо-элемента"><h3>Сидр Сидго</h3><p>яблочная свежесть</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/drinks/leda.webp');"></div>
+                <div class="инфо-элемента"><h3>Леда</h3><p>натуральный вкус</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/drinks/demidovskaya.webp');"></div>
+                <div class="инфо-элемента"><h3>Демидовская</h3><p>исторический напиток</p></div>
+            </div>
+        </div>
+
+        <div id="места" class="сетка-контейнер">
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/locations/kreml.webp');"></div>
+                <div class="инфо-элемента"><h3>Кремль</h3><p>древняя крепость</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/locations/yasnaya.webp');"></div>
+                <div class="инфо-элемента"><h3>Ясная Поляна</h3><p>литературный рай</p></div>
+            </div>
+            <div class="карточка-элемента">
+                <div class="изображение-элемента" style="background-image: url('images/locations/oruzhie.webp');"></div>
+                <div class="инфо-элемента"><h3>музей оружия</h3><p>боевая история</p></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const категории = ['еда', 'крепкое', 'пиво', 'напитки', 'места'];
+        let текущийИндекс = 0;
+        const табКнопки = document.querySelectorAll('.таб-кнопка');
+        const контейнеры = document.querySelectorAll('.сетка-контейнер');
+        const свайпКонтейнер = document.getElementById('свайп-контейнер');
+
+        function переключитьВкладку(индекс) {
+            if (индекс < 0 || индекс >= категории.length) return;
+            текущийИндекс = индекс;
+            const целевойИд = категории[текущийИндекс];
+            табКнопки.forEach(кнопка => кнопка.classList.toggle('active', кнопка.getAttribute('data-target') === целевойИд));
+            контейнеры.forEach(контейнер => контейнер.classList.toggle('active', контейнер.id === целевойИд));
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        табКнопки.forEach((кнопка, индекс) => кнопка.addEventListener('click', () => переключитьВкладку(индекс)));
+
+        let xНачало = null, yНачало = null;
+        свайпКонтейнер.addEventListener('touchstart', (evt) => { xНачало = evt.touches[0].clientX; yНачало = evt.touches[0].clientY; }, false);
+        свайпКонтейнер.addEventListener('touchmove', (evt) => {
+            if (!xНачало || !yНачало) return;
+            let xКонец = evt.touches[0].clientX, yКонец = evt.touches[0].clientY;
+            let xРазница = xНачало - xКонец, yРазница = yНачало - yКонец;
+            if (Math.abs(xРазница) > Math.abs(yРазница) && Math.abs(xРазница) > 40) {
+                xРазница > 0 ? переключитьВкладку(текущийИндекс + 1) : переключитьВкладку(текущийИндекс - 1);
+                xНачало = null; yНачало = null;
+            }
+        }, false);
+    </script>
+</body>
+</html>
