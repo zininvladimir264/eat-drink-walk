@@ -244,24 +244,47 @@
 
         function переключитьВкладку(индекс) {
             if (индекс < 0 || индекс >= категории.length) return;
-            текущийИндекс = index;
+            текущийИндекс = индекс;
             const целевойИд = категории[текущийИндекс];
-            табКнопки.forEach(кнопка => кнопка.classList.toggle('active', кнопка.getAttribute('data-target') === целевойИд));
-            контейнеры.forEach(контейнер => контейнер.classList.toggle('active', контейнер.id === целевойИд));
+            
+            // Обновляем состояние кнопок
+            табКнопки.forEach(кнопка => {
+                кнопка.classList.toggle('active', кнопка.getAttribute('data-target') === целевойИд);
+            });
+            
+            // Обновляем видимость контейнеров
+            контейнеры.forEach(контейнер => {
+                контейнер.classList.toggle('active', контейнер.id === целевойИд);
+            });
+            
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        табКнопки.forEach((кнопка, индекс) => кнопка.addEventListener('click', () => переключитьВкладку(индекс)));
+        // Слушатели для кнопок навигации
+        табКнопки.forEach((кнопка, индекс) => {
+            кнопка.addEventListener('click', () => переключитьВкладку(индекс));
+        });
 
+        // Логика свайпов
         let xНачало = null, yНачало = null;
-        свайпКонтейнер.addEventListener('touchstart', (evt) => { xНачало = evt.touches[0].clientX; yНачало = evt.touches[0].clientY; }, false);
+        свайпКонтейнер.addEventListener('touchstart', (evt) => { 
+            xНачало = evt.touches[0].clientX; 
+            yНачало = evt.touches[0].clientY; 
+        }, false);
+
         свайпКонтейнер.addEventListener('touchmove', (evt) => {
             if (!xНачало || !yНачало) return;
             let xКонец = evt.touches[0].clientX, yКонец = evt.touches[0].clientY;
             let xРазница = xНачало - xКонец, yРазница = yНачало - yКонец;
+            
             if (Math.abs(xРазница) > Math.abs(yРазница) && Math.abs(xРазница) > 40) {
-                xРазница > 0 ? переключитьВкладку(текущийИндекс + 1) : переключитьВкладку(текущийИндекс - 1);
-                xНачало = null; yНачало = null;
+                if (xРазница > 0) {
+                    переключитьВкладку(текущийИндекс + 1);
+                } else {
+                    переключитьВкладку(текущийИндекс - 1);
+                }
+                xНачало = null; 
+                yНачало = null;
             }
         }, false);
     </script>
