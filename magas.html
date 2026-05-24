@@ -172,11 +172,11 @@
         <div id="крепкое" class="сетка-контейнер">
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/spirits/ingush_cognac.webp');"></div>
-                <div class="инфо-элемента"><h3>Оригинал Кавказа</h3><p>местный выдержанный бленд</p></div>
+                <div class="инфо-элемента"><h3>Оригинал Кавказа</h3><p>выдержанный бленд</p></div>
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/spirits/magas_gold.webp');"></div>
-                <div class="инфо-элемента"><h3>Крепость Магас</h3><p>крепкий региональный напиток</p></div>
+                <div class="инфо-элемента"><h3>Крепость Магас</h3><p>крепкий напиток</p></div>
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/spirits/gorec.webp');"></div>
@@ -187,15 +187,15 @@
         <div id="пиво" class="сетка-контейнер">
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/beer/ingush_beer.webp');"></div>
-                <div class="инфо-элемента"><h3>Ингушское Традиционное</h3><p>местное темное сусло</p></div>
+                <div class="инфо-элемента"><h3>Ингушское Традиционное</h3><p>темное сусло</p></div>
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/beer/assa.webp');"></div>
-                <div class="инфо-элемента"><h3>Асса</h3><p>светлый горный лагер</p></div>
+                <div class="инфо-элемента"><h3>Асса</h3><p>горный лагер</p></div>
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/beer/tower_beer.webp');"></div>
-                <div class="инфо-элемента"><h3>Башня</h3><p>живое фильтрованное пенное</p></div>
+                <div class="инфо-элемента"><h3>Башня</h3><p>живое пенное</p></div>
             </div>
         </div>
 
@@ -206,26 +206,26 @@
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/drinks/ingush_tea.webp');"></div>
-                <div class="инфо-элемента"><h3>Горный Чай</h3><p>сбор дикорастущих трав</p></div>
+                <div class="инфо-элемента"><h3>Горный Чай</h3><p>травяной сбор</p></div>
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/drinks/limonad_magas.webp');"></div>
-                <div class="инфо-элемента"><h3>Лимонад Ачалуки</h3><p>фруктовый газированный вкус</p></div>
+                <div class="инфо-элемента"><h3>Лимонад Ачалуки</h3><p>фруктовый вкус</p></div>
             </div>
         </div>
 
         <div id="места" class="сетка-контейнер">
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/locations/vovnushki.webp');"></div>
-                <div class="инфо-элемента"><h3>Горная Ингушетия</h3><p>древние башенные комплексы</p></div>
+                <div class="инфо-элемента"><h3>Горная Ингушетия</h3><p>башенные комплексы</p></div>
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/locations/bashnya_soglasiya.webp');"></div>
-                <div class="инфо-элемента"><h3>Башня Согласия</h3><p>высотное смотровое сооружение</p></div>
+                <div class="инфо-элемента"><h3>Башня Согласия</h3><p>высотное сооружение</p></div>
             </div>
             <div class="карточка-элемента">
                 <div class="изображение-элемента" style="background-image: url('images/locations/allaya_materi.webp');"></div>
-                <div class="инфо-элемента"><h3>Аллея Матери</h3><p>городской пешеходный бульвар</p></div>
+                <div class="инфо-элемента"><h3>Аллея Матери</h3><p>пешеходный бульвар</p></div>
             </div>
         </div>
     </div>
@@ -239,7 +239,7 @@
 
         function переключитьВкладку(индекс) {
             if (индекс < 0 || индекс >= категории.length) return;
-            текущийИндекс = index;
+            текущийИндекс = индекс;
             const целевойИд = категории[текущийИндекс];
             
             табКнопки.forEach(кнопка => {
