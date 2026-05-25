@@ -128,7 +128,7 @@
 
         @media (max-width: 768px) {
             .категория-нав { justify-content: flex-start; padding-left: 20px; }
-            .категория-nav button { font-size: 20px; }
+            .категория-нав button { font-size: 20px; }
             .сетка-контейнер { 
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 12px; 
@@ -239,7 +239,7 @@
 
         function переключитьВкладку(индекс) {
             if (индекс < 0 || индекс >= категории.length) return;
-            текущийИндекс = index;
+            текущийИндекс = индекс;
             const целевойИд = категории[текущийИндекс];
             
             табКнопки.forEach(кнопка => {
