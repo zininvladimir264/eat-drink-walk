@@ -11,7 +11,7 @@
         .таб-кнопка { background: none; border: none; color: #666; font-size: 20px; font-weight: 800; text-transform: uppercase; cursor: pointer; padding: 5px; }
         .таб-кнопка.active { color: #fff; border-bottom: 2px solid #fff; }
         .заголовок { text-align: center; padding: 30px; font-size: 40px; font-weight: 900; }
-        .сетка { display: none; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+        .сетка { display: none; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px; }
         .сетка.active { display: grid; }
         .карточка { display: flex; flex-direction: column; align-items: center; }
         .фото { width: 100%; aspect-ratio: 1/1; background: #222; border-radius: 15px; margin-bottom: 10px; }
@@ -41,7 +41,6 @@
     <div class="карточка"><div class="фото"></div><h3>Талка</h3><p>сибирская водка</p></div>
     <div class="карточка"><div class="фото"></div><h3>Darrow</h3><p>местный виски</p></div>
     <div class="карточка"><div class="фото"></div><h3>Bristolls</h3><p>крафтовый джин</p></div>
-    <div class="карточка"><div class="фото"></div><h3>Дубровский</h3><p>бархатный коньяк</p></div>
 </div>
 
 <div id="пиво" class="сетка">
