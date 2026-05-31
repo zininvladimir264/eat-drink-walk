@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>НОВОСИБИРСК - ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* STREAMING_CHUNK:Styling the base layout... */
         body {
             margin: 0;
             padding: 0;
@@ -23,24 +24,32 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        .nav span { cursor: pointer; color: #666; border-bottom: 2px solid transparent; }
+        .nav span { cursor: pointer; color: #666; border-bottom: 2px solid transparent; padding-bottom: 5px; }
         .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
-        h1 { font-size: 60px; margin: 80px 0 100px; text-transform: uppercase; letter-spacing: 5px; }
+        
+        /* STREAMING_CHUNK:Defining city header... */
+        h1 { font-size: 60px; margin: 80px 0 100px; text-transform: uppercase; letter-spacing: 5px; font-weight: 900; }
+        
+        /* STREAMING_CHUNK:Styling the content grid... */
         .grid {
             display: none;
             grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            padding: 0 50px;
+            gap: 60px;
+            padding: 0 100px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .grid.active { display: grid; }
-        .item h3 { font-size: 24px; text-transform: uppercase; margin: 20px 0 10px; }
-        .item p { font-size: 16px; text-transform: uppercase; color: #aaa; margin: 0; }
+        
+        /* STREAMING_CHUNK:Refining individual card styles... */
+        .item { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+        .item h3 { font-size: 24px; text-transform: uppercase; margin: 0 0 10px 0; font-weight: 800; }
+        .item p { font-size: 16px; text-transform: uppercase; color: #aaa; margin: 0; font-weight: 600; }
     </style>
 </head>
 <body>
 
+<!-- STREAMING_CHUNK:Initializing navigation menu... -->
 <div class="nav">
     <span onclick="show('еда', this)" class="active">ЕДА</span>
     <span onclick="show('крепкое', this)">КРЕПКОЕ</span>
@@ -51,6 +60,7 @@
 
 <h1>НОВОСИБИРСК</h1>
 
+<!-- STREAMING_CHUNK:Rendering content sections... -->
 <div id="еда" class="grid active">
     <div class="item"><h3>Позы</h3><p>сочное мясо</p></div>
     <div class="item"><h3>Пельмени</h3><p>сибирский рецепт</p></div>
@@ -81,6 +91,7 @@
     <div class="item"><h3>Набережная</h3><p>красивый променад</p></div>
 </div>
 
+<!-- STREAMING_CHUNK:Defining interactive logic... -->
 <script>
     function show(id, el) {
         document.querySelectorAll('.grid').forEach(g => g.classList.remove('active'));
@@ -92,3 +103,5 @@
 
 </body>
 </html>
+
+```eof
