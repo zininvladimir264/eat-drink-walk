@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>НОВОРОССИЙСК - Ем ПЬЮ ХОЖУ</title>
+    <title>НОВОСИБИРСК - Ем ПЬЮ ХОЖУ</title>
     
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <style>
         html { -webkit-text-size-adjust: 100%; }
         body {
@@ -35,6 +31,10 @@
             backdrop-filter: blur(10px);
             overflow-x: auto;
             white-space: nowrap;
+        }
+
+        .категория-нав::-webkit-scrollbar {
+            display: none;
         }
 
         .категория-нав button {
@@ -150,82 +150,87 @@
     </nav>
 
     <div class="заголовок-города">
-        <h1>НОВОРОССИЙСК</h1>
+        <h1>НОВОСИБИРСК</h1>
     </div>
 
     <div id="свайп-контейнер">
+        <!-- ЕДА -->
         <div id="еда" class="сетка-контейнер active">
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/food/yakhny.webp');"></div>
-                <div class="инфо-элемента"><h3>яхны</h3><p>черноморское тушеное мясо</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/food/pozy.webp');"></div>
+                <div class="инфо-элемента"><h3>Позы</h3><p>сочное мясо</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/food/shkala_khamsa.webp');"></div>
-                <div class="инфо-элемента"><h3>Шкала из хамсы</h3><p>рыбацкий эксклюзив</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/food/pelmeni.webp');"></div>
+                <div class="инфо-элемента"><h3>Пельмени</h3><p>сибирский рецепт</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/food/eskargo.webp');"></div>
-                <div class="инфо-элемента"><h3>Эскарго по-бургундски</h3><p>местные улитки</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/food/shanga.webp');"></div>
+                <div class="инфо-элемента"><h3>Шаньга</h3><p>вкусная выпечка</p></div>
             </div>
         </div>
 
+        <!-- КРЕПКОЕ -->
         <div id="крепкое" class="сетка-контейнер">
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/spirits/7zlakov.webp');"></div>
-                <div class="инфо-элемента"><h3>7 злаков</h3><p>особый рецепт</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/spirits/talka.webp');"></div>
+                <div class="инфо-элемента"><h3>Талка</h3><p>сибирская водка</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/spirits/chacha_osobaya.webp');"></div>
-                <div class="инфо-элемента"><h3>Чача Особая</h3><p>виноградная крепость</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/spirits/darrow.webp');"></div>
+                <div class="инфо-элемента"><h3>Darrow</h3><p>местный виски</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/spirits/chacha_yuzhnaya.webp');"></div>
-                <div class="инфо-элемента"><h3>Чача Южная</h3><p>дух южных склонов</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/spirits/bristolls.webp');"></div>
+                <div class="инфо-элемента"><h3>Bristolls</h3><p>крафтовый джин</p></div>
             </div>
         </div>
 
+        <!-- ПИВО -->
         <div id="пиво" class="сетка-контейнер">
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/beer/novoross11.webp');"></div>
-                <div class="инфо-элемента"><h3>Новоросс-11</h3><p>легендарный местный завод</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/beer/kruger.webp');"></div>
+                <div class="инфо-элемента"><h3>Крюгер</h3><p>классический лагер</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/beer/bochka1969.webp');"></div>
-                <div class="инфо-элемента"><h3>Бочка 1969</h3><p>традиционный лагер</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/beer/rizhskoe.webp');"></div>
+                <div class="инфо-элемента"><h3>Рижское</h3><p>традиционный вкус</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/beer/russkiy_bereg.webp');"></div>
-                <div class="инфо-элемента"><h3>Русский Берег</h3><p>освежающее пенное</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/beer/cheshskoe.webp');"></div>
+                <div class="инфо-элемента"><h3>Чешское</h3><p>насыщенное пенное</p></div>
             </div>
         </div>
 
+        <!-- НАПИТКИ -->
         <div id="напитки" class="сетка-контейнер">
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/drinks/abrau_dyurso.webp');"></div>
-                <div class="инфо-элемента"><h3>Абрау-Дюрсо</h3><p>знаменитое игристое</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/drinks/karachinskaya.webp');"></div>
+                <div class="инфо-элемента"><h3>Карачинская</h3><p>минеральная вода</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/drinks/quintessence.webp');"></div>
-                <div class="инфо-элемента"><h3>Quintessence</h3><p>высокое искусство виноделия</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/drinks/baikal.webp');"></div>
+                <div class="инфо-элемента"><h3>Байкал</h3><p>травяной лимонад</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/drinks/shary_kolduna.webp');"></div>
-                <div class="инфо-элемента"><h3>Шары Колдуна</h3><p>эксклюзивный терруар</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/drinks/shorli.webp');"></div>
+                <div class="инфо-элемента"><h3>Шорли</h3><p>соковый напиток</p></div>
             </div>
         </div>
 
+        <!-- МЕСТА -->
         <div id="места" class="сетка-контейнер">
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/locations/naberezhnayanr.webp');"></div>
-                <div class="инфо-элемента"><h3>Набережная</h3><p>морской фасад города</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/locations/opera.webp');"></div>
+                <div class="инфо-элемента"><h3>Оперный</h3><p>главный театр</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/locations/malaya_zemlya.webp');"></div>
-                <div class="инфо-элемента"><h3>Малая Земля</h3><p>мемориальный комплекс</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/locations/zoo.webp');"></div>
+                <div class="инфо-элемента"><h3>Зоопарк</h3><p>большой парк</p></div>
             </div>
             <div class="карточка-элемента">
-                <div class="изображение-элемента" style="background-image: url('images/locations/zamok_golicyna.webp');"></div>
-                <div class="инфо-элемента"><h3>Замок Голицына</h3><p>историческое наследие</p></div>
+                <div class="изображение-элемента" style="background-image: url('images/locations/naberezhnaya.webp');"></div>
+                <div class="инфо-элемента"><h3>Набережная</h3><p>красивый променад</p></div>
             </div>
         </div>
     </div>
@@ -239,7 +244,7 @@
 
         function переключитьВкладку(индекс) {
             if (индекс < 0 || индекс >= категории.length) return;
-            текущийИндекс = index = индекс;
+            текущийИндекс = индекс;
             const целевойИд = категории[текущийИндекс];
             
             табКнопки.forEach(кнопка => {
@@ -279,7 +284,5 @@
             }
         }, false);
     </script>
-    
-    <script src="config.js"></script>
 </body>
 </html>
