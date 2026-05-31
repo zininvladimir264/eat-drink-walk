@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>НОВОСИБИРСК - Ем ПЬЮ ХОЖУ</title>
+    <style>
+        html { -webkit-text-size-adjust: 100%; }
+        body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: sans-serif; min-height: 100vh; }
+        .категория-нав { position: sticky; top: 0; background: rgba(0, 0, 0, 0.95); padding: 20px 0; display: flex; justify-content: center; gap: 20px; z-index: 100; border-bottom: 1px solid #333; }
+        .таб-кнопка { background: none; border: none; color: #666; font-size: 20px; font-weight: 800; text-transform: uppercase; cursor: pointer; padding: 5px; }
+        .таб-кнопка.active { color: #fff; border-bottom: 2px solid #fff; }
+        .заголовок { text-align: center; padding: 30px; font-size: 40px; font-weight: 900; }
+        .сетка { display: none; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+        .сетка.active { display: grid; }
+        .карточка { display: flex; flex-direction: column; align-items: center; }
+        .фото { width: 100%; aspect-ratio: 1/1; background: #222; border-radius: 15px; margin-bottom: 10px; }
+        h3 { margin: 5px 0; text-transform: uppercase; }
+        p { margin: 0; color: #888; font-size: 14px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<nav class="категория-нав">
+    <button class="таб-кнопка active" onclick="show('еда', this)">ЕДА</button>
+    <button class="таб-кнопка" onclick="show('крепкое', this)">КРЕПКОЕ</button>
+    <button class="таб-кнопка" onclick="show('пиво', this)">ПИВО</button>
+    <button class="таб-кнопка" onclick="show('напитки', this)">НАПИТКИ</button>
+    <button class="таб-кнопка" onclick="show('места', this)">МЕСТА</button>
+</nav>
+
+<div class="заголовок">НОВОСИБИРСК</div>
+
+<div id="еда" class="сетка active">
+    <div class="карточка"><div class="фото"></div><h3>Позы</h3><p>сочное мясо</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Пельмени</h3><p>сибирский рецепт</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Шаньга</h3><p>вкусная выпечка</p></div>
+</div>
+
+<div id="крепкое" class="сетка">
+    <div class="карточка"><div class="фото"></div><h3>Талка</h3><p>сибирская водка</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Darrow</h3><p>местный виски</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Bristolls</h3><p>крафтовый джин</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Дубровский</h3><p>бархатный коньяк</p></div>
+</div>
+
+<div id="пиво" class="сетка">
+    <div class="карточка"><div class="фото"></div><h3>Крюгер</h3><p>классический лагер</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Рижское</h3><p>традиционный вкус</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Чешское</h3><p>насыщенное пенное</p></div>
+</div>
+
+<div id="напитки" class="сетка">
+    <div class="карточка"><div class="фото"></div><h3>Карачинская</h3><p>минеральная вода</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Байкал</h3><p>травяной лимонад</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Шорли</h3><p>соковый напиток</p></div>
+</div>
+
+<div id="места" class="сетка">
+    <div class="карточка"><div class="фото"></div><h3>Оперный</h3><p>главный театр</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Зоопарк</h3><p>большой парк</p></div>
+    <div class="карточка"><div class="фото"></div><h3>Набережная</h3><p>красивый променад</p></div>
+</div>
+
+<script>
+    function show(id, btn) {
+        document.querySelectorAll('.сетка').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.таб-кнопка').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+</script>
+</body>
+</html>
