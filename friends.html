@@ -33,7 +33,7 @@
             display: inline-block; 
             padding: 0 10px;
         }
-        /* Центрированный список стран */
+        /* Центрированный список для стран (остальные) */
         .countries-list { 
             display: flex;
             flex-direction: column;
@@ -44,6 +44,20 @@
             font-weight: 500;
             line-height: 2.2;
         }
+        /* Сетка для Европы */
+        .countries-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 80px; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            text-transform: uppercase; 
+            font-size: 16px; 
+            letter-spacing: 2px; 
+            font-weight: 500;
+        }
+        .col-left { text-align: right; line-height: 2.2; }
+        .col-right { text-align: left; line-height: 2.2; }
     </style>
 </head>
 <body>
@@ -53,16 +67,24 @@
         <span>ОПЫТ ДРУЗЕЙ</span>
     </div>
 
+    <!-- АЗИЯ -->
+    <div class="continent-container">
+        <div class="continent-header">АЗИЯ</div>
+        <div class="countries-list">
+            <span>СИРИЯ</span>
+        </div>
+    </div>
+
     <!-- ЕВРОПА -->
     <div class="continent-container">
         <div class="continent-header">ЕВРОПА</div>
-        <div class="countries-list">
-            <span>СИРИЯ</span>
-            <span>ПОЛЬША</span>
-            <span>ФИНЛЯНДИЯ</span>
-            <span>ИРЛАНДИЯ</span>
-            <span>АНГЛИЯ</span>
-            <span>ШОТЛАНДИЯ</span>
+        <div class="countries-grid">
+            <div class="col-left">
+                ПОЛЬША<br>ФИНЛЯНДИЯ<br>ИРЛАНДИЯ<br>АНГЛИЯ
+            </div>
+            <div class="col-right">
+                ШОТЛАНДИЯ<br>ФРАНЦИЯ<br>ИТАЛИЯ
+            </div>
         </div>
     </div>
 
