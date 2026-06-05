@@ -2,99 +2,114 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ</title>
-    
     <style>
-        html { -webkit-text-size-adjust: 100%; }
-        body {
-            margin: 0;
-            padding: 40px 20px;
-            background-color: #000;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
+        body { 
+            background-color: #0b0b14; 
+            color: #ffffff; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            text-align: center; 
         }
-
-        h1 {
-            text-align: center;
-            font-size: 45px;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            font-weight: 800;
-            margin: 0 0 40px 0;
+        .header { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-bottom: 60px; 
+            font-size: 14px; 
+            letter-spacing: 2px; 
+            color: #ffffff; 
         }
-
-        .continent-header {
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 60px 0 30px 0;
-            font-size: 28px;
-            font-weight: 900;
-            color: #fff;
+        .continent-container { margin-bottom: 50px; }
+        .continent-header { 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-size: 20px; 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid #ffffff; 
+            display: inline-block; 
+            padding: 0 10px;
         }
-
-        .countries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .countries-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 80px; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            text-transform: uppercase; 
+            font-size: 16px; 
+            letter-spacing: 2px; 
+            font-weight: 500;
         }
-
-        .country-item {
-            padding: 15px;
-            background: #111;
-            border-radius: 15px;
-            font-size: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border: 1px solid #222;
-        }
-
-        @media (max-width: 600px) {
-            .countries-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 32px; }
-            .continent-header { font-size: 22px; }
-        }
+        .col-left { text-align: right; line-height: 2.2; }
+        .col-right { text-align: left; line-height: 2.2; }
     </style>
 </head>
 <body>
 
-    <h1>СТРАНЫ</h1>
+    <div class="header">
+        <span>ГЛАВНАЯ</span>
+        <span>СТРАНЫ</span>
+    </div>
 
     <!-- АЗИЯ -->
-    <div class="continent-header">Азия</div>
-    <div class="countries-grid">
-        <div class="country-item">Сирия</div>
+    <div class="continent-container">
+        <div class="continent-header">АЗИЯ</div>
+        <div class="countries-grid">
+            <div class="col-left">
+                ЮЖНАЯ КОРЕЯ<br>КАМБОДЖА<br>КАЗАХСТАН<br>ОМАН<br>ТАИЛАНД<br>УЗБЕКИСТАН<br>ЛИВАН
+            </div>
+            <div class="col-right">
+                ВЬЕТНАМ<br>ИНДИЯ<br>ТАДЖИКИСТАН<br>МАЛАЙЗИЯ<br>ШРИ-ЛАНКА<br>КИРГИЗИЯ<br>ОАЭ
+            </div>
+        </div>
     </div>
 
     <!-- ЕВРОПА -->
-    <div class="continent-header">Европа</div>
-    <div class="countries-grid">
-        <div class="country-item">Англия</div>
-        <div class="country-item">Ирландия</div>
-        <div class="country-item">Шотландия</div>
-        <div class="country-item">Италия</div>
-        <div class="country-item">Франция</div>
-        <div class="country-item">Польша</div>
-        <div class="country-item">Финляндия</div>
+    <div class="continent-container">
+        <div class="continent-header">ЕВРОПА</div>
+        <div class="countries-grid">
+            <div class="col-left">
+                ЧЕРНОГОРИЯ<br>ЭСТОНИЯ<br>МОЛДОВА<br>СЕРБИЯ<br>ЛАТВИЯ<br>БОСНИЯ<br>ПОЛЬША<br>ФИНЛЯНДИЯ
+            </div>
+            <div class="col-right">
+                ПОРТУГАЛИЯ<br>ЛИТВА<br>АВСТРИЯ<br>ИСПАНИЯ<br>БЕЛАРУСЬ<br>ИТАЛИЯ
+            </div>
+        </div>
     </div>
 
     <!-- АМЕРИКА -->
-    <div class="continent-header">Америка</div>
-    <div class="countries-grid">
-        <div class="country-item">Мексика</div>
-        <div class="country-item">Куба</div>
+    <div class="continent-container">
+        <div class="continent-header">АМЕРИКА</div>
+        <div class="countries-grid">
+            <div class="col-left">МЕКСИКА</div>
+            <div class="col-right"></div>
+        </div>
     </div>
 
     <!-- АФРИКА -->
-    <div class="continent-header">Африка</div>
-    <div class="countries-grid">
-        <div class="country-item">Тунис</div>
+    <div class="continent-container">
+        <div class="continent-header">АФРИКА</div>
+        <div class="countries-grid">
+            <div class="col-left">ТУНИС</div>
+            <div class="col-right"></div>
+        </div>
+    </div>
+
+    <!-- КАВКАЗ И ЕВРАЗИЯ -->
+    <div class="continent-container">
+        <div class="continent-header">КАВКАЗ И ЕВРАЗИЯ</div>
+        <div class="countries-grid">
+            <div class="col-left">
+                РОССИЯ<br>АБХАЗИЯ<br>ГРУЗИЯ<br>ТУРЦИЯ
+            </div>
+            <div class="col-right">
+                АРМЕНИЯ<br>СЕВЕРНЫЙ КИПР<br>АЗЕРБАЙДЖАН<br>ЕГИПЕТ
+            </div>
+        </div>
     </div>
 
 </body>
