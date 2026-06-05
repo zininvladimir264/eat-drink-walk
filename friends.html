@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОПЫТ ДРУЗЕЙ</title>
+    <title>СТРАНЫ</title>
     <style>
         body { 
             background-color: #0b0b14; 
@@ -13,6 +13,7 @@
             padding: 40px 20px; 
             text-align: center; 
         }
+        
         .header { 
             display: flex; 
             justify-content: center; 
@@ -22,18 +23,23 @@
             letter-spacing: 2px; 
             color: #ffffff; 
         }
+        .header span.active {
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 4px;
+        }
+
         .continent-container { margin-bottom: 50px; }
         .continent-header { 
             text-transform: uppercase; 
             letter-spacing: 4px; 
             font-size: 20px; 
-            font-weight: bold; 
+            font-weight: 300; /* Менее жирный */
             margin-bottom: 20px; 
-            border-bottom: 2px solid #ffffff; 
+            border-bottom: 1px solid #ffffff; 
             display: inline-block; 
             padding: 0 10px;
         }
-        /* Центрированный список для стран (остальные) */
+
         .countries-list { 
             display: flex;
             flex-direction: column;
@@ -41,10 +47,10 @@
             text-transform: uppercase; 
             font-size: 16px; 
             letter-spacing: 2px; 
-            font-weight: 500;
+            font-weight: 300; /* Снижена жирность */
             line-height: 2.2;
         }
-        /* Сетка для Европы */
+
         .countries-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -54,7 +60,7 @@
             text-transform: uppercase; 
             font-size: 16px; 
             letter-spacing: 2px; 
-            font-weight: 500;
+            font-weight: 300; /* Снижена жирность */
         }
         .col-left { text-align: right; line-height: 2.2; }
         .col-right { text-align: left; line-height: 2.2; }
@@ -63,8 +69,8 @@
 <body>
 
     <div class="header">
-        <span>ГЛАВНАЯ</span>
-        <span>ОПЫТ ДРУЗЕЙ</span>
+        <span class="active">ГЛАВНАЯ</span>
+        <span class="active">СТРАНЫ</span>
     </div>
 
     <!-- АЗИЯ -->
