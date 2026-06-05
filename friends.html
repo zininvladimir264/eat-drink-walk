@@ -9,10 +9,8 @@
         .nav-link { color: #888; text-decoration: none; text-transform: uppercase; margin-bottom: 40px; display: block; }
         h1 { text-transform: uppercase; letter-spacing: 4px; font-weight: 300; margin-bottom: 40px; }
         .continent-header { text-transform: uppercase; letter-spacing: 2px; margin-top: 50px; margin-bottom: 20px; font-size: 24px; border-bottom: 1px solid #333; display: inline-block; padding: 0 20px; }
-        .countries-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 0 auto; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
-        .col-left { text-align: right; }
-        .col-right { text-align: left; }
-        .country-item { margin-bottom: 15px; }
+        .countries-grid { display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 600px; margin: 0 auto; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .country-item { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -23,25 +21,19 @@
     <!-- АЗИЯ -->
     <div class="continent-header">АЗИЯ</div>
     <div class="countries-grid">
-        <div class="col-left">
-            <div class="country-item">ЮЖНАЯ КОРЕЯ</div>
-        </div>
-        <div class="col-right">
-        </div>
+        <div class="country-item">СИРИЯ</div>
     </div>
 
     <!-- ЕВРОПА -->
     <div class="continent-header">ЕВРОПА</div>
     <div class="countries-grid">
-        <div class="col-left">
-            <div class="country-item">АНГЛИЯ</div>
-            <div class="country-item">ИРЛАНДИЯ</div>
-            <div class="country-item">ШОТЛАНДИЯ</div>
-        </div>
-        <div class="col-right">
-            <div class="country-item">ИТАЛИЯ</div>
-            <div class="country-item">ФРАНЦИЯ</div>
-        </div>
+        <div class="country-item">АНГЛИЯ</div>
+        <div class="country-item">ИРЛАНДИЯ</div>
+        <div class="country-item">ШОТЛАНДИЯ</div>
+        <div class="country-item">ИТАЛИЯ</div>
+        <div class="country-item">ФРАНЦИЯ</div>
+        <div class="country-item">ПОЛЬША</div>
+        <div class="country-item">ФИНЛЯНДИЯ</div>
     </div>
 
     <!-- АМЕРИКА -->
