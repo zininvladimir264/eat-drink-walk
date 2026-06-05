@@ -7,7 +7,7 @@
     <style>
         body { 
             background-color: #0b0b14; 
-            color: #cccccc; /* Сделал цвет текста чуть мягче/потусклее */
+            color: #cccccc; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 40px 20px; 
@@ -21,11 +21,17 @@
             margin-bottom: 60px; 
             font-size: 14px; 
             letter-spacing: 2px; 
-            color: #ffffff; 
         }
-        .header span.active {
-            border-bottom: 1px solid #ffffff;
+        .header a {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
             padding-bottom: 4px;
+            transition: opacity 0.3s;
+            border-bottom: 1px solid #ffffff; /* Активное состояние */
+        }
+        .header a:hover {
+            opacity: 0.7;
         }
 
         .continent-container { margin-bottom: 50px; }
@@ -33,7 +39,7 @@
             text-transform: uppercase; 
             letter-spacing: 4px; 
             font-size: 20px; 
-            font-weight: 300; /* Более легкий шрифт */
+            font-weight: 300; 
             margin-bottom: 20px; 
             border-bottom: 1px solid #ffffff; 
             display: inline-block; 
@@ -48,7 +54,7 @@
             text-transform: uppercase; 
             font-size: 16px; 
             letter-spacing: 2px; 
-            font-weight: 300; /* Более легкий шрифт */
+            font-weight: 300; 
             line-height: 2.2;
         }
 
@@ -61,7 +67,7 @@
             text-transform: uppercase; 
             font-size: 16px; 
             letter-spacing: 2px; 
-            font-weight: 300; /* Более легкий шрифт */
+            font-weight: 300; 
         }
         .col-left { text-align: right; line-height: 2.2; }
         .col-right { text-align: left; line-height: 2.2; }
@@ -70,11 +76,10 @@
 <body>
 
     <div class="header">
-        <span class="active">ГЛАВНАЯ</span>
-        <span class="active">СТРАНЫ</span>
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="countries.html">СТРАНЫ</a>
     </div>
 
-    <!-- АЗИЯ -->
     <div class="continent-container">
         <div class="continent-header">АЗИЯ</div>
         <div class="countries-list">
@@ -82,7 +87,6 @@
         </div>
     </div>
 
-    <!-- ЕВРОПА -->
     <div class="continent-container">
         <div class="continent-header">ЕВРОПА</div>
         <div class="countries-grid">
@@ -95,7 +99,6 @@
         </div>
     </div>
 
-    <!-- АМЕРИКА -->
     <div class="continent-container">
         <div class="continent-header">АМЕРИКА</div>
         <div class="countries-list">
@@ -104,7 +107,6 @@
         </div>
     </div>
 
-    <!-- АФРИКА -->
     <div class="continent-container">
         <div class="continent-header">АФРИКА</div>
         <div class="countries-list">
