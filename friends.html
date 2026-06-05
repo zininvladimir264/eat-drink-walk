@@ -2,58 +2,107 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ОПЫТ ДРУЗЕЙ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТРАНЫ</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: sans-serif; }
-        .навигация { display: flex; justify-content: center; gap: 15px; padding: 20px; overflow-x: auto; position: sticky; top: 0; background: #000; z-index: 100; border-bottom: 1px solid #222; }
-        .кнопка { background: none; border: 1px solid #444; color: #888; padding: 8px 16px; cursor: pointer; text-transform: uppercase; font-weight: bold; border-radius: 20px; transition: 0.3s; }
-        .кнопка.active { border-color: #fff; color: #fff; }
-        .регион { display: none; padding: 20px; max-width: 800px; margin: 0 auto; animation: fadeIn 0.5s; }
-        .регион.active { display: block; }
-        .карточка { background: #111; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #222; }
-        h2 { text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 20px; }
-        h3 { margin-top: 0; color: #ffcc00; }
-        p { color: #bbb; line-height: 1.5; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        body { background-color: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 40px 20px; text-align: center; }
+        .nav-link { color: #888; text-decoration: none; text-transform: uppercase; margin-bottom: 40px; display: block; }
+        h1 { text-transform: uppercase; letter-spacing: 4px; font-weight: 300; margin-bottom: 40px; }
+        .continent-header { text-transform: uppercase; letter-spacing: 2px; margin-top: 50px; margin-bottom: 20px; font-size: 24px; border-bottom: 1px solid #333; display: inline-block; padding: 0 20px; }
+        .countries-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 0 auto; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .col-left { text-align: right; }
+        .col-right { text-align: left; }
+        .country-item { margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
-    <nav class="навигация">
-        <button class="кнопка active" onclick="показать('азия')">Азия</button>
-        <button class="кнопка" onclick="показать('европа')">Европа</button>
-        <button class="кнопка" onclick="показать('америка')">Америка</button>
-        <button class="кнопка" onclick="показать('африка')">Африка</button>
-    </nav>
+    <a href="#" class="nav-link">ГЛАВНАЯ</a>
+    <h1>СТРАНЫ</h1>
 
-    <div id="азия" class="регион active">
-        <h2>Азия</h2>
-        <div class="карточка"><h3>Япония</h3><p>Путешествие по Токио.</p></div>
+    <!-- АЗИЯ -->
+    <div class="continent-header">АЗИЯ</div>
+    <div class="countries-grid">
+        <div class="col-left">
+            <div class="country-item">ЮЖНАЯ КОРЕЯ</div>
+            <div class="country-item">КАМБОДЖА</div>
+            <div class="country-item">КАЗАХСТАН</div>
+            <div class="country-item">ОМАН</div>
+            <div class="country-item">ТАИЛАНД</div>
+            <div class="country-item">УЗБЕКИСТАН</div>
+            <div class="country-item">ЛИВАН</div>
+        </div>
+        <div class="col-right">
+            <div class="country-item">ВЬЕТНАМ</div>
+            <div class="country-item">ИНДИЯ</div>
+            <div class="country-item">ТАДЖИКИСТАН</div>
+            <div class="country-item">МАЛАЙЗИЯ</div>
+            <div class="country-item">ШРИ-ЛАНКА</div>
+            <div class="country-item">КИРГИЗИЯ</div>
+            <div class="country-item">ОАЭ</div>
+        </div>
     </div>
 
-    <div id="европа" class="регион">
-        <h2>Европа</h2>
-        <div class="карточка"><h3>Польша</h3><p>Краков.</p></div>
+    <!-- ЕВРОПА -->
+    <div class="continent-header">ЕВРОПА</div>
+    <div class="countries-grid">
+        <div class="col-left">
+            <div class="country-item">ЧЕРНОГОРИЯ</div>
+            <div class="country-item">ЭСТОНИЯ</div>
+            <div class="country-item">МОЛДОВА</div>
+            <div class="country-item">СЕРБИЯ</div>
+            <div class="country-item">ЛАТВИЯ</div>
+            <div class="country-item">БОСНИЯ</div>
+            <div class="country-item">ПОЛЬША</div>
+        </div>
+        <div class="col-right">
+            <div class="country-item">ПОРТУГАЛИЯ</div>
+            <div class="country-item">ЛИТВА</div>
+            <div class="country-item">АВСТРИЯ</div>
+            <div class="country-item">ИСПАНИЯ</div>
+            <div class="country-item">БЕЛАРУСЬ</div>
+            <div class="country-item">ФИНЛЯНДИЯ</div>
+            <div class="country-item">ИТАЛИЯ</div>
+        </div>
     </div>
 
-    <div id="америка" class="регион">
-        <h2>Америка</h2>
-        <div class="карточка"><h3>Мексика</h3><p>Канкун.</p></div>
+    <!-- АМЕРИКА -->
+    <div class="continent-header">АМЕРИКА</div>
+    <div class="countries-grid">
+        <div class="col-left">
+            <div class="country-item">МЕКСИКА</div>
+        </div>
+        <div class="col-right">
+            <!-- Пустая колонка для симметрии или добавления позже -->
+        </div>
     </div>
 
-    <div id="африка" class="регион">
-        <h2>Африка</h2>
-        <div class="карточка"><h3>Тунис</h3><p>Сахара.</p></div>
+    <!-- АФРИКА -->
+    <div class="continent-header">АФРИКА</div>
+    <div class="countries-grid">
+        <div class="col-left">
+            <div class="country-item">ТУНИС</div>
+        </div>
+        <div class="col-right">
+        </div>
     </div>
 
-    <script>
-        function показать(id) {
-            document.querySelectorAll('.регион').forEach(r => r.classList.remove('active'));
-            document.querySelectorAll('.кнопка').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
+    <!-- КАВКАЗ И ЕВРАЗИЯ -->
+    <div class="continent-header">КАВКАЗ И ЕВРАЗИЯ</div>
+    <div class="countries-grid">
+        <div class="col-left">
+            <div class="country-item">РОССИЯ</div>
+            <div class="country-item">АБХАЗИЯ</div>
+            <div class="country-item">ГРУЗИЯ</div>
+            <div class="country-item">ТУРЦИЯ</div>
+        </div>
+        <div class="col-right">
+            <div class="country-item">АРМЕНИЯ</div>
+            <div class="country-item">СЕВЕРНЫЙ КИПР</div>
+            <div class="country-item">АЗЕРБАЙДЖАН</div>
+            <div class="country-item">ЕГИПЕТ</div>
+        </div>
+    </div>
+
 </body>
 </html>
