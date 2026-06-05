@@ -6,13 +6,16 @@
     <title>ОПЫТ ДРУЗЕЙ</title>
     <style>
         body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: sans-serif; }
-        .навигация { display: flex; justify-content: center; gap: 15px; padding: 20px; overflow-x: auto; position: sticky; top: 0; background: #000; z-index: 100; }
-        .кнопка { background: none; border: 1px solid #444; color: #888; padding: 8px 16px; cursor: pointer; text-transform: uppercase; font-weight: bold; border-radius: 20px; }
+        .навигация { display: flex; justify-content: center; gap: 15px; padding: 20px; overflow-x: auto; position: sticky; top: 0; background: #000; z-index: 100; border-bottom: 1px solid #222; }
+        .кнопка { background: none; border: 1px solid #444; color: #888; padding: 8px 16px; cursor: pointer; text-transform: uppercase; font-weight: bold; border-radius: 20px; transition: 0.3s; }
         .кнопка.active { border-color: #fff; color: #fff; }
-        .регион { display: none; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .регион { display: none; padding: 20px; max-width: 800px; margin: 0 auto; animation: fadeIn 0.5s; }
         .регион.active { display: block; }
-        .карточка { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 15px; }
-        h2 { text-transform: uppercase; letter-spacing: 2px; }
+        .карточка { background: #111; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #222; }
+        h2 { text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 20px; }
+        h3 { margin-top: 0; color: #ffcc00; }
+        p { color: #bbb; line-height: 1.5; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -26,26 +29,22 @@
 
     <div id="азия" class="регион active">
         <h2>Азия</h2>
-        <div class="карточка"><h3>Япония</h3><p>Опыт: Путешествие по Токио.</p></div>
-        <div class="карточка"><h3>Вьетнам</h3><p>Опыт: Поездка на байках.</p></div>
+        <div class="карточка"><h3>Япония</h3><p>Путешествие по Токио.</p></div>
     </div>
 
     <div id="европа" class="регион">
         <h2>Европа</h2>
-        <div class="карточка"><h3>Польша</h3><p>Опыт: Старый город Краков.</p></div>
-        <div class="карточка"><h3>Финляндия</h3><p>Опыт: Северное сияние.</p></div>
-        <div class="карточка"><h3>Италия</h3><p>Опыт: Винный тур.</p></div>
+        <div class="карточка"><h3>Польша</h3><p>Краков.</p></div>
     </div>
 
     <div id="америка" class="регион">
         <h2>Америка</h2>
-        <div class="карточка"><h3>Мексика</h3><p>Опыт: Пляжи Канкуна и тако.</p></div>
-        <div class="карточка"><h3>США</h3><p>Опыт: Дорожное путешествие.</p></div>
+        <div class="карточка"><h3>Мексика</h3><p>Канкун.</p></div>
     </div>
 
     <div id="африка" class="регион">
         <h2>Африка</h2>
-        <div class="карточка"><h3>Тунис</h3><p>Опыт: Поездка в Сахару.</p></div>
+        <div class="карточка"><h3>Тунис</h3><p>Сахара.</p></div>
     </div>
 
     <script>
