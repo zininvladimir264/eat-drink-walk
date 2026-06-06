@@ -20,7 +20,6 @@
             min-height: 100vh;
             font-weight: 300;
         }
-        
         .header { 
             display: flex; 
             justify-content: center; 
@@ -29,19 +28,16 @@
             font-size: 14px; 
             letter-spacing: 2px; 
         }
-        .header a {
-            color: #ffffff;
-            text-decoration: none;
-            cursor: pointer;
-            padding-bottom: 4px;
-            border-bottom: 1px solid #ffffff;
-            font-weight: 300;
+        .header a { 
+            color: #ffffff; 
+            text-decoration: none; 
+            border-bottom: 1px solid #ffffff; 
+            padding-bottom: 4px; 
+            font-weight: 300; 
             transition: opacity 0.3s;
         }
-        .header a:hover {
-            opacity: 0.7;
-        }
-
+        .header a:hover { opacity: 0.7; }
+        
         .continent-container { margin-bottom: 50px; }
         .continent-header { 
             text-transform: uppercase; 
@@ -51,8 +47,8 @@
             margin-bottom: 20px; 
             border-bottom: 1px solid #ffffff; 
             display: inline-block; 
-            padding: 0 10px;
-            color: #ffffff;
+            padding: 0 10px; 
+            color: #ffffff; 
         }
 
         .countries-list { 
@@ -62,10 +58,15 @@
             text-transform: uppercase; 
             font-size: 16px; 
             letter-spacing: 2px; 
-            font-weight: 300; 
             line-height: 2.2;
             color: #cccccc;
         }
+        .countries-list a { 
+            text-decoration: none; 
+            color: #cccccc; 
+            transition: opacity 0.3s;
+        }
+        .countries-list a:hover { opacity: 0.7; }
 
         .countries-grid { 
             display: grid; 
@@ -81,19 +82,21 @@
         }
         .col-left { text-align: right; line-height: 2.2; }
         .col-right { text-align: left; line-height: 2.2; }
+        .col-left a, .col-right a { text-decoration: none; color: #cccccc; display: block; transition: opacity 0.3s; }
+        .col-left a:hover, .col-right a:hover { opacity: 0.7; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <a href="index.html">ГЛАВНАЯ</a>
-        <a href="countries.html">СТРАНЫ</a>
+        <a href="friends.html">СТРАНЫ</a>
     </div>
 
     <div class="continent-container">
         <div class="continent-header">АЗИЯ</div>
         <div class="countries-list">
-            <span>СИРИЯ</span>
+            <a href="cities.html#syria">СИРИЯ</a>
         </div>
     </div>
 
@@ -101,10 +104,15 @@
         <div class="continent-header">ЕВРОПА</div>
         <div class="countries-grid">
             <div class="col-left">
-                ПОЛЬША<br>ФИНЛЯНДИЯ<br>ИРЛАНДИЯ<br>АНГЛИЯ
+                <a href="cities.html#poland">ПОЛЬША</a>
+                <a href="cities.html#finland">ФИНЛЯНДИЯ</a>
+                <a href="cities.html#ireland">ИРЛАНДИЯ</a>
+                <a href="cities.html#england">АНГЛИЯ</a>
             </div>
             <div class="col-right">
-                ШОТЛАНДИЯ<br>ФРАНЦИЯ<br>ИТАЛИЯ
+                <a href="cities.html#scotland">ШОТЛАНДИЯ</a>
+                <a href="cities.html#france">ФРАНЦИЯ</a>
+                <a href="cities.html#italy">ИТАЛИЯ</a>
             </div>
         </div>
     </div>
@@ -112,15 +120,15 @@
     <div class="continent-container">
         <div class="continent-header">АМЕРИКА</div>
         <div class="countries-list">
-            <span>МЕКСИКА</span>
-            <span>КУБА</span>
+            <a href="cities.html#mexico">МЕКСИКА</a>
+            <a href="cities.html#cuba">КУБА</a>
         </div>
     </div>
 
     <div class="continent-container">
         <div class="continent-header">АФРИКА</div>
         <div class="countries-list">
-            <span>ТУНИС</span>
+            <a href="cities.html#tunisia">ТУНИС</a>
         </div>
     </div>
 
