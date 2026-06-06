@@ -2,23 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОПЫТ ДРУЗЕЙ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ОПЫТ ДРУЗЕЙ - Ем ПЬЮ ХОЖУ</title>
     <style>
         body { 
-            background: linear-gradient(rgba(11, 11, 20, 0.5), rgba(11, 11, 20, 0.5)), 
-                        url('images/mir1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #cccccc; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #000;
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             margin: 0; 
             padding: 40px 20px; 
             text-align: center; 
             min-height: 100vh;
-            font-weight: 300;
         }
         .header { 
             display: flex; 
@@ -33,57 +27,48 @@
             text-decoration: none; 
             border-bottom: 1px solid #ffffff; 
             padding-bottom: 4px; 
-            font-weight: 300; 
             transition: opacity 0.3s;
         }
-        .header a:hover { opacity: 0.7; }
         
         .continent-container { margin-bottom: 50px; }
         .continent-header { 
             text-transform: uppercase; 
             letter-spacing: 4px; 
             font-size: 20px; 
-            font-weight: 300; 
-            margin-bottom: 20px; 
-            border-bottom: 1px solid #ffffff; 
-            display: inline-block; 
-            padding: 0 10px; 
+            font-weight: 800; 
+            margin-bottom: 30px; 
             color: #ffffff; 
         }
 
-        .countries-list { 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-transform: uppercase; 
-            font-size: 16px; 
-            letter-spacing: 2px; 
-            line-height: 2.2;
-            color: #cccccc;
-        }
-        .countries-list a { 
-            text-decoration: none; 
-            color: #cccccc; 
-            transition: opacity 0.3s;
-        }
-        .countries-list a:hover { opacity: 0.7; }
-
-        .countries-grid { 
+        .city-grid { 
             display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 40px; 
-            max-width: 500px; 
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+            gap: 20px; 
+            max-width: 600px; 
             margin: 0 auto; 
-            text-transform: uppercase; 
-            font-size: 16px; 
-            letter-spacing: 2px; 
-            font-weight: 300; 
-            color: #cccccc;
         }
-        .col-left { text-align: right; line-height: 2.2; }
-        .col-right { text-align: left; line-height: 2.2; }
-        .col-left a, .col-right a { text-decoration: none; color: #cccccc; display: block; transition: opacity 0.3s; }
-        .col-left a:hover, .col-right a:hover { opacity: 0.7; }
+        .city-card { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-decoration: none;
+            color: #fff;
+        }
+        .city-photo { 
+            width: 120px; 
+            height: 120px; 
+            background-color: #222; 
+            border-radius: 20px; 
+            margin-bottom: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+        .city-name { 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -93,42 +78,32 @@
         <a href="friends.html">СТРАНЫ</a>
     </div>
 
+    <!-- Пример структуры для одной страны (например, Россия и её города) -->
     <div class="continent-container">
-        <div class="continent-header">АЗИЯ</div>
-        <div class="countries-list">
-            <a href="cities_syria.html">СИРИЯ</a>
+        <div class="continent-header">РОССИЯ</div>
+        <div class="city-grid">
+            <a href="novosibirsk.html" class="city-card">
+                <div class="city-photo" style="background-image: url('images/locations/novosibirsk_main.webp');"></div>
+                <div class="city-name">НОВОСИБИРСК</div>
+            </a>
+            <a href="tomsk.html" class="city-card">
+                <div class="city-photo" style="background-image: url('images/locations/tomsk_main.webp');"></div>
+                <div class="city-name">ТОМСК</div>
+            </a>
+            <a href="irkutsk.html" class="city-card">
+                <div class="city-photo" style="background-image: url('images/locations/irkutsk_main.webp');"></div>
+                <div class="city-name">ИРКУТСК</div>
+            </a>
         </div>
     </div>
 
     <div class="continent-container">
-        <div class="continent-header">ЕВРОПА</div>
-        <div class="countries-grid">
-            <div class="col-left">
-                <a href="cities_poland.html">ПОЛЬША</a>
-                <a href="cities_finland.html">ФИНЛЯНДИЯ</a>
-                <a href="cities_ireland.html">ИРЛАНДИЯ</a>
-                <a href="cities_england.html">АНГЛИЯ</a>
-            </div>
-            <div class="col-right">
-                <a href="cities_scotland.html">ШОТЛАНДИЯ</a>
-                <a href="cities_france.html">ФРАНЦИЯ</a>
-                <a href="cities_italy.html">ИТАЛИЯ</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="continent-container">
-        <div class="continent-header">АМЕРИКА</div>
-        <div class="countries-list">
-            <a href="cities_mexico.html">МЕКСИКА</a>
-            <a href="cities_cuba.html">КУБА</a>
-        </div>
-    </div>
-
-    <div class="continent-container">
-        <div class="continent-header">АФРИКА</div>
-        <div class="countries-list">
-            <a href="cities_tunisia.html">ТУНИС</a>
+        <div class="continent-header">БУРЯТИЯ</div>
+        <div class="city-grid">
+            <a href="ulan_ude.html" class="city-card">
+                <div class="city-photo" style="background-image: url('images/locations/ulan_ude_main.webp');"></div>
+                <div class="city-name">УЛАН-УДЭ</div>
+            </a>
         </div>
     </div>
 
