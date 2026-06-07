@@ -5,13 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СТРАНЫ</title>
     <style>
-        body { background-color: #0b0b14; color: #ffffff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 40px 20px; text-align: center; }
-        .header { display: flex; justify-content: center; gap: 30px; margin-bottom: 60px; font-size: 14px; letter-spacing: 2px; }
-        .header a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #ffffff; }
-        .continent-container { margin-bottom: 50px; }
-        .continent-header { text-transform: uppercase; letter-spacing: 4px; font-size: 20px; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #ffffff; display: inline-block; padding: 0 10px; }
-        .countries-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 500px; margin: 0 auto; text-transform: uppercase; font-size: 16px; letter-spacing: 2px; }
-        .countries-grid a { color: #ffffff; text-decoration: none; line-height: 2.5; display: block; }
+        body { 
+            background-color: #0b0b14; 
+            color: #ffffff; 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            text-align: center; 
+        }
+        .header { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-bottom: 40px; 
+            font-size: 14px; 
+            letter-spacing: 2px; 
+        }
+        .header a { 
+            color: #ffffff; 
+            text-decoration: none; 
+            border-bottom: 1px solid #ffffff; 
+            padding-bottom: 4px; 
+        }
+        .continent-container { margin-bottom: 30px; }
+        .continent-header { 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-size: 20px; 
+            font-weight: 300; 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid #ffffff; 
+            display: inline-block; 
+            padding: 0 10px; 
+        }
+        .countries-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            max-width: 500px; 
+            margin: 0 auto; 
+            text-transform: uppercase; 
+            font-size: 16px; 
+            letter-spacing: 2px; 
+            font-weight: 300; 
+        }
+        .countries-grid a { 
+            color: #ffffff; 
+            text-decoration: none; 
+            line-height: 1.8; 
+            display: block; 
+        }
+        .center-text { 
+            line-height: 1.8; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 16px; 
+        }
+        .center-text a { 
+            color: #ffffff; 
+            text-decoration: none; 
+        }
     </style>
 </head>
 <body>
@@ -22,7 +75,7 @@
 
     <div class="continent-container">
         <div class="continent-header">АЗИЯ</div>
-        <div class="countries-grid"><a href="damascus.html">СИРИЯ</a></div>
+        <div class="center-text"><a href="damascus.html">СИРИЯ</a></div>
     </div>
 
     <div class="continent-container">
@@ -40,10 +93,15 @@
 
     <div class="continent-container">
         <div class="continent-header">АМЕРИКА</div>
-        <div class="countries-grid">
-            <a href="cancun.html">МЕКСИКА</a>
+        <div class="center-text">
+            <a href="cancun.html">МЕКСИКА</a><br>
             <a href="havana.html">КУБА</a>
         </div>
+    </div>
+
+    <div class="continent-container">
+        <div class="continent-header">АФРИКА</div>
+        <div class="center-text"><a href="tunis.html">ТУНИС</a></div>
     </div>
 </body>
 </html>
