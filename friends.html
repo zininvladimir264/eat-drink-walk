@@ -3,75 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СТРАНЫ</title>
+    <title>ОПЫТ ДРУЗЕЙ</title>
     <style>
         body { 
-            background-color: #0b0b14; 
+            background: url('images/mir1.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff; 
-            font-family: 'Segoe UI', sans-serif; 
-            margin: 0; padding: 40px 20px; text-align: center; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            text-align: center; 
+            min-height: 100vh;
         }
-        .header { display: flex; justify-content: center; gap: 30px; margin-bottom: 60px; font-size: 14px; letter-spacing: 2px; }
-        .header a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #ffffff; }
-        .continent-container { margin-bottom: 50px; }
+        .header { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-bottom: 40px; 
+            font-size: 14px; 
+            letter-spacing: 2px; 
+        }
+        .header a { 
+            color: #ffffff; 
+            text-decoration: none; 
+            border-bottom: 1px solid #ffffff; 
+            padding-bottom: 4px; 
+        }
+        .continent-container { margin-bottom: 30px; }
         .continent-header { 
-            text-transform: uppercase; letter-spacing: 4px; font-size: 20px; 
-            font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #ffffff; 
-            display: inline-block; padding: 0 10px;
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-size: 20px; 
+            font-weight: 300; 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid #ffffff; 
+            display: inline-block; 
+            padding: 0 10px; 
         }
         .countries-grid { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
-            max-width: 500px; margin: 0 auto; text-transform: uppercase; 
-            font-size: 16px; letter-spacing: 2px;
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            max-width: 500px; 
+            margin: 0 auto; 
+            text-transform: uppercase; 
+            font-size: 16px; 
+            letter-spacing: 2px; 
+            font-weight: 300; 
         }
-        .countries-grid a { color: #ffffff; text-decoration: none; line-height: 2.5; display: block; }
-        .countries-grid a:hover { color: #cccccc; }
+        .col-left { text-align: right; line-height: 1.8; }
+        .col-right { text-align: left; line-height: 1.8; }
+        .center-text { line-height: 1.8; text-transform: uppercase; letter-spacing: 2px; font-size: 16px; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <a href="index.html">ГЛАВНАЯ</a>
-        <a href="countries.html">СТРАНЫ</a>
+        <a href="friends.html">СТРАНЫ</a>
     </div>
 
-    <!-- АЗИЯ -->
     <div class="continent-container">
         <div class="continent-header">АЗИЯ</div>
-        <div class="countries-grid">
-            <a href="damascus.html">СИРИЯ</a>
-        </div>
+        <div class="center-text">СИРИЯ</div>
     </div>
 
-    <!-- ЕВРОПА -->
     <div class="continent-container">
         <div class="continent-header">ЕВРОПА</div>
         <div class="countries-grid">
-            <a href="szczecin.html">ПОЛЬША</a>
-            <a href="helsinki.html">ФИНЛЯНДИЯ</a>
-            <a href="dublin.html">ИРЛАНДИЯ</a>
-            <a href="london.html">АНГЛИЯ</a>
-            <a href="edinburgh.html">ШОТЛАНДИЯ</a>
-            <a href="paris.html">ФРАНЦИЯ</a>
-            <a href="rome.html">ИТАЛИЯ</a>
+            <div class="col-left">
+                ПОЛЬША<br>ФИНЛЯНДИЯ<br>ИРЛАНДИЯ<br>АНГЛИЯ
+            </div>
+            <div class="col-right">
+                ШОТЛАНДИЯ<br>ФРАНЦИЯ<br>ИТАЛИЯ
+            </div>
         </div>
     </div>
 
-    <!-- АМЕРИКА -->
     <div class="continent-container">
         <div class="continent-header">АМЕРИКА</div>
-        <div class="countries-grid">
-            <a href="cancun.html">МЕКСИКА</a>
-            <a href="havana.html">КУБА</a>
+        <div class="center-text">
+            МЕКСИКА<br>КУБА
         </div>
     </div>
 
-    <!-- АФРИКА -->
     <div class="continent-container">
         <div class="continent-header">АФРИКА</div>
-        <div class="countries-grid">
-            <a href="tunis.html">ТУНИС</a>
-        </div>
+        <div class="center-text">ТУНИС</div>
     </div>
 
 </body>
