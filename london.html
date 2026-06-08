@@ -41,34 +41,44 @@
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
-            gap: 20px;
+            gap: 30px;
             width: 100%;
-            max-width: 800px;
+            max-width: 1000px;
             flex-wrap: wrap;
         }
 
         .city-card {
-            width: 25%;
-            min-width: 150px;
+            width: 100%;
+            max-width: 400px; /* Размер на ПК */
         }
 
         .city-image {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 16 / 9; /* Более широкий формат для ПК */
             background-color: #333;
             border-radius: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             background-size: cover;
             background-position: center;
             border: 1px solid #444;
         }
 
         .city-name {
-            font-size: 14px;
+            font-size: 16px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 600;
             text-align: center;
+        }
+
+        /* На мобильных устройствах делаем карточки чуть компактнее */
+        @media (max-width: 600px) {
+            .city-card {
+                max-width: 100%;
+            }
+            .city-image {
+                aspect-ratio: 1 / 1;
+            }
         }
     </style>
 </head>
@@ -82,14 +92,13 @@
     <div class="country-title">ЛОНДОН</div>
 
     <div class="cities-container">
-        <!-- Используем указанный вами путь к файлу -->
         <div class="city-card">
             <div class="city-image" style="background-image: url('images/cities/lo.webp');"></div>
             <div class="city-name">ЛОНДОН</div>
         </div>
         <div class="city-card">
-            <div class="city-image" style="background-image: url('images/cities/br.webp');"></div>
-            <div class="city-name">БРАЙТОН</div>
+            <div class="city-image" style="background-image: url('images/cities/lo.webp');"></div>
+            <div class="city-name">ЛОНДОН</div>
         </div>
     </div>
 
