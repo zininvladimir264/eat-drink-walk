@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СИРИЯ</title>
+    <title>ДАМАСК</title>
     <style>
         body { 
             margin: 0;
@@ -24,7 +24,7 @@
             justify-content: center; 
             gap: 40px; 
             margin-bottom: 50px; 
-            font-size: 14px; 
+            font-size: 16px; 
             letter-spacing: 2px; 
             text-transform: uppercase;
         }
@@ -35,17 +35,28 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             font-weight: 800;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .cities-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            flex-wrap: wrap;
         }
 
         .city-card {
-            width: 100%;
-            max-width: 350px;
+            width: calc(33.333% - 20px);
+            min-width: 250px;
         }
 
         .city-image {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            height: 300px; /* Принудительная высота для отображения фото */
             background-color: #1a1a1a;
             border-radius: 15px;
             margin-bottom: 20px;
@@ -59,17 +70,23 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
 
         .back-link {
-            font-size: 12px;
+            font-size: 14px;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
             color: #ffffff;
             opacity: 0.8;
-            margin-top: 10px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .city-card {
+                width: calc(50% - 15px);
+            }
         }
     </style>
 </head>
@@ -82,9 +99,11 @@
 
     <div class="country-title">СИРИЯ</div>
 
-    <div class="city-card">
-        <div class="city-image" style="background-image: url('images/cities/damask.webp');"></div>
-        <div class="city-name">ДАМАСК</div>
+    <div class="cities-container">
+        <div class="city-card">
+            <div class="city-image" style="background-image: url('images/cities/damask.webp');"></div>
+            <div class="city-name">ДАМАСК</div>
+        </div>
     </div>
 
     <a href="friends.html" class="back-link">← НАЗАД К СТРАНАМ</a>
