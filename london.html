@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЛОНДОН</title>
+    <title>АНГЛИЯ</title>
     <style>
         body { 
             margin: 0;
@@ -30,36 +30,38 @@
         .header a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #ffffff; padding-bottom: 4px; }
 
         .country-title {
-            font-size: 32px;
-            letter-spacing: 6px;
+            font-size: 40px;
+            letter-spacing: 8px;
             text-transform: uppercase;
             font-weight: 800;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
+        /* Контейнер для двух карточек */
         .cities-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 карточки на ПК */
+            display: flex;
+            justify-content: center;
             gap: 30px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 800px; /* Ограничиваем ширину, чтобы не были слишком огромными */
         }
 
         .city-card {
+            flex: 1; /* Обе карточки занимают равное место */
+            max-width: 350px; /* Максимальный размер карточки */
             display: flex;
             flex-direction: column;
-            width: 100%;
         }
 
-        /* Создаем идеальный квадрат через хак с padding-bottom */
+        /* Квадратный контейнер */
         .city-image-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; /* Это делает элемент квадратным */
+            padding-bottom: 100%; 
             background-color: #1a1a1a;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid #333;
+            border: 1px solid #444;
         }
 
         .city-image {
@@ -73,25 +75,21 @@
         }
 
         .city-name {
-            font-size: 18px;
-            letter-spacing: 3px;
+            font-size: 20px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: 15px;
+            margin-top: 20px;
             text-align: center;
         }
 
-        /* Адаптив: две карточки в ряд на мобильных */
-        @media (max-width: 768px) {
+        /* Адаптив для телефонов */
+        @media (max-width: 600px) {
             .cities-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 карточки на телефоне */
-                gap: 15px;
-            }
-            .city-image-wrapper {
-                border-radius: 10px;
+                gap: 20px;
             }
             .city-name {
-                font-size: 14px;
+                font-size: 16px;
                 letter-spacing: 2px;
             }
         }
@@ -104,36 +102,23 @@
         <a href="friends.html">СТРАНЫ</a>
     </div>
 
-    <div class="country-title">ЛОНДОН</div>
+    <div class="country-title">АНГЛИЯ</div>
 
     <div class="cities-container">
-        <!-- Карточка 1 -->
+        <!-- Карточка: ЛОНДОН -->
         <div class="city-card">
             <div class="city-image-wrapper">
                 <div class="city-image" style="background-image: url('images/cities/lo.webp');"></div>
             </div>
             <div class="city-name">ЛОНДОН</div>
         </div>
-        <!-- Карточка 2 -->
+
+        <!-- Карточка: БРАЙТОН -->
         <div class="city-card">
             <div class="city-image-wrapper">
-                <div class="city-image" style="background-image: url('images/cities/lo.webp');"></div>
+                <div class="city-image" style="background-image: url('images/cities/br.webp');"></div>
             </div>
-            <div class="city-name">ЛОНДОН</div>
-        </div>
-        <!-- Карточка 3 -->
-        <div class="city-card">
-            <div class="city-image-wrapper">
-                <div class="city-image" style="background-image: url('images/cities/lo.webp');"></div>
-            </div>
-            <div class="city-name">ЛОНДОН</div>
-        </div>
-        <!-- Карточка 4 -->
-        <div class="city-card">
-            <div class="city-image-wrapper">
-                <div class="city-image" style="background-image: url('images/cities/lo.webp');"></div>
-            </div>
-            <div class="city-name">ЛОНДОН</div>
+            <div class="city-name">БРАЙТОН</div>
         </div>
     </div>
 
