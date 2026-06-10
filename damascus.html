@@ -29,11 +29,14 @@
         }
 
         .card { width: 100%; }
+        /* Добавляем стили для ссылок, обернутых вокруг картинок */
+        .card a { display: block; cursor: pointer; }
         .card img {
             width: 100%; aspect-ratio: 1/1; object-fit: cover;
             background: #1a1a1a; border-radius: 12px; margin-bottom: 15px;
-            border: 1px solid #333;
+            border: 1px solid #333; transition: transform 0.2s ease;
         }
+        .card img:hover { transform: scale(1.02); }
         .name { font-size: 16px; letter-spacing: 2px; font-weight: 600; margin-bottom: 5px; }
         .desc { font-size: 13px; opacity: 0.6; }
         .back-link { margin-top: 40px; text-decoration: none; color: #fff; opacity: 0.5; font-size: 12px; letter-spacing: 2px; }
@@ -81,9 +84,18 @@
 
     <div id="locations" class="section-title">LOCATIONS</div>
     <div class="grid">
-        <div class="card"><img src="images/locations/omeyyad.webp" alt="МЕЧЕТЬ ОМЕЙЯДОВ"><div class="name">МЕЧЕТЬ ОМЕЙЯДОВ</div><div class="desc">ДРЕВНЯЯ АРХИТЕКТУРА</div></div>
-        <div class="card"><img src="images/locations/old-city.webp" alt="СТАРЫЙ ГОРОД"><div class="name">СТАРЫЙ ГОРОД</div><div class="desc">УЗКИЕ УЛОЧКИ И КАФЕ</div></div>
-        <div class="card"><img src="images/locations/azem-palace.webp" alt="ДВОРЕЦ АЗЕМ"><div class="name">ДВОРЕЦ АЗЕМ</div><div class="desc">ИСТОРИЧЕСКАЯ УСАДЬБА</div></div>
+        <div class="card">
+            <a href="images/locations/omeyyad.webp" target="_blank"><img src="images/locations/omeyyad.webp" alt="МЕЧЕТЬ ОМЕЙЯДОВ"></a>
+            <div class="name">МЕЧЕТЬ ОМЕЙЯДОВ</div><div class="desc">ДРЕВНЯЯ АРХИТЕКТУРА</div>
+        </div>
+        <div class="card">
+            <a href="images/locations/old-city.webp" target="_blank"><img src="images/locations/old-city.webp" alt="СТАРЫЙ ГОРОД"></a>
+            <div class="name">СТАРЫЙ ГОРОД</div><div class="desc">УЗКИЕ УЛОЧКИ И КАФЕ</div>
+        </div>
+        <div class="card">
+            <a href="images/locations/azem-palace.webp" target="_blank"><img src="images/locations/azem-palace.webp" alt="ДВОРЕЦ АЗЕМ"></a>
+            <div class="name">ДВОРЕЦ АЗЕМ</div><div class="desc">ИСТОРИЧЕСКАЯ УСАДЬБА</div>
+        </div>
     </div>
 
     <a href="syria.html" class="back-link">← НАЗАД К СИРИИ</a>
