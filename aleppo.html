@@ -13,25 +13,22 @@
         .tab-btn { background: #222; border: 1px solid #444; color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 5px; text-transform: lowercase; }
         .tab-btn.active { background: #fff; color: #000; border-color: #fff; }
 
-        .grid-container { display: none; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .grid-container { display: none; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
         .grid-container.active { display: grid; }
 
-        /* Карточка стала полноценным блоком-ссылкой */
+        /* Вся карточка является кликабельной зоной */
         .item-card { 
             background: #111; border-radius: 10px; overflow: hidden; border: 1px solid #222; 
             text-decoration: none; color: inherit; display: block; cursor: pointer;
-            transition: transform 0.2s; position: relative;
+            transition: transform 0.2s;
         }
         .item-card:hover { transform: scale(1.02); border-color: #777; }
         
-        /* Используем тег img для надежности клика */
-        .item-image { width: 100%; height: 150px; object-fit: cover; display: block; background: #333; }
+        .item-image { width: 100%; height: 200px; object-fit: cover; display: block; background: #333; }
         
-        .item-info { padding: 10px; }
-        .item-info h3 { margin: 0 0 5px; font-size: 1em; text-transform: uppercase; }
-        .item-info p { margin: 0; color: #aaa; font-size: 0.8em; }
-
-        @media (max-width: 768px) { .grid-container { grid-template-columns: 1fr; } }
+        .item-info { padding: 15px; }
+        .item-info h3 { margin: 0 0 5px; font-size: 1.1em; text-transform: uppercase; }
+        .item-info p { margin: 0; color: #aaa; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -46,45 +43,43 @@
         <button class="tab-btn" data-target="locations">locations</button>
     </nav>
 
-    <!-- Функция для вывода карточек. Замените src на реальные пути -->
     <div id="food" class="grid-container active">
-        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на KIBBEH')">
+        <div class="item-card" onclick="alert('KIBBEH')">
             <img src="images/food/kibbeh.webp" class="item-image" alt="KIBBEH" onerror="this.style.display='none'">
             <div class="item-info"><h3>KIBBEH</h3><p>Мясные шарики</p></div>
-        </a>
-        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на MUJADARA')">
+        </div>
+        <div class="item-card" onclick="alert('MUJADARA')">
             <img src="images/food/mujadara.webp" class="item-image" alt="MUJADARA" onerror="this.style.display='none'">
-            <div class="item-info"><h3>MUJADARA</h3><p>Рис чечевица пряности.</p></div>
-        </a>
+            <div class="item-info"><h3>MUJADARA</h3><p>Рис чечевица</p></div>
+        </div>
     </div>
 
-    <!-- Аналогично для других секций -->
     <div id="spirits" class="grid-container">
-        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на ARAK')">
+        <div class="item-card" onclick="alert('ARAK')">
             <img src="images/spirits/arak.webp" class="item-image" alt="ARAK" onerror="this.style.display='none'">
-            <div class="item-info"><h3>ARAK</h3><p>Анисовая крепкая водка.</p></div>
-        </a>
+            <div class="item-info"><h3>ARAK</h3><p>Анисовая водка</p></div>
+        </div>
     </div>
 
     <div id="beer" class="grid-container">
-        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на BARADA')">
+        <div class="item-card" onclick="alert('BARADA')">
             <img src="images/beer/barada.webp" class="item-image" alt="BARADA" onerror="this.style.display='none'">
-            <div class="item-info"><h3>BARADA</h3><p>сирийское пиво.</p></div>
-        </a>
+            <div class="item-info"><h3>BARADA</h3><p>Сирийское пиво</p></div>
+        </div>
     </div>
 
     <div id="drinks" class="grid-container">
-        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на ARABIC COFFEE')">
+        <div class="item-card" onclick="alert('ARABIC COFFEE')">
             <img src="images/drinks/coffee.webp" class="item-image" alt="ARABIC COFFEE" onerror="this.style.display='none'">
-            <div class="item-info"><h3>ARABIC COFFEE</h3><p>Кофе с кардамоном.</p></div>
-        </a>
+            <div class="item-info"><h3>ARABIC COFFEE</h3><p>Кофе кардамон</p></div>
+        </div>
     </div>
 
     <div id="locations" class="grid-container">
-        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на CITADEL')">
+        <div class="item-card" onclick="alert('CITADEL')">
             <img src="images/locations/citadel.webp" class="item-image" alt="CITADEL" onerror="this.style.display='none'">
-            <div class="item-info"><h3>CITADEL</h3><p>Древняя крепость Алеппо.</p></div>
-        </a>
+            <div class="item-info"><h3>CITADEL</h3><p>Древняя крепость</p></div>
+        </div>
     </div>
 
     <script>
