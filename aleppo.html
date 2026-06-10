@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АЛЕППО</title>
+    <style>
+        body { margin: 0; padding: 20px; background: #000; color: #fff; font-family: sans-serif; }
+        .city-header { text-align: center; margin-bottom: 20px; }
+        .city-header h1 { letter-spacing: 4px; }
+        
+        .category-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tab-btn { background: #222; border: 1px solid #444; color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 5px; text-transform: lowercase; }
+        .tab-btn.active { background: #fff; color: #000; border-color: #fff; }
+
+        .grid-container { display: none; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .grid-container.active { display: grid; }
+
+        .item-card { background: #111; border-radius: 10px; overflow: hidden; border: 1px solid #222; }
+        .item-image { height: 150px; background-size: cover; background-position: center; background-color: #333; }
+        .item-info { padding: 10px; }
+        .item-info h3 { margin: 0 0 5px; font-size: 1em; text-transform: uppercase; }
+        .item-info p { margin: 0; color: #aaa; font-size: 0.8em; }
+
+        @media (max-width: 768px) { .grid-container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="city-header"><h1>АЛЕППО</h1></div>
+
+    <nav class="category-nav">
+        <button class="tab-btn active" data-target="food">food</button>
+        <button class="tab-btn" data-target="spirits">spirits</button>
+        <button class="tab-btn" data-target="beer">beer</button>
+        <button class="tab-btn" data-target="drinks">drinks</button>
+        <button class="tab-btn" data-target="locations">locations</button>
+    </nav>
+
+    <div id="food" class="grid-container active">
+        <div class="item-card"><div class="item-image" style="background-image: url('images/food/kibbeh.webp')"></div><div class="item-info"><h3>KIBBEH</h3><p>Мясные шарики вкусные.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/food/mujadara.webp')"></div><div class="item-info"><h3>MUJADARA</h3><p>Рис чечевица пряности.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/food/fatteh.webp')"></div><div class="item-info"><h3>FATTEH</h3><p>Нутовый сытный завтрак.</p></div></div>
+    </div>
+
+    <div id="spirits" class="grid-container">
+        <div class="item-card"><div class="item-image" style="background-image: url('images/spirits/arak.webp')"></div><div class="item-info"><h3>ARAK</h3><p>Анисовая крепкая водка.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/spirits/farrah.webp')"></div><div class="item-info"><h3>FARRAH</h3><p>Местный анисовый дистиллят.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/spirits/al-mashriq.webp')"></div><div class="item-info"><h3>AL-MASHRIQ</h3><p>Традиционный виноградный напиток.</p></div></div>
+    </div>
+
+    <div id="beer" class="grid-container">
+        <div class="item-card"><div class="item-image" style="background-image: url('images/beer/barada.webp')"></div><div class="item-info"><h3>BARADA</h3><p>Популярное сирийское пиво.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/beer/al-sharq.webp')"></div><div class="item-info"><h3>AL-SHARQ</h3><p>Классический легкий лагер.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/beer/amrit.webp')"></div><div class="item-info"><h3>AMRIT</h3><p>Светлое освежающее пиво.</p></div></div>
+    </div>
+
+    <div id="drinks" class="grid-container">
+        <div class="item-card"><div class="item-image" style="background-image: url('images/drinks/coffee.webp')"></div><div class="item-info"><h3>ARABIC COFFEE</h3><p>Кофе с кардамоном.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/drinks/ayran.webp')"></div><div class="item-info"><h3>AYRAN</h3><p>Соленый кисломолочный напиток.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/drinks/jallab.webp')"></div><div class="item-info"><h3>JALLAB</h3><p>Виноградный сироп лед.</p></div></div>
+    </div>
+
+    <div id="locations" class="grid-container">
+        <div class="item-card"><div class="item-image" style="background-image: url('images/locations/citadel.webp')"></div><div class="item-info"><h3>CITADEL</h3><p>Древняя крепость Алеппо.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/locations/souq.webp')"></div><div class="item-info"><h3>AL-MADINA SOUQ</h3><p>Исторический крытый базар.</p></div></div>
+        <div class="item-card"><div class="item-image" style="background-image: url('images/locations/mosque.webp')"></div><div class="item-info"><h3>UMAYYAD MOSQUE</h3><p>Великая древняя мечеть.</p></div></div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.grid-container').forEach(div => div.classList.remove('active'));
+                button.classList.add('active');
+                document.getElementById(button.getAttribute('data-target')).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
