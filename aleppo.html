@@ -16,14 +16,17 @@
         .grid-container { display: none; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .grid-container.active { display: grid; }
 
-        /* Делаем карточку кликабельной */
+        /* Карточка стала полноценным блоком-ссылкой */
         .item-card { 
             background: #111; border-radius: 10px; overflow: hidden; border: 1px solid #222; 
-            text-decoration: none; color: inherit; display: block; transition: transform 0.2s;
+            text-decoration: none; color: inherit; display: block; cursor: pointer;
+            transition: transform 0.2s; position: relative;
         }
-        .item-card:hover { transform: scale(1.02); border-color: #777; cursor: pointer; }
+        .item-card:hover { transform: scale(1.02); border-color: #777; }
         
-        .item-image { height: 150px; background-size: cover; background-position: center; background-color: #333; }
+        /* Используем тег img для надежности клика */
+        .item-image { width: 100%; height: 150px; object-fit: cover; display: block; background: #333; }
+        
         .item-info { padding: 10px; }
         .item-info h3 { margin: 0 0 5px; font-size: 1em; text-transform: uppercase; }
         .item-info p { margin: 0; color: #aaa; font-size: 0.8em; }
@@ -43,34 +46,45 @@
         <button class="tab-btn" data-target="locations">locations</button>
     </nav>
 
+    <!-- Функция для вывода карточек. Замените src на реальные пути -->
     <div id="food" class="grid-container active">
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/food/kibbeh.webp')"></div><div class="item-info"><h3>KIBBEH</h3><p>Мясные шарики вкусные.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/food/mujadara.webp')"></div><div class="item-info"><h3>MUJADARA</h3><p>Рис чечевица пряности.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/food/fatteh.webp')"></div><div class="item-info"><h3>FATTEH</h3><p>Нутовый сытный завтрак.</p></div></a>
+        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на KIBBEH')">
+            <img src="images/food/kibbeh.webp" class="item-image" alt="KIBBEH" onerror="this.style.display='none'">
+            <div class="item-info"><h3>KIBBEH</h3><p>Мясные шарики</p></div>
+        </a>
+        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на MUJADARA')">
+            <img src="images/food/mujadara.webp" class="item-image" alt="MUJADARA" onerror="this.style.display='none'">
+            <div class="item-info"><h3>MUJADARA</h3><p>Рис чечевица пряности.</p></div>
+        </a>
     </div>
 
+    <!-- Аналогично для других секций -->
     <div id="spirits" class="grid-container">
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/spirits/arak.webp')"></div><div class="item-info"><h3>ARAK</h3><p>Анисовая крепкая водка.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/spirits/farrah.webp')"></div><div class="item-info"><h3>FARRAH</h3><p>Местный анисовый дистиллят.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/spirits/al-mashriq.webp')"></div><div class="item-info"><h3>AL-MASHRIQ</h3><p>Традиционный виноградный напиток.</p></div></a>
+        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на ARAK')">
+            <img src="images/spirits/arak.webp" class="item-image" alt="ARAK" onerror="this.style.display='none'">
+            <div class="item-info"><h3>ARAK</h3><p>Анисовая крепкая водка.</p></div>
+        </a>
     </div>
 
     <div id="beer" class="grid-container">
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/beer/barada.webp')"></div><div class="item-info"><h3>BARADA</h3><p>Популярное сирийское пиво.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/beer/al-sharq.webp')"></div><div class="item-info"><h3>AL-SHARQ</h3><p>Классический легкий лагер.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/beer/amrit.webp')"></div><div class="item-info"><h3>AMRIT</h3><p>Светлое освежающее пиво.</p></div></a>
+        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на BARADA')">
+            <img src="images/beer/barada.webp" class="item-image" alt="BARADA" onerror="this.style.display='none'">
+            <div class="item-info"><h3>BARADA</h3><p>сирийское пиво.</p></div>
+        </a>
     </div>
 
     <div id="drinks" class="grid-container">
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/drinks/coffee.webp')"></div><div class="item-info"><h3>ARABIC COFFEE</h3><p>Кофе с кардамоном.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/drinks/ayran.webp')"></div><div class="item-info"><h3>AYRAN</h3><p>Соленый кисломолочный напиток.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/drinks/jallab.webp')"></div><div class="item-info"><h3>JALLAB</h3><p>Виноградный сироп лед.</p></div></a>
+        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на ARABIC COFFEE')">
+            <img src="images/drinks/coffee.webp" class="item-image" alt="ARABIC COFFEE" onerror="this.style.display='none'">
+            <div class="item-info"><h3>ARABIC COFFEE</h3><p>Кофе с кардамоном.</p></div>
+        </a>
     </div>
 
     <div id="locations" class="grid-container">
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/locations/citadel.webp')"></div><div class="item-info"><h3>CITADEL</h3><p>Древняя крепость Алеппо.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/locations/souq.webp')"></div><div class="item-info"><h3>AL-MADINA SOUQ</h3><p>Исторический крытый базар.</p></div></a>
-        <a href="#" class="item-card"><div class="item-image" style="background-image: url('images/locations/mosque.webp')"></div><div class="item-info"><h3>UMAYYAD MOSQUE</h3><p>Великая древняя мечеть.</p></div></a>
+        <a href="javascript:void(0)" class="item-card" onclick="alert('Вы нажали на CITADEL')">
+            <img src="images/locations/citadel.webp" class="item-image" alt="CITADEL" onerror="this.style.display='none'">
+            <div class="item-info"><h3>CITADEL</h3><p>Древняя крепость Алеппо.</p></div>
+        </a>
     </div>
 
     <script>
