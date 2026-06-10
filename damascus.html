@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>СИРИЯ - АЛЕППО</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СИРИЯ</title>
     <style>
         body {
             margin: 0;
@@ -11,67 +11,58 @@
             background-color: #000;
             color: #fff;
             font-family: sans-serif;
+            text-align: center;
         }
 
         .top-nav {
             display: flex;
-            justify-content: flex-start;
-            gap: 20px;
+            justify-content: center;
+            gap: 40px;
             padding: 20px;
-            background: #000;
             border-bottom: 1px solid #333;
         }
 
         .top-nav a {
             color: #fff;
             text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 14px;
+            font-weight: bold;
+            font-size: 16px;
         }
 
-        .content-area {
-            text-align: center;
-            padding: 20px;
+        .content {
+            margin-top: 40px;
         }
 
         h1 {
             font-size: 32px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
-        .photo-card {
-            max-width: 400px;
-            margin: 0 auto;
-            background: #111;
-            padding: 10px;
-            border-radius: 12px;
-        }
-
-        .photo-box {
-            width: 100%;
-            aspect-ratio: 4/3;
-            background-color: #444;
+        /* Квадратная область для фото */
+        .photo-container {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 15px auto;
+            overflow: hidden;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 14px;
+            background-color: #333;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .card-title {
             font-size: 24px;
             font-weight: bold;
-            margin-top: 15px;
-            text-transform: uppercase;
+            margin-bottom: 5px;
         }
 
         .card-subtitle {
             font-size: 18px;
             color: #aaa;
-            margin-top: 5px;
         }
     </style>
 </head>
@@ -82,16 +73,16 @@
         <a href="#">СТРАНЫ</a>
     </nav>
 
-    <div class="content-area">
+    <div class="content">
         <h1>СИРИЯ</h1>
         
-        <div class="photo-card">
-            <div class="photo-box">
-                [Фотография СИРИЯ]
-            </div>
-            <div class="card-title">СИРИЯ</div>
-            <div class="card-subtitle">АЛЕППО</div>
+        <div class="photo-container">
+            <!-- Исправленный путь: images/cities/syria.jpg -->
+            <img src="images/cities/aleppo.webp" alt="Фотография Сирии" onerror="this.style.display='none'; this.parentElement.innerHTML='Фото недоступно';">
         </div>
+
+        <div class="card-title">СИРИЯ</div>
+        <div class="card-subtitle">АЛЕППО</div>
     </div>
 
 </body>
