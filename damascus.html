@@ -3,80 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ДАМАСК</title>
+    <title>СИРИЯ</title>
     <style>
-        body { margin: 0; background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        
-        #home-screen { display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .city-btn { padding: 20px 40px; font-size: 24px; cursor: pointer; background: #333; color: #fff; border: 1px solid #555; border-radius: 8px; }
-        
-        #damascus-content { display: none; width: 100%; max-width: 800px; padding: 20px; }
-        
-        .nav-menu { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
-        .nav-btn { background: none; border: 1px solid #444; color: #fff; padding: 10px 20px; cursor: pointer; border-radius: 20px; }
-        .nav-btn:hover { background: #fff; color: #000; }
-        
-        .section { display: none; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-        .section.active { display: grid; }
-        
-        .card { background: #1a1a1a; padding: 15px; border-radius: 12px; }
-        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
-        .name { font-weight: bold; margin-bottom: 5px; }
-        .desc { font-size: 12px; opacity: 0.7; }
+        body { 
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/mir1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            margin-bottom: 50px; 
+            font-size: 14px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+        }
+        .header a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #ffffff; padding-bottom: 4px; }
+
+        .country-title {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .city-card {
+            width: 100%;
+            max-width: 350px;
+            text-decoration: none;
+            color: #ffffff;
+            display: block;
+        }
+
+        .city-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #333;
+        }
+
+        .city-name {
+            font-size: 20px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #ffffff;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Начальный экран -->
-    <div id="home-screen">
-        <button class="city-btn" onclick="showDamascus()">ДАМАСК</button>
+    <div class="header">
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="friends.html">СТРАНЫ</a>
     </div>
 
-    <!-- Основной контент города -->
-    <div id="damascus-content">
-        <h1 style="text-align: center;">ДАМАСК</h1>
-        
-        <div class="nav-menu">
-            <button class="nav-btn" onclick="showSection('eda')">ЕДА</button>
-            <button class="nav-btn" onclick="showSection('krepkoe')">КРЕПКОЕ</button>
-            <button class="nav-btn" onclick="showSection('pivo')">ПИВО</button>
-            <button class="nav-btn" onclick="showSection('napitki')">НАПИТКИ</button>
-            <button class="nav-btn" onclick="showSection('locations')">МЕСТА</button>
-        </div>
+    <div class="country-title">СИРИЯ</div>
 
-        <div id="eda" class="section">
-            <div class="card"><img src="mutabal.webp" alt="МУТАБАЛЬ"><div class="name">МУТАБАЛЬ</div><div class="desc">БАКЛАЖАНОВАЯ ЗАКУСКА</div></div>
-            <div class="card"><img src="falafel.webp" alt="ФАЛАФЕЛЬ"><div class="name">ФАЛАФЕЛЬ</div><div class="desc">ОБЖАРЕННЫЕ ШАРИКИ ИЗ НУТА</div></div>
-        </div>
+    <a href="damascus.html" class="city-card">
+        <div class="city-image" style="background-image: url('images/cities/damascus.webp');"></div>
+        <div class="city-name">ДАМАСК</div>
+    </a>
 
-        <div id="krepkoe" class="section">
-            <div class="card"><img src="arak.webp" alt="АРАК"><div class="name">АРАК</div><div class="desc">АНИСОВАЯ ВОДКА</div></div>
-        </div>
+    <a href="friends.html" class="back-link">← НАЗАД К СТРАНАМ</a>
 
-        <div id="pivo" class="section">
-            <div class="card"><img src="barrada.webp" alt="БАРРАДА"><div class="name">БАРРАДА</div><div class="desc">КЛАССИЧЕСКИЙ ЛАГЕР</div></div>
-        </div>
-
-        <div id="napitki" class="section">
-            <div class="card"><img src="jellab.webp" alt="ДЖЕЛЛАБ"><div class="name">ДЖЕЛЛАБ</div><div class="desc">СИРОП ИЗ ФИНИКОВ</div></div>
-        </div>
-
-        <div id="locations" class="section">
-            <div class="card"><img src="omeyad.webp" alt="МЕЧЕТЬ ОМЕЙЯДОВ"><div class="name">МЕЧЕТЬ ОМЕЙЯДОВ</div><div class="desc">ДРЕВНЯЯ АРХИТЕКТУРА</div></div>
-        </div>
-    </div>
-
-    <script>
-        function showDamascus() {
-            document.getElementById('home-screen').style.display = 'none';
-            document.getElementById('damascus-content').style.display = 'block';
-            showSection('eda'); 
-        }
-
-        function showSection(id) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }
-    </script>
 </body>
 </html>
