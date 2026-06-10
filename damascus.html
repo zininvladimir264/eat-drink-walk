@@ -5,100 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ДАМАСК</title>
     <style>
-        body { 
-            margin: 0; padding: 40px 20px;
-            background: #000; color: #ffffff; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        .nav-header {
-            display: flex; justify-content: center; gap: 30px;
-            margin-bottom: 60px; font-size: 13px;
-            letter-spacing: 2px; text-transform: uppercase;
-        }
-        .nav-header a { color: #ffffff; text-decoration: none; opacity: 0.6; }
-        .nav-header a:hover { opacity: 1; }
-
-        .city-title { font-size: 40px; letter-spacing: 8px; font-weight: 800; margin-bottom: 60px; }
-        .section-title { font-size: 22px; letter-spacing: 4px; margin: 40px 0; color: #555; }
-
-        .grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px; width: 100%; max-width: 1000px; margin-bottom: 60px;
-        }
-
-        .card { width: 100%; }
-        /* Добавляем стили для ссылок, обернутых вокруг картинок */
-        .card a { display: block; cursor: pointer; }
-        .card img {
-            width: 100%; aspect-ratio: 1/1; object-fit: cover;
-            background: #1a1a1a; border-radius: 12px; margin-bottom: 15px;
-            border: 1px solid #333; transition: transform 0.2s ease;
-        }
-        .card img:hover { transform: scale(1.02); }
-        .name { font-size: 16px; letter-spacing: 2px; font-weight: 600; margin-bottom: 5px; }
-        .desc { font-size: 13px; opacity: 0.6; }
-        .back-link { margin-top: 40px; text-decoration: none; color: #fff; opacity: 0.5; font-size: 12px; letter-spacing: 2px; }
+        body { margin: 0; background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        #home-screen { display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .city-btn { padding: 20px 40px; font-size: 24px; cursor: pointer; background: #333; color: #fff; border: 1px solid #555; border-radius: 8px; }
+        
+        #damascus-content { display: none; width: 100%; max-width: 800px; padding: 20px; }
+        
+        .nav-menu { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .nav-btn { background: none; border: 1px solid #444; color: #fff; padding: 10px 20px; cursor: pointer; border-radius: 20px; }
+        .nav-btn:hover { background: #fff; color: #000; }
+        
+        .section { display: none; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .section.active { display: grid; }
+        
+        .card { background: #1a1a1a; padding: 15px; border-radius: 12px; }
+        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+        .name { font-weight: bold; margin-bottom: 5px; }
+        .desc { font-size: 12px; opacity: 0.7; }
     </style>
 </head>
 <body>
 
-    <div class="nav-header">
-        <a href="#eda">ЕДА</a>
-        <a href="#krepkoe">КРЕПКОЕ</a>
-        <a href="#pivo">ПИВО</a>
-        <a href="#napitki">НАПИТКИ</a>
-        <a href="#locations">LOCATIONS</a>
+    <!-- Начальный экран -->
+    <div id="home-screen">
+        <button class="city-btn" onclick="showDamascus()">ДАМАСК</button>
     </div>
 
-    <div class="city-title">ДАМАСК</div>
-
-    <div id="eda" class="section-title">ЕДА</div>
-    <div class="grid">
-        <div class="card"><img src="images/food/mutabal.webp" alt="МУТАБАЛЬ"><div class="name">МУТАБАЛЬ</div><div class="desc">БАКЛАЖАНОВАЯ ЗАКУСКА</div></div>
-        <div class="card"><img src="images/food/falafel.webp" alt="ФАЛАФЕЛЬ"><div class="name">ФАЛАФЕЛЬ</div><div class="desc">ОБЖАРЕННЫЕ ШАРИКИ ИЗ НУТА</div></div>
-        <div class="card"><img src="images/food/kebbe.webp" alt="КЕББЕ"><div class="name">КЕББЕ</div><div class="desc">МЯСНЫЕ КРОКЕТЫ</div></div>
-    </div>
-
-    <div id="krepkoe" class="section-title">КРЕПКОЕ</div>
-    <div class="grid">
-        <div class="card"><img src="images/spirits/arak.webp" alt="АРАК"><div class="name">АРАК</div><div class="desc">АНИСОВАЯ ВОДКА</div></div>
-        <div class="card"><img src="images/spirits/brandy.webp" alt="БРЕНДИ"><div class="name">БРЕНДИ</div><div class="desc">МЕСТНЫЙ ВИНОГРАДНЫЙ ДИСТИЛЛЯТ</div></div>
-        <div class="card"><img src="images/spirits/tutovka.webp" alt="ТУТОВКА"><div class="name">ТУТОВКА</div><div class="desc">ДИСТИЛЛЯТ ИЗ ТУТОВНИКА</div></div>
-    </div>
-
-    <div id="pivo" class="section-title">ПИВО</div>
-    <div class="grid">
-        <div class="card"><img src="images/beer/barrada.webp" alt="БАРРАДА"><div class="name">БАРРАДА</div><div class="desc">КЛАССИЧЕСКИЙ ЛАГЕР</div></div>
-        <div class="card"><img src="images/beer/al-shark.webp" alt="АЛЬ-ШАРК"><div class="name">АЛЬ-ШАРК</div><div class="desc">ЛЕГКИЙ ПИЛСНЕР</div></div>
-        <div class="card"><img src="images/beer/levanin.webp" alt="ЛЕВАНИН"><div class="name">ЛЕВАНИН</div><div class="desc">ФИРМЕННОЕ ПИВО</div></div>
-    </div>
-
-    <div id="napitki" class="section-title">НАПИТКИ</div>
-    <div class="grid">
-        <div class="card"><img src="images/drinks/jellab.webp" alt="ДЖЕЛЛАБ"><div class="name">ДЖЕЛЛАБ</div><div class="desc">СИРОП ИЗ ФИНИКОВ</div></div>
-        <div class="card"><img src="images/drinks/mint-tea.webp" alt="ЧАЙ С МЯТОЙ"><div class="name">ЧАЙ С МЯТОЙ</div><div class="desc">ТРАДИЦИОННЫЙ НАПИТОК</div></div>
-        <div class="card"><img src="images/drinks/ayran.webp" alt="АЙРАН"><div class="name">АЙРАН</div><div class="desc">КИСЛОМОЛОЧНЫЙ НАПИТОК</div></div>
-    </div>
-
-    <div id="locations" class="section-title">LOCATIONS</div>
-    <div class="grid">
-        <div class="card">
-            <a href="images/locations/omeyyad.webp" target="_blank"><img src="images/locations/omeyyad.webp" alt="МЕЧЕТЬ ОМЕЙЯДОВ"></a>
-            <div class="name">МЕЧЕТЬ ОМЕЙЯДОВ</div><div class="desc">ДРЕВНЯЯ АРХИТЕКТУРА</div>
+    <!-- Основной контент города -->
+    <div id="damascus-content">
+        <h1 style="text-align: center;">ДАМАСК</h1>
+        
+        <div class="nav-menu">
+            <button class="nav-btn" onclick="showSection('eda')">ЕДА</button>
+            <button class="nav-btn" onclick="showSection('krepkoe')">КРЕПКОЕ</button>
+            <button class="nav-btn" onclick="showSection('pivo')">ПИВО</button>
+            <button class="nav-btn" onclick="showSection('napitki')">НАПИТКИ</button>
+            <button class="nav-btn" onclick="showSection('locations')">МЕСТА</button>
         </div>
-        <div class="card">
-            <a href="images/locations/old-city.webp" target="_blank"><img src="images/locations/old-city.webp" alt="СТАРЫЙ ГОРОД"></a>
-            <div class="name">СТАРЫЙ ГОРОД</div><div class="desc">УЗКИЕ УЛОЧКИ И КАФЕ</div>
+
+        <div id="eda" class="section">
+            <div class="card"><img src="mutabal.webp" alt="МУТАБАЛЬ"><div class="name">МУТАБАЛЬ</div><div class="desc">БАКЛАЖАНОВАЯ ЗАКУСКА</div></div>
+            <div class="card"><img src="falafel.webp" alt="ФАЛАФЕЛЬ"><div class="name">ФАЛАФЕЛЬ</div><div class="desc">ОБЖАРЕННЫЕ ШАРИКИ ИЗ НУТА</div></div>
         </div>
-        <div class="card">
-            <a href="images/locations/azem-palace.webp" target="_blank"><img src="images/locations/azem-palace.webp" alt="ДВОРЕЦ АЗЕМ"></a>
-            <div class="name">ДВОРЕЦ АЗЕМ</div><div class="desc">ИСТОРИЧЕСКАЯ УСАДЬБА</div>
+
+        <div id="krepkoe" class="section">
+            <div class="card"><img src="arak.webp" alt="АРАК"><div class="name">АРАК</div><div class="desc">АНИСОВАЯ ВОДКА</div></div>
+        </div>
+
+        <div id="pivo" class="section">
+            <div class="card"><img src="barrada.webp" alt="БАРРАДА"><div class="name">БАРРАДА</div><div class="desc">КЛАССИЧЕСКИЙ ЛАГЕР</div></div>
+        </div>
+
+        <div id="napitki" class="section">
+            <div class="card"><img src="jellab.webp" alt="ДЖЕЛЛАБ"><div class="name">ДЖЕЛЛАБ</div><div class="desc">СИРОП ИЗ ФИНИКОВ</div></div>
+        </div>
+
+        <div id="locations" class="section">
+            <div class="card"><img src="omeyad.webp" alt="МЕЧЕТЬ ОМЕЙЯДОВ"><div class="name">МЕЧЕТЬ ОМЕЙЯДОВ</div><div class="desc">ДРЕВНЯЯ АРХИТЕКТУРА</div></div>
         </div>
     </div>
 
-    <a href="syria.html" class="back-link">← НАЗАД К СИРИИ</a>
+    <script>
+        function showDamascus() {
+            document.getElementById('home-screen').style.display = 'none';
+            document.getElementById('damascus-content').style.display = 'block';
+            showSection('eda'); 
+        }
 
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 </body>
 </html>
