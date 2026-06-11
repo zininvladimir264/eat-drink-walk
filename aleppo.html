@@ -2,117 +2,73 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>АЛЕППО - Ем ПЬЮ ХОЖУ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АЛЕППО - ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; }
-        .breadcrumb { text-align: center; padding: 20px; font-weight: bold; border-bottom: 1px solid #333; }
-        .category-nav { display: flex; justify-content: center; gap: 10px; padding: 15px; overflow-x: auto; }
-        .tab-btn { background: #222; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
-        .tab-btn.active { background: #fff; color: #000; }
-        .grid-container { display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
-        .grid-container.active { display: grid; }
-        .item-card { background: #1a1a1a; padding: 15px; border-radius: 15px; }
-        .item-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
-        .item-info h3 { margin: 10px 0; color: #ffcc00; }
-        .item-info p { font-size: 14px; color: #ccc; margin: 0; }
+        body { margin: 0; background-color: #0f0f0f; color: #fff; font-family: 'Segoe UI', sans-serif; }
+        .header { text-align: center; padding: 40px; border-bottom: 2px solid #d4af37; }
+        .nav-menu { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
+        .nav-btn { background: #222; color: #ddd; border: 1px solid #444; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .nav-btn.active { background: #d4af37; color: #000; border-color: #d4af37; }
+        .section { display: none; padding: 40px 20px; max-width: 1200px; margin: auto; }
+        .section.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; }
+        .card a { display: block; overflow: hidden; border-radius: 4px; margin-bottom: 10px; }
+        .card img { width: 100%; height: 200px; object-fit: cover; background: #333; transition: transform 0.3s ease; }
+        .card img:hover { transform: scale(1.05); }
+        .card h3 { color: #d4af37; margin-top: 0; }
+        .file-name { font-size: 0.7em; color: #666; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-    <div class="breadcrumb" id="breadcrumb">ЕДА</div>
+<div class="header"><h1>АЛЕППО - ЕМ ПЬЮ ХОЖУ</h1></div>
 
-    <nav class="category-nav">
-        <button class="tab-btn active" data-target="food" onclick="show('food', 'ЕДА')">ЕДА</button>
-        <button class="tab-btn" data-target="strong" onclick="show('strong', 'КРЕПКОЕ')">КРЕПКОЕ</button>
-        <button class="tab-btn" data-target="beer" onclick="show('beer', 'ПИВО')">ПИВО</button>
-        <button class="tab-btn" data-target="drinks" onclick="show('drinks', 'НАПИТКИ')">НАПИТКИ</button>
-        <button class="tab-btn" data-target="places" onclick="show('places', 'МЕСТА')">МЕСТА</button>
-    </nav>
+<div class="nav-menu">
+    <button class="nav-btn active" onclick="showSection('food', this)">Еда</button>
+    <button class="nav-btn" onclick="showSection('spirit', this)">Крепкая</button>
+    <button class="nav-btn" onclick="showSection('beer', this)">Пиво</button>
+    <button class="nav-btn" onclick="showSection('drinks', this)">Напитки</button>
+    <button class="nav-btn" onclick="showSection('location', this)">Места</button>
+</div>
 
-    <div id="food" class="grid-container active">
-        <div class="item-card">
-            <img src="images/Food/muhammara.webp" alt="Мухаммара" onerror="this.src='https://via.placeholder.com/300x200?text=Мухаммара'">
-            <div class="item-info"><h3>Мухаммара</h3><p>Острая закуска.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Food/kibbeh.webp" alt="Киббех" onerror="this.src='https://via.placeholder.com/300x200?text=Киббех'">
-            <div class="item-info"><h3>Киббех</h3><p>Мясное лакомство.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Food/fatteh.webp" alt="Фатте" onerror="this.src='https://via.placeholder.com/300x200?text=Фатте'">
-            <div class="item-info"><h3>Фатте</h3><p>Нежный нут.</p></div>
-        </div>
-    </div>
+<div id="food" class="section active">
+    <div class="card"><a href="#"><img src="images/food/muhammara_food.webp" alt="Мухаммара"></a><h3>Мухаммара</h3><p>Орехово-перечная паста.</p></div>
+    <div class="card"><a href="#"><img src="images/food/kibbeh_dish.webp" alt="Киббех"></a><h3>Киббех</h3><p>Котлеты из булгура и мяса.</p></div>
+    <div class="card"><a href="#"><img src="images/food/fattoush_salad.webp" alt="Фатуш"></a><h3>Фатуш</h3><p>Салат с поджаренным хлебом.</p></div>
+</div>
 
-    <div id="strong" class="grid-container">
-        <div class="item-card">
-            <img src="images/Strong/arak.webp" alt="Арак" onerror="this.src='https://via.placeholder.com/300x200?text=Арак'">
-            <div class="item-info"><h3>Арак</h3><p>Анисовая водка.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Strong/tutovka.webp" alt="Тутовая водка" onerror="this.src='https://via.placeholder.com/300x200?text=Тутовая водка'">
-            <div class="item-info"><h3>Тутовая водка</h3><p>Ягодный дистиллят.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Strong/brandy.webp" alt="Коньяк местный" onerror="this.src='https://via.placeholder.com/300x200?text=Коньяк местный'">
-            <div class="item-info"><h3>Коньяк местный</h3><p>Выдержанный спирт.</p></div>
-        </div>
-    </div>
+<div id="spirit" class="section">
+    <div class="card"><a href="#"><img src="images/spirit/arak_spirit.webp" alt="Арак"></a><h3>Арак</h3><p>Анисовая водка.</p></div>
+    <div class="card"><a href="#"><img src="images/spirit/tutovka_spirit.webp" alt="Тутовка"></a><h3>Тутовка</h3><p>Дистиллят из тута.</p></div>
+    <div class="card"><a href="#"><img src="images/spirit/mastika_spirit.webp" alt="Мастика"></a><h3>Мастика</h3><p>Ликер с добавлением мастики.</p></div>
+</div>
 
-    <div id="beer" class="grid-container">
-        <div class="item-card">
-            <img src="images/Beer/barda.webp" alt="Барда" onerror="this.src='https://via.placeholder.com/300x200?text=Барда'">
-            <div class="item-info"><h3>Барда</h3><p>Светлый лагер.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Beer/afra.webp" alt="Афра" onerror="this.src='https://via.placeholder.com/300x200?text=Афра'">
-            <div class="item-info"><h3>Афра</h3><p>Легкое пиво.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Beer/aleppo_gold.webp" alt="Золотой Алеппо" onerror="this.src='https://via.placeholder.com/300x200?text=Золотой Алеппо'">
-            <div class="item-info"><h3>Золотой Алеппо</h3><p>Хмелевой напиток.</p></div>
-        </div>
-    </div>
+<div id="beer" class="section">
+    <div class="card"><a href="#"><img src="images/beer/barda_beer.webp" alt="Барда"></a><h3>Барда</h3><p>Светлое пиво.</p></div>
+    <div class="card"><a href="#"><img src="images/beer/afra_beer.webp" alt="Афра"></a><h3>Афра</h3><p>Карамельное пиво.</p></div>
+    <div class="card"><a href="#"><img src="images/beer/sham_beer.webp" alt="Шам"></a><h3>Шам</h3><p>Традиционное лагерное пиво.</p></div>
+</div>
 
-    <div id="drinks" class="grid-container">
-        <div class="item-card">
-            <img src="images/Drinks/jellab.webp" alt="Джеллаб" onerror="this.src='https://via.placeholder.com/300x200?text=Джеллаб'">
-            <div class="item-info"><h3>Джеллаб</h3><p>Финиковый напиток.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Drinks/ayran.webp" alt="Айран" onerror="this.src='https://via.placeholder.com/300x200?text=Айран'">
-            <div class="item-info"><h3>Айран</h3><p>Соленый йогурт.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Drinks/coffee.webp" alt="Кофе по-алеппски" onerror="this.src='https://via.placeholder.com/300x200?text=Кофе по-алеппски'">
-            <div class="item-info"><h3>Кофе по-алеппски</h3><p>Крепкий кардамон.</p></div>
-        </div>
-    </div>
+<div id="drinks" class="section">
+    <div class="card"><a href="#"><img src="images/drinks/arabic_coffee.webp" alt="Арабский кофе"></a><h3>Арабский кофе</h3><p>Кофе с кардамоном.</p></div>
+    <div class="card"><a href="#"><img src="images/drinks/white_coffee.webp" alt="Белый кофе"></a><h3>Белый кофе</h3><p>Напиток с розовой водой.</p></div>
+    <div class="card"><a href="#"><img src="images/drinks/jallab_drink.webp" alt="Джеллаб"></a><h3>Джеллаб</h3><p>Сироп из фиников и винограда.</p></div>
+</div>
 
-    <div id="places" class="grid-container">
-        <div class="item-card">
-            <img src="images/Places/citadel_cafe.webp" alt="Кафе у Цитадели" onerror="this.src='https://via.placeholder.com/300x200?text=Кафе у Цитадели'">
-            <div class="item-info"><h3>Кафе у Цитадели</h3><p>Видовое место.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Places/souq_tea.webp" alt="Чайная на рынке" onerror="this.src='https://via.placeholder.com/300x200?text=Чайная на рынке'">
-            <div class="item-info"><h3>Чайная на рынке</h3><p>Традиционный чай.</p></div>
-        </div>
-        <div class="item-card">
-            <img src="images/Places/garden_rest.webp" alt="Садовый ресторан" onerror="this.src='https://via.placeholder.com/300x200?text=Садовый ресторан'">
-            <div class="item-info"><h3>Садовый ресторан</h3><p>Зеленый дворик.</p></div>
-        </div>
-    </div>
+<div id="location" class="section">
+    <div class="card"><a href="#"><img src="images/location/old_city_location.webp" alt="Старый город"></a><h3>Старый город</h3><p>Исторический центр города.</p></div>
+    <div class="card"><a href="#"><img src="images/location/aleppo_citadel_location.webp" alt="Цитадель"></a><h3>Цитадель</h3><p>Древняя крепость Алеппо.</p></div>
+    <div class="card"><a href="#"><img src="images/location/souq_al_madina_location.webp" alt="Сук Аль-Мадина"></a><h3>Сук Аль-Мадина</h3><p>Крытый исторический рынок.</p></div>
+</div>
 
-    <script>
-        function show(id, name) {
-            document.querySelectorAll('.grid-container').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            document.getElementById('breadcrumb').innerText = name;
-            event.currentTarget.classList.add('active');
-        }
-    </script>
+<script>
+    function showSection(id, btn) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        btn.classList.add('active');
+    }
+</script>
 </body>
 </html>
