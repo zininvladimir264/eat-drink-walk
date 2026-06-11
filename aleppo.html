@@ -2,38 +2,88 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>АЛЕППО - ЕМ ПЬЮ ХОЖУ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сирия - Алеппо</title>
     <style>
         body { margin: 0; background-color: #0f0f0f; color: #fff; font-family: sans-serif; }
-        .header { text-align: center; padding: 20px; border-bottom: 2px solid #d4af37; }
-        .nav-menu { display: flex; justify-content: center; gap: 20px; padding: 20px; }
-        .nav-btn { background: none; border: none; color: #fff; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .nav-btn.active { border-bottom: 2px solid #d4af37; }
-        .section { display: none; padding: 40px; }
-        .section.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .card { background: #1a1a1a; padding: 15px; }
-        .card-img { width: 100%; height: 200px; object-fit: cover; }
+        
+        /* Главная страница Сирия */
+        #syria-page { padding: 40px; text-align: center; }
+        .aleppo-photo { max-width: 800px; width: 100%; border-radius: 15px; cursor: pointer; transition: transform 0.3s; }
+        .aleppo-photo:hover { transform: scale(1.02); }
+        
+        /* Меню (скрыто до клика) */
+        #menu-container { display: none; }
+        .header { text-align: center; padding: 40px; border-bottom: 2px solid #d4af37; }
+        .nav-menu { display: flex; justify-content: center; gap: 10px; padding: 20px; flex-wrap: wrap; }
+        .nav-btn { background: #222; color: #ddd; border: 1px solid #444; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .nav-btn.active { background: #d4af37; color: #000; border-color: #d4af37; }
+        .section { display: none; padding: 40px 20px; max-width: 1200px; margin: auto; }
+        .section.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; }
+        .card-img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; background: #333; margin-bottom: 15px; display: block; }
+        .card h3 { color: #d4af37; margin: 0 0 10px 0; }
+        .card p { color: #bbb; margin: 0; font-size: 1.1em; }
     </style>
 </head>
 <body>
 
-<div class="header"><h1>АЛЕППО</h1></div>
-
-<div class="nav-menu">
-    <button class="nav-btn active" onclick="showSection('food', this)">Еда</button>
-    <button class="nav-btn" onclick="showSection('spirit', this)">Крепкое</button>
-    <button class="nav-btn" onclick="showSection('beer', this)">Пиво</button>
-    <button class="nav-btn" onclick="showSection('drinks', this)">Напитки</button>
-    <button class="nav-btn" onclick="showSection('location', this)">Места</button>
+<!-- Страница Сирия -->
+<div id="syria-page">
+    <h1>Сирия</h1>
+    <p>Нажмите на фото, чтобы увидеть меню Алеппо</p>
+    <!-- Здесь ваш файл изображения Алеппо -->
+    <img src="images/syria/aleppo_city.jpg" alt="Алеппо" class="aleppo-photo" onclick="openMenu()">
 </div>
 
-<div id="food" class="section active">
-    <div class="card"><img class="card-img" src="images/food/muhammara.webp"><h3>Мухаммара</h3><p>Пикантная закуска</p></div>
-    <div class="card"><img class="card-img" src="images/food/kibbeh.webp"><h3>Киббех</h3><p>Мясное блюдо</p></div>
-    <div class="card"><img class="card-img" src="images/food/fattoush.webp"><h3>Фаттуш</h3><p>Свежий салат</p></div>
+<!-- Контейнер меню (появится после нажатия) -->
+<div id="menu-container">
+    <div class="header"><h1>АЛЕППО - ЕМ ПЬЮ ХОЖУ</h1></div>
+    <div class="nav-menu">
+        <button class="nav-btn active" onclick="showSection('food', this)">Еда</button>
+        <button class="nav-btn" onclick="showSection('spirit', this)">Крепкое</button>
+        <button class="nav-btn" onclick="showSection('beer', this)">Пиво</button>
+        <button class="nav-btn" onclick="showSection('drinks', this)">Напитки</button>
+        <button class="nav-btn" onclick="showSection('location', this)">Места</button>
+    </div>
+
+    <div id="food" class="section active">
+        <div class="card"><img class="card-img" src="images/food/muhammara.webp" alt="Мухаммара"><h3>Мухаммара</h3><p>Острая закуска</p></div>
+        <div class="card"><img class="card-img" src="images/food/kibbeh.webp" alt="Киббех"><h3>Киббех</h3><p>Мясное блюдо</p></div>
+        <div class="card"><img class="card-img" src="images/food/fattoush.webp" alt="Фаттуш"><h3>Фаттуш</h3><p>Свежий салат</p></div>
+    </div>
+
+    <div id="spirit" class="section">
+        <div class="card"><img class="card-img" src="images/spirit/arak.webp" alt="Арак"><h3>Арак</h3><p>Анисовая водка</p></div>
+        <div class="card"><img class="card-img" src="images/spirit/tutovka.webp" alt="Тутовка"><h3>Тутовка</h3><p>Шелковичный дистиллят</p></div>
+        <div class="card"><img class="card-img" src="images/spirit/brandy.webp" alt="Бренди"><h3>Бренди</h3><p>Крепкий алкоголь</p></div>
+    </div>
+
+    <div id="beer" class="section">
+        <div class="card"><img class="card-img" src="images/beer/barda.webp" alt="Барда"><h3>Барда</h3><p>Светлое пиво</p></div>
+        <div class="card"><img class="card-img" src="images/beer/afra.webp" alt="Афра"><h3>Афра</h3><p>Плотный лагер</p></div>
+        <div class="card"><img class="card-img" src="images/beer/almaza.webp" alt="Алмаза"><h3>Алмаза</h3><p>Ливанское пиво</p></div>
+    </div>
+
+    <div id="drinks" class="section">
+        <div class="card"><img class="card-img" src="images/drinks/coffee.webp" alt="Кофе"><h3>Арабский кофе</h3><p>Бодрящий напиток</p></div>
+        <div class="card"><img class="card-img" src="images/drinks/jellab.webp" alt="Джеллаб"><h3>Джеллаб</h3><p>Финиковый сироп</p></div>
+        <div class="card"><img class="card-img" src="images/drinks/ayran.webp" alt="Айран"><h3>Айран</h3><p>Кисломолочный напиток</p></div>
+    </div>
+
+    <div id="location" class="section">
+        <div class="card"><img class="card-img" src="images/location/citadel.webp" alt="Цитадель"><h3>Цитадель</h3><p>Древняя крепость</p></div>
+        <div class="card"><img class="card-img" src="images/location/souq.webp" alt="Сук"><h3>Сук Аль-Мадина</h3><p>Старый рынок</p></div>
+        <div class="card"><img class="card-img" src="images/location/baron.webp" alt="Отель"><h3>Отель Барон</h3><p>Легендарный отель</p></div>
+    </div>
 </div>
 
 <script>
+    function openMenu() {
+        document.getElementById('syria-page').style.display = 'none';
+        document.getElementById('menu-container').style.display = 'block';
+    }
+
     function showSection(id, btn) {
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
