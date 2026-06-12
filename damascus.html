@@ -5,58 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        body { margin: 0; background-color: #0f0f0f; color: #fff; font-family: sans-serif; }
-        
-        /* Экран города */
-        #city-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; }
-        .city-name { font-size: 2rem; margin-top: 20px; font-weight: bold; }
-        .city-photo { width: 300px; height: 300px; border-radius: 20px; cursor: pointer; object-fit: cover; transition: 0.3s; }
-        .city-photo:hover { opacity: 0.9; }
-        .back-link { margin-top: 20px; color: #666; cursor: pointer; text-decoration: underline; }
-
-        /* Контейнер меню */
-        #menu-container { display: none; }
-        .header-nav { display: flex; justify-content: center; gap: 30px; padding: 30px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #333; }
-        .main-title { text-align: center; font-size: 3rem; margin: 40px 0; }
-        .section { display: none; padding: 0 20px; max-width: 1000px; margin: auto; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .section.active { display: grid; }
-        .card-img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; background: #222; }
-        .card-title { font-size: 1.5rem; margin-top: 10px; font-weight: bold; }
-        .card-desc { color: #888; font-size: 0.9rem; margin-top: 5px; }
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; }
+        .page { display: none; width: 100%; max-width: 600px; text-align: center; }
+        .active { display: block; }
+        .title { font-size: 28px; margin-bottom: 20px; font-weight: bold; }
+        .btn-back { display: block; margin: 10px auto; padding: 8px 16px; background: #444; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .item { padding: 15px; background: #222; margin: 10px 0; border-radius: 8px; cursor: pointer; font-size: 18px; }
+        .city-img { width: 100%; max-width: 400px; border-radius: 12px; cursor: pointer; margin: 20px 0; }
     </style>
 </head>
 <body>
 
-<!-- Экран выбора города Алеппо -->
-<div id="city-screen">
-    <img src="2b858dca-fd46-49f6-87f8-b740e84b9e39" alt="Алеппо" class="city-photo" onclick="openMenu()">
-    <div class="city-name">АЛЕППО</div>
-    <div class="back-link" onclick="window.location='index.html'">← НАЗАД К СТРАНАМ</div>
-</div>
-
-<!-- Контейнер меню (скрыт до клика) -->
-<div id="menu-container">
-    <nav class="header-nav">
-        <span style="border-bottom: 2px solid white;">ЕДА</span>
-        <span>КРЕПКОЕ</span>
-        <span>ПИВО</span>
-        <span>НАПИТКИ</span>
-        <span>МЕСТА</span>
-    </nav>
-    <h1 class="main-title">АЛЕППО</h1>
-
-    <div id="food" class="section active">
-        <div><img class="card-img" src="images/food/aleppo-kebab.webp"><div class="card-title">АЛЕППО КЕБАБ</div><div class="card-desc">ТРАДИЦИОННОЕ БЛЮДО.</div></div>
-        <div><img class="card-img" src="images/food/muhammara.webp"><div class="card-title">МУХАММАРА</div><div class="card-desc">ОСТРАЯ ЗАКУСКА.</div></div>
-        <div><img class="card-img" src="images/food/kibbeh.webp"><div class="card-title">КИББЕХ</div><div class="card-desc">МЯСНОЕ БЛЮДО.</div></div>
+    <!-- 1. Страны -->
+    <div id="page-countries" class="page active">
+        <div class="title">СТРАНЫ</div>
+        <div class="item" onclick="showPage('page-syria')">СИРИЯ</div>
     </div>
-</div>
 
-<script>
-    function openMenu() {
-        document.getElementById('city-screen').style.display = 'none';
-        document.getElementById('menu-container').style.display = 'block';
-    }
-</script>
+    <!-- 2. Сирия -->
+    <div id="page-syria" class="page">
+        <button class="btn-back" onclick="showPage('page-countries')">Назад к странам</button>
+        <div class="title">СИРИЯ</div>
+        <img src="https://images.unsplash.com/photo-1601633532709-644917a264a7?q=80&w=600" 
+             alt="Алеппо" class="city-img" onclick="showPage('page-aleppo')">
+    </div>
+
+    <!-- 3. Алеппо -->
+    <div id="page-aleppo" class="page">
+        <button class="btn-back" onclick="showPage('page-syria')">Назад к Сирии</button>
+        <div class="title">Алеппо</div>
+        <div style="margin-top: 50px;">
+            <p>Добро пожаловать в Алеппо</p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
