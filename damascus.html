@@ -7,14 +7,14 @@
     <style>
         body { margin: 0; background-color: #0f0f0f; color: #fff; font-family: sans-serif; }
         
-        /* Начальный экран (Сеул/Алеппо) */
+        /* Экран города */
         #city-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; }
         .city-name { font-size: 2rem; margin-top: 20px; font-weight: bold; }
         .city-photo { width: 300px; height: 300px; border-radius: 20px; cursor: pointer; object-fit: cover; transition: 0.3s; }
         .city-photo:hover { opacity: 0.9; }
-        .back-link { margin-top: 20px; color: #666; cursor: pointer; }
+        .back-link { margin-top: 20px; color: #666; cursor: pointer; text-decoration: underline; }
 
-        /* Меню (изначально скрыто) */
+        /* Контейнер меню */
         #menu-container { display: none; }
         .header-nav { display: flex; justify-content: center; gap: 30px; padding: 30px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #333; }
         .main-title { text-align: center; font-size: 3rem; margin: 40px 0; }
@@ -27,14 +27,14 @@
 </head>
 <body>
 
-<!-- Экран выбора города -->
+<!-- Экран выбора города Дамаск -->
 <div id="city-screen">
-    <img src="2b858dca-fd46-49f6-87f8-b740e84b9e39" alt="Алеппо" class="city-photo" onclick="openMenu()">
-    <div class="city-name">АЛЕППО</div>
-    <div class="back-link">← НАЗАД К СТРАНАМ</div>
+    <img src="2b858dca-fd46-49f6-87f8-b740e84b9e39" alt="Дамаск" class="city-photo" onclick="openMenu()">
+    <div class="city-name">ДАМАСК</div>
+    <div class="back-link" onclick="window.location='index.html'">← НАЗАД К СТРАНАМ</div>
 </div>
 
-<!-- Контейнер меню -->
+<!-- Контейнер меню (скрыт до клика) -->
 <div id="menu-container">
     <nav class="header-nav">
         <span style="border-bottom: 2px solid white;">ЕДА</span>
@@ -43,12 +43,12 @@
         <span>НАПИТКИ</span>
         <span>МЕСТА</span>
     </nav>
-    <h1 class="main-title">АЛЕППО</h1>
+    <h1 class="main-title">ДАМАСК</h1>
 
     <div id="food" class="section active">
-        <div><img class="card-img" src="images/food/muhammara.webp"><div class="card-title">МУХАММАРА</div><div class="card-desc">ОСТРАЯ ЗАКУСКА.</div></div>
-        <div><img class="card-img" src="images/food/kibbeh.webp"><div class="card-title">КИББЕХ</div><div class="card-desc">МЯСНОЕ БЛЮДО.</div></div>
-        <div><img class="card-img" src="images/food/fattoush.webp"><div class="card-title">ФАТТУШ</div><div class="card-desc">СВЕЖИЙ САЛАТ.</div></div>
+        <div><img class="card-img" src="images/food/fatteh.webp"><div class="card-title">ФАТТЕХ</div><div class="card-desc">НУТОВЫЙ ЗАВТРАК.</div></div>
+        <div><img class="card-img" src="images/food/shish-tawook.webp"><div class="card-title">ШИШ-ТАУК</div><div class="card-desc">КУРИНЫЙ ШАШЛЫК.</div></div>
+        <div><img class="card-img" src="images/food/tabbouleh.webp"><div class="card-title">ТАБУЛЕ</div><div class="card-desc">ЗЕЛЕНЫЙ САЛАТ.</div></div>
     </div>
 </div>
 
