@@ -3,52 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЕМ ПЬЮ ХОЖУ</title>
+    <title>Путеводитель</title>
     <style>
-        body { margin: 0; background-color: #f4f4f4; color: #333; font-family: sans-serif; padding: 20px; }
-        .page { display: none; max-width: 600px; margin: 0 auto; text-align: center; }
+        body { margin: 0; padding: 0; background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; color: #333; }
+        .page { display: none; padding: 20px; }
         .active { display: block; }
         
-        /* Кнопки навигации сверху */
-        .header-nav { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
-        .nav-btn { padding: 10px 20px; background: #ddd; border: none; border-radius: 5px; cursor: pointer; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid #ddd; margin-bottom: 20px; }
+        .header span { font-weight: bold; color: #555; }
         
-        .title { font-size: 24px; font-weight: bold; margin: 20px 0; }
+        .country-link { display: block; background: #fff; padding: 15px; margin-bottom: 10px; border-radius: 8px; text-decoration: none; color: #333; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-weight: 500; cursor: pointer; }
         
-        /* Квадратная карточка */
-        .card { width: 200px; height: 200px; background: #ccc; margin: 0 auto 20px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .content-title { font-size: 24px; font-weight: bold; margin: 20px 0; text-align: center; }
+        .card { width: 100%; max-width: 300px; aspect-ratio: 1/1; background: #eee; margin: 0 auto 15px; border-radius: 15px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .card img { width: 100%; height: 100%; object-fit: cover; }
+        .city-label { text-align: center; font-size: 18px; font-weight: 600; margin-bottom: 30px; }
         
-        .city-name { font-size: 20px; font-weight: bold; margin-bottom: 20px; }
-        .btn-back { padding: 10px 20px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        
-        .item-list { padding: 15px; background: #fff; margin: 10px 0; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .back-btn { display: block; width: 100%; max-width: 300px; margin: 0 auto; padding: 12px; background: #333; color: #fff; border: none; border-radius: 8px; cursor: pointer; text-align: center; }
     </style>
 </head>
 <body>
 
-    <!-- Страница СТРАНЫ -->
-    <div id="page-countries" class="page active">
-        <div class="title">СТРАНЫ</div>
-        <div class="item-list" onclick="showPage('page-syria')">СИРИЯ</div>
+    <!-- Главная страница -->
+    <div id="page-main" class="page active">
+        <div class="header">
+            <span>Главная</span>
+            <span>Страны</span>
+        </div>
+        <div class="country-link" onclick="showPage('page-syria')">Siri</div>
     </div>
 
-    <!-- Страница СИРИЯ -->
+    <!-- Страница Сирия -->
     <div id="page-syria" class="page">
-        <div class="header-nav">
-            <button class="nav-btn" onclick="showPage('page-countries')">Главная</button>
-            <button class="nav-btn" onclick="showPage('page-countries')">Страны</button>
+        <div class="header">
+            <span>Главная</span>
+            <span>Страны</span>
         </div>
-        
-        <div class="title">СИРИЯ</div>
-        
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1601633532709-644917a264a7?q=80&w=400" alt="Алеппо">
-        </div>
-        
-        <div class="city-name">Алеппо</div>
-        
-        <button class="btn-back" onclick="showPage('page-countries')">Назад к странам</button>
+        <div class="content-title">Сирия</div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1601633532709-644917a264a7?q=80&w=400" alt="Алеппо"></div>
+        <div class="city-label">Алеппо</div>
+        <button class="back-btn" onclick="showPage('page-main')">Назад к странам</button>
     </div>
 
     <script>
