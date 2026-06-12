@@ -5,38 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; }
-        .page { display: none; width: 100%; max-width: 600px; text-align: center; }
+        body { margin: 0; background-color: #f4f4f4; color: #333; font-family: sans-serif; padding: 20px; }
+        .page { display: none; max-width: 600px; margin: 0 auto; text-align: center; }
         .active { display: block; }
-        .title { font-size: 28px; margin-bottom: 20px; font-weight: bold; }
-        .btn-back { display: block; margin: 10px auto; padding: 8px 16px; background: #444; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        .item { padding: 15px; background: #222; margin: 10px 0; border-radius: 8px; cursor: pointer; font-size: 18px; }
-        .city-img { width: 100%; max-width: 400px; border-radius: 12px; cursor: pointer; margin: 20px 0; }
+        
+        /* Кнопки навигации сверху */
+        .header-nav { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
+        .nav-btn { padding: 10px 20px; background: #ddd; border: none; border-radius: 5px; cursor: pointer; }
+        
+        .title { font-size: 24px; font-weight: bold; margin: 20px 0; }
+        
+        /* Квадратная карточка */
+        .card { width: 200px; height: 200px; background: #ccc; margin: 0 auto 20px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .city-name { font-size: 20px; font-weight: bold; margin-bottom: 20px; }
+        .btn-back { padding: 10px 20px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        
+        .item-list { padding: 15px; background: #fff; margin: 10px 0; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
-    <!-- 1. Страны -->
+    <!-- Страница СТРАНЫ -->
     <div id="page-countries" class="page active">
         <div class="title">СТРАНЫ</div>
-        <div class="item" onclick="showPage('page-syria')">СИРИЯ</div>
+        <div class="item-list" onclick="showPage('page-syria')">СИРИЯ</div>
     </div>
 
-    <!-- 2. Сирия -->
+    <!-- Страница СИРИЯ -->
     <div id="page-syria" class="page">
-        <button class="btn-back" onclick="showPage('page-countries')">Назад к странам</button>
-        <div class="title">СИРИЯ</div>
-        <img src="https://images.unsplash.com/photo-1601633532709-644917a264a7?q=80&w=600" 
-             alt="Алеппо" class="city-img" onclick="showPage('page-aleppo')">
-    </div>
-
-    <!-- 3. Алеппо -->
-    <div id="page-aleppo" class="page">
-        <button class="btn-back" onclick="showPage('page-syria')">Назад к Сирии</button>
-        <div class="title">Алеппо</div>
-        <div style="margin-top: 50px;">
-            <p>Добро пожаловать в Алеппо</p>
+        <div class="header-nav">
+            <button class="nav-btn" onclick="showPage('page-countries')">Главная</button>
+            <button class="nav-btn" onclick="showPage('page-countries')">Страны</button>
         </div>
+        
+        <div class="title">СИРИЯ</div>
+        
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1601633532709-644917a264a7?q=80&w=400" alt="Алеппо">
+        </div>
+        
+        <div class="city-name">Алеппо</div>
+        
+        <button class="btn-back" onclick="showPage('page-countries')">Назад к странам</button>
     </div>
 
     <script>
