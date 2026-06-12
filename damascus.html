@@ -3,117 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дамаск и Алеппо</title>
+    <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        body { 
-            margin: 0; 
-            background-color: #121212; 
-            color: #ffffff; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            min-height: 100vh;
-        }
+        body { margin: 0; background-color: #0f0f0f; color: #fff; font-family: sans-serif; }
+        
+        /* Начальный экран (Сеул/Алеппо) */
+        #city-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; }
+        .city-name { font-size: 2rem; margin-top: 20px; font-weight: bold; }
+        .city-photo { width: 300px; height: 300px; border-radius: 20px; cursor: pointer; object-fit: cover; transition: 0.3s; }
+        .city-photo:hover { opacity: 0.9; }
+        .back-link { margin-top: 20px; color: #666; cursor: pointer; }
 
-        /* Стиль для начального экрана с фото */
-        #start-screen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            cursor: pointer;
-        }
-        
-        .aleppo-img {
-            max-width: 90%;
-            max-height: 70vh;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-        
-        .aleppo-img:hover { transform: scale(1.03); }
-
-        /* Стиль для основного меню */
-        #menu-app {
-            display: none;
-            width: 100%;
-            padding: 20px;
-            max-width: 800px;
-        }
-
-        .header { text-align: center; padding: 20px 0; border-bottom: 2px solid #d4af37; }
-        .nav-menu { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
-        .nav-btn { 
-            background: #2a2a2a; color: #fff; border: 1px solid #444; 
-            padding: 10px 15px; cursor: pointer; border-radius: 5px; 
-        }
-        .nav-btn.active { background: #d4af37; color: #000; font-weight: bold; }
-        
-        .section { display: none; margin-top: 20px; }
-        .section.active { display: block; }
-        
-        .card { 
-            background: #1e1e1e; padding: 15px; margin-bottom: 10px; 
-            border-radius: 8px; border-left: 4px solid #d4af37; 
-        }
+        /* Меню (изначально скрыто) */
+        #menu-container { display: none; }
+        .header-nav { display: flex; justify-content: center; gap: 30px; padding: 30px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #333; }
+        .main-title { text-align: center; font-size: 3rem; margin: 40px 0; }
+        .section { display: none; padding: 0 20px; max-width: 1000px; margin: auto; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .section.active { display: grid; }
+        .card-img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; background: #222; }
+        .card-title { font-size: 1.5rem; margin-top: 10px; font-weight: bold; }
+        .card-desc { color: #888; font-size: 0.9rem; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-    <!-- Начальный экран с фото Алеппо -->
-    <div id="start-screen" onclick="showMenu()">
-        <h1>Нажмите на фото</h1>
-        <img src="2b858dca-fd46-49f6-87f8-b740e84b9e39" alt="Фото Алеппо" class="aleppo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <div style="display:none; padding: 50px; background: #333; border-radius: 20px;">Фотография Алеппо</div>
+<!-- Экран выбора города -->
+<div id="city-screen">
+    <img src="2b858dca-fd46-49f6-87f8-b740e84b9e39" alt="Алеппо" class="city-photo" onclick="openMenu()">
+    <div class="city-name">АЛЕППО</div>
+    <div class="back-link">← НАЗАД К СТРАНАМ</div>
+</div>
+
+<!-- Контейнер меню -->
+<div id="menu-container">
+    <nav class="header-nav">
+        <span style="border-bottom: 2px solid white;">ЕДА</span>
+        <span>КРЕПКОЕ</span>
+        <span>ПИВО</span>
+        <span>НАПИТКИ</span>
+        <span>МЕСТА</span>
+    </nav>
+    <h1 class="main-title">АЛЕППО</h1>
+
+    <div id="food" class="section active">
+        <div><img class="card-img" src="images/food/muhammara.webp"><div class="card-title">МУХАММАРА</div><div class="card-desc">ОСТРАЯ ЗАКУСКА.</div></div>
+        <div><img class="card-img" src="images/food/kibbeh.webp"><div class="card-title">КИББЕХ</div><div class="card-desc">МЯСНОЕ БЛЮДО.</div></div>
+        <div><img class="card-img" src="images/food/fattoush.webp"><div class="card-title">ФАТТУШ</div><div class="card-desc">СВЕЖИЙ САЛАТ.</div></div>
     </div>
+</div>
 
-    <!-- Основное меню -->
-    <div id="menu-app">
-        <div class="header"><h1>АЛЕППО - ЕМ ПЬЮ ХОЖУ</h1></div>
-        
-        <div class="nav-menu">
-            <button class="nav-btn active" onclick="selectSection('food', this)">Еда</button>
-            <button class="nav-btn" onclick="selectSection('spirit', this)">Крепкое</button>
-            <button class="nav-btn" onclick="selectSection('beer', this)">Пиво</button>
-            <button class="nav-btn" onclick="selectSection('drinks', this)">Напитки</button>
-        </div>
-
-        <div id="food" class="section active">
-            <div class="card"><h3>Мухаммара</h3></div>
-            <div class="card"><h3>Киббех</h3></div>
-        </div>
-
-        <div id="spirit" class="section">
-            <div class="card"><h3>Арак</h3></div>
-            <div class="card"><h3>Тутовка</h3></div>
-        </div>
-
-        <div id="beer" class="section">
-            <div class="card"><h3>Барда</h3></div>
-            <div class="card"><h3>Афра</h3></div>
-        </div>
-
-        <div id="drinks" class="section">
-            <div class="card"><h3>Арабский кофе</h3></div>
-            <div class="card"><h3>Джеллаб</h3></div>
-        </div>
-    </div>
-
-    <script>
-        function showMenu() {
-            document.getElementById('start-screen').style.display = 'none';
-            document.getElementById('menu-app').style.display = 'block';
-        }
-
-        function selectSection(id, btn) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            btn.classList.add('active');
-        }
-    </script>
+<script>
+    function openMenu() {
+        document.getElementById('city-screen').style.display = 'none';
+        document.getElementById('menu-container').style.display = 'block';
+    }
+</script>
 </body>
 </html>
