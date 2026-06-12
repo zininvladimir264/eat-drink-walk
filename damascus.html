@@ -33,8 +33,6 @@
             white-space: nowrap;
         }
 
-        .category-nav::-webkit-scrollbar { display: none; }
-
         .category-nav button {
             background: none;
             border: none;
@@ -89,6 +87,7 @@
             background: transparent;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         .item-image {
@@ -96,18 +95,22 @@
             aspect-ratio: 1 / 1;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             background-color: #111;
-            border-radius: 4px;
+            border-radius: 20px;
+            display: block;
+            border: 1px solid #222;
         }
 
         .item-info {
             padding: 15px 0;
+            text-align: center;
         }
 
         .item-info h3 {
             margin: 0 0 10px 0;
             text-transform: uppercase;
-            font-size: 28px; 
+            font-size: 24px; 
             font-weight: 900;
         }
 
@@ -116,17 +119,7 @@
             font-size: 16px; 
             text-transform: uppercase;
             font-weight: 600;
-        }
-
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin: 50px auto;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            color: #ccc;
         }
 
         @media (max-width: 768px) {
@@ -138,6 +131,7 @@
             }
             .item-info h3 { font-size: 18px !important; }
             .item-info p { font-size: 11px !important; }
+            .item-image { border-radius: 15px; }
         }
     </style>
 </head>
@@ -156,28 +150,70 @@
     </div>
 
     <div id="swipe-container">
+        <!-- Блок ЕДА -->
         <div id="food" class="grid-container active">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>КЕБАБ</h3><p>Традиционный мясной кебаб.</p></div></div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>киббе</h3><p>мясное блюдо с булгуром</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>махши</h3><p>овощи, фаршированные рисом</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>мухаммара</h3><p>паста из печеного перца</p></div>
+            </div>
         </div>
 
+        <!-- Блок КРЕПКОЕ -->
         <div id="strong" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>АРАК</h3><p>Анисовый крепкий напиток.</p></div></div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>арак</h3><p>анисовая водка</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>шами</h3><p>сирийский бренди</p></div>
+            </div>
         </div>
 
+        <!-- Блок ПИВО -->
         <div id="beer" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>AL-SHARQ</h3><p>Местное пиво.</p></div></div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>al shark</h3><p>местный лагер</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>barada</h3><p>классический светлый лагер</p></div>
+            </div>
         </div>
 
+        <!-- Блок НАПИТКИ -->
         <div id="drinks" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>АЙРАН</h3><p>Кисломолочный напиток.</p></div></div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>джеллаб</h3><p>сироп из виноградной патоки</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>айран</h3><p>соленый йогуртовый напиток</p></div>
+            </div>
         </div>
 
+        <!-- Блок МЕСТА -->
         <div id="places" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>ЦИТАДЕЛЬ</h3><p>Историческая крепость.</p></div></div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>цитадель</h3><p>средневековая крепость</p></div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" style="background-color: #333;"></div>
+                <div class="item-info"><h3>аль-медина</h3><p>исторический крытый рынок</p></div>
+            </div>
         </div>
     </div>
-
-    <a href="index.html" class="back-btn">← НАЗАД К ГОРОДАМ</a>
 
     <script>
         const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
