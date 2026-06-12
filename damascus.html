@@ -6,111 +6,43 @@
     <title>АЛЕППО - Ем ПЬЮ ХОЖУ</title>
     
     <style>
-        html { -webkit-text-size-adjust: 100%; }
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden; 
-            touch-action: pan-y; 
-        }
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; }
 
         .category-nav {
-            position: sticky;
-            top: 0;
-            background: rgba(0, 0, 0, 0.95);
-            padding: 15px 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            z-index: 100;
-            border-bottom: 1px solid #222;
-            backdrop-filter: blur(10px);
-            overflow-x: auto;
+            position: sticky; top: 0; background: #000; padding: 8px 0;
+            display: flex; justify-content: center; gap: 8px; z-index: 100;
         }
 
         .category-nav button {
-            background: none;
-            border: none;
-            color: #666;
-            font-size: 16px; 
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            padding: 5px 10px;
-            transition: 0.3s;
-            white-space: nowrap;
+            background: none; border: none; color: #666; font-size: 11px;
+            text-transform: uppercase; cursor: pointer; padding: 2px 5px;
         }
 
-        .category-nav button.active {
-            color: #fff;
-            border-bottom: 2px solid #fff;
-        }
-
-        .city-header {
-            text-align: center;
-            padding: 20px 10px;
-        }
-
-        .city-header h1 {
-            margin: 0;
-            font-size: 28px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 800;
-        }
-
-        #swipe-container { width: 100%; padding: 0 10px; box-sizing: border-box; }
+        .category-nav button.active { color: #fff; border-bottom: 1px solid #fff; }
 
         .grid-container {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 10px;
-            max-width: 800px;
-            margin: 0 auto;
+            display: none; grid-template-columns: repeat(3, 1fr);
+            gap: 4px; padding: 4px; max-width: 600px; margin: 0 auto;
         }
 
         .grid-container.active { display: grid; }
 
-        .item-card {
-            background: #111;
-            padding: 8px;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .item-card { background: #111; padding: 3px; border-radius: 4px; }
 
         .item-image {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            background-color: #222;
+            width: 100%; aspect-ratio: 1 / 1; background-color: #222;
+            border-radius: 2px; margin-bottom: 2px;
         }
 
-        .item-info { padding: 8px 0 0 0; text-align: center; }
+        .item-info { text-align: center; }
 
         .item-info h3 {
-            margin: 0;
-            text-transform: uppercase;
-            font-size: 14px; 
-            font-weight: 800;
+            margin: 0; font-size: 9px; text-transform: uppercase;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
 
         .item-info p {
-            margin: 2px 0 0 0;
-            font-size: 10px; 
-            text-transform: uppercase;
-            color: #888;
-        }
-
-        @media (max-width: 400px) {
-            .grid-container { grid-template-columns: repeat(2, 1fr); }
+            margin: 0; font-size: 7px; text-transform: uppercase; color: #555;
         }
     </style>
 </head>
@@ -124,62 +56,42 @@
         <button class="tab-btn" data-target="places">МЕСТА</button>
     </nav>
 
-    <div class="city-header"><h1>АЛЕППО</h1></div>
+    <div id="food" class="grid-container active">
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>киббе</h3><p>мясное</p></div></div>
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>махши</h3><p>овощи</p></div></div>
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>мухаммара</h3><p>паста</p></div></div>
+    </div>
 
-    <div id="swipe-container">
-        <div id="food" class="grid-container active">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>киббе</h3><p>мясное блюдо</p></div></div>
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>махши</h3><p>фаршированные овощи</p></div></div>
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>мухаммара</h3><p>паста из перца</p></div></div>
-        </div>
+    <div id="strong" class="grid-container">
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>арак</h3><p>анисовая</p></div></div>
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>шами</h3><p>бренди</p></div></div>
+    </div>
 
-        <div id="strong" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>арак</h3><p>анисовая</p></div></div>
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>шами</h3><p>бренди</p></div></div>
-        </div>
+    <div id="beer" class="grid-container">
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>al shark</h3><p>лагер</p></div></div>
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>barada</h3><p>лагер</p></div></div>
+    </div>
 
-        <div id="beer" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>al shark</h3><p>лагер</p></div></div>
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>barada</h3><p>лагер</p></div></div>
-        </div>
+    <div id="drinks" class="grid-container">
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>джеллаб</h3><p>патока</p></div></div>
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>айран</h3><p>йогурт</p></div></div>
+    </div>
 
-        <div id="drinks" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>джеллаб</h3><p>патока</p></div></div>
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>айран</h3><p>йогурт</p></div></div>
-        </div>
-
-        <div id="places" class="grid-container">
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>цитадель</h3><p>крепость</p></div></div>
-            <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>аль-медина</h3><p>рынок</p></div></div>
-        </div>
+    <div id="places" class="grid-container">
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>цитадель</h3><p>крепость</p></div></div>
+        <div class="item-card"><div class="item-image"></div><div class="item-info"><h3>аль-медина</h3><p>рынок</p></div></div>
     </div>
 
     <script>
-        const categories = ['food', 'strong', 'beer', 'drinks', 'places'];
-        let currentIdx = 0;
         const tabBtns = document.querySelectorAll('.tab-btn');
         const containers = document.querySelectorAll('.grid-container');
 
-        function switchTab(index) {
-            if (index < 0 || index >= categories.length) return;
-            currentIdx = index;
-            const targetId = categories[currentIdx];
-            tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === targetId));
-            containers.forEach(cont => cont.classList.toggle('active', cont.id === targetId));
-        }
-
-        tabBtns.forEach((btn, idx) => btn.addEventListener('click', () => switchTab(idx)));
-
-        let xDown = null;
-        document.addEventListener('touchstart', (e) => xDown = e.touches[0].clientX);
-        document.addEventListener('touchend', (e) => {
-            if (!xDown) return;
-            let xDiff = xDown - e.changedTouches[0].clientX;
-            if (Math.abs(xDiff) > 50) {
-                xDiff > 0 ? switchTab(currentIdx + 1) : switchTab(currentIdx - 1);
-            }
-            xDown = null;
-        });
+        tabBtns.forEach(btn => btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            containers.forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.getAttribute('data-target')).classList.add('active');
+        }));
     </script>
 </body>
 </html>
