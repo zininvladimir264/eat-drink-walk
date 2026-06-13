@@ -23,24 +23,23 @@
 
         .category-nav {
             position: sticky; top: 0; background: rgba(0, 0, 0, 0.95); padding: 25px 0;
-            display: flex; justify-content: center; gap: 25px; z-index: 100;
+            display: flex; justify-content: center; gap: 20px; z-index: 100;
             border-bottom: 1px solid #222; backdrop-filter: blur(10px);
         }
 
         .category-nav button {
-            background: none; border: none; color: #666; font-size: 20px; font-weight: 800;
+            background: none; border: none; color: #666; font-size: 16px; font-weight: 800;
             text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s;
         }
 
         .category-nav button.active { color: #fff; border-bottom: 3px solid #fff; }
 
-        /* Сетка: карточки уменьшены на 10% от предыдущих, углы скруглены */
         .grid-container {
             display: none;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            padding: 30px;
-            max-width: 1080px;
+            padding: 20px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -48,31 +47,40 @@
 
         .item-card {
             background: #111;
-            padding: 18px;
-            border-radius: 24px; /* Увеличенное скругление углов */
-            cursor: pointer;
-            aspect-ratio: 1 / 1;
+            padding: 15px;
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
-            transition: transform 0.3s;
             border: 1px solid #222;
         }
 
-        .item-card:hover { transform: scale(1.03); background: #1a1a1a; }
-
+        /* Убрал внутренний квадрат, изображение занимает место в карточке */
         .item-image {
-            width: 65%;
+            width: 100%;
             aspect-ratio: 1 / 1;
             background-color: #222;
+            border-radius: 12px;
             margin-bottom: 12px;
-            border-radius: 16px;
         }
 
-        .item-info h3 { margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
-        .item-info p { margin: 6px 0 0 0; color: #666; font-size: 13px; }
+        /* Название крупнее */
+        .item-name {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 5px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Описание из двух слов */
+        .item-desc {
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            margin: 0;
+        }
 
         .back-btn { display: block; text-align: center; margin: 60px auto; color: #666; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; }
     </style>
@@ -87,54 +95,42 @@
         <button class="tab-btn" data-target="strong">КРЕПКОЕ</button>
         <button class="tab-btn" data-target="beer">ПИВО</button>
         <button class="tab-btn" data-target="drinks">НАПИТКИ</button>
-        <button class="tab-btn" data-target="places">МЕСТА</button>
     </nav>
 
-    <!-- ЕДА -->
     <div id="food" class="grid-container active">
         <div class="item-card">
             <div class="item-image"></div>
-            <div class="item-info"><h3>хумус</h3><p>закуска</p></div>
+            <div class="item-name">хумус</div>
+            <div class="item-desc">вкусно очень</div>
         </div>
     </div>
 
-    <!-- КРЕПКОЕ -->
     <div id="strong" class="grid-container">
         <div class="item-card">
             <div class="item-image"></div>
-            <div class="item-info"><h3>арак</h3><p>крепкое</p></div>
+            <div class="item-name">арак</div>
+            <div class="item-desc">крепкий напиток</div>
         </div>
     </div>
 
-    <!-- ПИВО -->
     <div id="beer" class="grid-container">
         <div class="item-card">
             <div class="item-image"></div>
-            <div class="item-info"><h3>аль-шарк</h3><p>пиво</p></div>
+            <div class="item-name">аль-шарк</div>
+            <div class="item-desc">легкое пиво</div>
         </div>
     </div>
 
-    <!-- НАПИТКИ -->
     <div id="drinks" class="grid-container">
         <div class="item-card">
             <div class="item-image"></div>
-            <div class="item-info"><h3>Айран</h3></div>
+            <div class="item-name">Айран</div>
+            <div class="item-desc">кисломолочный напиток</div>
         </div>
         <div class="item-card">
             <div class="item-image"></div>
-            <div class="item-info"><h3>Чай по-восточному</h3></div>
-        </div>
-        <div class="item-card">
-            <div class="item-image"></div>
-            <div class="item-info"><h3>Компот</h3></div>
-        </div>
-    </div>
-
-    <!-- МЕСТА -->
-    <div id="places" class="grid-container">
-        <div class="item-card">
-            <div class="item-image"></div>
-            <div class="item-info"><h3>старый город</h3><p>место</p></div>
+            <div class="item-name">Чай по-восточному</div>
+            <div class="item-desc">горячий чай</div>
         </div>
     </div>
 
