@@ -17,137 +17,70 @@
             touch-action: pan-y;
         }
 
-        .country-header {
-            text-align: center;
-            padding: 40px 20px 10px;
-        }
-
-        .country-header h2 {
-            margin: 0;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #666;
-            font-weight: 600;
-        }
-
-        .city-header {
-            text-align: center;
-            padding: 20px 20px;
-        }
-
-        .city-header h1 {
-            margin: 0;
-            font-size: 45px;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            font-weight: 800;
-        }
+        .country-header { text-align: center; padding: 40px 20px 10px; }
+        .country-header h2 { margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 4px; color: #666; font-weight: 600; }
+        .city-header { text-align: center; padding: 20px 20px; }
+        .city-header h1 { margin: 0; font-size: 45px; text-transform: uppercase; letter-spacing: 6px; font-weight: 800; }
 
         .category-nav {
-            position: sticky;
-            top: 0;
-            background: rgba(0, 0, 0, 0.95);
-            padding: 25px 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            z-index: 100;
-            border-bottom: 1px solid #222;
-            backdrop-filter: blur(10px);
-            overflow-x: auto;
-            white-space: nowrap;
+            position: sticky; top: 0; background: rgba(0, 0, 0, 0.95); padding: 25px 0;
+            display: flex; justify-content: center; gap: 25px; z-index: 100;
+            border-bottom: 1px solid #222; backdrop-filter: blur(10px); overflow-x: auto; white-space: nowrap;
         }
 
         .category-nav button {
-            background: none;
-            border: none;
-            color: #666;
-            font-size: 24px; 
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            padding: 10px 0;
-            transition: 0.3s;
+            background: none; border: none; color: #666; font-size: 20px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; padding: 10px 0; transition: 0.3s;
         }
 
-        .category-nav button.active {
-            color: #fff;
-            border-bottom: 3px solid #fff;
-        }
+        .category-nav button.active { color: #fff; border-bottom: 3px solid #fff; }
 
+        /* Сетка: 3 в ряд, квадратные карточки */
         .grid-container {
             display: none;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 15px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .grid-container.active {
-            display: grid;
-        }
+        .grid-container.active { display: grid; }
 
-        /* Специально для НАПИТКИ: квадратные карточки */
-        .drinks-grid {
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        }
-        
         .item-card {
             background: #111;
-            padding: 15px;
+            padding: 10px;
             border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .drink-card {
             aspect-ratio: 1 / 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s;
         }
 
         .item-card:hover { transform: scale(1.02); }
 
         .item-image {
-            width: 100%;
-            aspect-ratio: 16/9;
+            width: 80%;
+            aspect-ratio: 1 / 1;
             background-color: #222;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             border-radius: 4px;
         }
 
-        .drink-card .item-image {
-            aspect-ratio: 1 / 1;
-            margin-bottom: 10px;
-        }
+        .item-info h3 { margin: 0; font-size: 14px; text-transform: uppercase; }
+        .item-info p { margin: 5px 0 0 0; color: #666; font-size: 11px; }
 
-        .item-info h3 { margin: 0 0 5px 0; text-transform: uppercase; }
-        .item-info p { margin: 0; color: #888; font-size: 14px; }
-
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin: 50px auto;
-            color: #666;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .back-btn { display: block; text-align: center; margin: 50px auto; color: #666; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-    <div class="country-header">
-        <h2>СИРИЯ</h2>
-    </div>
-
-    <div class="city-header">
-        <h1>ДАМАСК</h1>
-    </div>
+    <div class="country-header"><h2>СИРИЯ</h2></div>
+    <div class="city-header"><h1>ДАМАСК</h1></div>
 
     <nav class="category-nav">
         <button class="tab-btn active" data-target="food">ЕДА</button>
@@ -157,50 +90,51 @@
         <button class="tab-btn" data-target="places">МЕСТА</button>
     </nav>
 
+    <!-- ЕДА -->
     <div id="food" class="grid-container active">
         <div class="item-card" onclick="window.location.href='gallery.html'">
             <div class="item-image"></div>
-            <h3>хумус</h3>
-            <p>закуска</p>
+            <div class="item-info"><h3>хумус</h3><p>закуска</p></div>
         </div>
     </div>
 
+    <!-- КРЕПКОЕ -->
     <div id="strong" class="grid-container">
         <div class="item-card" onclick="window.location.href='gallery.html'">
             <div class="item-image"></div>
-            <h3>арак</h3>
-            <p>крепкое</p>
+            <div class="item-info"><h3>арак</h3><p>крепкое</p></div>
         </div>
     </div>
 
+    <!-- ПИВО -->
     <div id="beer" class="grid-container">
         <div class="item-card" onclick="window.location.href='gallery.html'">
             <div class="item-image"></div>
-            <h3>аль-шарк</h3>
-            <p>пиво</p>
+            <div class="item-info"><h3>аль-шарк</h3><p>пиво</p></div>
         </div>
     </div>
 
-    <div id="drinks" class="grid-container drinks-grid">
-        <div class="item-card drink-card" onclick="window.location.href='gallery.html'">
+    <!-- НАПИТКИ -->
+    <div id="drinks" class="grid-container">
+        <div class="item-card" onclick="window.location.href='gallery.html'">
             <div class="item-image"></div>
-            <h3>Айран</h3>
+            <div class="item-info"><h3>Айран</h3></div>
         </div>
-        <div class="item-card drink-card" onclick="window.location.href='gallery.html'">
+        <div class="item-card" onclick="window.location.href='gallery.html'">
             <div class="item-image"></div>
-            <h3>Чай по-восточному</h3>
+            <div class="item-info"><h3>Чай по-восточному</h3></div>
         </div>
-        <div class="item-card drink-card" onclick="window.location.href='gallery.html'">
+        <div class="item-card" onclick="window.location.href='gallery.html'">
             <div class="item-image"></div>
-            <h3>Компот</h3>
+            <div class="item-info"><h3>Компот</h3></div>
         </div>
     </div>
 
+    <!-- МЕСТА -->
     <div id="places" class="grid-container">
         <div class="item-card" onclick="window.location.href='gallery.html'">
             <div class="item-image"></div>
-            <h3>старый город</h3>
-            <p>место</p>
+            <div class="item-info"><h3>старый город</h3><p>место</p></div>
         </div>
     </div>
 
