@@ -34,13 +34,13 @@
 
         .category-nav button.active { color: #fff; border-bottom: 3px solid #fff; }
 
-        /* Сетка: 3 в ряд, карточки увеличены на 50% */
+        /* Сетка: карточки уменьшены на 10% от предыдущих, углы скруглены */
         .grid-container {
             display: none;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 20px;
             padding: 30px;
-            max-width: 1200px;
+            max-width: 1080px;
             margin: 0 auto;
         }
 
@@ -48,8 +48,8 @@
 
         .item-card {
             background: #111;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 18px;
+            border-radius: 24px; /* Увеличенное скругление углов */
             cursor: pointer;
             aspect-ratio: 1 / 1;
             display: flex;
@@ -61,18 +61,18 @@
             border: 1px solid #222;
         }
 
-        .item-card:hover { transform: scale(1.05); background: #1a1a1a; }
+        .item-card:hover { transform: scale(1.03); background: #1a1a1a; }
 
         .item-image {
-            width: 70%;
+            width: 65%;
             aspect-ratio: 1 / 1;
             background-color: #222;
-            margin-bottom: 15px;
-            border-radius: 8px;
+            margin-bottom: 12px;
+            border-radius: 16px;
         }
 
-        .item-info h3 { margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
-        .item-info p { margin: 8px 0 0 0; color: #666; font-size: 14px; }
+        .item-info h3 { margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .item-info p { margin: 6px 0 0 0; color: #666; font-size: 13px; }
 
         .back-btn { display: block; text-align: center; margin: 60px auto; color: #666; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; }
     </style>
