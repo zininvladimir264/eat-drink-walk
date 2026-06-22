@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЩЕЦИН</title>
     <style>
-        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; }
         
-        .country-header { font-size: 32px; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; color: #888; }
-        h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        /* Панель навигации */
+        .navbar { display: flex; justify-content: center; gap: 40px; padding: 30px; }
+        .nav-btn { color: #fff; text-decoration: none; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
+        .nav-btn:hover { opacity: 1; }
+        
+        /* Название страны (уменьшено на 5%) */
+        .country-header { font-size: 30.4px; letter-spacing: 4px; margin-top: 50px; margin-bottom: 20px; text-transform: uppercase; color: #fff; }
+        
+        /* Название Щецина (увеличено на 10%) */
+        h1 { font-size: 52.8px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
         
         .container { 
             display: flex; 
@@ -26,42 +34,36 @@
         }
         .card:hover { transform: scale(1.02); }
         
-        .card a { 
-            text-decoration: none; 
-            color: inherit; 
-            display: block; 
-        }
-        
         .card img { 
             width: 400px; 
             height: 400px; 
             background: #222; 
             border-radius: 12px; 
-            margin-bottom: 20px; 
             object-fit: cover; 
             display: block;
         }
-        
-        .card-title { font-size: 26px; font-weight: bold; text-transform: uppercase; }
         
         .back { margin-top: 80px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
 </head>
 <body>
 
+    <!-- Навигация -->
+    <nav class="navbar">
+        <a href="#" class="nav-btn">ГЛАВНАЯ</a>
+        <a href="#" class="nav-btn">СТРАНЫ</a>
+    </nav>
+
     <div class="country-header">Польша</div>
     <h1>ЩЕЦИН</h1>
 
-    <div class="container" id="grid">
+    <div class="container">
         <div class="card">
-            <a href="szczecin_details.html">
-                <img src="images/szczecin.webp" alt="ЩЕЦИН" onerror="this.style.background='#333'">
-                <div class="card-title">ЩЕЦИН</div>
-            </a>
+            <img src="https://images.unsplash.com/photo-1596766620583-b9b5f586940a?q=80&w=400&h=400&fit=crop" alt="ЩЕЦИН" onerror="this.style.background='#333'">
         </div>
     </div>
 
-    <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
+    <div class="back" onclick="history.back()">← НАЗАД</div>
 
 </body>
 </html>
