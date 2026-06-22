@@ -6,17 +6,33 @@
     <title>АЛЕППО</title>
     <style>
         body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
-        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; }
+        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; padding: 0 10px; }
         .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; font-size: 18px; }
         .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
         h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
-        .grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 20px; max-width: 1400px; margin: 0 auto; }
         
-        .card { width: 360px; text-align: center; display: flex; flex-direction: column; }
-        .card img { width: 360px; height: 360px; background: #222; border-radius: 12px; margin-bottom: 20px; object-fit: cover; display: block; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            padding: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
         
-        .card-title { font-size: 26.4px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
-        .card-desc { font-size: 19.2px; color: #aaa; text-transform: uppercase; }
+        /* Адаптация для мобильных: две карточки в ряд */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+            .card img { width: 100% !important; height: 40vw !important; }
+            .card-title { font-size: 16px !important; }
+            .card-desc { font-size: 12px !important; }
+        }
+        
+        .card { text-align: center; display: flex; flex-direction: column; }
+        .card img { width: 360px; height: 360px; background: #222; border-radius: 12px; margin-bottom: 15px; object-fit: cover; display: block; margin-left: auto; margin-right: auto; }
+        
+        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .card-desc { font-size: 14px; color: #aaa; text-transform: uppercase; }
         
         .back { margin-top: 80px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
@@ -38,7 +54,6 @@
     <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
 
     <script>
-        // Базовый путь к папке с изображениями
         const baseFolder = 'images';
 
         const content = {
@@ -63,9 +78,9 @@
                 { title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ НАПИТОК.', img: 'ayran.webp' }
             ]},
             'МЕСТА': { folder: 'locations', items: [
-                { title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.', img: 'citadelal.webp' },
+                { title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.', img: 'citadel.webp' },
                 { title: 'СУК', desc: 'СТАРЫЙ РЫНОК.', img: 'souq.webp' },
-                { title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.', img: 'mosqueal.webp' }
+                { title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.', img: 'mosque.webp' }
             ]}
         };
 
