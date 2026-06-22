@@ -12,11 +12,9 @@
         h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
         .grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 20px; max-width: 1400px; margin: 0 auto; }
         
-        /* Карточки увеличены на 20% (360px) */
         .card { width: 360px; text-align: center; display: flex; flex-direction: column; }
         .card img { width: 360px; height: 360px; background: #222; border-radius: 12px; margin-bottom: 20px; object-fit: cover; display: block; }
         
-        /* Шрифт увеличен на 20% */
         .card-title { font-size: 26.4px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
         .card-desc { font-size: 19.2px; color: #aaa; text-transform: uppercase; }
         
@@ -40,14 +38,35 @@
     <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
 
     <script>
+        // Базовый путь к папке с изображениями
         const baseFolder = 'images';
 
         const content = {
-            'ЕДА': { folder: 'food', items: [{ title: 'МАКБУС', desc: 'ПРЯНЫЙ РИС С МЯСОМ.' }, { title: 'МАШУАЙ', desc: 'ЖАРЕНАЯ МАКРЕЛЬ.' }] },
-            'КРЕПКОЕ': { folder: 'spirits', items: [{ title: 'АРАК', desc: 'АНИСОВАЯ ВОДКА.' }] },
-            'ПИВО': { folder: 'beer', items: [{ title: 'BARADA', desc: 'СВЕТЛОЕ ПИВО.' }] },
-            'НАПИТКИ': { folder: 'drinks', items: [{ title: 'МАТЭ', desc: 'ТРАДИЦИОННЫЙ ЧАЙ.' }, { title: 'ДЖАЛЛАБ', desc: 'ВИНОГРАДНЫЙ СИРОП.' }] },
-            'МЕСТА': { folder: 'locations', items: [{ title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' }, { title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' }] }
+            'ЕДА': { folder: 'food', items: [
+                { title: 'МАКБУС', desc: 'ПРЯНЫЙ РИС С МЯСОМ.', img: 'makbus.webp' },
+                { title: 'МАШУАЙ', desc: 'ЖАРЕНАЯ МАКРЕЛЬ.', img: 'mashuai.webp' },
+                { title: 'ФАЛАФЕЛЬ', desc: 'БОБОВЫЕ ШАРИКИ.', img: 'falafel.webp' }
+            ]},
+            'КРЕПКОЕ': { folder: 'spirits', items: [
+                { title: 'АРАК', desc: 'АНИСОВАЯ ВОДКА.', img: 'arak.webp' },
+                { title: 'МЕЗКАЛЬ', desc: 'КРЕПКИЙ ДИСТИЛЛЯТ.', img: 'mezcal.webp' },
+                { title: 'БРЕНДИ', desc: 'ВИНОГРАДНЫЙ СПИРТ.', img: 'brandy.webp' }
+            ]},
+            'ПИВО': { folder: 'beer', items: [
+                { title: 'BARADA', desc: 'СВЕТЛОЕ ПИВО.', img: 'barada.webp' },
+                { title: 'AL SHARQ', desc: 'МЕСТНЫЙ ЛАГЕР.', img: 'al_sharq.webp' },
+                { title: 'GOLDEN', desc: 'ФИЛЬТРОВАННОЕ ПИВО.', img: 'golden.webp' }
+            ]},
+            'НАПИТКИ': { folder: 'drinks', items: [
+                { title: 'МАТЭ', desc: 'ТРАДИЦИОННЫЙ ЧАЙ.', img: 'mate.webp' },
+                { title: 'ДЖАЛЛАБ', desc: 'ВИНОГРАДНЫЙ СИРОП.', img: 'jallab.webp' },
+                { title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ НАПИТОК.', img: 'ayran.webp' }
+            ]},
+            'МЕСТА': { folder: 'locations', items: [
+                { title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.', img: 'citadel.webp' },
+                { title: 'СУК', desc: 'СТАРЫЙ РЫНОК.', img: 'souq.webp' },
+                { title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.', img: 'mosque.webp' }
+            ]}
         };
 
         function show(cat) {
@@ -56,7 +75,7 @@
             
             document.getElementById('grid').innerHTML = category.items.map(i => `
                 <div class="card">
-                    <img src="${baseFolder}/${category.folder}/${i.title.toLowerCase()}.webp" alt="${i.title}" onerror="this.style.background='#333'">
+                    <img src="${baseFolder}/${category.folder}/${i.img}" alt="${i.title}" onerror="this.style.background='#333'">
                     <div class="card-title">${i.title}</div>
                     <div class="card-desc">${i.desc}</div>
                 </div>
