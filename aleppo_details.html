@@ -5,22 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АЛЕППО</title>
     <style>
-        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
-        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
-        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; }
-        .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
-        h1 { font-size: 40px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        body { 
+            margin: 0; 
+            background-color: #000; 
+            color: #fff; 
+            font-family: sans-serif; 
+            text-align: center; 
+            padding-top: 50px; 
+            padding-bottom: 50px;
+        }
+        .nav { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            font-weight: bold; 
+            margin-bottom: 50px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+        .nav span { 
+            border-bottom: 2px solid transparent; 
+            padding-bottom: 5px; 
+            cursor: pointer; 
+            color: #666; 
+            transition: 0.3s; 
+        }
+        .nav span.active { 
+            color: #fff; 
+            border-bottom: 2px solid #fff; 
+        }
+        h1 { 
+            font-size: 40px; 
+            letter-spacing: 8px; 
+            margin-bottom: 50px; 
+            text-transform: uppercase; 
+        }
         
-        .grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 20px; }
+        .grid { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            flex-wrap: wrap; 
+            padding: 20px; 
+        }
         
-        .card { width: 360px; text-align: center; }
+        .card { 
+            width: 360px; 
+            text-align: center; 
+        }
         
-        .card img { width: 360px; height: 360px; background: #222; border-radius: 10px; margin-bottom: 20px; display: block; object-fit: cover; }
+        .card img { 
+            width: 360px; 
+            height: 360px; 
+            background: #222; 
+            border-radius: 10px; 
+            margin-bottom: 20px; 
+            display: block; 
+            object-fit: cover; 
+        }
         
-        .card-title { font-size: 26px; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
-        .card-desc { font-size: 18px; color: #aaa; text-transform: uppercase; }
-        
-        .back { margin-top: 80px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
+        .card-title { 
+            font-size: 26px; 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            text-transform: uppercase; 
+        }
+        .card-desc { 
+            font-size: 18px; 
+            color: #aaa; 
+            text-transform: uppercase; 
+        }
     </style>
 </head>
 <body>
@@ -36,8 +90,6 @@
     <h1>АЛЕППО</h1>
 
     <div class="grid" id="grid"></div>
-
-    <div class="back">← НАЗАД К СТРАНАМ</div>
 
     <script>
         const content = {
@@ -62,9 +114,9 @@
                 { src: 'images/drinks/ayran.webp', title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ.' }
             ],
             'МЕСТА': [
-                { src: 'images/lokations/citadel.webp', title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' },
-                { src: 'images/lokations/souq.webp', title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' },
-                { src: 'images/lokations/mosque.webp', title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.' }
+                { src: 'images/locations/citadel.webp', title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' },
+                { src: 'images/locations/souq.webp', title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' },
+                { src: 'images/locations/mosque.webp', title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.' }
             ]
         };
 
@@ -78,6 +130,7 @@
                 </div>
             `).join('');
         }
+        
         show('ЕДА');
     </script>
 </body>
