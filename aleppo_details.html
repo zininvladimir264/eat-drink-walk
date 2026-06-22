@@ -15,12 +15,10 @@
         
         .card { width: 360px; text-align: center; }
         
-        /* Картинка теперь абсолютно чистая, без лишних элементов */
         .card img { width: 360px; height: 360px; background: #222; border-radius: 10px; margin-bottom: 20px; display: block; object-fit: cover; }
         
-        /* Текст под картинкой: увеличен и отцентрирован */
-        .card-title { font-size: 26px; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; text-align: center; }
-        .card-desc { font-size: 18px; color: #aaa; text-transform: uppercase; text-align: center; }
+        .card-title { font-size: 26px; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
+        .card-desc { font-size: 18px; color: #aaa; text-transform: uppercase; }
         
         .back { margin-top: 80px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
@@ -44,29 +42,29 @@
     <script>
         const content = {
             'ЕДА': [
-                { src: 'makbus.webp', title: 'МАКБУС', desc: 'ПРЯНЫЙ РИС С МЯСОМ.' },
-                { src: 'mashuay.webp', title: 'МАШУАЙ', desc: 'ЖАРЕНАЯ МАКРЕЛЬ.' },
-                { src: 'haris.webp', title: 'ХАРИС', desc: 'ПШЕНИЦА С МЯСОМ.' }
+                { src: 'images/food/makbus.webp', title: 'МАКБУС', desc: 'ПРЯНЫЙ РИС С МЯСОМ.' },
+                { src: 'images/food/mashuay.webp', title: 'МАШУАЙ', desc: 'ЖАРЕНАЯ МАКРЕЛЬ С РИСОМ.' },
+                { src: 'images/food/haris.webp', title: 'ХАРИС', desc: 'ПШЕНИЦА С НЕЖНЫМ МЯСОМ.' }
             ],
             'КРЕПКОЕ': [
-                { src: 'arak.webp', title: 'АРАК', desc: 'АНИСОВАЯ ВОДКА.' },
-                { src: 'brandy.webp', title: 'БРЕНДИ', desc: 'МЕСТНЫЙ ВИНОГРАДНЫЙ.' },
-                { src: 'wiskey.webp', title: 'ВИСКИ', desc: 'КЛАССИЧЕСКИЙ ВАРИАНТ.' }
+                { src: 'images/spirit/arak.webp', title: 'АРАК', desc: 'АНИСОВАЯ ВОДКА.' },
+                { src: 'images/spirit/brandy.webp', title: 'БРЕНДИ', desc: 'МЕСТНЫЙ ВИНОГРАДНЫЙ.' },
+                { src: 'images/spirit/wiskey.webp', title: 'ВИСКИ', desc: 'КЛАССИЧЕСКИЙ ВАРИАНТ.' }
             ],
             'ПИВО': [
-                { src: 'barada.webp', title: 'BARADA', desc: 'СВЕТЛОЕ ПИВО.' },
-                { src: 'alshark.webp', title: 'AL SHARK', desc: 'КЛАССИЧЕСКИЙ ЛАГЕР.' },
-                { src: 'amrit.webp', title: 'AMRIT', desc: 'ТЕМНОЕ ПИВО.' }
+                { src: 'images/beer/barada.webp', title: 'BARADA', desc: 'СВЕТЛОЕ ПИВО.' },
+                { src: 'images/beer/alshark.webp', title: 'AL SHARK', desc: 'КЛАССИЧЕСКИЙ ЛАГЕР.' },
+                { src: 'images/beer/amrit.webp', title: 'AMRIT', desc: 'ТЕМНОЕ ПИВО.' }
             ],
             'НАПИТКИ': [
-                { src: 'mate.webp', title: 'МАТЭ', desc: 'ТРАДИЦИОННЫЙ ЧАЙ.' },
-                { src: 'jallab.webp', title: 'ДЖАЛЛАБ', desc: 'ВИНОГРАДНЫЙ СИРОП.' },
-                { src: 'ayran.webp', title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ.' }
+                { src: 'images/drinks/mate.webp', title: 'МАТЭ', desc: 'ТРАДИЦИОННЫЙ ЧАЙ.' },
+                { src: 'images/drinks/jallab.webp', title: 'ДЖАЛЛАБ', desc: 'ВИНОГРАДНЫЙ СИРОП.' },
+                { src: 'images/drinks/ayran.webp', title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ.' }
             ],
             'МЕСТА': [
-                { src: 'citadel.webp', title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' },
-                { src: 'souq.webp', title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' },
-                { src: 'mosque.webp', title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.' }
+                { src: 'images/lokations/citadel.webp', title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' },
+                { src: 'images/lokations/souq.webp', title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' },
+                { src: 'images/lokations/mosque.webp', title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.' }
             ]
         };
 
