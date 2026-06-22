@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПОЛЬША</title>
+    <style>
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; padding: 0 10px; }
+        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; font-size: 18px; }
+        .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
+        h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            padding: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        
+        /* Адаптация для мобильных: две карточки в ряд */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+            .card img { width: 100% !important; height: 40vw !important; }
+            .card-title { font-size: 16px !important; }
+            .card-desc { font-size: 12px !important; }
+        }
+        
+        .card { text-align: center; display: flex; flex-direction: column; }
+        .card img { width: 360px; height: 360px; background: #222; border-radius: 12px; margin-bottom: 15px; object-fit: cover; display: block; margin-left: auto; margin-right: auto; }
+        
+        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .card-desc { font-size: 14px; color: #aaa; text-transform: uppercase; }
+        
+        .back { margin-top: 80px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
+    </style>
+</head>
+<body>
 
+    <div class="nav" id="nav">
+        <span class="active" onclick="show('ЕДА')">ЕДА</span>
+        <span onclick="show('КРЕПКОЕ')">КРЕПКОЕ</span>
+        <span onclick="show('ПИВО')">ПИВО</span>
+        <span onclick="show('НАПИТКИ')">НАПИТКИ</span>
+        <span onclick="show('МЕСТА')">МЕСТА</span>
+    </div>
+
+    <h1>ПОЛЬША</h1>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
+
+    <script>
+        const baseFolder = 'images';
+
+        const content = {
+            'ЕДА': { folder: 'food', items: [
+                { title: 'BIGOS', desc: 'ТУШЕНАЯ КАПУСТА С МЯСОМ.', img: 'bigos.webp' },
+                { title: 'PIEROGI', desc: 'ПОЛЬСКИЕ ВАРЕНИКИ.', img: 'pierogi.webp' },
+                { title: 'ZUREK', desc: 'СУП НА ЗАКВАСКЕ.', img: 'zurek.webp' }
+            ]},
+            'КРЕПКОЕ': { folder: 'spirits', items: [
+                { title: 'ZUBROWKA', desc: 'ВОДКА С ТРАВОЙ.', img: 'zubrowka.webp' },
+                { title: 'CHOPIN', desc: 'ПРЕМИУМ ВОДКА.', img: 'chopin.webp' },
+                { title: 'GOLDWASSER', desc: 'ЛИКЕР С ЗОЛОТОМ.', img: 'goldwasser.webp' }
+            ]},
+            'ПИВО': { folder: 'beer', items: [
+                { title: 'ZYWIEC', desc: 'КЛАССИЧЕСКИЙ ЛАГЕР.', img: 'zywiec.webp' },
+                { title: 'TYSKIE', desc: 'ПОПУЛЯРНОЕ ПИВО.', img: 'tyskie.webp' },
+                { title: 'LECH', desc: 'ОСВЕЖАЮЩИЙ ЛАГЕР.', img: 'lech.webp' }
+            ]},
+            'НАПИТКИ': { folder: 'drinks', items: [
+                { title: 'KOMPOT', desc: 'ФРУКТОВЫЙ НАПИТОК.', img: 'kompot.webp' },
+                { title: 'KWAS', desc: 'ХЛЕБНЫЙ КВАС.', img: 'kwas.webp' },
+                { title: 'HERBATA', desc: 'ПОЛЬСКИЙ ЧАЙ.', img: 'herbata.webp' }
+            ]},
+            'МЕСТА': { folder: 'locations', items: [
+                { title: 'WAWEL', desc: 'КОРОЛЕВСКИЙ ЗАМОК.', img: 'wawel.webp' },
+                { title: 'RYNEK', desc: 'ЦЕНТРАЛЬНАЯ ПЛОЩАДЬ.', img: 'rynek.webp' },
+                { title: 'MARIACKI', desc: 'КОСТЕЛ В КРАКОВЕ.', img: 'mariacki.webp' }
+            ]}
+        };
+
+        function show(cat) {
+            document.querySelectorAll('.nav span').forEach(s => s.classList.toggle('active', s.innerText === cat));
+            const category = content[cat];
+            
+            document.getElementById('grid').innerHTML = category.items.map(i => `
+                <div class="card">
+                    <img src="${baseFolder}/${category.folder}/${i.img}" alt="${i.title}" onerror="this.style.background='#333'">
+                    <div class="card-title">${i.title}</div>
+                    <div class="card-desc">${i.desc}</div>
+                </div>
+            `).join('');
+        }
+        
+        show('ЕДА');
+    </script>
+</body>
+</html>
