@@ -5,126 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АЛЕППО</title>
     <style>
-        body { 
-            margin: 0; 
-            background-color: #000; 
-            color: #fff; 
-            font-family: sans-serif; 
-            text-align: center; 
-            padding-top: 50px; 
-            padding-bottom: 50px;
-        }
-        .nav { 
-            display: flex; 
-            justify-content: center; 
-            gap: 20px; 
-            font-weight: bold; 
-            margin-bottom: 50px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-        }
-        .nav span { 
-            border-bottom: 2px solid transparent; 
-            padding-bottom: 5px; 
-            cursor: pointer; 
-            color: #666; 
-            transition: 0.3s; 
-        }
-        .nav span.active { 
-            color: #fff; 
-            border-bottom: 2px solid #fff; 
-        }
-        h1 { 
-            font-size: 40px; 
-            letter-spacing: 8px; 
-            margin-bottom: 50px; 
-            text-transform: uppercase; 
-        }
-        
-        .grid { 
-            display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            flex-wrap: wrap; 
-            padding: 20px; 
-        }
-        
-        .card { 
-            width: 360px; 
-            text-align: center; 
-        }
-        
-        .card img { 
-            width: 360px; 
-            height: 360px; 
-            background: #222; 
-            border-radius: 10px; 
-            margin-bottom: 20px; 
-            display: block; 
-            object-fit: cover; 
-        }
-        
-        .card-title { 
-            font-size: 26px; 
-            font-weight: bold; 
-            margin-bottom: 8px; 
-            text-transform: uppercase; 
-        }
-        .card-desc { 
-            font-size: 18px; 
-            color: #aaa; 
-            text-transform: uppercase; 
-        }
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; flex-wrap: wrap; }
+        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; }
+        .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
+        h1 { font-size: 40px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        .grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px; max-width: 1200px; margin: 0 auto; }
+        .card { width: 300px; text-align: center; display: flex; flex-direction: column; }
+        .card img { width: 300px; height: 300px; background: #222; border-radius: 10px; margin-bottom: 20px; object-fit: cover; display: block; }
+        .card-title { font-size: 22px; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
+        .card-desc { font-size: 16px; color: #aaa; text-transform: uppercase; }
+        .back { margin-top: 80px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
 </head>
 <body>
 
     <div class="nav" id="nav">
         <span class="active" onclick="show('ЕДА')">ЕДА</span>
-        <span onclick="show('КРЕПКОЕ')">КРЕПКОЕ</span>
+        <span onclick="show('КРЕПКАЯ')">КРЕПКАЯ</span>
         <span onclick="show('ПИВО')">ПИВО</span>
-        <span onclick="show('НАПИТКИ')">НАПИТКИ</span>
-        <span onclick="show('МЕСТА')">МЕСТА</span>
+        <span onclick="show('DRINKS')">DRINKS</span>
+        <span onclick="show('LOCATIONS')">LOCATIONS</span>
     </div>
 
     <h1>АЛЕППО</h1>
 
     <div class="grid" id="grid"></div>
 
+    <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
+
     <script>
+        // Базовый путь к папке с изображениями
+        const baseFolder = 'images';
+
         const content = {
-            'ЕДА': [
-                { src: 'images/food/makbus.webp', title: 'МАКБУС', desc: 'ПРЯНЫЙ РИС С МЯСОМ.' },
-                { src: 'images/food/mashuay.webp', title: 'МАШУАЙ', desc: 'ЖАРЕНАЯ МАКРЕЛЬ С РИСОМ.' },
-                { src: 'images/food/haris.webp', title: 'ХАРИС', desc: 'ПШЕНИЦА С НЕЖНЫМ МЯСОМ.' }
-            ],
-            'КРЕПКОЕ': [
-                { src: 'images/spirit/arak.webp', title: 'АРАК', desc: 'АНИСОВАЯ ВОДКА.' },
-                { src: 'images/spirit/brandy.webp', title: 'БРЕНДИ', desc: 'МЕСТНЫЙ ВИНОГРАДНЫЙ.' },
-                { src: 'images/spirit/wiskey.webp', title: 'ВИСКИ', desc: 'КЛАССИЧЕСКИЙ ВАРИАНТ.' }
-            ],
-            'ПИВО': [
-                { src: 'images/beer/barada.webp', title: 'BARADA', desc: 'СВЕТЛОЕ ПИВО.' },
-                { src: 'images/beer/alshark.webp', title: 'AL SHARK', desc: 'КЛАССИЧЕСКИЙ ЛАГЕР.' },
-                { src: 'images/beer/amrit.webp', title: 'AMRIT', desc: 'ТЕМНОЕ ПИВО.' }
-            ],
-            'НАПИТКИ': [
-                { src: 'images/drinks/mate.webp', title: 'МАТЭ', desc: 'ТРАДИЦИОННЫЙ ЧАЙ.' },
-                { src: 'images/drinks/jallab.webp', title: 'ДЖАЛЛАБ', desc: 'ВИНОГРАДНЫЙ СИРОП.' },
-                { src: 'images/drinks/ayran.webp', title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ.' }
-            ],
-            'МЕСТА': [
-                { src: 'images/locations/citadel.webp', title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' },
-                { src: 'images/locations/souq.webp', title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' },
-                { src: 'images/locations/mosque.webp', title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.' }
-            ]
+            'ЕДА': {
+                folder: 'food',
+                items: [
+                    { src: 'makbus.webp', title: 'МАКБУС', desc: 'ПРЯНЫЙ РИС С МЯСОМ.' },
+                    { src: 'mashuay.webp', title: 'МАШУАЙ', desc: 'ЖАРЕНАЯ МАКРЕЛЬ.' },
+                    { src: 'haris.webp', title: 'ХАРИС', desc: 'ПШЕНИЦА С МЯСОМ.' }
+                ]
+            },
+            'КРЕПКАЯ': {
+                folder: 'spirits',
+                items: [
+                    { src: 'arak.webp', title: 'АРАК', desc: 'АНИСОВАЯ ВОДКА.' },
+                    { src: 'brandy.webp', title: 'БРЕНДИ', desc: 'ВИНОГРАДНЫЙ.' },
+                    { src: 'vodka.webp', title: 'ВОДКА', desc: 'МЕСТНЫЙ КРЕПКИЙ.' }
+                ]
+            },
+            'ПИВО': {
+                folder: 'beer',
+                items: [
+                    { src: 'barada.webp', title: 'BARADA', desc: 'СВЕТЛОЕ ПИВО.' },
+                    { src: 'alshark.webp', title: 'AL SHARK', desc: 'КЛАССИЧЕСКИЙ ЛАГЕР.' },
+                    { src: 'orient.webp', title: 'ORIENT', desc: 'ТЕМНОЕ ПИВО.' }
+                ]
+            },
+            'DRINKS': {
+                folder: 'drinks',
+                items: [
+                    { src: 'mate.webp', title: 'МАТЭ', desc: 'ТРАДИЦИОННЫЙ ЧАЙ.' },
+                    { src: 'jallab.webp', title: 'ДЖАЛЛАБ', desc: 'ВИНОГРАДНЫЙ СИРОП.' },
+                    { src: 'ayran.webp', title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ.' }
+                ]
+            },
+            'LOCATIONS': {
+                folder: 'locations',
+                items: [
+                    { src: 'citadel.webp', title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' },
+                    { src: 'souq.webp', title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' },
+                    { src: 'mosque.webp', title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.' }
+                ]
+            }
         };
 
         function show(cat) {
             document.querySelectorAll('.nav span').forEach(s => s.classList.toggle('active', s.innerText === cat));
-            document.getElementById('grid').innerHTML = content[cat].map(i => `
+            const category = content[cat];
+            
+            // Динамическое формирование пути: images/имя_подпапки/имя_файла
+            document.getElementById('grid').innerHTML = category.items.map(i => `
                 <div class="card">
-                    <img src="${i.src}" alt="${i.title}" onerror="this.style.background='#333'">
+                    <img src="${baseFolder}/${category.folder}/${i.src}" alt="${i.title}" onerror="this.style.background='#333'">
                     <div class="card-title">${i.title}</div>
                     <div class="card-desc">${i.desc}</div>
                 </div>
