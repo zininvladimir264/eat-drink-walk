@@ -11,6 +11,7 @@
             color: #fff; 
             font-family: sans-serif; 
             text-align: center; 
+            overflow-x: hidden; /* Чтобы избежать прокрутки при свайпе */
         }
         
         .navbar { display: flex; justify-content: center; gap: 40px; padding: 30px; }
@@ -20,11 +21,11 @@
         
         .container { display: flex; justify-content: center; padding: 20px; flex-direction: column; align-items: center; }
         
-        /* Принудительная фиксация размера карточки */
         .card-wrapper { 
             cursor: pointer;
             display: inline-block;
             transition: transform 0.2s;
+            touch-action: pan-y; /* Позволяет скроллить страницу, но обрабатывать свайпы */
         }
         .card-wrapper:hover { transform: scale(1.02); }
 
@@ -58,8 +59,7 @@
 
     <div class="country-header">Польша</div>
 
-    <div class="container">
-        <!-- Обертка с JS обработчиком клика -->
+    <div class="container" id="swipe-area">
         <div class="card-wrapper" onclick="window.location.href='szczecin_details.html'">
             <div class="card">
                 <img src="images/cities/se.webp" alt="ЩЕЦИН" onerror="this.src='https://via.placeholder.com/360?text=Щецин'; this.onerror=null;">
@@ -70,5 +70,34 @@
 
     <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
 
+    <script>
+        // Логика свайпа
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        swipeArea.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, {passive: true});
+
+        function handleGesture() {
+            const threshold = 50; // Минимальное расстояние для свайпа
+            if (touchEndX < touchStartX - threshold) {
+                // Свайп влево (например, переход к следующему городу)
+                console.log("Свайп влево");
+                // window.location.href = 'next_city.html'; 
+            }
+            if (touchEndX > touchStartX + threshold) {
+                // Свайп вправо (например, назад к выбору стран)
+                console.log("Свайп вправо");
+                history.back();
+            }
+        }
+    </script>
 </body>
 </html>
