@@ -10,12 +10,20 @@
         .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; }
         .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
         h1 { font-size: 40px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        
         .grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 20px; }
-        .card { width: 360px; text-align: left; }
-        .card img { width: 360px; height: 360px; background: #222; border-radius: 10px; margin-bottom: 15px; display: block; object-fit: cover; }
-        .card-title { font-size: 22px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
-        .card-desc { font-size: 15px; color: #aaa; text-transform: uppercase; }
-        .back { margin-top: 80px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; }
+        
+        /* Карточки увеличены до 360px */
+        .card { width: 360px; text-align: center; }
+        
+        /* Чистое изображение без значков и текста внутри */
+        .card img { width: 360px; height: 360px; background: #222; border-radius: 10px; margin-bottom: 20px; display: block; object-fit: cover; }
+        
+        /* Название и описание увеличены и отцентрированы */
+        .card-title { font-size: 26px; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
+        .card-desc { font-size: 18px; color: #aaa; text-transform: uppercase; }
+        
+        .back { margin-top: 80px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
 </head>
 <body>
