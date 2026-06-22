@@ -10,7 +10,6 @@
         .navbar { display: flex; justify-content: center; gap: 40px; padding: 30px; }
         .nav-btn { color: #fff; text-decoration: none; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
         
-        /* Заголовок страны увеличен на 10% */
         .country-header { font-size: 33.44px; letter-spacing: 4px; margin-top: 40px; margin-bottom: 30px; text-transform: uppercase; }
         
         .container { display: flex; justify-content: center; padding: 20px; flex-direction: column; align-items: center; }
@@ -24,8 +23,8 @@
             display: block;
         }
         
-        /* Название города: предыдущий размер был 36.96px, уменьшаем еще на 30% -> 25.87px */
-        .city-name { font-size: 25.87px; letter-spacing: 6px; margin-top: 25px; text-transform: uppercase; }
+        /* Размер шрифта 23.28px */
+        .city-name { font-size: 23.28px; letter-spacing: 6px; margin-top: 25px; text-transform: uppercase; }
         
         .back { margin-top: 60px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
@@ -41,7 +40,8 @@
 
     <div class="container">
         <div class="card">
-            <img src="se.webp" alt="ЩЕЦИН" onerror="this.src='https://via.placeholder.com/400?text=Щецин'; this.onerror=null;">
+            <!-- Путь изменен на images/cities/se.webp -->
+            <img src="images/cities/se.webp" alt="ЩЕЦИН" onerror="this.src='https://via.placeholder.com/400?text=Щецин'; this.onerror=null;">
         </div>
         <div class="city-name">ЩЕЦИН</div>
     </div>
