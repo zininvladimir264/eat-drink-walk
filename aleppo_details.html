@@ -5,68 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АЛЕППО</title>
     <style>
-        body { margin: 0; padding: 40px 20px; background-color: #0a0a0a; color: #ffffff; font-family: sans-serif; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        h1 { text-align: center; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 50px; }
-        .section { margin-bottom: 60px; }
-        .section-title { font-size: 20px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 25px; border-left: 3px solid #fff; padding-left: 15px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: #1a1a1a; border-radius: 10px; overflow: hidden; transition: transform 0.3s; }
-        .card img { width: 100%; height: 180px; object-fit: cover; display: block; }
-        .card-content { padding: 15px; }
-        .card-title { font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; padding-top: 40px; }
+        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; }
+        .nav .active { border-bottom: 2px solid #fff; }
+        
+        h1 { text-align: center; font-size: 40px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        
+        .grid { display: flex; justify-content: center; gap: 30px; padding: 0 20px; flex-wrap: wrap; }
+        .card { width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .card img { width: 300px; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .card-desc { font-size: 14px; color: #fff; text-transform: uppercase; }
+
+        .back { text-align: center; margin-top: 60px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="nav">
+        <span class="active">ЕДА</span>
+        <span>КРЕПКОЕ</span>
+        <span>ПИВО</span>
+        <span>НАПИТКИ</span>
+        <span>МЕСТА</span>
+    </div>
+
     <h1>АЛЕППО</h1>
 
-    <div class="section">
-        <div class="section-title">Еда</div>
-        <div class="grid">
-            <div class="card"><img src="kebab.webp" alt="Кебаб"><div class="card-content"><div class="card-title">Кебаб</div></div></div>
-            <div class="card"><img src="hummus.webp" alt="Хуммус"><div class="card-content"><div class="card-title">Хуммус</div></div></div>
-            <div class="card"><img src="falafel.webp" alt="Фалафель"><div class="card-content"><div class="card-title">Фалафель</div></div></div>
+    <div class="grid">
+        <div class="card">
+            <img src="makbus.webp" alt="МАКБУС">
+            <div class="card-title">МАКБУС</div>
+            <div class="card-desc">ПРЯНЫЙ РИС С МЯСОМ.</div>
+        </div>
+        <div class="card">
+            <img src="mashuay.webp" alt="МАШУАЙ">
+            <div class="card-title">МАШУАЙ</div>
+            <div class="card-desc">ЖАРЕНАЯ МАКРЕЛЬ С РИСОМ.</div>
+        </div>
+        <div class="card">
+            <img src="haris.webp" alt="ХАРИС">
+            <div class="card-title">ХАРИС</div>
+            <div class="card-desc">ПШЕНИЦА С НЕЖНЫМ МЯСОМ.</div>
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-title">Крепкое</div>
-        <div class="grid">
-            <div class="card"><img src="arak.webp" alt="Арак"><div class="card-content"><div class="card-title">Арак</div></div></div>
-            <div class="card"><img src="al_mimas.webp" alt="Аль-Мимас"><div class="card-content"><div class="card-title">Аль-Мимас</div></div></div>
-            <div class="card"><img src="fakhita.webp" alt="Фахита"><div class="card-content"><div class="card-title">Фахита</div></div></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Пиво</div>
-        <div class="grid">
-            <div class="card"><img src="al_shark.webp" alt="Аль-Шарк"><div class="card-content"><div class="card-title">Аль-Шарк</div></div></div>
-            <div class="card"><img src="barada.webp" alt="Барада"><div class="card-content"><div class="card-title">Барада</div></div></div>
-            <div class="card"><img/><div class="card-content"><div class="card-title">Аль-Айн</div></div></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Напитки</div>
-        <div class="grid">
-            <div class="card"><img src="qahwa.webp" alt="Кахва"><div class="card-content"><div class="card-title">Кахва</div></div></div>
-            <div class="card"><img src="shai_binaana.webp" alt="Шай би-наана"><div class="card-content"><div class="card-title">Шай би-наана</div></div></div>
-            <div class="card"><img src="jallab.webp" alt="Джаллаб"><div class="card-content"><div class="card-title">Джаллаб</div></div></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Места</div>
-        <div class="grid">
-            <div class="card"><img src="citadel.webp" alt="Цитадель"><div class="card-content"><div class="card-title">Цитадель</div></div></div>
-            <div class="card"><img src="old_market.webp" alt="Старый рынок"><div class="card-content"><div class="card-title">Старый рынок</div></div></div>
-            <div class="card"><img src="mosque.webp" alt="Мечеть"><div class="card-content"><div class="card-title">Мечеть</div></div></div>
-        </div>
-    </div>
-</div>
+    <div class="back">← НАЗАД К СТРАНАМ</div>
 
 </body>
 </html>
