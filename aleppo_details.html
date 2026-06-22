@@ -5,53 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АЛЕППО</title>
     <style>
-        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; padding-top: 40px; }
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
         .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
-        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; }
-        .nav .active { border-bottom: 2px solid #fff; }
-        
-        h1 { text-align: center; font-size: 40px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
-        
-        .grid { display: flex; justify-content: center; gap: 30px; padding: 0 20px; flex-wrap: wrap; }
-        .card { width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .card img { width: 300px; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; }
+        .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
+        h1 { font-size: 40px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        .grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 20px; }
+        .card { width: 300px; }
+        .card img { width: 300px; height: 300px; background: #222; border-radius: 10px; margin-bottom: 15px; display: block; object-fit: cover; }
         .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
-        .card-desc { font-size: 14px; color: #fff; text-transform: uppercase; }
-
-        .back { text-align: center; margin-top: 60px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase; }
+        .card-desc { font-size: 14px; color: #aaa; text-transform: uppercase; }
+        .back { margin-top: 60px; font-size: 12px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="nav">
-        <span class="active">ЕДА</span>
-        <span>КРЕПКОЕ</span>
-        <span>ПИВО</span>
-        <span>НАПИТКИ</span>
-        <span>МЕСТА</span>
+    <div class="nav" id="nav">
+        <span class="active" onclick="show('ЕДА')">ЕДА</span>
+        <span onclick="show('КРЕПКОЕ')">КРЕПКОЕ</span>
+        <span onclick="show('ПИВО')">ПИВО</span>
+        <span onclick="show('НАПИТКИ')">НАПИТКИ</span>
+        <span onclick="show('МЕСТА')">МЕСТА</span>
     </div>
 
     <h1>АЛЕППО</h1>
 
-    <div class="grid">
-        <div class="card">
-            <img src="makbus.webp" alt="МАКБУС">
-            <div class="card-title">МАКБУС</div>
-            <div class="card-desc">ПРЯНЫЙ РИС С МЯСОМ.</div>
-        </div>
-        <div class="card">
-            <img src="mashuay.webp" alt="МАШУАЙ">
-            <div class="card-title">МАШУАЙ</div>
-            <div class="card-desc">ЖАРЕНАЯ МАКРЕЛЬ С РИСОМ.</div>
-        </div>
-        <div class="card">
-            <img src="haris.webp" alt="ХАРИС">
-            <div class="card-title">ХАРИС</div>
-            <div class="card-desc">ПШЕНИЦА С НЕЖНЫМ МЯСОМ.</div>
-        </div>
-    </div>
+    <div class="grid" id="grid"></div>
 
     <div class="back">← НАЗАД К СТРАНАМ</div>
 
+    <script>
+        const content = {
+            'ЕДА': [
+                { src: 'makbus.webp', title: 'МАКБУС', desc: 'ПРЯНЫЙ РИС С МЯСОМ.' },
+                { src: 'mashuay.webp', title: 'МАШУАЙ', desc: 'ЖАРЕНАЯ МАКРЕЛЬ.' },
+                { src: 'haris.webp', title: 'ХАРИС', desc: 'ПШЕНИЦА С МЯСОМ.' }
+            ],
+            'КРЕПКОЕ': [
+                { src: 'arak.webp', title: 'АРАК', desc: 'АНИСОВАЯ ВОДКА.' },
+                { src: 'brandy.webp', title: 'БРЕНДИ', desc: 'МЕСТНЫЙ ВИНОГРАДНЫЙ.' },
+                { src: 'wiskey.webp', title: 'ВИСКИ', desc: 'КЛАССИЧЕСКИЙ ВАРИАНТ.' }
+            ],
+            'ПИВО': [
+                { src: 'barada.webp', title: 'BARADA', desc: 'СВЕТЛОЕ ПИВО.' },
+                { src: 'alshark.webp', title: 'AL SHARK', desc: 'КЛАССИЧЕСКИЙ ЛАГЕР.' },
+                { src: 'amrit.webp', title: 'AMRIT', desc: 'ТЕМНОЕ ПИВО.' }
+            ],
+            'НАПИТКИ': [
+                { src: 'mate.webp', title: 'МАТЭ', desc: 'ТРАДИЦИОННЫЙ ЧАЙ.' },
+                { src: 'jallab.webp', title: 'ДЖАЛЛАБ', desc: 'ВИНОГРАДНЫЙ СИРОП.' },
+                { src: 'ayran.webp', title: 'АЙРАН', desc: 'КИСЛОМОЛОЧНЫЙ.' }
+            ],
+            'МЕСТА': [
+                { src: 'citadel.webp', title: 'ЦИТАДЕЛЬ', desc: 'ДРЕВНЯЯ КРЕПОСТЬ.' },
+                { src: 'souq.webp', title: 'СУК', desc: 'СТАРЫЙ РЫНОК.' },
+                { src: 'mosque.webp', title: 'МЕЧЕТЬ', desc: 'ВЕЛИКАЯ МЕЧЕТЬ.' }
+            ]
+        };
+
+        function show(cat) {
+            document.querySelectorAll('.nav span').forEach(s => s.classList.toggle('active', s.innerText === cat));
+            document.getElementById('grid').innerHTML = content[cat].map(i => `
+                <div class="card">
+                    <img src="${i.src}" alt="${i.title}" onerror="this.style.background='#333'">
+                    <div class="card-title">${i.title}</div>
+                    <div class="card-desc">${i.desc}</div>
+                </div>
+            `).join('');
+        }
+        show('ЕДА');
+    </script>
 </body>
 </html>
