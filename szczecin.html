@@ -15,15 +15,15 @@
         .container { display: flex; justify-content: center; padding: 20px; flex-direction: column; align-items: center; }
         
         .card img { 
-            width: 400px; 
-            height: 400px; 
+            /* Размер уменьшен на 10% (с 400px до 360px) */
+            width: 360px; 
+            height: 360px; 
             background: #222; 
             border-radius: 12px; 
             object-fit: cover; 
             display: block;
         }
         
-        /* Размер шрифта 23.28px */
         .city-name { font-size: 23.28px; letter-spacing: 6px; margin-top: 25px; text-transform: uppercase; }
         
         .back { margin-top: 60px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
@@ -40,8 +40,7 @@
 
     <div class="container">
         <div class="card">
-            <!-- Путь изменен на images/cities/se.webp -->
-            <img src="images/cities/se.webp" alt="ЩЕЦИН" onerror="this.src='https://via.placeholder.com/400?text=Щецин'; this.onerror=null;">
+            <img src="images/cities/se.webp" alt="ЩЕЦИН" onerror="this.src='https://via.placeholder.com/360?text=Щецин'; this.onerror=null;">
         </div>
         <div class="city-name">ЩЕЦИН</div>
     </div>
