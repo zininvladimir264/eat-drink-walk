@@ -6,23 +6,14 @@
     <title>ЩЕЦИН</title>
     <style>
         body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
-        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; }
-        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; font-size: 18px; }
-        .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
+        
+        .country-header { font-size: 32px; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; color: #888; }
         h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
         
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
+        .container { 
+            display: flex; 
+            justify-content: center; 
             padding: 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-        
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 10px; }
-            .card img { width: 90vw !important; height: 60vw !important; }
         }
         
         .card { 
@@ -31,70 +22,46 @@
             flex-direction: column; 
             align-items: center;
             transition: transform 0.2s;
+            cursor: pointer;
         }
         .card:hover { transform: scale(1.02); }
         
-        /* Ссылка теперь полностью охватывает содержимое */
         .card a { 
             text-decoration: none; 
             color: inherit; 
             display: block; 
-            width: 100%;
         }
         
         .card img { 
-            width: 360px; 
-            height: 360px; 
+            width: 400px; 
+            height: 400px; 
             background: #222; 
             border-radius: 12px; 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
             object-fit: cover; 
-            display: block; 
-            margin-left: auto; 
-            margin-right: auto;
-            cursor: pointer;
+            display: block;
         }
         
-        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
-        .card-desc { font-size: 14px; color: #aaa; text-transform: uppercase; }
+        .card-title { font-size: 26px; font-weight: bold; text-transform: uppercase; }
         
         .back { margin-top: 80px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
 </head>
 <body>
 
-    <div class="nav" id="nav">
-        <span class="active">МЕСТА</span>
-    </div>
-
+    <div class="country-header">Польша</div>
     <h1>ЩЕЦИН</h1>
 
-    <div class="grid" id="grid"></div>
+    <div class="container" id="grid">
+        <div class="card">
+            <a href="szczecin_details.html">
+                <img src="images/szczecin.webp" alt="ЩЕЦИН" onerror="this.style.background='#333'">
+                <div class="card-title">ЩЕЦИН</div>
+            </a>
+        </div>
+    </div>
 
     <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
 
-    <script>
-        const baseFolder = 'images';
-
-        const content = [
-            { title: 'ЩЕЦИН', desc: 'КРАСИВЫЙ ГОРОД.', img: 'szczecin.webp', link: 'szczecin_details.html' },
-            { title: 'ВАВЕЛЬ', desc: 'ЗАМОК.', img: 'wawel.webp', link: '#' }
-        ];
-
-        function render() {
-            const grid = document.getElementById('grid');
-            grid.innerHTML = content.map(i => `
-                <div class="card">
-                    <a href="${i.link}">
-                        <img src="${baseFolder}/${i.img}" alt="${i.title}" onerror="this.style.background='#333'">
-                        <div class="card-title">${i.title}</div>
-                        <div class="card-desc">${i.desc}</div>
-                    </a>
-                </div>
-            `).join('');
-        }
-        
-        render();
-    </script>
 </body>
 </html>
