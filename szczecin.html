@@ -6,7 +6,7 @@
     <title>ЩЕЦИН</title>
     <style>
         body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
-        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; padding: 0 10px; }
+        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; }
         .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; font-size: 18px; }
         .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
         h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
@@ -21,15 +21,39 @@
         }
         
         @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
-            .card img { width: 100% !important; height: 40vw !important; }
-            .card-title { font-size: 16px !important; }
-            .card-desc { font-size: 12px !important; }
+            .grid { grid-template-columns: repeat(1, 1fr); gap: 20px; padding: 10px; }
+            .card img { width: 90vw !important; height: 60vw !important; }
         }
         
-        .card { text-align: center; display: flex; flex-direction: column; cursor: pointer; }
-        .card a { text-decoration: none; color: inherit; }
-        .card img { width: 360px; height: 360px; background: #222; border-radius: 12px; margin-bottom: 15px; object-fit: cover; display: block; margin-left: auto; margin-right: auto; }
+        .card { 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: scale(1.02); }
+        
+        /* Ссылка теперь полностью охватывает содержимое */
+        .card a { 
+            text-decoration: none; 
+            color: inherit; 
+            display: block; 
+            width: 100%;
+        }
+        
+        .card img { 
+            width: 360px; 
+            height: 360px; 
+            background: #222; 
+            border-radius: 12px; 
+            margin-bottom: 15px; 
+            object-fit: cover; 
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto;
+            cursor: pointer;
+        }
         
         .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
         .card-desc { font-size: 14px; color: #aaa; text-transform: uppercase; }
@@ -40,7 +64,7 @@
 <body>
 
     <div class="nav" id="nav">
-        <span class="active" onclick="show('МЕСТА')">МЕСТА</span>
+        <span class="active">МЕСТА</span>
     </div>
 
     <h1>ЩЕЦИН</h1>
@@ -52,21 +76,17 @@
     <script>
         const baseFolder = 'images';
 
-        const content = {
-            'МЕСТА': { folder: 'locations', items: [
-                { title: 'ЩЕЦИН', desc: 'КРАСИВЫЙ ГОРОД.', img: 'szczecin.webp', link: 'szczecin_details.html' },
-                { title: 'ВАВЕЛЬ', desc: 'ЗАМОК.', img: 'wawel.webp', link: '#' }
-            ]}
-        };
+        const content = [
+            { title: 'ЩЕЦИН', desc: 'КРАСИВЫЙ ГОРОД.', img: 'szczecin.webp', link: 'szczecin_details.html' },
+            { title: 'ВАВЕЛЬ', desc: 'ЗАМОК.', img: 'wawel.webp', link: '#' }
+        ];
 
-        function show(cat) {
-            document.querySelectorAll('.nav span').forEach(s => s.classList.toggle('active', s.innerText === cat));
-            const category = content[cat];
-            
-            document.getElementById('grid').innerHTML = category.items.map(i => `
+        function render() {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = content.map(i => `
                 <div class="card">
                     <a href="${i.link}">
-                        <img src="${baseFolder}/${category.folder}/${i.img}" alt="${i.title}" onerror="this.style.background='#333'">
+                        <img src="${baseFolder}/${i.img}" alt="${i.title}" onerror="this.style.background='#333'">
                         <div class="card-title">${i.title}</div>
                         <div class="card-desc">${i.desc}</div>
                     </a>
@@ -74,7 +94,7 @@
             `).join('');
         }
         
-        show('МЕСТА');
+        render();
     </script>
 </body>
 </html>
