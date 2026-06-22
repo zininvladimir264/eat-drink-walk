@@ -3,91 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ПОЛЬША</title>
+    <title>ЩЕЦИН</title>
     <style>
-        body { 
-            margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/mir1.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffffff; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; padding: 0 10px; }
+        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; font-size: 18px; }
+        .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
+        h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            padding: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
         }
-
-        .header { 
-            display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            margin-bottom: 50px; 
-            font-size: 14px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
+        
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+            .card img { width: 100% !important; height: 40vw !important; }
+            .card-title { font-size: 16px !important; }
+            .card-desc { font-size: 12px !important; }
         }
-        .header a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #ffffff; padding-bottom: 4px; }
-
-        .country-title {
-            font-size: 32px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            font-weight: 800;
-            margin-bottom: 30px;
-        }
-
-        .city-card {
-            width: 100%;
-            max-width: 350px;
-        }
-
-        .city-image {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background-color: #1a1a1a;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            background-size: cover;
-            background-position: center;
-            border: 1px solid #333;
-        }
-
-        .city-name {
-            font-size: 20px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-
-        .back-link {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: #ffffff;
-            opacity: 0.8;
-            margin-top: 10px;
-        }
+        
+        .card { text-align: center; display: flex; flex-direction: column; cursor: pointer; }
+        .card a { text-decoration: none; color: inherit; }
+        .card img { width: 360px; height: 360px; background: #222; border-radius: 12px; margin-bottom: 15px; object-fit: cover; display: block; margin-left: auto; margin-right: auto; }
+        
+        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .card-desc { font-size: 14px; color: #aaa; text-transform: uppercase; }
+        
+        .back { margin-top: 80px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <a href="index.html">ГЛАВНАЯ</a>
-        <a href="friends.html">СТРАНЫ</a>
+    <div class="nav" id="nav">
+        <span class="active" onclick="show('МЕСТА')">МЕСТА</span>
     </div>
 
-    <div class="country-title">ПОЛЬША</div>
+    <h1>ЩЕЦИН</h1>
 
-    <div class="city-card">
-        <div class="city-image" style="background-image: url('images/cities/se.webp');"></div>
-        <div class="city-name">ЩЕЦИН</div>
-    </div>
+    <div class="grid" id="grid"></div>
 
-    <a href="friends.html" class="back-link">← НАЗАД К СТРАНАМ</a>
+    <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
 
+    <script>
+        const baseFolder = 'images';
+
+        const content = {
+            'МЕСТА': { folder: 'locations', items: [
+                { title: 'ЩЕЦИН', desc: 'КРАСИВЫЙ ГОРОД.', img: 'szczecin.webp', link: 'szczecin_details.html' },
+                { title: 'ВАВЕЛЬ', desc: 'ЗАМОК.', img: 'wawel.webp', link: '#' }
+            ]}
+        };
+
+        function show(cat) {
+            document.querySelectorAll('.nav span').forEach(s => s.classList.toggle('active', s.innerText === cat));
+            const category = content[cat];
+            
+            document.getElementById('grid').innerHTML = category.items.map(i => `
+                <div class="card">
+                    <a href="${i.link}">
+                        <img src="${baseFolder}/${category.folder}/${i.img}" alt="${i.title}" onerror="this.style.background='#333'">
+                        <div class="card-title">${i.title}</div>
+                        <div class="card-desc">${i.desc}</div>
+                    </a>
+                </div>
+            `).join('');
+        }
+        
+        show('МЕСТА');
+    </script>
 </body>
 </html>
