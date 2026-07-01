@@ -11,21 +11,21 @@
             color: #fff; 
             font-family: sans-serif; 
             text-align: center; 
-            overflow-x: hidden; /* Чтобы избежать прокрутки при свайпе */
+            overflow-x: hidden;
+            padding-top: 20px;
         }
         
-        .navbar { display: flex; justify-content: center; gap: 40px; padding: 30px; }
-        .nav-btn { color: #fff; text-decoration: none; font-size: 16px; opacity: 0.7; }
+        .navbar { display: flex; justify-content: center; gap: 40px; padding: 20px; }
+        .nav-btn { color: #fff; text-decoration: none; font-size: 16px; opacity: 0.7; letter-spacing: 2px; }
         
-        .country-header { font-size: 33px; letter-spacing: 4px; margin-top: 40px; margin-bottom: 30px; text-transform: uppercase; }
+        .country-header { font-size: 33.44px; letter-spacing: 4px; margin-top: 30px; margin-bottom: 20px; text-transform: uppercase; }
         
-        .container { display: flex; justify-content: center; padding: 20px; flex-direction: column; align-items: center; }
+        .container { display: flex; justify-content: center; padding: 20px; flex-direction: column; align-items: center; touch-action: pan-y; }
         
         .card-wrapper { 
             cursor: pointer;
             display: inline-block;
             transition: transform 0.2s;
-            touch-action: pan-y; /* Позволяет скроллить страницу, но обрабатывать свайпы */
         }
         .card-wrapper:hover { transform: scale(1.02); }
 
@@ -45,9 +45,9 @@
             display: block;
         }
         
-        .city-name { font-size: 23px; letter-spacing: 6px; margin-top: 25px; text-transform: uppercase; }
+        .city-name { font-size: 23.28px; letter-spacing: 6px; margin-top: 25px; text-transform: uppercase; }
         
-        .back { margin-top: 60px; font-size: 14px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
+        .back { margin-top: 50px; font-size: 14px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -71,9 +71,7 @@
     <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
 
     <script>
-        // Логика свайпа
         let touchStartX = 0;
-        let touchEndX = 0;
         const swipeArea = document.getElementById('swipe-area');
 
         swipeArea.addEventListener('touchstart', e => {
@@ -81,23 +79,19 @@
         }, {passive: true});
 
         swipeArea.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleGesture();
+            let touchEndX = e.changedTouches[0].screenX;
+            let delta = touchEndX - touchStartX;
+            
+            if (Math.abs(delta) > 50) { // порог свайпа 50px
+                if (delta > 0) {
+                    // Свайп вправо - назад
+                    history.back();
+                } else {
+                    // Свайп влево - переход в детали
+                    window.location.href = 'szczecin_details.html';
+                }
+            }
         }, {passive: true});
-
-        function handleGesture() {
-            const threshold = 50; // Минимальное расстояние для свайпа
-            if (touchEndX < touchStartX - threshold) {
-                // Свайп влево (например, переход к следующему городу)
-                console.log("Свайп влево");
-                // window.location.href = 'next_city.html'; 
-            }
-            if (touchEndX > touchStartX + threshold) {
-                // Свайп вправо (например, назад к выбору стран)
-                console.log("Свайп вправо");
-                history.back();
-            }
-        }
     </script>
 </body>
 </html>
