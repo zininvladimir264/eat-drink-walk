@@ -2,77 +2,59 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>ЩЕЦИН</title>
     <style>
-        body { 
-            margin: 0; 
+        body, html { 
+            margin: 0; padding: 0; 
+            width: 100%; height: 100%;
             background-color: #000; 
             color: #fff; 
             font-family: sans-serif; 
-            text-align: center; 
-            overflow-x: hidden;
-            padding-top: 20px;
+            overflow: hidden; /* Запрещаем прокрутку страницы */
         }
         
-        .navbar { display: flex; justify-content: center; gap: 40px; padding: 20px; }
-        .nav-btn { color: #fff; text-decoration: none; font-size: 16px; opacity: 0.7; letter-spacing: 2px; }
-        
-        .country-header { font-size: 33.44px; letter-spacing: 4px; margin-top: 30px; margin-bottom: 20px; text-transform: uppercase; }
-        
-        .container { display: flex; justify-content: center; padding: 20px; flex-direction: column; align-items: center; touch-action: pan-y; }
-        
-        .card-wrapper { 
-            cursor: pointer;
-            display: inline-block;
-            transition: transform 0.2s;
+        #app-root {
+            width: 100vw; height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
-        .card-wrapper:hover { transform: scale(1.02); }
 
+        .navbar { display: flex; justify-content: center; gap: 40px; padding: 20px; position: absolute; top: 0; }
+        .nav-btn { color: #fff; text-decoration: none; font-size: 16px; opacity: 0.7; }
+        
+        .country-header { font-size: 33px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+        
         .card { 
-            width: 360px !important; 
-            height: 360px !important; 
-            background: #222; 
-            border-radius: 12px; 
-            overflow: hidden;
-            display: block;
+            width: 360px; height: 360px; 
+            background: #222; border-radius: 12px; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
         
-        .card img { 
-            width: 100% !important; 
-            height: 100% !important; 
-            object-fit: cover;
-            display: block;
-        }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
         
-        .city-name { font-size: 23.28px; letter-spacing: 6px; margin-top: 25px; text-transform: uppercase; }
-        
-        .back { margin-top: 50px; font-size: 14px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; text-transform: uppercase; }
+        .city-name { font-size: 23px; letter-spacing: 6px; margin-top: 25px; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#" class="nav-btn">ГЛАВНАЯ</a>
-        <a href="#" class="nav-btn">СТРАНЫ</a>
-    </nav>
+    <div id="app-root">
+        <nav class="navbar">
+            <a href="#" class="nav-btn">ГЛАВНАЯ</a>
+            <a href="#" class="nav-btn">СТРАНЫ</a>
+        </nav>
 
-    <div class="country-header">Польша</div>
+        <div class="country-header">Польша</div>
 
-    <div class="container" id="swipe-area">
-        <div class="card-wrapper" onclick="window.location.href='szczecin_details.html'">
-            <div class="card">
-                <img src="images/cities/se.webp" alt="ЩЕЦИН" onerror="this.src='https://via.placeholder.com/360?text=Щецин'; this.onerror=null;">
-            </div>
-            <div class="city-name">ЩЕЦИН</div>
+        <div class="card" id="swipe-area">
+            <img src="images/cities/se.webp" alt="ЩЕЦИН" onerror="this.src='https://via.placeholder.com/360';">
         </div>
-    </div>
 
-    <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
+        <div class="city-name">ЩЕЦИН</div>
+    </div>
 
     <script>
         let touchStartX = 0;
-        const swipeArea = document.getElementById('swipe-area');
+        const swipeArea = document.getElementById('app-root');
 
         swipeArea.addEventListener('touchstart', e => {
             touchStartX = e.changedTouches[0].screenX;
@@ -82,16 +64,17 @@
             let touchEndX = e.changedTouches[0].screenX;
             let delta = touchEndX - touchStartX;
             
-            if (Math.abs(delta) > 50) { // порог свайпа 50px
+            // Если свайп достаточно длинный (более 60px)
+            if (Math.abs(delta) > 60) {
                 if (delta > 0) {
                     // Свайп вправо - назад
-                    history.back();
+                    window.history.back();
                 } else {
-                    // Свайп влево - переход в детали
+                    // Свайп влево - переход
                     window.location.href = 'szczecin_details.html';
                 }
             }
-        }, {passive: true});
+        }, {passive: false});
     </script>
 </body>
 </html>
