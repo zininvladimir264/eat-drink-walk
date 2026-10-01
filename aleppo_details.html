@@ -22,7 +22,8 @@
         
         /* Адаптация для мобильных: две карточки в ряд */
         @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+            .grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; }
+            .card { flex: 0 0 75%; scroll-snap-align: start; }
             .card img { width: 100% !important; height: 40vw !important; }
             .card-title { font-size: 16px !important; }
             .card-desc { font-size: 12px !important; }
