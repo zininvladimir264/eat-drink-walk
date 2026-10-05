@@ -87,7 +87,7 @@
             color: #fff;
         }
 
-        /* Адаптивность для телефонов: ровно по две карточки в ряд, третья по центру снизу */
+        /* Адаптивность для телефонов: по две карточки в ряд, третья по центру снизу */
         @media (max-width: 768px) {
             .grid {
                 display: grid;
@@ -105,7 +105,6 @@
                 height: auto;
                 aspect-ratio: 1 / 1;
             }
-            /* Делаем третью карточку на всю ширину или центрируем на новой строке */
             .card:nth-child(3) {
                 grid-column: span 2;
                 max-width: 65%;
@@ -123,6 +122,8 @@
         <span onclick="show('НАПИТКИ')">НАПИТКИ</span>
         <span onclick="show('МЕСТА')">МЕСТА</span>
     </div>
+
+    <!-- Заголовок страны ХЕЛЬСИНКИ оставлен сверху, названия категорий (ЕДА, КРЕПКОЕ и т.д.) над карточками убраны -->
 
     <h1 id="title">ХЕЛЬСИНКИ</h1>
 
@@ -177,7 +178,9 @@
                 }
             });
 
-            document.getElementById('title').innerText = categoryKey;
+            // Здесь мы намеренно оставляем заголовок страницы «ХЕЛЬСИНКИ» постоянным, 
+            // убрав динамическую замену названия категории над карточками, чтобы они не дублировались.
+            document.getElementById('title').innerText = 'ХЕЛЬСИНКИ';
 
             const categoryData = content[categoryKey];
             const grid = document.getElementById('grid');
