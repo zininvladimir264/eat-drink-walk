@@ -202,8 +202,7 @@
         <img src="${baseFolder}/${categoryData.folder}/${item.img}">
     `;
     grid.appendChild(card);
-
-    const infoDiv = document.createElement('div');
+const infoDiv = document.createElement('div');
     infoDiv.className = 'card-content';
     infoDiv.innerHTML = `
         <div class="card-title">${item.title}</div>
@@ -211,14 +210,15 @@
     `;
     grid.appendChild(infoDiv);
 });
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
 
-        document.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+}, false);
 
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, false);
         function handleSwipe() {
             const threshold = 50; 
             if (touchEndX + threshold < touchStartX) {
