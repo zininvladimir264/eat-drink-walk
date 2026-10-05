@@ -130,7 +130,7 @@
                 width: 100%;
                 margin-bottom: 15px;
             }
-            /* Жестко фиксируем одинаковый квадратный размер карточки для мобильных */
+            /* Жестко фиксируем квадратную пропорцию карточки для мобильных */
             .card {
                 width: 100%;
                 height: 0;
@@ -147,6 +147,27 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+            /* Фиксируем высоту текстовых блоков, чтобы карточки не прыгали */
+            .card-content {
+                padding-top: 10px;
+            }
+            .card-title {
+                font-size: 14px;
+                height: 34px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 4px;
+            }
+            .card-desc {
+                font-size: 11px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
             }
             /* Третья карточка строго под первой в левой колонке */
             .menu-item-wrapper:nth-child(3) {
