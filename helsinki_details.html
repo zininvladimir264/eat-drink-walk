@@ -106,7 +106,7 @@
         .back-link:hover {
             color: #fff;
         }
-        /* Адаптивность для телефонов: строго 2 в ряд, 3-я под 1-й, одинаковый размер */
+        /* Адаптивность для телефонов: фиксируем одинаковый размер сетки */
         @media (max-width: 768px) {
             .nav {
                 font-size: 16px;
@@ -120,14 +120,15 @@
                 margin-bottom: 35px;
             }
             .grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                justify-content: center;
                 gap: 15px;
                 max-width: 100%;
                 padding: 0 10px;
             }
             .menu-item-wrapper {
-                width: 100%;
+                width: calc(50% - 10px);
+                margin-bottom: 15px;
             }
             .card {
                 width: 100%;
@@ -142,8 +143,9 @@
                 height: 100%;
                 object-fit: cover;
             }
-            .card:nth-child(3) {
-                grid-column: 1;
+            /* Делаем так, чтобы третья карточка красиво занимала всю ширину или выравнивалась по сетке */
+            .menu-item-wrapper:nth-child(3) {
+                width: calc(50% - 10px);
             }
         }
     </style>
