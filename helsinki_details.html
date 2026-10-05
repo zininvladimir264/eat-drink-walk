@@ -196,23 +196,21 @@
             grid.innerHTML = '';
 
             categoryData.items.forEach(item => {
-                const card = document.createElement('div');
-card.className = 'card';
-card.innerHTML = `
-    <img src="${baseFolder}/${categoryData.folder}/${item.img}">
-`;
-grid.appendChild(card);
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <img src="${baseFolder}/${categoryData.folder}/${item.img}">
+    `;
+    grid.appendChild(card);
 
-const infoDiv = document.createElement('div');
-infoDiv.className = 'card-content';
-infoDiv.innerHTML = `
-    <div class="card-title">${item.title}</div>
-    <div class="card-desc">${item.desc}</div>
-`;
-grid.appendChild(infoDiv);
-                
-
-        document.addEventListener('touchstart', e => {
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'card-content';
+    infoDiv.innerHTML = `
+        <div class="card-title">${item.title}</div>
+        <div class="card-desc">${item.desc}</div>
+    `;
+    grid.appendChild(infoDiv);
+});
             touchStartX = e.changedTouches[0].screenX;
         }, false);
 
