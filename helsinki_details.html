@@ -54,13 +54,13 @@
             background: #161616;
             border-radius: 12px;
             overflow: hidden;
-            width: 320px;
+            width: 327px;
             text-align: center;
             padding-bottom: 20px;
         }
         .card img {
-            width: 320px;
-            height: 240px;
+            width: 327px;
+            height: 247px;
             object-fit: cover;
             display: block;
         }
@@ -90,7 +90,7 @@
             color: #fff;
         }
 
-        /* Адаптивность для телефонов */
+        /* Адаптивность для телефонов: по две карточки в ряд, третья по центру снизу */
         @media (max-width: 768px) {
             .page-title {
                 font-size: 26px;
@@ -110,7 +110,7 @@
             .card img {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 4 / 3;
+                aspect-ratio: 327 / 247;
             }
             .card:nth-child(3) {
                 grid-column: span 2;
@@ -130,7 +130,6 @@
         <span onclick="show('МЕСТА')">МЕСТА</span>
     </div>
 
-    <!-- Заголовок страницы, меняющийся динамически в зависимости от выбранного раздела -->
     <div class="page-title" id="pageTitle">ХЕЛЬСИНКИ</div>
 
     <div class="grid" id="grid"></div>
@@ -184,8 +183,6 @@
             });
 
             const categoryData = content[categoryKey];
-            
-            // Устанавливаем заголовок
             document.getElementById('pageTitle').textContent = categoryData.title;
 
             const grid = document.getElementById('grid');
@@ -203,7 +200,7 @@
             });
         }
 
-        // Поддержка свайпов на телефоне
+        // Поддержка свайпов на телефоне (влево / вправо)
         let touchStartX = 0;
         let touchEndX = 0;
 
