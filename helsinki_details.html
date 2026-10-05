@@ -44,20 +44,20 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 0 auto;
         }
         .card {
             background: #161616;
             border-radius: 12px;
             overflow: hidden;
-            width: 320px;
+            width: 345px;
             text-align: center;
             padding-bottom: 20px;
         }
         .card img {
-            width: 100%;
-            height: 240px;
+            width: 345px;
+            height: 345px;
             object-fit: cover;
             display: block;
         }
@@ -85,6 +85,32 @@
         }
         .back-link:hover {
             color: #fff;
+        }
+
+        /* Адаптивность для телефонов: ровно по две карточки в ряд, третья по центру снизу */
+        @media (max-width: 768px) {
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            .card {
+                width: 100%;
+                padding-bottom: 15px;
+            }
+            .card img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
+            /* Делаем третью карточку на всю ширину или центрируем на новой строке */
+            .card:nth-child(3) {
+                grid-column: span 2;
+                max-width: 65%;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -183,13 +209,11 @@
         }, false);
 
         function handleSwipe() {
-            const threshold = 50; // минимальное расстояние для свайпа
+            const threshold = 50; 
             if (touchEndX + threshold < touchStartX) {
-                // Свайп влево -> следующая вкладка
                 currentIndex = (currentIndex + 1) % categories.length;
                 show(categories[currentIndex]);
             } else if (touchEndX > touchStartX + threshold) {
-                // Свайп вправо -> предыдущая вкладка
                 currentIndex = (currentIndex - 1 + categories.length) % categories.length;
                 show(categories[currentIndex]);
             }
