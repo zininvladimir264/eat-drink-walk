@@ -41,7 +41,13 @@
         .city-card {
             width: 100%;
             max-width: 350px;
-        }
+        }.city-card-link {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    text-decoration: none;
+    color: inherit;
+}
 
         .city-image {
             width: 100%;
@@ -76,11 +82,12 @@
 <body>
 
     <div class="header">
-        <a href="index.html">ГЛАВНАЯ</a>
-        <a href="friends.html">СТРАНЫ</a>
+       <a href="dublin-details.html" class="city-card-link">
+    <div class="city-card">
+        <div class="city-image" style="background-image: url('images/dublin.jpg');"></div>
+        <div class="city-name">ДУБЛИН</div>
     </div>
-
-    <div class="country-title">ИРЛАНДИЯ</div>
+</a>
 
    <a href="dublin_details.html" style="text-decoration: none; color: inherit; display: block;">
     <div class="city-card">
