@@ -43,7 +43,7 @@
             margin-bottom: 60px;
             text-transform: uppercase;
         }
-        /* Сетка карточек */
+        /* Сетка карточек для ПК */
         .grid {
             display: flex;
             justify-content: center;
@@ -106,7 +106,7 @@
         .back-link:hover {
             color: #fff;
         }
-        /* Адаптивность для телефонов: фиксируем одинаковый размер сетки */
+        /* Адаптивность для телефонов: сетка 2 колонки, третья ровно под первой */
         @media (max-width: 768px) {
             .nav {
                 font-size: 16px;
@@ -120,14 +120,15 @@
                 margin-bottom: 35px;
             }
             .grid {
-                display: flex;
-                justify-content: center;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
                 max-width: 100%;
                 padding: 0 10px;
+                justify-items: stretch;
             }
             .menu-item-wrapper {
-                width: calc(50% - 10px);
+                width: 100%;
                 margin-bottom: 15px;
             }
             .card {
@@ -143,9 +144,9 @@
                 height: 100%;
                 object-fit: cover;
             }
-            /* Делаем так, чтобы третья карточка красиво занимала всю ширину или выравнивалась по сетке */
+            /* Третья карточка строго под первой в левой колонке */
             .menu-item-wrapper:nth-child(3) {
-                width: calc(50% - 10px);
+                grid-column: 1;
             }
         }
     </style>
