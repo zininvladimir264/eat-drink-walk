@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хельсинки - Детали</title>
     <style>
         body {
@@ -45,23 +46,188 @@
             margin: 0 auto;
         }
         .card {
-            background: #1e1e1e;
+            background: transparent;
+            width: 320px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card-image {
+            width: 320px;
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .card-desc {
+            font-size: 13px;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 50px;
+            color: #888;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+        .back-link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav" id="nav">
+        <span class="active" onclick="show('ЕДА')">ЕДА</span>
+        <span onclick="show('КРЕПКОЕ')">КРЕПКОЕ</span>
+        <span onclick="show('ПИВО')">ПИВО</span>
+        <span onclick="show('НАПИТКИ')">НАПИТКИ</span>
+        <span onclick="show('МЕСТА')">МЕСТА</span>
+    </div>
+
+    <h1 id="title">ХЕЛЬСИНКИ</h1>
+
+    <div class="grid" id="grid"></div>
+
+    <div>
+        <a href="index.html" class="back-link">&#8592; НАЗАД К СТРАНАМ</a>
+    </div>
+
+    <script>
+        const baseFolder = 'images';
+        const content = {
+            'ЕДА': { folder: 'food', items: [
+                { title: 'ЛОХИКЕЙТТО', desc: 'Сливочный рыбный суп', img: 'lohikeitto.webp' },
+                { title: 'КАЛАКУККО', desc: 'Рыба в хлебе', img: 'kalakukko.webp' },
+                { title: 'ПОРОНКАРИСТУС', desc: 'Тушеная оленина', img: 'poronkaristus.webp' }
+            ]},
+            'КРЕПКОЕ': { folder: 'strong', items: [
+                { title: 'FINLANDIA', desc: 'Финская чистая водка', img: 'finlandia.webp' },
+                { title: 'KOSKENKORVA', desc: 'Традиционный крепкий напиток', img: 'koskenkorva.webp' },
+                { title: 'GUSTAV', desc: 'Крафтовый северный дистиллят', img: 'gustav.webp' }
+            ]},
+            'ПИВО': { folder: 'beer', items: [
+                { title: 'KOFF', desc: 'Классическое финское пиво', img: 'beer1.webp' },
+                { title: 'KARHU', desc: 'Крепкое светлое пиво', img: 'beer2.webp' },
+                { title: 'LAPIN KULTA', desc: 'Северное арктическое пиво', img: 'beer3.webp' }
+            ]},
+            'НАПИТКИ': { folder: 'drinks', items: [
+                { title: 'MULLOJÄÄ', desc: 'Финский ягодный морс', img: 'drink1.webp' },
+                { title: 'MEHU', desc: 'Натуральный лесной сок', img: 'drink2.webp' },
+                { title: 'KVASSI', desc: 'Традиционный северный квас', img: 'drink3.webp' }
+            ]},
+            'МЕСТА': { folder: 'locations', items: [
+                { title: 'СЕНАТСКАЯ ПЛОЩАДЬ', desc: 'Главный архитектурный ансамбль', img: 'loc1.webp' },
+                { title: 'ХЕЛЬСИНКСКИЙ СОБОР', desc: 'Символ столицы Финляндии', img: 'loc2.webp' },
+                { title: 'РЫНОЧНАЯ ПЛОЩАДЬ', desc: 'Исторический центр у порта', img: 'loc3.webp' }
+            ]}
+        };
+
+        function show(categoryKey) {
+            const spans = document.querySelectorAll('.nav span');
+            spans.forEach(span => {
+                if (span.textContent === categoryKey) {
+                    span.classList.add('active');
+                } else {
+                    span.classList.remove('active');
+                }
+            });
+
+            const categoryData = content[categoryKey];
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+
+            categoryData.items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                const imgDiv = document.createElement('div');
+                imgDiv.className = 'card-image';
+                imgDiv.style.backgroundImage = `url('${baseFolder}/${categoryData.folder}/${item.img}')`;
+
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'card-title';
+                titleDiv.textContent = item.title;
+
+                const descDiv = document.createElement('div');
+                descDiv.className = 'card-desc';
+                descПриношу извинения за этот технический сбой! Вот полный и правильный код файла деталей для Хельсинки, где полностью восстановлены все 5 разделов («ЕДА», «КРЕПКОЕ», «ПИВО», «НАПИТКИ», «МЕСТА»), правильно оформлены карточки с изображениями и подписями снизу (как в вашем примере с Польшей), а для «КРЕПКОГО» прописаны **FINLANDIA**, **KOSKENKORVA** и **GUSTAV** с короткими описаниями:
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хельсинки - Детали</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .nav span {
+            color: #888;
+            text-transform: uppercase;
+        }
+        .nav span.active, .nav span:hover {
+            color: #fff;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 3px;
+        }
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #161616;
             border-radius: 12px;
             overflow: hidden;
             width: 320px;
             text-align: center;
             padding-bottom: 20px;
         }
-        .card-image {
+        .card img {
             width: 100%;
             height: 240px;
-            background-size: cover;
-            background-position: center;
+            object-fit: cover;
         }
         .card-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            margin: 15px 0 8px 0;
+            margin: 15px 0 6px 0;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -69,6 +235,7 @@
             font-size: 13px;
             color: #aaa;
             padding: 0 15px;
+            text-transform: uppercase;
         }
         .back-link {
             display: inline-block;
@@ -133,14 +300,17 @@
         };
 
         function show(categoryKey) {
+            document.querySelectorAll('.nav span').forEach(el => el.classList.remove('active'));
+            
+            // Находим нужный элемент по тексту клика
             const spans = document.querySelectorAll('.nav span');
             spans.forEach(span => {
                 if (span.textContent === categoryKey) {
                     span.classList.add('active');
-                } else {
-                    span.classList.remove('active');
                 }
             });
+
+            document.getElementById('title').innerText = categoryKey;
 
             const categoryData = content[categoryKey];
             const grid = document.getElementById('grid');
@@ -149,19 +319,18 @@
             categoryData.items.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'card';
+                card.innerHTML = `
+                    <img src="${baseFolder}/${categoryData.folder}/${item.img}" alt="${item.title}">
+                    <div class="card-title">${item.title}</div>
+                    <div class="card-desc">${item.desc}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
 
-                const imgDiv = document.createElement('div');
-                imgDiv.className = 'card-image';
-                imgDiv.style.backgroundImage = `url('${baseFolder}/${categoryData.folder}/${item.img}')`;
-
-                const titleDiv = document.createElement('div');
-                titleDiv.className = 'card-title';
-                titleDiv.textContent = item.title;
-
-                const descDiv = document.createElement('div');Такое случается по нескольким техническим причинам, связанным с работой браузера, кэша или редактора. Вот основные из них:
-
-* **Сброс или перезагрузка страницы (автообновление):** Если у вас настроен автозапуск скрипта (`window.onload`) или в редакторе/браузере включено автоматическое обновление страницы при изменении файлов (Live Reload), то при сохранении файла страница мгновенно перезагружается. Если в коде в этот момент есть синтаксическая ошибка (например, пропущена запятая, кавычка или скобка в JavaScript), скрипт аварийно завершается или вообще не отрабатывает, из-за чего элементы (например, названия пива, напитков или мест) исчезают или выводятся некорректно.
-* **Проблемы с кэшем браузера:** Иногда браузер подтягивает старую версию файла из памяти. В результате код меняется, но отображается старый вариант верстки.
-* **Ошибки в консоли браузера:** Если в коде JavaScript (в объекте `content`) допущена опечатка, скрипт останавливает выполнение на середине. Из-за этого часть разделов (например, «ПИВО», «НАПИТКИ», «МЕСТА») просто не успевает отрисоваться, и на экране остаются только пустые блоки или старые данные.
-
-Чтобы этого избежать, рекомендуется проверять код на наличие пропущенных запятых и кавычек в массивах данных, а также принудительно обновлять страницу в браузере комбинацией клавиш `Ctrl + F5` (или `Cmd + Shift + R` на Mac), чтобы сбросить кэш.
+        window.onload = () => {
+            show('ЕДА');
+        };
+    </script>
+</body>
+</html>
