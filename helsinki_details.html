@@ -32,8 +32,6 @@
         }
         .nav span.active, .nav span:hover {
             color: #fff;
-            border-bottom: 2px solid #fff;
-            padding-bottom: 3px;
         }
         .page-title {
             font-size: 36px;
@@ -50,30 +48,38 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-     .card {
-    width: 365px;
-    height: 365px;
-    overflow: hidden;
-    border-radius: 12px;
-    background: #161616;
-}
-
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-        .card-content {
-            padding: 10px 15px;
-            flex-grow: 1;
+        /* Общий блок-контейнер для элемента меню */
+        .menu-item-wrapper {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            width: 365px;
+            margin-bottom: 20px;
+        }
+        /* Карточка с картинкой */
+        .card {
+            width: 100%;
+            height: 365px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #161616;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* Блок с текстом строго под карточкой */
+        .card-content {
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .card-title {
             font-size: 16px;
             font-weight: bold;
+            margin-top: 8px;
             margin-bottom: 4px;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -95,8 +101,7 @@
         .back-link:hover {
             color: #fff;
         }
-
-        /* Адаптивность для телефонов: по две карточки в ряд, третья по центру снизу */
+        /* Адаптивность для телефонов */
         @media (max-width: 768px) {
             .page-title {
                 font-size: 26px;
@@ -109,18 +114,21 @@
                 max-width: 100%;
                 padding: 0 10px;
             }
-            .card {
+            .menu-item-wrapper {
                 width: 100%;
-                height: auto;
             }
-            .card img {
+            .card {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 1 / 1;
             }
+            .card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
             .card:nth-child(3) {
                 grid-column: 1;
-                
             }
         }
     </style>
@@ -136,40 +144,39 @@
     </div>
 
     <div class="page-title" id="pageTitle">ХЕЛЬСИНКИ</div>
-
     <div class="grid" id="grid"></div>
 
     <div>
-        <a href="index.html" class="back-link">&#8592; НАЗАД К СТРАНАМ</a>
+        <a href="index.html" class="back-link">&#8592; НАЗАД К СТРАНИЦЕ</a>
     </div>
 
     <script>
         const baseFolder = 'images';
         const content = {
             'ЕДА': { folder: 'food', title: 'ХЕЛЬСИНКИ', items: [
-                { title: 'ЛОХИКЕЙТТО', desc: 'СЛИВОЧНЫЙ РЫБНЫЙ СУП', img: 'lohikeitto.webp' },
-                { title: 'КАЛАКУККО', desc: 'РЫБА В ХЛЕБЕ', img: 'kalakukko.webp' },
-                { title: 'ПОРОНКАРИСТУС', desc: 'ТУШЕНАЯ ОЛЕНИНА', img: 'poronkaristus.webp' }
+                { title: 'ЛОХИКЕЙТТО', desc: 'СЛИВОЧНЫЙ РЫБНЫЙ СУП', img: 'lohikeitto.jpg' },
+                { title: 'КАЛАКУККО', desc: 'РЫБА В ХЛЕБЕ', img: 'kalakukko.jpg' },
+                { title: 'ПОРОНКАРИСТУС', desc: 'ТУШЕНАЯ ОЛЕНИНА', img: 'poronkaristus.jpg' }
             ]},
             'КРЕПКОЕ': { folder: 'strong', title: 'КРЕПКОЕ', items: [
-                { title: 'FINLANDIA', desc: 'ФИНСКАЯ ЧИСТАЯ ВОДКА', img: 'finlandia.webp' },
-                { title: 'KOSKENKORVA', desc: 'ТРАДИЦИОННЫЙ КРЕПКИЙ НАПИТОК', img: 'koskenkorva.webp' },
-                { title: 'GUSTAV', desc: 'КРАФТОВЫЙ СЕВЕРНЫЙ ДИСТИЛЛЯТ', img: 'gustav.webp' }
+                { title: 'FINLANDIA', desc: 'ФИНСКАЯ ЧИСТАЯ ВОДКА', img: 'finlandia.jpg' },
+                { title: 'KOSKENKORVA', desc: 'ТРАДИЦИОННЫЙ КРЕПКИЙ НАПИТОК', img: 'koskenkorva.jpg' },
+                { title: 'GUSTAV', desc: 'КРАФТОВЫЙ СЕВЕРНЫЙ ДИСТИЛЛЯТ', img: 'gustav.jpg' }
             ]},
             'ПИВО': { folder: 'beer', title: 'ПИВО', items: [
-                { title: 'KOFF', desc: 'КЛАССИЧЕСКОЕ ФИНСКОЕ ПИВО', img: 'beer1.webp' },
-                { title: 'KARHU', desc: 'КРЕПКОЕ СВЕТЛОЕ ПИВО', img: 'beer2.webp' },
-                { title: 'LAPIN KULTA', desc: 'СЕВЕРНОЕ АРКТИЧЕСКОЕ ПИВО', img: 'beer3.webp' }
+                { title: 'KOFF', desc: 'КЛАССИЧЕСКОЕ ФИНСКОЕ ПИВО', img: 'koff.jpg' },
+                { title: 'KARHU', desc: 'КРЕПКОЕ СВЕТЛОЕ ПИВО', img: 'karhu.jpg' },
+                { title: 'LAPIN KULTA', desc: 'СЕВЕРНОЕ АРКТИЧЕСКОЕ ПИВО', img: 'lapinkulta.jpg' }
             ]},
             'НАПИТКИ': { folder: 'drinks', title: 'НАПИТКИ', items: [
-                { title: 'MULLOJÄÄ', desc: 'ФИНСКИЙ ЯГОДНЫЙ МОРС', img: 'drink1.webp' },
-                { title: 'MEHU', desc: 'НАТУРАЛЬНЫЙ ЛЕСНОЙ СОК', img: 'drink2.webp' },
-                { title: 'KVASSI', desc: 'ТРАДИЦИОННЫЙ СЕВЕРНЫЙ КВАС', img: 'drink3.webp' }
+                { title: 'MULLOJÄÄ', desc: 'ФИНСКИЙ ЯГОДНЫЙ МОРС', img: 'mullojaa.jpg' },
+                { title: 'MEHU', desc: 'НАТУРАЛЬНЫЙ ЛЕСНОЙ СОК', img: 'mehu.jpg' },
+                { title: 'KVASSI', desc: 'ТРАДИЦИОННЫЙ СЕВЕРНЫЙ КВАС', img: 'kvassi.jpg' }
             ]},
             'МЕСТА': { folder: 'locations', title: 'МЕСТА', items: [
-                { title: 'СЕНАТСКАЯ ПЛОЩАДЬ', desc: 'ГЛАВНЫЙ АРХИТЕКТУРНЫЙ АНСАМБЛЬ', img: 'loc1.webp' },
-                { title: 'ХЕЛЬСИНКСКИЙ СОБОР', desc: 'СИМВОЛ СТОЛИЦЫ ФИНЛЯНДИИ', img: 'loc2.webp' },
-                { title: 'РЫНОЧНАЯ ПЛОЩАДЬ', desc: 'ИСТОРИЧЕСКИЙ ЦЕНТР У ПОРТА', img: 'loc3.webp' }
+                { title: 'СЕНАТСКАЯ ПЛОЩАДЬ', desc: 'ГЛАВНЫЙ АРХИТЕКТУРНЫЙ АНСАМБЛЬ', img: 'senate.jpg' },
+                { title: 'ХЕЛЬСИНКСКИЙ СОБОР', desc: 'СИМВОЛ СТОЛИЦЫ', img: 'cathedral.jpg' },
+                { title: 'РЫНОЧНАЯ ПЛОЩАДЬ', desc: 'ИСТОРИЧЕСКИЙ ЦЕНТР', img: 'market.jpg' }
             ]}
         };
 
@@ -193,33 +200,44 @@
             const grid = document.getElementById('grid');
             grid.innerHTML = '';
 
-           categoryData.items.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-        <img src="${baseFolder}/${categoryData.folder}/${item.img}">
-    `;
-    grid.appendChild(card);
+            categoryData.items.forEach(item => {
+                // Создаем единый контейнер для карточки и текста, чтобы они не разваливались
+                const wrapper = document.createElement('div');
+                wrapper.className = 'menu-item-wrapper';
 
-    const infoDiv = document.createElement('div');
-    infoDiv.className = 'card-content';
-    infoDiv.innerHTML = `
-        <div class="card-title">${item.title}</div>
-        <div class="card-desc">${item.desc}</div>
-    `;
-    grid.appendChild(infoDiv);
-});
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${baseFolder}/${categoryData.folder}/${item.img}">
+                `;
+                wrapper.appendChild(card);
 
-document.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-}, false);
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'card-content';
+                infoDiv.innerHTML = `
+                    <div class="card-title">${item.title}</div>
+                    <div class="card-desc">${item.desc}</div>
+                `;
+                wrapper.appendChild(infoDiv);
 
-document.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-}, false);
+                grid.appendChild(wrapper);
+            });
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
         function handleSwipe() {
-            const threshold = 50; 
+            const threshold = 50;
             if (touchEndX + threshold < touchStartX) {
                 currentIndex = (currentIndex + 1) % categories.length;
                 show(categories[currentIndex]);
