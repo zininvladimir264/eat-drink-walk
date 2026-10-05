@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дублин - Детали</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        /* Навигация вверху */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 1px;
+            flex-wrap: wrap;
+        }
+        .nav span {
+            color: #888;
+            text-transform: uppercase;
+        }
+        .nav span.active, .nav span:hover {
+            color: #fff;
+        }
+        /* Заголовок города */
+        .page-title {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-top: 20px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+        /* Сетка карточек для ПК */
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Общий блок-контейнер для элемента меню */
+        .menu-item-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 365px;
+            margin-bottom: 20px;
+        }
+        /* Чистая карточка с картинкой (без рамок и фона) */
+        .card {
+            width: 100%;
+            height: 365px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* Текст под карточками */
+        .card-content {
+            padding: 16px 5px 0 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .card-desc {
+            font-size: 13px;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 60px;
+            color: #888;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+        .back-link:hover {
+            color: #fff;
+        }
+        /* Адаптивность для телефонов: идеальное выравнивание и равный размер */
+        @media (max-width: 768px) {
+            .nav {
+                font-size: 16px;
+                gap: 15px;
+                margin-top: 20px;
+                margin-bottom: 25px;
+            }
+            .page-title {
+                font-size: 26px;
+                margin-top: 10px;
+                margin-bottom: 35px;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            .menu-item-wrapper {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            /* Жестко фиксируем квадратную пропорцию карточки для мобильных */
+            .card {
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%;
+                position: relative;
+                border-radius: 12px;
+                background: transparent;
+                border: none;
+            }
+            .card img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            /* Фиксируем высоту текстовых блоков, чтобы карточки не прыгали */
+            .card-content {
+                padding-top: 10px;
+            }
+            .card-title {
+                font-size: 14px;
+                height: 34px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 4px;
+            }
+            .card-desc {
+                font-size: 11px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            /* Третья карточка строго под первой в левой колонке */
+            .menu-item-wrapper:nth-child(3) {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav" id="nav">
+        <span class="active" onclick="show('ЕДА')">ЕДА</span>
+        <span onclick="show('КРЕПКОЕ')">КРЕПКОЕ</span>
+        <span onclick="show('ПИВО')">ПИВО</span>
+        <span onclick="show('НАПИТКИ')">НАПИТКИ</span>
+        <span onclick="show('МЕСТА')">МЕСТА</span>
+    </div>
+
+    <div class="page-title" id="pageTitle">ДУБЛИН</div>
+    <div class="grid" id="grid"></div>
+
+    <div>
+        <a href="countries.html" class="back-link">&#8592; НАЗАД К СТРАНАМ</a>
+    </div>
+
+    <script>
+        const baseFolder = 'images';
+        const content = {
+            'ЕДА': { folder: 'food', title: 'ДУБЛИН', items: [
+                { title: 'ИРЛАНДСКОЕ РАГУ', desc: 'МЯСНОЕ БЛЮДО', img: 'stew.jpg' },
+                { title: 'КОЛКАННОН', desc: 'КАРТОФЕЛЬНОЕ ПЮРЕ', img: 'colcannon.jpg' },
+                { title: 'СОДОВЫЙ ХЛЕБ', desc: 'ТРАДИЦИОННАЯ ВЫПЕЧКА', img: 'bread.jpg' }
+            ]},
+            'КРЕПКОЕ': { folder: 'strong', title: 'КРЕПКОЕ', items: [
+                { title: 'JAMESON', desc: 'ИРЛАНДСКИЙ ВИСКИ', img: 'jameson.jpg' },
+                { title: 'BUSHMILLS', desc: 'КЛАССИЧЕСКИЙ ВИСКИ', img: 'bushmills.jpg' },
+                { title: 'TULLAMORE DEW', desc: 'КРЕПКИЙ НАПИТОК', img: 'tullamore.jpg' }
+            ]},
+            'ПИВО': { folder: 'beer', title: 'ПИВО', items: [
+                { title: 'GUINNESS', desc: 'ТЕМНЫЙ СТАУТ', img: 'guinness.jpg' },
+                { title: 'KILKENNY', desc: 'КРАСНЫЙ ЭЛЬ', img: 'kilkenny.jpg' },
+                { title: 'SMITHWICKS', desc: 'ИРЛАНДСКИЙ ЭЛЬ', img: 'smithwicks.jpg' }
+            ]},
+            'НАПИТКИ': { folder: 'drinks', title: 'НАПИТКИ', items: [
+                { title: 'ИРЛАНДСКИЙ КОФЕ', desc: 'КОФЕ С ВИСКИ', img: 'coffee.jpg' },
+                { title: 'ЯБЛОЧНЫЙ СИДР', desc: 'ПЕНИСТЫЙ НАПИТОК', img: 'cider.jpg' },
+                { title: 'ЧАЙ С МОЛОКОМ', desc: 'КЛАССИЧЕСКИЙ НАПИТОК', img: 'tea.jpg' }
+            ]},
+            'МЕСТА': { folder: 'locations', title: 'МЕСТА', items: [
+                { title: 'ТРИНИТИ-КОЛЛЕДЖ', desc: 'ИСТОРИЧЕСКИЙ УНИВЕРСИТЕТ', img: 'trinity.jpg' },
+                { title: 'ХРАМ КРАУНА', desc: 'ЗНАМЕНИТЫЙ ПАБ', img: 'pub.jpg' },
+                { title: 'ТЕМПЛ-БАР', desc: 'ТУРИСТИЧЕСКИЙ КВАРТАЛ', img: 'temple.jpg' }
+            ]}
+        };
+
+        const categories = ['ЕДА', 'КРЕПКОЕ', 'ПИВО', 'НАПИТКИ', 'МЕСТА'];
+        let currentIndex = 0;
+
+        function show(categoryKey) {
+            currentIndex = categories.indexOf(categoryKey);
+            if (currentIndex === -1) currentIndex = 0;
+
+            document.querySelectorAll('.nav span').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav span').forEach(span => {
+                if (span.textContent === categoryKey) {
+                    span.classList.add('active');
+                }
+            });
+
+            const categoryData = content[categoryKey];
+            document.getElementById('pageTitle').textContent = categoryData.title;
+
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+
+            categoryData.items.forEach(item => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'menu-item-wrapper';
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${baseFolder}/${categoryData.folder}/${item.img}">
+                `;
+                wrapper.appendChild(card);
+
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'card-content';
+                infoDiv.innerHTML = `
+                    <div class="card-title">${item.title}</div>
+                    <div class="card-desc">${item.desc}</div>
+                `;
+                wrapper.appendChild(infoDiv);
+
+                grid.appendChild(wrapper);
+            });
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const threshold = 50;
+            if (touchEndX + threshold < touchStartX) {
+                currentIndex = (currentIndex + 1) % categories.length;
+                show(categories[currentIndex]);
+            } else if (touchEndX > touchStartX + threshold) {
+                currentIndex = (currentIndex - 1 + categories.length) % categories.length;
+                show(categories[currentIndex]);
+            }
+        }
+
+        window.onload = () => {
+            show('ЕДА');
+        };
+    </script>
+</body>
+</html>
