@@ -197,21 +197,20 @@
 
             categoryData.items.forEach(item => {
                 const card = document.createElement('div');
-                card.className = 'card';
-                /* Строка 201 */ const card = document.createElement('div');
-/* Строка 202 */ card.className = 'card';
-/* Строка 203 */ card.innerHTML = `
-/* Строка 204 */     <img src="${baseFolder}/${categoryData.folder}/${item.img}">
-/* Строка 205 */ `;
-/* Строка 206 */ grid.appendChild(card);
-/* Строка 207 */ 
-/* Строка 208 */ const infoDiv = document.createElement('div');
-/* Строка 209 */ infoDiv.className = 'card-content';
-/* Строка 210 */ infoDiv.innerHTML = `
-/* Строка 211 */     <div class="card-title">${item.title}</div>
-/* Строка 212 */     <div class="card-desc">${item.desc}</div>
-/* Строка 213 */ `;
-/* Строка 214 */ grid.appendChild(infoDiv);
+card.className = 'card';
+card.innerHTML = `
+    <img src="${baseFolder}/${categoryData.folder}/${item.img}">
+`;
+grid.appendChild(card);
+
+const infoDiv = document.createElement('div');
+infoDiv.className = 'card-content';
+infoDiv.innerHTML = `
+    <div class="card-title">${item.title}</div>
+    <div class="card-desc">${item.desc}</div>
+`;
+grid.appendChild(infoDiv);
+                
 
         document.addEventListener('touchstart', e => {
             touchStartX = e.changedTouches[0].screenX;
