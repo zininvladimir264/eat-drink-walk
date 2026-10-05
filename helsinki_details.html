@@ -17,11 +17,13 @@
         .nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 25px;
+            margin-top: 20px;
+            margin-bottom: 25px;
             cursor: pointer;
             font-weight: bold;
             font-size: 14px;
+            letter-spacing: 1px;
             flex-wrap: wrap;
         }
         .nav span {
@@ -32,6 +34,13 @@
             color: #fff;
             border-bottom: 2px solid #fff;
             padding-bottom: 3px;
+        }
+        .page-title {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
         }
         .grid {
             display: flex;
@@ -45,13 +54,13 @@
             background: #161616;
             border-radius: 12px;
             overflow: hidden;
-            width: 345px;
+            width: 320px;
             text-align: center;
             padding-bottom: 20px;
         }
         .card img {
-            width: 345px;
-            height: 345px;
+            width: 320px;
+            height: 240px;
             object-fit: cover;
             display: block;
         }
@@ -81,8 +90,12 @@
             color: #fff;
         }
 
-        /* Адаптивность для телефонов: по две карточки в ряд, третья по центру снизу */
+        /* Адаптивность для телефонов */
         @media (max-width: 768px) {
+            .page-title {
+                font-size: 26px;
+                margin-bottom: 30px;
+            }
             .grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -97,7 +110,7 @@
             .card img {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 1 / 1;
+                aspect-ratio: 4 / 3;
             }
             .card:nth-child(3) {
                 grid-column: span 2;
@@ -117,6 +130,9 @@
         <span onclick="show('МЕСТА')">МЕСТА</span>
     </div>
 
+    <!-- Заголовок страницы, меняющийся динамически в зависимости от выбранного раздела -->
+    <div class="page-title" id="pageTitle">ХЕЛЬСИНКИ</div>
+
     <div class="grid" id="grid"></div>
 
     <div>
@@ -126,27 +142,27 @@
     <script>
         const baseFolder = 'images';
         const content = {
-            'ЕДА': { folder: 'food', items: [
+            'ЕДА': { folder: 'food', title: 'ХЕЛЬСИНКИ', items: [
                 { title: 'ЛОХИКЕЙТТО', desc: 'Сливочный рыбный суп', img: 'lohikeitto.webp' },
                 { title: 'КАЛАКУККО', desc: 'Рыба в хлебе', img: 'kalakukko.webp' },
                 { title: 'ПОРОНКАРИСТУС', desc: 'Тушеная оленина', img: 'poronkaristus.webp' }
             ]},
-            'КРЕПКОЕ': { folder: 'strong', items: [
+            'КРЕПКОЕ': { folder: 'strong', title: 'КРЕПКОЕ', items: [
                 { title: 'FINLANDIA', desc: 'Финская чистая водка', img: 'finlandia.webp' },
                 { title: 'KOSKENKORVA', desc: 'Традиционный крепкий напиток', img: 'koskenkorva.webp' },
                 { title: 'GUSTAV', desc: 'Крафтовый северный дистиллят', img: 'gustav.webp' }
             ]},
-            'ПИВО': { folder: 'beer', items: [
+            'ПИВО': { folder: 'beer', title: 'ПИВО', items: [
                 { title: 'KOFF', desc: 'Классическое финское пиво', img: 'beer1.webp' },
                 { title: 'KARHU', desc: 'Крепкое светлое пиво', img: 'beer2.webp' },
                 { title: 'LAPIN KULTA', desc: 'Северное арктическое пиво', img: 'beer3.webp' }
             ]},
-            'НАПИТКИ': { folder: 'drinks', items: [
+            'НАПИТКИ': { folder: 'drinks', title: 'НАПИТКИ', items: [
                 { title: 'MULLOJÄÄ', desc: 'Финский ягодный морс', img: 'drink1.webp' },
                 { title: 'MEHU', desc: 'Натуральный лесной сок', img: 'drink2.webp' },
                 { title: 'KVASSI', desc: 'Традиционный северный квас', img: 'drink3.webp' }
             ]},
-            'МЕСТА': { folder: 'locations', items: [
+            'МЕСТА': { folder: 'locations', title: 'МЕСТА', items: [
                 { title: 'СЕНАТСКАЯ ПЛОЩАДЬ', desc: 'Главный архитектурный ансамбль', img: 'loc1.webp' },
                 { title: 'ХЕЛЬСИНКСКИЙ СОБОР', desc: 'Символ столицы Финляндии', img: 'loc2.webp' },
                 { title: 'РЫНОЧНАЯ ПЛОЩАДЬ', desc: 'Исторический центр у порта', img: 'loc3.webp' }
@@ -161,14 +177,17 @@
             if (currentIndex === -1) currentIndex = 0;
 
             document.querySelectorAll('.nav span').forEach(el => el.classList.remove('active'));
-            const spans = document.querySelectorAll('.nav span');
-            spans.forEach(span => {
+            document.querySelectorAll('.nav span').forEach(span => {
                 if (span.textContent === categoryKey) {
                     span.classList.add('active');
                 }
             });
 
             const categoryData = content[categoryKey];
+            
+            // Устанавливаем заголовок
+            document.getElementById('pageTitle').textContent = categoryData.title;
+
             const grid = document.getElementById('grid');
             grid.innerHTML = '';
 
@@ -184,7 +203,7 @@
             });
         }
 
-        // Поддержка свайпов на телефоне (влево / вправо)
+        // Поддержка свайпов на телефоне
         let touchStartX = 0;
         let touchEndX = 0;
 
