@@ -106,7 +106,7 @@
         .back-link:hover {
             color: #fff;
         }
-        /* Адаптивность для телефонов */
+        /* Адаптивность для телефонов: идеальное выравнивание и равный размер */
         @media (max-width: 768px) {
             .nav {
                 font-size: 16px;
@@ -130,16 +130,20 @@
                 width: 100%;
                 margin-bottom: 15px;
             }
-            /* Жестко фиксируем квадратную пропорцию карточки для мобильных */
+            /* Жестко фиксируем одинаковый квадратный размер карточки для мобильных */
             .card {
                 width: 100%;
-                height: auto;
-                aspect-ratio: 1 / 1;
+                height: 0;
+                padding-bottom: 100%;
+                position: relative;
                 border-radius: 12px;
                 background: transparent;
                 border: none;
             }
             .card img {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
