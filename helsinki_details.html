@@ -195,14 +195,15 @@
             const grid = document.getElementById('grid');
             grid.innerHTML = '';
 
-            categoryData.items.forEach(item => {
+           categoryData.items.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
         <img src="${baseFolder}/${categoryData.folder}/${item.img}">
     `;
     grid.appendChild(card);
-const infoDiv = document.createElement('div');
+
+    const infoDiv = document.createElement('div');
     infoDiv.className = 'card-content';
     infoDiv.innerHTML = `
         <div class="card-title">${item.title}</div>
@@ -210,6 +211,7 @@ const infoDiv = document.createElement('div');
     `;
     grid.appendChild(infoDiv);
 });
+```[cite: 7]
 
 document.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
