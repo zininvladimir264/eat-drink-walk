@@ -55,26 +55,34 @@
             border-radius: 12px;
             overflow: hidden;
             width: 345px;
+            height: 345px;
             text-align: center;
-            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
         }
         .card img {
-            width: 345px;
-            height: 345px;
+            width: 100%;
+            height: 225px;
             object-fit: cover;
             display: block;
+        }
+        .card-content {
+            padding: 10px 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .card-title {
             font-size: 16px;
             font-weight: bold;
-            margin: 15px 0 6px 0;
+            margin-bottom: 4px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
         .card-desc {
             font-size: 13px;
             color: #aaa;
-            padding: 0 15px;
             text-transform: uppercase;
         }
         .back-link {
@@ -105,7 +113,7 @@
             }
             .card {
                 width: 100%;
-                padding-bottom: 15px;
+                height: auto;
             }
             .card img {
                 width: 100%;
@@ -193,8 +201,10 @@
                 card.className = 'card';
                 card.innerHTML = `
                     <img src="${baseFolder}/${categoryData.folder}/${item.img}" alt="${item.title}">
-                    <div class="card-title">${item.title}</div>
-                    <div class="card-desc">${item.desc}</div>
+                    <div class="card-content">
+                        <div class="card-title">${item.title}</div>
+                        <div class="card-desc">${item.desc}</div>
+                    </div>
                 `;
                 grid.appendChild(card);
             });
