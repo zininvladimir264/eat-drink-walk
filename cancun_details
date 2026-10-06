@@ -197,7 +197,7 @@
         const baseFolder = 'images';
         const content = {
             'ЕДА': { folder: 'food', title: 'КАНКУН', items: [
-                { title: 'ТАКАС', desc: 'ХРУСТЯЩИЕ КОНВЕРТИКИ', img: 'tacos.webp' },
+                { title: 'ТАКО', desc: 'ХРУСТЯЩИЕ КОНВЕРТИКИ', img: 'tacos.webp' },
                 { title: 'БУРИТО', desc: 'СЫТНЫЙ РУЛЕТ', img: 'burrito.webp' },
                 { title: 'ГУАКАМОЛЕ', desc: 'КРЕМ АВОКАДО', img: 'guacamole.webp' }
             ]},
