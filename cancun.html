@@ -53,6 +53,13 @@
             width: calc(33.333% - 20px);
             min-width: 250px;
         }
+        .city-card-link {
+    display: block;
+    width: calc(33.333% - 20px);
+    min-width: 250px;
+    text-decoration: none;
+    color: inherit;
+}
 
         .city-image {
             width: 100%;
@@ -79,6 +86,9 @@
             text-transform: uppercase;
             text-decoration: none;
             color: #ffffff;
+            .city-card-link {
+        width: calc(50% - 15px);
+    }
             opacity: 0.8;
             margin-top: 50px;
         }
@@ -90,11 +100,12 @@
         }
     </style>
 </head>
-<body>
-
-    <div class="header">
-        <a href="index.html">ГЛАВНАЯ</a>
-        <a href="friends.html">СТРАНЫ</a>
+<a href="cancun-details.html" class="city-card-link">
+        <div class="city-card">
+            <div class="city-image" style="background-image: url('images/cancun.jpg');"></div>
+            <div class="city-name">КАНКУН</div>
+        </div>
+    </a>
     </div>
 
     <div class="country-title">МЕКСИКА</div>
