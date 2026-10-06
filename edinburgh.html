@@ -79,13 +79,16 @@
 
         /* Адаптив: две карточки в ряд на мобильных */
         @media (max-width: 768px) {
-            .cities-container {
-                .city-card-link {
-            width: calc(50% - 8px);
-        }
-                gap: 15px;
-            }
-            .city-card {
+    .cities-container {
+        gap: 15px;
+    }
+    .city-card-link {
+        display: block;
+        width: calc(50% - 8px);
+    }
+    .city-card {
+        width: 100%;
+    }
                 width: calc(50% - 8px); /* Ровно две карточки в ряд */
             }
             .city-image {
