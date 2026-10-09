@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГАВАНА</title>
+    <style>
+        body { margin: 0; background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .nav { display: flex; justify-content: center; gap: 20px; font-weight: bold; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; flex-wrap: wrap; padding: 0 10px; }
+        .nav span { border-bottom: 2px solid transparent; padding-bottom: 5px; cursor: pointer; color: #666; transition: 0.3s; font-size: 18px; }
+        .nav span.active { color: #fff; border-bottom: 2px solid #fff; }
+        h1 { font-size: 48px; letter-spacing: 8px; margin-bottom: 50px; text-transform: uppercase; }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            padding: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        
+        /* Адаптация для мобильных: две карточки в ряд */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+            .card img { width: 100% !important; height: 40vw !important; }
+            .card-title { font-size: 16px !important; }
+            .card-desc { font-size: 12px !important; }
+        }
+        
+        .card { text-align: center; display: flex; flex-direction: column; }
+        .card img { width: 360px; height: 360px; background: #222; border-radius: 12px; margin-bottom: 15px; object-fit: cover; display: block; margin-left: auto; margin-right: auto; }
+        
+        .card-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .card-desc { font-size: 14px; color: #aaa; text-transform: uppercase; }
+        
+        .back { margin-top: 80px; font-size: 14px; letter-spacing: 2px; opacity: 0.6; cursor: pointer; padding-bottom: 50px; }
+    </style>
+</head>
+<body>
 
+    <div class="nav" id="nav">
+        <span class="active" onclick="show('ЕДА')">ЕДА</span>
+        <span onclick="show('КРЕПКОЕ')">КРЕПКОЕ</span>
+        <span onclick="show('ПИВО')">ПИВО</span>
+        <span onclick="show('НАПИТКИ')">НАПИТКИ</span>
+        <span onclick="show('МЕСТА')">МЕСТА</span>
+    </div>
+
+    <h1>ГАВАНА</h1>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="back" onclick="history.back()">← НАЗАД К СТРАНАМ</div>
+
+    <script>
+        const baseFolder = 'images';
+
+        const content = {
+            'ЕДА': { folder: 'food', items: [
+                { title: 'ROPA VIEJA', desc: 'ТУШЕНАЯ ГОВЯДИНА.', img: 'ropavieja.webp' },
+                { title: 'CONGRI', desc: 'РИС С ФАСОЛЬЮ.', img: 'congri.webp' },
+                { title: 'TOSTONES', desc: 'ЖАРЕНЫЕ БАНАНЫ.', img: 'tostones.webp' }
+            ]},
+            'КРЕПКОЕ': { folder: 'spirits', items: [
+                { title: 'HAVANA CLUB', desc: 'КУБИНСКИЙ РОМ.', img: 'havanaclub.webp' },
+                { title: 'SANTIAGO', desc: 'ВЫДЕРЖАННЫЙ РОМ.', img: 'santiago.webp' },
+                { title: 'AGUARDIENTE', desc: 'ТРОСТНИКОВЫЙ КРЕПКИЙ АЛКОГОЛЬ.', img: 'aguardiente.webp' }
+            ]},
+            'ПИВО': { folder: 'beer', items: [
+                { title: 'CRISTAL', desc: 'ОСВЕЖАЮЩЕЕ ПИВО.', img: 'cristal.webp' },
+                { title: 'BUCARANGA', desc: 'МЕСТНЫЙ ЛАГЕР.', img: 'bucanero.webp' },
+                { title: 'MAYABE', desc: 'КРЕПКОЕ ПИВО.', img: 'mayabe.webp' }
+            ]},
+            'НАПИТКИ': { folder: 'drinks', items: [
+                { title: 'MOJITO', desc: 'РОМ, МЯТА, ЛАЙМ.', img: 'mojito.webp' },
+                { title: 'CUBA LIBRE', desc: 'РОМ С КОЛОЙ.', img: 'cubalibre.webp' },
+                { title: 'CAFE CUBANO', desc: 'СЛАДКИЙ КРЕПКИЙ КОФЕ.', img: 'cafecubano.webp' }
+            ]},
+            'МЕСТА': { folder: 'locations', items: [
+                { title: 'Старая Гавана', desc: 'исторический центр.', img: 'havanavieja.webp' },
+                { title: 'Капитолий', desc: 'знаменитое здание.', img: 'capitolio.webp' },
+                { title: 'Малекон', desc: 'прибрежная набережная.', img: 'malecon.webp' }
+            ]}
+        };
+
+        function show(cat) {
+            document.querySelectorAll('.nav span').forEach(s => s.classList.toggle('active', s.innerText === cat));
+            const category = content[cat];
+            
+            document.getElementById('grid').innerHTML = category.items.map(i => `
+                <div class="card">
+                    <img src="${baseFolder}/${category.folder}/${i.img}" alt="${i.title}" onerror="this.style.background='#333'">
+                    <div class="card-title">${i.title}</div>
+                    <div class="card-desc">${i.desc}</div>
+                </div>
+            `).join('');
+        }
+        
+       show('ЕДА');
+
+    // --- Код для свайпа влево и вправо ---
+    const categories = ['ЕДА', 'КРЕПКОЕ', 'ПИВО', 'НАПИТКИ', 'МЕСТА'];
+    let startX = 0;
+    let endX = 0;
+
+    document.addEventListener('touchstart', function(e) {
+        startX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', function(e) {
+        endX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        const diff = endX - startX;
+        if (Math.abs(diff) < 50) return; // свайп должен быть не менее 50 пикселей
+
+        const activeTab = document.querySelector('.nav span.active');
+        let currentIndex = 0;
+
+        if (activeTab) {
+            const currentName = activeTab.textContent.trim();
+            currentIndex = categories.indexOf(currentName);
+            if (currentIndex === -1) currentIndex = 0;
+        }
+
+        // Свайп влево — переход к следующей категории
+        if (diff < -50) {
+            if (currentIndex < categories.length - 1) {
+                show(categories[currentIndex + 1]);
+            }
+        } 
+        // Свайп вправо — переход к предыдущей категории
+        else if (diff > 50) {
+            if (currentIndex > 0) {
+                show(categories[currentIndex - 1]);
+            }
+        }
+    }
+</script>
+</body>
+</html>
