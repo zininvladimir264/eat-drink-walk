@@ -10,6 +10,25 @@
             text-align: center;
             padding: 50px;
         }
+        .nav-header {
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .nav-header a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 12px;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        .country-title {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
         .city-card {
             background: #ffffff;
             padding: 20px;
@@ -23,15 +42,23 @@
             margin-top: 10px;
         }
         .back-link {
-            display: block;
+            display: inline-block;
             margin-top: 30px;
             text-decoration: none;
             color: #0066cc;
             font-weight: bold;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
+
+    <div class="nav-header">
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="friends.html">СТРАНЫ</a>
+    </div>
+
+    <div class="country-title">КУБА</div>
 
     <a href="havana_details.html" style="text-decoration: none; color: inherit; display: inline-block;">
         <div class="city-card">
@@ -40,6 +67,7 @@
         </div>
     </a>
 
+    <br>
     <a href="countries.html" class="back-link">НАЗАД К СТРАНАМ</a>
 
 </body>
