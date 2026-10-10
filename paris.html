@@ -38,23 +38,23 @@
             margin-bottom: 30px;
         }
 
-        /* Контейнер для строго горизонтального ряда */
+        /* Контейнер для карточек */
         .cities-container {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: stretch;
-            gap: 30px;
+            gap: 25px;
             width: 100%;
-            max-width: 700px;
+            max-width: 100%;
             margin-bottom: 30px;
         }
 
-        /* Карточки: делят пространство пополам как на компьютере, так и на телефоне */
+        /* Карточки для телефона (по умолчанию) */
         .city-card {
             flex: 1;
             width: 50%;
-            max-width: 300px;
+            max-width: 220px;
             text-decoration: none;
             color: #ffffff;
             display: flex;
@@ -72,14 +72,14 @@
             aspect-ratio: 1 / 1;
             background-color: #1a1a1a;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             background-size: cover;
             background-position: center;
             border: 1px solid #333;
         }
 
         .city-name {
-            font-size: 20px;
+            font-size: 18px;
             letter-spacing: 4px;
             text-transform: uppercase;
             font-weight: 600;
@@ -94,6 +94,17 @@
             color: #ffffff;
             opacity: 0.8;
             margin-top: 20px;
+        }
+
+        /* Увеличенный размер карточек только для компьютера и планшетов */
+        @media (min-width: 768px) {
+            .cities-container {
+                max-width: 760px;
+                gap: 40px;
+            }
+            .city-card {
+                max-width: 335px; /* Увеличено примерно на 5 мм (вместе с контейнером) */
+            }
         }
     </style>
 </head>
