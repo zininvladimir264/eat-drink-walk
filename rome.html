@@ -43,15 +43,15 @@
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
-            gap: 25px;
+            gap: 30px;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             flex-wrap: wrap;
         }
 
         .city-card {
-            width: 28%; /* Увеличено для компьютера */
-            min-width: 150px; /* Увеличен минимальный размер для ПК */
+            width: 25%; /* Базовое значение */
+            min-width: 120px;
         }
 
         .city-image {
@@ -82,9 +82,17 @@
             margin-top: 60px;
         }
 
+        /* Увеличенный размер карточек только для компьютера */
+        @media (min-width: 768px) {
+            .city-card {
+                width: 31%; /* Карточки стали чуть шире и выше на ПК */
+                min-width: 220px;
+            }
+        }
+
         @media (max-width: 768px) {
             .city-card {
-                width: 40%; /* Карточки занимают чуть меньше половины, встают в два ряда */
+                width: 40%; /* На телефоне осталось без изменений */
             }
         }
     </style>
